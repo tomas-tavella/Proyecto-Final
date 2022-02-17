@@ -1,0 +1,18 @@
+Vishay:
+https://www.vishay.com/products/
+Dont have half/full bridge modules for MOSFET
+Half/fulld bridge IGBT modules work up to 30kHz
+
+STMicroelectronics
+http://www.st.com/content/st_com/en.html
+Dont have high current modules
+
+Powerex
+http://www.pwrx.com/summary/IGBT/IGBT.aspx
+dont have mosfet modules. Only it have IGBT modules (1.2kV)
+
+Semikron
+https://www.semikron.com/
+
+Globalpower
+SiC mosfet modules (high voltage up to 1.2kV)
