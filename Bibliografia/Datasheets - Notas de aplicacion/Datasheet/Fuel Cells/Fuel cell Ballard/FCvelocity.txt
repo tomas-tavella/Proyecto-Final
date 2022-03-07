@@ -1,0 +1,4 @@
+FCvelocity 9SSL 21kW - 110 cells
+FCvelocity 9SSL xkW  - 75 cells (estimacion 14,3kW)
+
+FCvelocity 9SSL 10.5kW - x cells (estimacion 55/55 celdas)
