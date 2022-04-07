@@ -1,0 +1,61 @@
+Removed Pin From Net: NetName=P_5V Pin=Cd3-1
+Removed Pin From Net: NetName=GNDP Pin=Cd3-2
+Removed Pin From Net: NetName=P_15V Pin=Cd5-1
+Removed Pin From Net: NetName=GNDP Pin=Cd5-2
+Removed Pin From Net: NetName=C_5V Pin=Cd7-1
+Removed Pin From Net: NetName=GNDC Pin=Cd7-2
+Removed Pin From Net: NetName=GNDP Pin=Dr2-1
+Removed Pin From Net: NetName=GNDP Pin=Dr2-2
+Removed Pin From Net: NetName=GNDP Pin=Dr2-3
+Removed Pin From Net: NetName=P_15V Pin=Dr2-6
+Removed Pin From Net: NetName=GNDP Pin=Dr2-8
+Removed Pin From Net: NetName=GNDC Pin=Inv-7
+Removed Pin From Net: NetName=GNDC Pin=Inv-9
+Removed Pin From Net: NetName=GNDC Pin=Inv-11
+Removed Pin From Net: NetName=GNDC Pin=Inv-13
+Removed Pin From Net: NetName=C_5V Pin=Inv-14
+Removed Pin From Net: NetName=NetNand_6 Pin=Nand-9
+Removed Pin From Net: NetName=NetNand_3 Pin=Nand-10
+Removed Pin From Net: NetName=GNDC Pin=Nand-12
+Removed Pin From Net: NetName=GNDC Pin=Nand-13
+Removed Pin From Net: NetName=GNDC Pin=Op3-1
+Removed Pin From Net: NetName=GNDC Pin=Op3-3
+Removed Pin From Net: NetName=GNDC Pin=Op3-4
+Removed Pin From Net: NetName=GNDP Pin=Op3-5
+Removed Pin From Net: NetName=P_5V Pin=Op3-7
+Removed Pin From Net: NetName=P_5V Pin=Op3-8
+Removed Pin From Net: NetName=P_5V Pin=Rd3-1
+Removed Member From Class: ClassName=driver y convertidor Member=Cd3
+Removed Member From Class: ClassName=driver y convertidor Member=Cd5
+Removed Member From Class: ClassName=driver y convertidor Member=Cd7
+Removed Member From Class: ClassName=driver y convertidor Member=Dr2
+Removed Member From Class: ClassName=driver y convertidor Member=Inv
+Removed Member From Class: ClassName=driver y convertidor Member=Op3
+Removed Member From Class: ClassName=driver y convertidor Member=Rd3
+Removed Member From Class: ClassName=driver y convertidor Member=Rl3
+Change Component DesignItemId : Designator=P1 Old DesignItemId=Header 4 New DesignItemId=Header 3H
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X4H New Footprint=HDR1X3H*
+Change Component Comment : Designator=P1 Old Comment=Header 4 New Comment=Header 3H
+Change Component Designator: OldDesignator=Op1 NewDesignator=OpH
+Change Component Designator: OldDesignator=Op2 NewDesignator=OpL
+Added Pin To Net: NetName=NetNand_3 Pin=Nand-4
+Added Pin To Net: NetName=GNDC Pin=Nand-9
+Added Pin To Net: NetName=GNDC Pin=Nand-10
+Added Pin To Net: NetName=NetNand_3 Pin=Nand-12
+Added Pin To Net: NetName=NetNand_6 Pin=Rl2-1
+Change Net Name : Old Net Name=NetOp1_2 New Net Name=NetOpH_2
+Change Net Name : Old Net Name=NetOp2_2 New Net Name=NetOpL_2
+Added Pin To Net: NetName=NetNand_1 Pin=Nand-1
+Added Pin To Net: NetName=NetNand_1 Pin=Nand-13
+Added Pin To Net: NetName=NetNand_1 Pin=P1-3
+Added Net: Name=NetNand_1
+Added Pin To Net: NetName=NetNand_2 Pin=Nand-2
+Added Pin To Net: NetName=NetNand_2 Pin=Nand-5
+Added Pin To Net: NetName=NetNand_2 Pin=P1-2
+Added Net: Name=NetNand_2
+Added Pin To Net: NetName=NetNand_11 Pin=Nand-11
+Added Pin To Net: NetName=NetNand_11 Pin=Rl1-1
+Added Net: Name=NetNand_11
+Added Pin To Net: NetName=NetR4_2 Pin=R4-2
+Added Pin To Net: NetName=NetR4_2 Pin=U1-11
+Added Net: Name=NetR4_2

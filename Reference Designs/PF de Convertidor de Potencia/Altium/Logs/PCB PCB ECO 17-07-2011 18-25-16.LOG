@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetDr_4 Pin=OpH-6
+Removed Pin From Net: NetName=NetDr_2 Pin=OpL-6
+Removed Pin From Net: NetName=NetDr_5 Pin=R3-2
+Removed Pin From Net: NetName=NetDr_7 Pin=R5-1
+Removed Pin From Net: NetName=NetDr_4 Pin=Rd1-2
+Removed Pin From Net: NetName=NetDr_2 Pin=Rd2-2
+Removed Pin From Net: NetName=NetDr_5 Pin=U1-10
+Removed Pin From Net: NetName=NetDr_7 Pin=U1-12
+Added Pin To Net: NetName=NetDr_2 Pin=OpH-6
+Added Pin To Net: NetName=NetDr_4 Pin=OpL-6
+Added Pin To Net: NetName=NetDr_7 Pin=R3-2
+Added Pin To Net: NetName=NetDr_5 Pin=R5-1
+Added Pin To Net: NetName=NetDr_2 Pin=Rd1-2
+Added Pin To Net: NetName=NetDr_4 Pin=Rd2-2
+Added Pin To Net: NetName=NetDr_7 Pin=U1-10
+Added Pin To Net: NetName=NetDr_5 Pin=U1-12

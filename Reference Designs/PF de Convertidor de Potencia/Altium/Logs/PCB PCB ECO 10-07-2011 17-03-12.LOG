@@ -1,0 +1,154 @@
+Removed Pin From Net: NetName=C_15V Pin=C3-1
+Removed Pin From Net: NetName=GNDC Pin=C3-2
+Removed Pin From Net: NetName=GNDC Pin=R3-1
+Removed Pin From Net: NetName=C_15V Pin=R4-1
+Removed Pin From Net: NetName=GNDC Pin=R5-2
+Removed Pin From Net: NetName=GNDC Pin=U1-8
+Removed Pin From Net: NetName=C_15V Pin=U1-9
+Removed Pin From Net: NetName=GNDC Pin=U1-13
+Removed Pin From Net: NetName=GNDC Pin=U1-14
+Removed Pin From Net: NetName=GNDC Pin=U52-1
+Removed Pin From Net: NetName=GNDC Pin=U52-3
+Removed Pin From Net: NetName=C_15V Pin=U52-6
+Removed Pin From Net: NetName=GNDC Pin=U52-8
+Removed Pin From Net: NetName=GNDC Pin=U53-1
+Removed Pin From Net: NetName=GNDC Pin=U53-3
+Removed Pin From Net: NetName=GNDC Pin=U53-4
+Removed Pin From Net: NetName=C_15V Pin=U53-6
+Removed Pin From Net: NetName=GNDC Pin=U53-8
+Removed Member From Class: ClassName=driver y convertidor Member=U52
+Removed Member From Class: ClassName=driver y convertidor Member=U53
+Added Component: Designator=Cd1(8-1206)
+Added Component: Designator=Cd2(8-1206)
+Added Component: Designator=Cd3(8-1206)
+Added Component: Designator=Cd4(8-1206)
+Added Component: Designator=Cd5(8-1206)
+Added Component: Designator=Cd6(8-1206)
+Added Component: Designator=Cd9(8-1206)
+Added Component: Designator=Dr2(TC4424-DIP8)
+Added Component: Designator=Dr(TC4424-DIP8)
+Added Component: Designator=Nand(74HCT00)
+Added Component: Designator=Op1(6n137)
+Added Component: Designator=Op2(6n137)
+Added Component: Designator=Op3(6n137)
+Added Component: Designator=Rd1(8-1206)
+Added Component: Designator=Rd2(8-1206)
+Added Component: Designator=Rd3(8-1206)
+Added Pin To Net: NetName=P_15V Pin=C3-1
+Added Pin To Net: NetName=GNDP Pin=C3-2
+Added Pin To Net: NetName=P_5V Pin=Cd1-1
+Added Pin To Net: NetName=GNDP Pin=Cd1-2
+Added Pin To Net: NetName=P_5V Pin=Cd2-1
+Added Pin To Net: NetName=GNDP Pin=Cd2-2
+Added Pin To Net: NetName=P_5V Pin=Cd3-1
+Added Pin To Net: NetName=GNDP Pin=Cd3-2
+Added Pin To Net: NetName=P_15V Pin=Cd4-1
+Added Pin To Net: NetName=GNDP Pin=Cd4-2
+Added Pin To Net: NetName=P_15V Pin=Cd5-1
+Added Pin To Net: NetName=GNDP Pin=Cd5-2
+Added Pin To Net: NetName=C_5V Pin=Cd6-1
+Added Pin To Net: NetName=GNDC Pin=Cd6-2
+Added Pin To Net: NetName=C_5V Pin=Cd9-1
+Added Pin To Net: NetName=GNDC Pin=Cd9-2
+Added Pin To Net: NetName=GNDP Pin=Dr2-1
+Added Pin To Net: NetName=GNDP Pin=Dr2-2
+Added Pin To Net: NetName=GNDP Pin=Dr2-3
+Added Pin To Net: NetName=P_15V Pin=Dr2-6
+Added Pin To Net: NetName=GNDP Pin=Dr2-8
+Added Pin To Net: NetName=GNDP Pin=Dr-1
+Added Pin To Net: NetName=GNDP Pin=Dr-3
+Added Pin To Net: NetName=P_15V Pin=Dr-6
+Added Pin To Net: NetName=GNDP Pin=Dr-8
+Added Pin To Net: NetName=GNDC Pin=Nand-7
+Added Pin To Net: NetName=GNDC Pin=Nand-11
+Added Pin To Net: NetName=GNDC Pin=Nand-12
+Added Pin To Net: NetName=C_5V Pin=Nand-14
+Added Pin To Net: NetName=GNDC Pin=Op1-1
+Added Pin To Net: NetName=GNDC Pin=Op1-3
+Added Pin To Net: NetName=GNDC Pin=Op1-4
+Added Pin To Net: NetName=GNDP Pin=Op1-5
+Added Pin To Net: NetName=P_5V Pin=Op1-7
+Added Pin To Net: NetName=P_5V Pin=Op1-8
+Added Pin To Net: NetName=GNDC Pin=Op2-1
+Added Pin To Net: NetName=GNDC Pin=Op2-3
+Added Pin To Net: NetName=GNDC Pin=Op2-4
+Added Pin To Net: NetName=GNDP Pin=Op2-5
+Added Pin To Net: NetName=P_5V Pin=Op2-7
+Added Pin To Net: NetName=P_5V Pin=Op2-8
+Added Pin To Net: NetName=GNDC Pin=Op3-1
+Added Pin To Net: NetName=GNDC Pin=Op3-3
+Added Pin To Net: NetName=GNDC Pin=Op3-4
+Added Pin To Net: NetName=GNDP Pin=Op3-5
+Added Pin To Net: NetName=P_5V Pin=Op3-7
+Added Pin To Net: NetName=P_5V Pin=Op3-8
+Added Pin To Net: NetName=GNDP Pin=R3-1
+Added Pin To Net: NetName=P_15V Pin=R4-1
+Added Pin To Net: NetName=GNDP Pin=R5-2
+Added Pin To Net: NetName=P_5V Pin=Rd1-1
+Added Pin To Net: NetName=P_5V Pin=Rd2-1
+Added Pin To Net: NetName=P_5V Pin=Rd3-1
+Added Pin To Net: NetName=GNDP Pin=U1-8
+Added Pin To Net: NetName=P_15V Pin=U1-9
+Added Pin To Net: NetName=GNDP Pin=U1-13
+Added Pin To Net: NetName=GNDP Pin=U1-14
+Added Pin To Net: NetName=NetDr2_4 Pin=Dr2-4
+Added Pin To Net: NetName=NetDr2_4 Pin=Op3-6
+Added Pin To Net: NetName=NetDr2_4 Pin=Rd3-2
+Added Net: Name=NetDr2_4
+Added Pin To Net: NetName=NetDr2_5 Pin=Dr2-5
+Added Pin To Net: NetName=NetDr2_5 Pin=R4-2
+Added Pin To Net: NetName=NetDr2_5 Pin=U1-11
+Added Net: Name=NetDr2_5
+Added Pin To Net: NetName=NetDr_2 Pin=Dr-2
+Added Pin To Net: NetName=NetDr_2 Pin=Op2-6
+Added Pin To Net: NetName=NetDr_2 Pin=Rd2-2
+Added Net: Name=NetDr_2
+Added Pin To Net: NetName=NetDr_4 Pin=Dr-4
+Added Pin To Net: NetName=NetDr_4 Pin=Op1-6
+Added Pin To Net: NetName=NetDr_4 Pin=Rd1-2
+Added Net: Name=NetDr_4
+Added Pin To Net: NetName=NetDr_5 Pin=Dr-5
+Added Pin To Net: NetName=NetDr_5 Pin=R3-2
+Added Pin To Net: NetName=NetDr_5 Pin=U1-10
+Added Net: Name=NetDr_5
+Added Pin To Net: NetName=NetDr_7 Pin=Dr-7
+Added Pin To Net: NetName=NetDr_7 Pin=R5-1
+Added Pin To Net: NetName=NetDr_7 Pin=U1-12
+Added Net: Name=NetDr_7
+Added Pin To Net: NetName=NetNand_1 Pin=Nand-1
+Added Pin To Net: NetName=NetNand_1 Pin=Op2-2
+Added Pin To Net: NetName=NetNand_1 Pin=P1-2
+Added Net: Name=NetNand_1
+Added Pin To Net: NetName=NetNand_2 Pin=Nand-2
+Added Pin To Net: NetName=NetNand_2 Pin=Op1-2
+Added Pin To Net: NetName=NetNand_2 Pin=P1-4
+Added Net: Name=NetNand_2
+Added Pin To Net: NetName=NetNand_3 Pin=Nand-3
+Added Pin To Net: NetName=NetNand_3 Pin=Nand-10
+Added Net: Name=NetNand_3
+Added Pin To Net: NetName=NetNand_4 Pin=Nand-4
+Added Pin To Net: NetName=NetNand_4 Pin=Nand-5
+Added Pin To Net: NetName=NetNand_4 Pin=P1-3
+Added Net: Name=NetNand_4
+Added Pin To Net: NetName=NetNand_6 Pin=Nand-6
+Added Pin To Net: NetName=NetNand_6 Pin=Nand-9
+Added Net: Name=NetNand_6
+Added Pin To Net: NetName=NetNand_8 Pin=Nand-8
+Added Pin To Net: NetName=NetNand_8 Pin=Op3-2
+Added Net: Name=NetNand_8
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd1 Capd1
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd2 Capd2
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd3 Capd3
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd4 Capd2
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd5 Capd2
+Added Member To Class: ClassName=driver y convertidor Member=Component Cd6 Capd2
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component Cd9 Capd2
+Added Member To Class: ClassName=driver y convertidor Member=Component Dr2 TC4427
+Added Member To Class: ClassName=driver y convertidor Member=Component Dr TC4427
+Added Member To Class: ClassName=driver y convertidor Member=Component Nand 74HCT00
+Added Member To Class: ClassName=driver y convertidor Member=Component Op1 6N137
+Added Member To Class: ClassName=driver y convertidor Member=Component Op2 6N137
+Added Member To Class: ClassName=driver y convertidor Member=Component Op3 6N137
+Added Member To Class: ClassName=driver y convertidor Member=Component Rd1
+Added Member To Class: ClassName=driver y convertidor Member=Component Rd2
+Added Member To Class: ClassName=driver y convertidor Member=Component Rd3

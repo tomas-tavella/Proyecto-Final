@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=GNDC Pin=U2-2
+Removed Pin From Net: NetName=GNDC Pin=U3-2
+Removed Pin From Net: NetName=NetC11_1 Pin=U3-3
+Removed Pin From Net: NetName=GNDC Pin=U4-2
+Removed Pin From Net: NetName=C_5V Pin=U4-3
+Removed Pin From Net: NetName=GNDC Pin=U6-2
+Removed Pin From Net: NetName=C_3.3V Pin=U6-3
+Removed Pin From Net: NetName=GNDP Pin=U7-2
+Removed Pin From Net: NetName=P_15V Pin=U7-3
+Removed Pin From Net: NetName=GNDP Pin=U9-2
+Removed Pin From Net: NetName=P_5V Pin=U9-3
+Added Pin To Net: NetName=GNDC Pin=U2-3
+Added Pin To Net: NetName=NetC11_1 Pin=U3-2
+Added Pin To Net: NetName=GNDC Pin=U3-3
+Added Pin To Net: NetName=C_5V Pin=U4-2
+Added Pin To Net: NetName=GNDC Pin=U4-3
+Added Pin To Net: NetName=C_3.3V Pin=U6-2
+Added Pin To Net: NetName=GNDC Pin=U6-3
+Added Pin To Net: NetName=P_15V Pin=U7-2
+Added Pin To Net: NetName=GNDP Pin=U7-3
+Added Pin To Net: NetName=P_5V Pin=U9-2
+Added Pin To Net: NetName=GNDP Pin=U9-3
+Added Pin To Net: NetName=NetU2_2 Pin=U2-2
+Added Pin To Net: NetName=NetU2_2 Pin=U3-1
+Added Net: Name=NetU2_2

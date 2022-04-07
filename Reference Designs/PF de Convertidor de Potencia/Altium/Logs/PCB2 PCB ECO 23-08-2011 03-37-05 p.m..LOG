@@ -1,0 +1,9 @@
+Added Component: Designator=Csnub(FootSnub)
+Added Component: Designator=RSnub(FootSnub)
+Added Pin To Net: NetName=GNDP Pin=Csnub-2
+Added Pin To Net: NetName=NetC1_2 Pin=RSnub-2
+Added Pin To Net: NetName=NetCsnub_1 Pin=Csnub-1
+Added Pin To Net: NetName=NetCsnub_1 Pin=RSnub-1
+Added Net: Name=NetCsnub_1
+Added Member To Class: ClassName=driver y convertidor Member=Component Csnub CapSnub
+Added Member To Class: ClassName=driver y convertidor Member=Component RSnub ResSnub

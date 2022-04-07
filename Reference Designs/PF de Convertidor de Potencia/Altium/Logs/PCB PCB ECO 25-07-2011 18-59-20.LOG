@@ -1,0 +1,12 @@
+Added Component: Designator=TP-Hin(PIN1)
+Added Component: Designator=TP-Lin(PIN1)
+Added Component: Designator=TP-OpH(PIN1)
+Added Component: Designator=TP-OpL(PIN1)
+Added Pin To Net: NetName=NetDr_7 Pin=TP-Hin-1
+Added Pin To Net: NetName=NetDr_5 Pin=TP-Lin-1
+Added Pin To Net: NetName=NetDr_2 Pin=TP-OpH-1
+Added Pin To Net: NetName=NetDr_4 Pin=TP-OpL-1
+Added Member To Class: ClassName=driver y convertidor Member=Component TP-Hin 
+Added Member To Class: ClassName=driver y convertidor Member=Component TP-Lin 
+Added Member To Class: ClassName=driver y convertidor Member=Component TP-OpH 
+Added Member To Class: ClassName=driver y convertidor Member=Component TP-OpL 

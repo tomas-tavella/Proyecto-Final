@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GNDP Pin=R3-1
+Removed Pin From Net: NetName=NetDr_7 Pin=R3-2
+Removed Pin From Net: NetName=P_15V Pin=R4-1
+Removed Pin From Net: NetName=NetDr_5 Pin=R5-1
+Removed Pin From Net: NetName=GNDP Pin=R5-2
+Removed Member From Class: ClassName=driver y convertidor Member=R3
+Removed Member From Class: ClassName=driver y convertidor Member=R4
+Removed Member From Class: ClassName=driver y convertidor Member=R5
+Added Pin To Net: NetName=GNDP Pin=U1-11

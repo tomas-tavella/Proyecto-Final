@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=GNDC Pin=Q3-1
+Removed Pin From Net: NetName=NetD5_1 Pin=Q3-2
+Change Component DesignItemId : Designator=Q3 Old DesignItemId=IRF7104 New DesignItemId=IRFP250
+Added Component: Designator=C26(8-1206)
+Added Component: Designator=C46(8-1206)
+Added Component: Designator=Q4(TO220*)
+Added Component: Designator=T1(TRF_8)
+Added Pin To Net: NetName=C_5V Pin=C26-1
+Added Pin To Net: NetName=GNDC Pin=C26-2
+Added Pin To Net: NetName=C_5V Pin=C46-1
+Added Pin To Net: NetName=GNDC Pin=C46-2
+Added Pin To Net: NetName=NetD5_1 Pin=Q3-1
+Added Pin To Net: NetName=NetD13_1 Pin=Q4-1
+Added Pin To Net: NetName=GNDC Pin=Q4-3
+Added Pin To Net: NetName=C_24V Pin=T1-2
+Added Pin To Net: NetName=C_24V Pin=T1-3
+Added Pin To Net: NetName=NetD4_1 Pin=T1-5
+Added Pin To Net: NetName=NetD7_1 Pin=T1-6
+Added Pin To Net: NetName=NetD9_1 Pin=T1-7
+Added Pin To Net: NetName=NetD11_1 Pin=T1-8
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-2
+Added Pin To Net: NetName=NetQ3_2 Pin=T1-1
+Added Net: Name=NetQ3_2
+Added Pin To Net: NetName=NetQ4_2 Pin=Q4-2
+Added Pin To Net: NetName=NetQ4_2 Pin=T1-4
+Added Net: Name=NetQ4_2
+Added Member To Class: ClassName=sensor de corriente Member=Component C26 Cap26
+Added Member To Class: ClassName=sensor de tension Member=Component C46 Cap46
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component Q4 IRF7380
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component T1 Trans BB
+Change Room Name: Old Name=D New Name=driver y convertidor
+Change Room Name: Old Name=SI New Name=sensor de corriente
+Change Room Name: Old Name=SU New Name=sensor de tension

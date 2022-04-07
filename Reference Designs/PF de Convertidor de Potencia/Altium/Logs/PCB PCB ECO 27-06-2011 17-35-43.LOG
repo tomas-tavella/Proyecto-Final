@@ -1,0 +1,11 @@
+Change Component DesignItemId : Designator=P15 Old DesignItemId=Header 2 New DesignItemId=Header 5
+Change Component DesignItemId : Designator=P15 Old DesignItemId=Header 5 New DesignItemId=Header 2
+Change Component Footprint: Designator=P15 Old Footprint=HDR1X2-POT* New Footprint=HDR1X5H
+Change Component Footprint: Designator=P15 Old Footprint=HDR1X5H New Footprint=HDR1X2-POT*
+Change Component Comment : Designator=P15 Old Comment=Header 2 New Comment=Header 5
+Change Component Comment : Designator=P15 Old Comment=Header 5 New Comment=Header 2
+Added Pin To Net: NetName=NetC1_2 Pin=P15-1
+Added Pin To Net: NetName=Net*2_1 Pin=P15-2
+Added Pin To Net: NetName=NetC33_1 Pin=P15-3
+Added Pin To Net: NetName=NetC27_1 Pin=P15-4
+Added Pin To Net: NetName=GNDC Pin=P15-5
