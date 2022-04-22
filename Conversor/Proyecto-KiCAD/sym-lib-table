@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "LM5056A")(type "KiCad")(uri "${KIPRJMOD}/Libraries/LM5056A.kicad_sym")(options "")(descr ""))
+  (lib (name "UCC21540")(type "KiCad")(uri "${KIPRJMOD}/Libraries/UCC21540.kicad_sym")(options "")(descr ""))
+  (lib (name "Componentes proyecto")(type "KiCad")(uri "${KIPRJMOD}/Libraries/Componentes proyecto.kicad_sym")(options "")(descr ""))
+)
