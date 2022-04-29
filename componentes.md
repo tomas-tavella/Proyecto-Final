@@ -14,3 +14,5 @@
  	   Alt: Texas Instruments INA237 Precision Power Monitor With I2C Interface -- Paquete VSSOP-10
 
 - DSP/MCU: Plaqueta Texas Instruments TMDSCNCD28335 -- TMS320F28335 DSP
+
+- Fuente aislada para parte digital: TRACO THB 3-1211 9-18 Vdc in
