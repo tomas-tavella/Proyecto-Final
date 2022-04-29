@@ -139,7 +139,7 @@
     )
   )
   (symbol "ISO1640B" (in_bom yes) (on_board yes)
-    (property "Reference" "U" (id 0) (at 0 -8.89 0)
+    (property "Reference" "U" (id 0) (at 0 -7.62 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "ISO1640B" (id 1) (at 0 7.62 0)
@@ -152,15 +152,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "ISO1640B_0_1"
-      (rectangle (start -7.62 6.35) (end 7.62 -7.62)
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy -1.27 -6.35)
-          (xy -1.27 -7.62)
-        )
+      (rectangle (start -7.62 6.35) (end 7.62 -6.35)
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))
       )
@@ -200,14 +192,6 @@
         (pts
           (xy -1.27 6.35)
           (xy -1.27 5.08)
-        )
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy 1.27 -6.35)
-          (xy 1.27 -7.62)
         )
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))
@@ -289,7 +273,7 @@
     )
   )
   (symbol "ISO7242C" (in_bom yes) (on_board yes)
-    (property "Reference" "U" (id 0) (at 0 -13.97 0)
+    (property "Reference" "U" (id 0) (at 0 -12.7 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "ISO7242C" (id 1) (at 0 12.7 0)
@@ -302,15 +286,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "ISO7242C_0_1"
-      (rectangle (start -8.89 11.43) (end 8.89 -12.7)
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy -1.27 -12.7)
-          (xy -1.27 -11.43)
-        )
+      (rectangle (start -8.89 11.43) (end 8.89 -11.43)
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))
       )
@@ -390,14 +366,6 @@
         (pts
           (xy -1.27 11.43)
           (xy -1.27 10.16)
-        )
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy 1.27 -11.43)
-          (xy 1.27 -12.7)
         )
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))
@@ -747,7 +715,7 @@
     )
   )
   (symbol "UCC21540" (in_bom yes) (on_board yes)
-    (property "Reference" "U" (id 0) (at 0 -12.7 0)
+    (property "Reference" "U" (id 0) (at 0 -11.43 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "UCC21540" (id 1) (at 0 11.43 0)
@@ -760,15 +728,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "UCC21540_0_1"
-      (rectangle (start -8.89 10.16) (end 8.89 -11.43)
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy -1.27 -10.16)
-          (xy -1.27 -11.43)
-        )
+      (rectangle (start -8.89 10.16) (end 8.89 -10.16)
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))
       )
@@ -832,14 +792,6 @@
         (pts
           (xy -1.27 10.16)
           (xy -1.27 8.89)
-        )
-        (stroke (width 0) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
-      (polyline
-        (pts
-          (xy 1.27 -10.16)
-          (xy 1.27 -11.43)
         )
         (stroke (width 0) (type default) (color 0 0 0 0))
         (fill (type none))

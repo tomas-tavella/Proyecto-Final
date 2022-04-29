@@ -1,1 +1,4 @@
-Record=TopLevelDocument|FileName=driver y convertidor.SchDoc
+Record=TopLevelDocument|FileName=driver y convertidor.SchDoc|SheetNumber= 
+Record=NoMainPathDocument|SourceDocument=driver y convertidor.SchDoc|FileName=fuentes_15V_5V_3.3V.SchDoc|SheetNumber= 
+Record=NoMainPathDocument|SourceDocument=driver y convertidor.SchDoc|FileName=sensor de corriente.SchDoc|SheetNumber= 
+Record=NoMainPathDocument|SourceDocument=driver y convertidor.SchDoc|FileName=sensor de tension.SchDoc|SheetNumber= 
