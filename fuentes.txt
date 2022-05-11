@@ -1,5 +1,7 @@
 Agregar a este archivo los libros y documentos de los que se saco informacion
 
 [1] X. Ruan, Soft-Switching PWM Full-Bridge Converters Topologies, Control, and Design. Singapore Pte. Ltd. John Wiley & Sons, Ltd, 2014.
-[2] Bootstrap Circuitry Selection for Half-Bridge Configurations. TI application note.
-
+[2] Diseño y Control de una etapa de potencia para una pila de combustible tipo PEM - Carevelli, Emanuel y Irusta, Gonzalo M.
+[3] Bootstrap Circuitry Selection for Half-Bridge Configurations. TI application note.
+[4] Microelectronics Circuit Analysis and Design - 4th edition - Donald A. Neamen
+[5] A Deeper Look into Difference Amplifiers - Analog devices application note - Harry Holt

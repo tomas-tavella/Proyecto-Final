@@ -324,6 +324,10 @@
     [
       "02b36b52-6a67-4b1a-aeda-ca74c124cf8d",
       "Sensores"
+    ],
+    [
+      "59d8992c-71f3-4d96-a665-43f8d7d91dab",
+      "Fuentes"
     ]
   ],
   "text_variables": {}
