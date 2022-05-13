@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=P14 Old DesignItemId=Header 2 New DesignItemId=Header 3
+Change Component Footprint: Designator=P14 Old Footprint=HDR1X2 New Footprint=HDR1X3
+Change Component Comment : Designator=P14 Old Comment=5V Header New Comment=Header
+Added Pin To Net: NetName=DVDD Pin=P14-3

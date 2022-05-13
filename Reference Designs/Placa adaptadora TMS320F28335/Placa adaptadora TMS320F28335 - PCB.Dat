@@ -1,0 +1,53 @@
+Field=Comment~String~Comment~88|Field=Description~String~Description~88|Field=Footprint~String~Footprint~88|Field=LibRef~String~LibRef~88|Field=Quantity~Integer~Quantity~87|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Placa adaptadora TMS320F28335.PrjPcb|ReportField=ProjectFullPath~E:\Facultad de Ingenieria\Trabajo Final\Circuito\Altium\Placa adaptadora TMS320F28335 - PCB\Placa adaptadora TMS320F28335.PrjPcb|ReportField=Title~Bill of Materials For PCB Document [Placa adaptadora TMS320F28335 - PCB.PcbDoc]|ReportField=TotalQuantity~137|ReportField=ReportTime~01:56:07 p.m.|ReportField=ReportDate~13/05/2015|ReportField=ReportDateTime~13/05/2015 01:56:07 p.m.|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=DataSourceFileName~Placa adaptadora TMS320F28335 - PCB.PcbDoc|ReportField=DataSourceFullPath~E:\Facultad de Ingenieria\Trabajo Final\Circuito\Altium\Placa adaptadora TMS320F28335 - PCB\Placa adaptadora TMS320F28335 - PCB.PcbDoc
+C0.1u|Capacitor|C 1206|C|19
+C?|Capacitor|C 1206|C|6
+C1u|Capacitor|0805|C|3
+C10n|Capacitor|C 1206|C|4
+CT2.2u|Tantalum capacitor|Tantalum|C Tantalum|3
+C27p|Capacitor|C 1206|C|2
+C33n|Capacitor|C 1206|C|1
+C10u|Capacitor polarzado|CAP4x7x1.5mm|Capacitor pol|2
+C10u|Capacitor polarzado|Almn cap|Capacitor pol|2
+C1n|Capacitor|C 1206|C|1
+C100p|Capacitor|C 1206|C|1
+C0.1uF|Capacitor|C 1206|C|1
+C22n|Capacitor|C 1206|C|1
+LED|Typical RED GaAs LED|LED-1|LED1|1
+Dpy Amber-CA|7.62 mm Black Surface Orange 7-Segment Display: CA, RH DP|A|Dpy Amber-CA|1
+RJ-45 connector|RJ-45 connector, 8-pins, ethernet|15-43-6588|15-43-6588|1
+Jack connector||jack|Jack connector|1
+DIM100|Vertical, DIMM 2P Low Insertion Force, 100 Position|390213-1|390213-1|1
+Led smd|LED red, LED green, Led green, Led yellow, Led green, Led yellow|LED 1206|LED|6
+USB-B|Conector USB tipo B|USBB|USB-B|1
+sma||sma|sma|2
+Header 5|Header, 5-Pin|HDR1X5|Header 5|2
+Header 8|Header, 8-Pin|HDR1X8|Header 8|1
+Header 7X2|Header, 7-Pin, Dual row|HDR2X7|Header 7X2|1
+5V Header|Header, 2-Pin|HDR1X2|Header 2|2
+5V SW||Toggle sw|toggle sw|1
+Jumper 2||Jumper 2|Jumper 2|1
+Header 4|Header, 4-Pin|HDR1X4|Header 4|2
+Header|Header, 3-Pin|HDR1X3|Header 3|1
+IRF7425|HEXFET Power MOSFET|SO-8_L|IRF7425|1
+R?|Resistencia|R 1206|R|6
+R1k|Resistencia|R 1206|R|19
+R470|Resistencia|R 1206|R|1
+R27|Resistencia|R 1206|R|2
+R1k5|Resistencia|R 1206|R|1
+R220|Resistencia|R 1206|R|6
+R15|Resistencia|R 1206|R|3
+R10k|Resistencia|R 1206|R|1
+R15k|Resistencia|R 1206|R|2
+R0|Resistencia|R 1206|R|3
+SW-DIP4|DIP Switch|DIP-8|SW-DIP4|1
+Switch||TACT SW|Pulsador NA 4 term|5
+TP TEL3-1211||DIL24|TP TEL3-1211|1
+LM324AM|Low Power Quad Operational Amplifier, 14-pin Narrow SOIC|M14A_N|LM324AM|1
+TXB0104DR|IC VOLT-LEVEL TRANSLATOR 14-SOIC|SOIC-14|TXB0104DR|1
+LP2985-33DBVR|Single Output Low Noise LDO, 150 mA, Fixed 3.3 V Output, 2.2 to 16 V Input, with Low IQ, 5-pin SOT-23 (DBV), -40 to 125 degC, Green (RoHS & no Sb/Br)|TI-DBV5_N|LP2985-10DBVR|3
+FT232BL|USB UART Asynchronous Serial Data Transfer Chip, LQFP-32, Pb-Free|LQFP-32_N|FT232BL|1
+ISO7631FMDWR|150 Mbps 6 kVpk Low Power Quad Channels, Digital Isolator, 2.7 V / 3.3 V / 5 V, -40 to +125 degC, 16-pin SOIC (DW), Green (RoHS & no Sb/Br)|DW0016A_N|ISO7641FMDWR|2
+LM2937-12||DCY4|LM2937|1
+uA78M33|DAC8760|PWP|DAC8760|1
+Jumper|Jumper Wire|Jumper|Jumper|3
+Cristal de Cuarzo|Cristal de 6Mhz|Y TRHU|Cristal de Cuarzo|1

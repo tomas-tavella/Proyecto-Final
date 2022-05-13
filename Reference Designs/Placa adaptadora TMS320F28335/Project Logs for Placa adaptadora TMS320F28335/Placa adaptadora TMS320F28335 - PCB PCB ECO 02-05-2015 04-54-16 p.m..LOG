@@ -1,0 +1,12 @@
+Change Component DesignItemId : Designator=J2 Old DesignItemId=Plug New DesignItemId=PWR2.5
+Change Component Footprint: Designator=J2 Old Footprint=PIN1 New Footprint=KLD-0202
+Change Component Comment : Designator=J2 Old Comment=Plug New Comment=PWR2.5
+Added Pin To Net: NetName=SUPPLY Pin=J2-1A
+Added Pin To Net: NetName=SUPPLY Pin=J2-1B
+Added Pin To Net: NetName=SUPPLY Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J2-2A
+Added Pin To Net: NetName=GND Pin=J2-2B
+Added Pin To Net: NetName=GND Pin=J2-2
+Added Pin To Net: NetName=GND Pin=J2-3A
+Added Pin To Net: NetName=GND Pin=J2-3B
+Added Pin To Net: NetName=GND Pin=J2-3

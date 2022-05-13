@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=GPIO-05 Pin=R22-1
+Removed Pin From Net: NetName=GPIO-07 Pin=R23-1
+Removed Pin From Net: NetName=3V3 Pin=R23-2
+Removed Pin From Net: NetName=GPIO-05 Pin=SW2-2
+Removed Pin From Net: NetName=GPIO-05 Pin=SW2-2
+Removed Pin From Net: NetName=GPIO-07 Pin=SW3-2
+Removed Pin From Net: NetName=GPIO-07 Pin=SW3-2
+Removed Pin From Net: NetName=AGND Pin=U9-25
+Change Component Comment : Designator=R23 Old Comment=R1k New Comment=R220
+Change Component Designator: OldDesignator=R22 NewDesignator=R25
+Change Component Designator: OldDesignator=R24 NewDesignator=R18
+Change Component Designator: OldDesignator=R25 NewDesignator=R22
+Added Component: Designator=LED5(LED 1206)
+Added Component: Designator=LED6(LED 1206)
+Added Component: Designator=R24(R 1206)
+Added Component: Designator=R26(R 1206)
+Added Component: Designator=R27(R 1206)
+Added Component: Designator=R28(R 1206)
+Added Component: Designator=SW4(TACT SW)
+Added Component: Designator=SW5(TACT SW)
+Added Pin To Net: NetName=GND Pin=R23-2
+Added Pin To Net: NetName=GND Pin=R24-2
+Added Pin To Net: NetName=GPIO-03 Pin=R25-1
+Added Pin To Net: NetName=GPIO-05 Pin=R23-1
+Added Pin To Net: NetName=3V3 Pin=R23-2
+Added Pin To Net: NetName=GPIO-07 Pin=R27-1
+Added Pin To Net: NetName=3V3 Pin=R27-2
+Added Pin To Net: NetName=3V3 Pin=R28-2
+Added Pin To Net: NetName=GPIO-03 Pin=SW2-2
+Added Pin To Net: NetName=GPIO-03 Pin=SW2-2
+Added Pin To Net: NetName=GPIO-05 Pin=SW3-2
+Added Pin To Net: NetName=GPIO-05 Pin=SW3-2
+Added Pin To Net: NetName=GND Pin=SW4-1
+Added Pin To Net: NetName=GND Pin=SW4-1
+Added Pin To Net: NetName=GPIO-07 Pin=SW4-2
+Added Pin To Net: NetName=GPIO-07 Pin=SW4-2
+Added Pin To Net: NetName=GND Pin=SW5-1
+Added Pin To Net: NetName=GND Pin=SW5-1
+Added Pin To Net: NetName=GPIO-08 Pin=J3-78
+Added Pin To Net: NetName=GPIO-08 Pin=R28-1
+Added Pin To Net: NetName=GPIO-08 Pin=SW5-2
+Added Pin To Net: NetName=GPIO-08 Pin=SW5-2
+Added Net: Name=GPIO-08
+Added Pin To Net: NetName=GPIO-59 Pin=J3-68
+Added Net: Name=GPIO-59
+Added Pin To Net: NetName=GPIO-61 Pin=J3-70
+Added Net: Name=GPIO-61
+Added Pin To Net: NetName=GPIO-63 Pin=J3-72
+Added Pin To Net: NetName=GPIO-63 Pin=LED5-1
+Added Net: Name=GPIO-63
+Added Pin To Net: NetName=NetLED5_2 Pin=LED5-2
+Added Pin To Net: NetName=NetLED5_2 Pin=R23-1
+Added Net: Name=NetLED5_2
+Added Pin To Net: NetName=NetLED6_2 Pin=LED6-2
+Added Pin To Net: NetName=NetLED6_2 Pin=R24-1
+Added Net: Name=NetLED6_2
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED5 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED6 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component R24 R220
+Added Member To Class: ClassName=TMS320F28335 Member=Component R26 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component R27 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component R28 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW4 Switch
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW5 Switch

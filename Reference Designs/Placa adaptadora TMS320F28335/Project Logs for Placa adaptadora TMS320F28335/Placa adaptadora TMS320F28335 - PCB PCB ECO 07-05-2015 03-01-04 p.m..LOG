@@ -1,0 +1,10 @@
+Added Component: Designator=T1(DIL24)
+Added Pin To Net: NetName=SUPPLY Pin=T1-1
+Added Pin To Net: NetName=GND Pin=T1-10
+Added Pin To Net: NetName=5V SUPPLY Pin=T1-11
+Added Pin To Net: NetName=AGND Pin=T1-12
+Added Pin To Net: NetName=AGND Pin=T1-13
+Added Pin To Net: NetName=5V SUPPLY Pin=T1-14
+Added Pin To Net: NetName=GND Pin=T1-15
+Added Pin To Net: NetName=SUPPLY Pin=T1-24
+Added Member To Class: ClassName=Power Supply Member=Component T1 TP TEL3-1211

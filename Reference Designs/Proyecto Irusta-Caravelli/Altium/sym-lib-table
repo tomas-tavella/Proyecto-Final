@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "driver y convertidor-altium-import")(type "KiCad")(uri "${KIPRJMOD}/driver y convertidor-altium-import.kicad_sym")(options "")(descr ""))
+  (lib (name "fuentes_15V_5V_3.3V-altium-import")(type "KiCad")(uri "${KIPRJMOD}/fuentes_15V_5V_3.3V-altium-import.kicad_sym")(options "")(descr ""))
+  (lib (name "sensor de corriente-altium-import")(type "KiCad")(uri "${KIPRJMOD}/sensor de corriente-altium-import.kicad_sym")(options "")(descr ""))
+  (lib (name "sensor de tension-altium-import")(type "KiCad")(uri "${KIPRJMOD}/sensor de tension-altium-import.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=SUPPLY Pin=J2-1A
+Removed Pin From Net: NetName=SUPPLY Pin=J2-1B
+Removed Pin From Net: NetName=SUPPLY Pin=J2-1
+Removed Pin From Net: NetName=GND Pin=J2-2A
+Removed Pin From Net: NetName=GND Pin=J2-2B
+Removed Pin From Net: NetName=GND Pin=J2-2
+Removed Pin From Net: NetName=GND Pin=J2-3A
+Removed Pin From Net: NetName=GND Pin=J2-3B
+Removed Pin From Net: NetName=GND Pin=J2-3
+Change Component DesignItemId : Designator=J2 Old DesignItemId=PWR2.5 New DesignItemId=Plug
+Change Component Footprint: Designator=J2 Old Footprint=KLD-0202 New Footprint=PIN1
+Change Component Comment : Designator=J2 Old Comment=PWR2.5 New Comment=Plug
+Added Member To Class: ClassName=USB-UART Member=Component R9 R27

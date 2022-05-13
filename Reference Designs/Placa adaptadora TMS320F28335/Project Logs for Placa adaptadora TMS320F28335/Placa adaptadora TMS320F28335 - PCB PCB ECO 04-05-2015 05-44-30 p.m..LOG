@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=GND Pin=C10-2
+Removed Pin From Net: NetName=GND Pin=C11-2
+Removed Pin From Net: NetName=GND Pin=C12-2
+Removed Pin From Net: NetName=GND Pin=C13-2
+Removed Pin From Net: NetName=GND Pin=C14-2
+Removed Pin From Net: NetName=GND Pin=C15-2
+Removed Pin From Net: NetName=GND Pin=C16-1
+Removed Pin From Net: NetName=GND Pin=C17-1
+Removed Pin From Net: NetName=GND Pin=C18-1
+Removed Pin From Net: NetName=GND Pin=C19-1
+Removed Pin From Net: NetName=GND Pin=C20-2
+Removed Pin From Net: NetName=5V Pin=C21-1
+Removed Pin From Net: NetName=GND Pin=C21-2
+Removed Pin From Net: NetName=5V Pin=C22-1
+Removed Pin From Net: NetName=GND Pin=C23-2
+Removed Pin From Net: NetName=GND Pin=P1-0
+Removed Pin From Net: NetName=GND Pin=P1-0
+Removed Pin From Net: NetName=GND Pin=P1-4
+Removed Pin From Net: NetName=5V Pin=Q1-5
+Removed Pin From Net: NetName=5V Pin=Q1-6
+Removed Pin From Net: NetName=5V Pin=Q1-7
+Removed Pin From Net: NetName=5V Pin=Q1-8
+Removed Pin From Net: NetName=GND Pin=SW1-1
+Removed Pin From Net: NetName=GND Pin=SW1-1
+Removed Pin From Net: NetName=GND Pin=U3-2
+Removed Pin From Net: NetName=GND Pin=U4-9
+Removed Pin From Net: NetName=GND Pin=U4-14
+Removed Pin From Net: NetName=GND Pin=U4-17
+Removed Pin From Net: NetName=SCIRX-A Pin=U4-25
+Removed Pin From Net: NetName=GND Pin=U4-29
+Removed Pin From Net: NetName=GND Pin=U4-31
+Change Component Library : Designator=W1 Old Library=Miscellaneous Devices.IntLib New Library=Schlib.SchLib
+Change Component Library : Designator=W2 Old Library=Miscellaneous Devices.IntLib New Library=Schlib.SchLib
+Added Pin To Net: NetName=SCITX-A Pin=J3-93
+Added Net: Name=SCITX-A

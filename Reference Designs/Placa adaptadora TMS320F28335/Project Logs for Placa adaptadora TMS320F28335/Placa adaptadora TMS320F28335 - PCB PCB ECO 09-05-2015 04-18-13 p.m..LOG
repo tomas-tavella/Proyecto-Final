@@ -1,0 +1,33 @@
+Added Component: Designator=P?(HDR1X12)
+Added Pin To Net: NetName=3V3 Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-12
+Added Pin To Net: NetName=ADCIN-B1 Pin=J3-9
+Added Pin To Net: NetName=ADCIN-B1 Pin=P?-11
+Added Net: Name=ADCIN-B1
+Added Pin To Net: NetName=ADCIN-B2 Pin=J3-11
+Added Net: Name=ADCIN-B2
+Added Pin To Net: NetName=ADCIN-B3 Pin=J3-13
+Added Net: Name=ADCIN-B3
+Added Pin To Net: NetName=ADCIN-B4 Pin=J3-15
+Added Net: Name=ADCIN-B4
+Added Pin To Net: NetName=GPIO-58 Pin=J3-18
+Added Net: Name=GPIO-58
+Added Pin To Net: NetName=NETLABEL297 Pin=P?-10
+Added Net: Name=NETLABEL297
+Added Pin To Net: NetName=NETLABEL298 Pin=P?-9
+Added Net: Name=NETLABEL298
+Added Pin To Net: NetName=NETLABEL299 Pin=P?-8
+Added Net: Name=NETLABEL299
+Added Pin To Net: NetName=NETLABEL300 Pin=P?-7
+Added Net: Name=NETLABEL300
+Added Pin To Net: NetName=NETLABEL301 Pin=P?-6
+Added Net: Name=NETLABEL301
+Added Pin To Net: NetName=NETLABEL302 Pin=P?-5
+Added Net: Name=NETLABEL302
+Added Pin To Net: NetName=NETLABEL303 Pin=P?-4
+Added Net: Name=NETLABEL303
+Added Pin To Net: NetName=NETLABEL304 Pin=P?-3
+Added Net: Name=NETLABEL304
+Added Pin To Net: NetName=NETLABEL305 Pin=P?-2
+Added Net: Name=NETLABEL305
+Added Member To Class: ClassName=TMS320F28335 Member=Component P? Header 12

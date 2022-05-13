@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=EQEPA-1 Pin=P11-1
+Removed Pin From Net: NetName=EQEPI-1 Pin=P11-3
+Added Pin To Net: NetName=EQEPI-1 Pin=P11-1
+Added Pin To Net: NetName=EQEPA-1 Pin=P11-3

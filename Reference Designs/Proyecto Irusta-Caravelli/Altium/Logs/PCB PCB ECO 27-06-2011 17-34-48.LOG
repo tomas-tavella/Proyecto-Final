@@ -1,0 +1,57 @@
+Removed Pin From Net: NetName=NetC27_1 Pin=P5-1
+Removed Pin From Net: NetName=GNDC Pin=P5-2
+Removed Pin From Net: NetName=NetC33_1 Pin=P7-1
+Removed Pin From Net: NetName=GNDC Pin=P7-2
+Removed Pin From Net: NetName=NetC38_1 Pin=P9-1
+Removed Pin From Net: NetName=GNDC Pin=P9-2
+Removed Pin From Net: NetName=NetC47_1 Pin=P11-1
+Removed Pin From Net: NetName=GNDC Pin=P11-2
+Removed Pin From Net: NetName=NetC1_2 Pin=P15-1
+Removed Pin From Net: NetName=Net*2_1 Pin=P15-2
+Removed Pin From Net: NetName=NetP1_3 Pin=R3-2
+Removed Pin From Net: NetName=NetP1_2 Pin=R4-2
+Removed Pin From Net: NetName=NetP1_3 Pin=U1-10
+Removed Pin From Net: NetName=NetP1_2 Pin=U1-11
+Removed Member From Class: ClassName=sensor de corriente Member=P5
+Removed Member From Class: ClassName=sensor de corriente Member=P7
+Removed Member From Class: ClassName=sensor de tension Member=P9
+Removed Member From Class: ClassName=sensor de tension Member=P11
+Change Component DesignItemId : Designator=P15 Old DesignItemId=Header 2 New DesignItemId=Header 5
+Change Component DesignItemId : Designator=P1 Old DesignItemId=Header 3 New DesignItemId=Header 4
+Change Component DesignItemId : Designator=1 Old DesignItemId=MHDR1X2 New DesignItemId=Header 2
+Change Component Footprint: Designator=CF1 Old Footprint=8-1206 New Footprint=RAD-0.1
+Change Component Footprint: Designator=1 Old Footprint=HDR1X2* New Footprint=HDR1X2-POT*
+Change Component Footprint: Designator=P15 Old Footprint=HDR1X2-POT* New Footprint=HDR1X5H
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X3* New Footprint=HDR1X4H
+Change Component Footprint: Designator=U10 Old Footprint=PDIP8-TLC2272* New Footprint=751-02_N
+Change Component Footprint: Designator=U11 Old Footprint=PDIP8-TLC2272* New Footprint=751-02_N
+Change Component Comment : Designator=P15 Old Comment=Header 2 New Comment=Header 5
+Change Component Comment : Designator=P1 Old Comment=Header 3 New Comment=Header 4
+Change Component Comment : Designator=1 Old Comment=MHDR1X2 New Comment=Alimentacion 24v
+Added Component: Designator=C203(8-1206)
+Added Component: Designator=C204(RB5.8-6.4*)
+Added Component: Designator=C205(8-1206)
+Added Component: Designator=P15(HDR1X2-POT*)
+Added Pin To Net: NetName=Net*1_1 Pin=C203-1
+Added Pin To Net: NetName=GNDP Pin=C203-2
+Added Pin To Net: NetName=P_15V Pin=C204-1
+Added Pin To Net: NetName=GNDP Pin=C204-2
+Added Pin To Net: NetName=P_15V Pin=C205-1
+Added Pin To Net: NetName=GNDP Pin=C205-2
+Added Pin To Net: NetName=GNDC Pin=P1-1
+Added Pin To Net: NetName=NetC1_2 Pin=P15-1
+Added Pin To Net: NetName=NetC47_1 Pin=P15-1
+Added Pin To Net: NetName=Net*2_1 Pin=P15-2
+Added Pin To Net: NetName=NetC38_1 Pin=P15-2
+Added Pin To Net: NetName=NetP1_3 Pin=R4-2
+Added Pin To Net: NetName=NetP1_2 Pin=R5-1
+Added Pin To Net: NetName=NetP1_3 Pin=U1-11
+Added Pin To Net: NetName=NetP1_2 Pin=U1-12
+Added Pin To Net: NetName=NetP1_4 Pin=P1-4
+Added Pin To Net: NetName=NetP1_4 Pin=R3-2
+Added Pin To Net: NetName=NetP1_4 Pin=U1-10
+Added Net: Name=NetP1_4
+Added Member To Class: ClassName=driver y convertidor Member=Component C203 Cap4
+Added Member To Class: ClassName=driver y convertidor Member=Component C204 Cap Pol1
+Added Member To Class: ClassName=driver y convertidor Member=Component C205 Cap4
+Added Member To Class: ClassName=sensor de tension Member=Component P15 Header 5

@@ -1,0 +1,3 @@
+Remove Pin=R42-1 From Net=GND
+Change Component Designator: OldDesignator=R41 NewDesignator=R?
+Add Pin To Net: Pin=R?-2 Old Net=AGND New Net=GND

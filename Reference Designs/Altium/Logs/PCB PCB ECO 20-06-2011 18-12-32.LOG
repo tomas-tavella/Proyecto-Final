@@ -1,4 +1,0 @@
-Added Component: Designator=P15(HDR1X2-POT*)
-Added Pin To Net: NetName=NetC1_2 Pin=P15-1
-Added Pin To Net: NetName=Net*2_1 Pin=P15-2
-Added Member To Class: ClassName=driver y convertidor Member=Component P15 Header 2

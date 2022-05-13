@@ -1,0 +1,6 @@
+Change Component DesignItemId : Designator=P8 Old DesignItemId=Header 3 New DesignItemId=toggle sw
+Change Component Footprint: Designator=P8 Old Footprint=HDR1X3 New Footprint=Toggle sw
+Added Component: Designator=DS?(A)
+Added Component: Designator=S?(DIP-8)
+Added Member To Class: ClassName=TMS320F28335 Member=Component DS? Dpy Amber-CA
+Added Member To Class: ClassName=TMS320F28335 Member=Component S? SW-DIP4

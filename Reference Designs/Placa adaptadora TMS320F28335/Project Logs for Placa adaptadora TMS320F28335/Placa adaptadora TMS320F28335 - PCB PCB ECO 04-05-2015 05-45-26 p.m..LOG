@@ -1,0 +1,3 @@
+Change Component Library : Designator=W1 Old Library=Miscellaneous Devices.IntLib New Library=Schlib.SchLib
+Change Component Library : Designator=W2 Old Library=Miscellaneous Devices.IntLib New Library=Schlib.SchLib
+Added Room: Name=USB-UART

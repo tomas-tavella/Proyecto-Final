@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=GPIO-08 Pin=J3-28
+Removed Pin From Net: NetName=GPIO-08 Pin=R35-1
+Change Net Name : Old Net Name=GPIO-08 New Net Name=GPIO-09
+Added Pin To Net: NetName=GPIO-08 Pin=J3-28
+Added Pin To Net: NetName=GPIO-08 Pin=R35-1
+Added Net: Name=GPIO-08
+Added Member To Class: ClassName=Power Supply Member=Component C41 C1u
+Added Member To Class: ClassName=Power Supply Member=Component C42 C10n
+Added Member To Class: ClassName=Power Supply Member=Component C43 C2.2u
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED3 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED4 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED5 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component LED6 Led smd
+Added Member To Class: ClassName=TMS320F28335 Member=Component P4 H 1X4
+Added Member To Class: ClassName=Power Supply Member=Component P8 5V SW
+Added Member To Class: ClassName=TMS320F28335 Member=Component R18 R220
+Added Member To Class: ClassName=TMS320F28335 Member=Component R22 R220
+Added Member To Class: ClassName=TMS320F28335 Member=Component R23 R220
+Added Member To Class: ClassName=TMS320F28335 Member=Component R24 R220
+Added Member To Class: ClassName=TMS320F28335 Member=Component R25 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component R26 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component R27 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component R28 R1k
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW2 Switch
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW3 Switch
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW4 Switch
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW5 Switch
+Added Member To Class: ClassName=Power Supply Member=Component U10 LP2985-33DBVR

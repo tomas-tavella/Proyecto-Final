@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=GPIO-01 Pin=LED3-1
+Removed Pin From Net: NetName=GPIO-03 Pin=LED4-1
+Removed Pin From Net: NetName=3V3 Pin=R23-2
+Added Component: Designator=R26(R 1206)
+Added Pin To Net: NetName=GPIO-59 Pin=LED3-1
+Added Pin To Net: NetName=GPIO-61 Pin=LED4-1
+Added Pin To Net: NetName=GPIO-01 Pin=LED6-1
+Added Pin To Net: NetName=GND Pin=R23-2
+Added Pin To Net: NetName=GPIO-05 Pin=R23-1
+Added Pin To Net: NetName=3V3 Pin=R23-2

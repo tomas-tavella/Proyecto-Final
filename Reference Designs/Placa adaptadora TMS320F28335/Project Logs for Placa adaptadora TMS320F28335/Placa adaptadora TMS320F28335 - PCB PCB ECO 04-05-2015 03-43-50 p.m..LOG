@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=SPISTE-A Pin=U8-3
+Removed Pin From Net: NetName=GPIO-27 Pin=U8-4
+Removed Pin From Net: NetName=CLR Pin=U8-13
+Removed Pin From Net: NetName=CS# Pin=U8-14
+Added Pin To Net: NetName=GPIO-27 Pin=U8-3
+Added Pin To Net: NetName=SPISTE-A Pin=U8-4
+Added Pin To Net: NetName=CS# Pin=U8-13
+Added Pin To Net: NetName=CLR Pin=U8-14

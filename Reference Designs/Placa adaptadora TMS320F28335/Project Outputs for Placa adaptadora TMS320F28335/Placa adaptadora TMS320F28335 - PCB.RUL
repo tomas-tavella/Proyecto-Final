@@ -1,0 +1,5 @@
+DRC Rules Export File for PCB: E:\Facultad de Ingenieria\Trabajo Final\Circuito\Altium\Placa adaptadora TMS320F28335 - PCB\Placa adaptadora TMS320F28335 - PCB.PcbDoc
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00

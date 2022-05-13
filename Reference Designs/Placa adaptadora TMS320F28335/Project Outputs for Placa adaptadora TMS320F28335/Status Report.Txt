@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Placa adaptadora TMS320F28335.PrjPcb]
+   Generated File[Placa adaptadora TMS320F28335 - PCB-RoundHoles.TXT]
+   Generated File[Placa adaptadora TMS320F28335 - PCB-SlotHoles.TXT]
+   Generated File[Placa adaptadora TMS320F28335 - PCB.LDP]
+   Generated File[Placa adaptadora TMS320F28335 - PCB.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 03:02:37 p.m. On 13/05/2015

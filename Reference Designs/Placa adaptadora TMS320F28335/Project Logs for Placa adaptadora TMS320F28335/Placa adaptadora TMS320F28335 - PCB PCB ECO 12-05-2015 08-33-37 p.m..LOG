@@ -1,0 +1,5 @@
+Added Component: Designator=C46(CAP4x7x1.5mm)
+Added Pin To Net: NetName=AGND Pin=C46-2
+Added Pin To Net: NetName=VCC Pin=C46-1
+Added Net: Name=VCC
+Added Member To Class: ClassName=Power Supply Member=Component C46 C10u

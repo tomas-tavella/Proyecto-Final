@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=GND Pin=P14-2
+Added Pin To Net: NetName=AVDD Pin=P14-1
+Added Pin To Net: NetName=AGND Pin=P14-2

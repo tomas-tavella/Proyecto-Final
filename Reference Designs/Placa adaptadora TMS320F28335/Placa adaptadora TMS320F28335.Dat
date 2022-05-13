@@ -1,0 +1,44 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Placa adaptadora TMS320F28335.PrjPcb|ReportField=ProjectFullPath~E:\Facultad de Ingenieria\Trabajo Final\Circuito\Altium\Placa adaptadora TMS320F28335\Placa adaptadora TMS320F28335.PrjPcb|ReportField=Title~Bill of Materials For Project [Placa adaptadora TMS320F28335.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~100|ReportField=ReportTime~04:29:55 p.m.|ReportField=ReportDate~29/04/2015|ReportField=ReportDateTime~29/04/2015 04:29:55 p.m.|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~Anderson, Jorge|ReportField=CheckedBy~|ReportField=CompanyName~LEICI - FI-UNLP|ReportField=CurrentDate~|ReportField=CurrentTime~|ReportField=Date~|ReportField=DocumentFullPathAndName~|ReportField=DocumentName~|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~|ReportField=Organization~|ReportField=ProjectName~Placa adaptadora TMS320F28335|ReportField=Revision~1.3|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~5|ReportField=Time~|ReportField=Title~Placa adaptadora TMS320F28335|ReportField=Number~1|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=1.00:XCorrection=1.00:YCorrection=1.00:PrintKind=0:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=7:PrintQuality=-3:MediaType=1:DitherType=10:PrintScaleMode=1:PaperKind=A4:PaperIndex=9|ReportField=DataSourceFileName~Placa adaptadora TMS320F28335.PrjPcb|ReportField=DataSourceFullPath~E:\Facultad de Ingenieria\Trabajo Final\Circuito\Altium\Placa adaptadora TMS320F28335\Placa adaptadora TMS320F28335.PrjPcb
+C0.1u|Capacitor|C?|C 1206|C|18
+C0.1uF|Capacitor|C?|C 1206|C|1
+C1n|Capacitor|C?|C 1206|C|1
+C1u|Capacitor|C?|C 1206|C|3
+C2.2u|Capacitor|C?|C 1206|C|3
+C10n|Capacitor|C?|C 1206|C|4
+C10u|Capacitor|C?|C 1206|C|1
+C22n|Capacitor|C?|C 1206|C|1
+C27p|Capacitor|C?|C 1206|C|2
+C33n|Capacitor|C?|C 1206|C|1
+C100p|Capacitor|C?|C 1206|C|1
+C?|Capacitor|C?|C 1206|C|5
+C?|Capacitor|C?|C Lenteja|C|1
+CP10u|Capacitor polarizado.|C?|C 1206|C POL|1
+DIM100|Vertical, DIMM 2P Low Insertion Force, 100 Position|J?|390213-1|390213-1|1
+PWR2.5|Jack connector - 15V|J?|KLD-0202|PWR2.5|1
+RJ-45 connector|RJ-45 connector, 8-pins, ethernet|J?|15-43-6588|15-43-6588|1
+Led smd|Led yellow, Led green, LED green, LED red|LED?|LED 1206|LED|4
+H 1X4|PIN HEADER 1X4|P?|H 1X4|H 1X4|1
+Header 7X2|Header, 7-Pin, Dual row|P?|HDR2X7|Header 7X2|1
+Header 10|Header, 10-Pin|P?|HDR1X10|Header 10|1
+sma||P?|sma|sma|2
+USB-B|Conector USB tipo B|P?|USBB|USB-B|1
+PMOS-2|P-Channel Power MOSFET|Q?|TO-220AB|PMOS-2|1
+R1k|Resistencia|R?|R 1206|R|5
+R1k5|Resistencia|R?|R 1206|R|1
+R10k|Resistencia|R?|R 1206|R|1
+R15|Resistencia|R?|R 1206|R|4
+R15k|Resistencia|R?|R 1206|R|1
+R27|Resistencia|R?|R 1206|R|2
+R220|Resistencia|R?|R 1206|R|4
+R470|Resistencia|R?|R 1206|R|1
+R?|Resistencia|R?|R 1206|R|6
+Switch||SW?|TACT SW|Pulsador NA 4 term|3
+DAC8760|DAC8760|U?|PWP|DAC8760|1
+FT232BL|USB UART Asynchronous Serial Data Transfer Chip, LQFP-32, Pb-Free|U?|LQFP-32_N|FT232BL|1
+ISO7631FMDWR|150 Mbps 6 kVpk Low Power Quad Channels, Digital Isolator, 2.7 V / 3.3 V / 5 V, -40 to +125 degC, 16-pin SOIC (DW), Green (RoHS & no Sb/Br)|U?|DW0016A_N|ISO7641FMDWR|2
+LM324AM|Low Power Quad Operational Amplifier, 14-pin Narrow SOIC|U?|M14A_N|LM324AM|3
+LM2937-12||U?|DCY4|LM2937|1
+LP2985-33DBVR|Single Output Low Noise LDO, 150 mA, Fixed 3.3 V Output, 2.2 to 16 V Input, with Low IQ, 5-pin SOT-23 (DBV), -40 to 125 degC, Green (RoHS & no Sb/Br)|U?|TI-DBV5_N|LP2985-10DBVR|3
+TXB0104DR|IC VOLT-LEVEL TRANSLATOR 14-SOIC|U?|SOIC-14|TXB0104DR|1
+Jumper|Jumper Wire|W?|RAD-0.2|Jumper|2
+Cristal de Cuarzo|Cristal de 6Mhz|Y?|Y TRHU|Cristal de Cuarzo|1

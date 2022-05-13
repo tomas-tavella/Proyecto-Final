@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C25 Old Footprint=Almn cap New Footprint=CAP4x7x1.5mm
+Change Component Comment : Designator=U9 Old Comment=DAC8760 New Comment=uA78M33
+Added Pin To Net: NetName=AGND Pin=U9-25

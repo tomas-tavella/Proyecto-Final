@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=5V SUPPLY Pin=P9-1
+Added Pin To Net: NetName=EXTERN 5V Pin=P9-2
+Added Pin To Net: NetName=5V HEADER Pin=P9-3

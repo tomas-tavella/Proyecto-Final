@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=AGND Pin=C26-1
+Removed Pin From Net: NetName=DVDD Pin=C26-2
+Removed Pin From Net: NetName=AGND Pin=U9-25
+Change Component DesignItemId : Designator=C12 Old DesignItemId=C New DesignItemId=C Tantalum
+Change Component DesignItemId : Designator=C26 Old DesignItemId=C New DesignItemId=C Tantalum
+Change Component DesignItemId : Designator=C43 Old DesignItemId=C New DesignItemId=C Tantalum
+Change Component Footprint: Designator=C12 Old Footprint=C 1206 New Footprint=Tantalum
+Change Component Footprint: Designator=C26 Old Footprint=C 1206 New Footprint=Tantalum
+Change Component Footprint: Designator=C43 Old Footprint=C 1206 New Footprint=Tantalum
+Change Component Comment : Designator=C12 Old Comment=C2.2u New Comment=CT2.2u
+Change Component Comment : Designator=C26 Old Comment=C2.2u New Comment=CT2.2u
+Change Component Comment : Designator=C43 Old Comment=C2.2u New Comment=CT2.2u
+Change Component Designator: OldDesignator=P12  NewDesignator=P12
+Change Component Designator: OldDesignator=SW2(03) NewDesignator=SW2
+Change Component Designator: OldDesignator=SW3(05) NewDesignator=SW3
+Change Component Designator: OldDesignator=SW4(07) NewDesignator=SW4
+Change Component Designator: OldDesignator=SW5(09) NewDesignator=SW5
+Added Pin To Net: NetName=DVDD Pin=C26-1
+Added Pin To Net: NetName=AGND Pin=C26-2
+Added Member To Class: ClassName=TMS320F28335 Member=Component P10 Header 4
+Added Member To Class: ClassName=TMS320F28335 Member=Component P12 Header 5
+Added Member To Class: ClassName=TMS320F28335 Member=Component SW2 Switch

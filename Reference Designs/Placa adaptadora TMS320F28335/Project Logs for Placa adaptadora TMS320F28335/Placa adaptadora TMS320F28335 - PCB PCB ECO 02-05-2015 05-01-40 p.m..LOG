@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=J2 Old DesignItemId=PWR2.5 New DesignItemId=Jack connector
+Change Component Comment : Designator=J2 Old Comment=PWR2.5 New Comment=Jack connector
+Change Component Description : Designator=J2 Old Description=Low Voltage Power Supply Connector New Description=
+Change Component Library : Designator=J2 Old Library=Miscellaneous Connectors.IntLib New Library=Schlib.SchLib

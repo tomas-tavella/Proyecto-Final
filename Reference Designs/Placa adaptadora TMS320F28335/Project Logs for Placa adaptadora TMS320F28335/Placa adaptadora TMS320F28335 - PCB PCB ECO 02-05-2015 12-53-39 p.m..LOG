@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=5V Pin=Q1-2
+Change Component DesignItemId : Designator=Q1 Old DesignItemId=PMOS-2 New DesignItemId=IRF7425
+Change Component Footprint: Designator=Q1 Old Footprint=TO-220AB New Footprint=SO-8_L
+Change Component Comment : Designator=Q1 Old Comment=PMOS-2 New Comment=IRF7425
+Added Pin To Net: NetName=U5V Pin=Q1-1
+Added Pin To Net: NetName=U5V Pin=Q1-2
+Added Pin To Net: NetName=5V Pin=Q1-5
+Added Pin To Net: NetName=5V Pin=Q1-6
+Added Pin To Net: NetName=5V Pin=Q1-7
+Added Pin To Net: NetName=5V Pin=Q1-8
+Added Pin To Net: NetName=NetC22_2 Pin=C22-2
+Added Pin To Net: NetName=NetC22_2 Pin=Q1-4
+Added Pin To Net: NetName=NetC22_2 Pin=R15-2
+Added Net: Name=NetC22_2
+Added Member To Class: ClassName=USB-UART Member=Component R9 R27

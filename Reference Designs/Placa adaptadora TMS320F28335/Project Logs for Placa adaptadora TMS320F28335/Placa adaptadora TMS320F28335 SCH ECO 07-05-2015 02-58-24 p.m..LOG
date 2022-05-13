@@ -1,0 +1,3 @@
+Remove Pin=P9-1 From Net=5V HEADER
+Remove Pin=P9-2 From Net=EXTERN 5V
+Remove Pin=P9-3 From Net=5V SUPPLY

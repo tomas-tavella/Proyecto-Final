@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=AGND Pin=U9-25
+Added Component: Designator=P7(HDR1X2)
+Added Pin To Net: NetName=5V Pin=P7-1
+Added Pin To Net: NetName=GND Pin=P7-2

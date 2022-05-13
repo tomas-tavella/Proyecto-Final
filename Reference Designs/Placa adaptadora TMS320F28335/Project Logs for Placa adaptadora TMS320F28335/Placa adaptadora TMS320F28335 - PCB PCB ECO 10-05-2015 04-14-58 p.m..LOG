@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=AGND Pin=U9-25
+Added Component: Designator=D1(LED-1)
+Added Component: Designator=R44(R 1206)
+Added Pin To Net: NetName=GND Pin=D1-2
+Added Pin To Net: NetName=AVDD Pin=R44-2
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_1 Pin=R44-1
+Added Net: Name=NetD1_1
+Added Member To Class: ClassName=DAC Member=Component D1 LED
+Added Member To Class: ClassName=DAC Member=Component R44 R15k

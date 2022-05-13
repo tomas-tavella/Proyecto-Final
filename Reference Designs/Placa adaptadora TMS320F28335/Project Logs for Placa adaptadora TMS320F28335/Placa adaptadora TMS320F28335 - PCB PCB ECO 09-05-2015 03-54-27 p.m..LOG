@@ -1,0 +1,13 @@
+Added Component: Designator=P4(HDR1X5)
+Added Pin To Net: NetName=3V3 Pin=P4-1
+Added Pin To Net: NetName=GND Pin=P4-5
+Added Pin To Net: NetName=GPIO-11 Pin=J3-79
+Added Pin To Net: NetName=GPIO-11 Pin=P4-2
+Added Net: Name=GPIO-11
+Added Pin To Net: NetName=GPIO-49 Pin=J3-80
+Added Pin To Net: NetName=GPIO-49 Pin=P4-3
+Added Net: Name=GPIO-49
+Added Pin To Net: NetName=GPIO-85 Pin=J3-81
+Added Pin To Net: NetName=GPIO-85 Pin=P4-4
+Added Net: Name=GPIO-85
+Added Member To Class: ClassName=TMS320F28335 Member=Component P4 Header 5

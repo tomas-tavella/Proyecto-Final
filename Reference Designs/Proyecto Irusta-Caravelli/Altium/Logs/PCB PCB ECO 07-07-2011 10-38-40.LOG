@@ -1,0 +1,50 @@
+Removed Pin From Net: NetName=C_12V Pin=C23-1
+Removed Pin From Net: NetName=C_12V Pin=R10-2
+Removed Pin From Net: NetName=C_12V Pin=R11-1
+Added Component: Designator=DL5(LED-1*)
+Added Component: Designator=DL12(LED-1*)
+Added Component: Designator=DL15(LED-1*)
+Added Component: Designator=DL24(LED-1*)
+Added Component: Designator=P45(HDR1X3*)
+Added Component: Designator=RL5(8-1206)
+Added Component: Designator=RL12(8-1206)
+Added Component: Designator=RL15(8-1206)
+Added Component: Designator=RL24(8-1206)
+Added Pin To Net: NetName=C_24V Pin=C9-1
+Added Pin To Net: NetName=GNDC Pin=C9-2
+Added Pin To Net: NetName=GNDC Pin=DL5-2
+Added Pin To Net: NetName=GNDC Pin=DL12-2
+Added Pin To Net: NetName=GNDC Pin=DL15-2
+Added Pin To Net: NetName=GNDC Pin=DL24-2
+Added Pin To Net: NetName=C_5V Pin=P45-1
+Added Pin To Net: NetName=C_12V Pin=P45-3
+Added Pin To Net: NetName=C_5V Pin=RL5-2
+Added Pin To Net: NetName=C_12V Pin=RL12-2
+Added Pin To Net: NetName=C_15V Pin=RL15-2
+Added Pin To Net: NetName=C_24V Pin=RL24-2
+Added Pin To Net: NetName=NetC23_1 Pin=C23-1
+Added Pin To Net: NetName=NetC23_1 Pin=P45-2
+Added Pin To Net: NetName=NetC23_1 Pin=R10-2
+Added Pin To Net: NetName=NetC23_1 Pin=R11-1
+Added Net: Name=NetC23_1
+Added Pin To Net: NetName=NetDL5_1 Pin=DL5-1
+Added Pin To Net: NetName=NetDL5_1 Pin=RL5-1
+Added Net: Name=NetDL5_1
+Added Pin To Net: NetName=NetDL12_1 Pin=DL12-1
+Added Pin To Net: NetName=NetDL12_1 Pin=RL12-1
+Added Net: Name=NetDL12_1
+Added Pin To Net: NetName=NetDL15_1 Pin=DL15-1
+Added Pin To Net: NetName=NetDL15_1 Pin=RL15-1
+Added Net: Name=NetDL15_1
+Added Pin To Net: NetName=NetDL24_1 Pin=DL24-1
+Added Pin To Net: NetName=NetDL24_1 Pin=RL24-1
+Added Net: Name=NetDL24_1
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component DL5 LED4
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component DL12 LED3
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component DL15 LED2
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component DL24 LED1
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component P45 Header 3
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component RL5 ResL5
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component RL12 ResL12
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component RL15 ResL15
+Added Member To Class: ClassName=fuentes_15V_5V_3.3V Member=Component RL24 ResL24

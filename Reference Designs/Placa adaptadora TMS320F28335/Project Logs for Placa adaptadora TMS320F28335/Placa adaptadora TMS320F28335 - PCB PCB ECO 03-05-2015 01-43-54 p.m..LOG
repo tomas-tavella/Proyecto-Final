@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=C20 Old DesignItemId=C POL New DesignItemId=Capacitor pol
+Change Component Footprint: Designator=C20 Old Footprint=C 1206 New Footprint=CAP4x7x1.5mm
+Change Component Comment : Designator=C20 Old Comment=CP10u New Comment=C10u
+Added Member To Class: ClassName=USB-UART Member=Component LED1 Led smd

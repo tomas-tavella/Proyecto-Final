@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Etapa de potencia.PrjPcb]
+   Generated File[PCB2.TXT]
+   Generated File[PCB2.DRL]
+   Generated File[PCB2.LDP]
+   Generated File[PCB2.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 14:16:37 On 24/08/2011

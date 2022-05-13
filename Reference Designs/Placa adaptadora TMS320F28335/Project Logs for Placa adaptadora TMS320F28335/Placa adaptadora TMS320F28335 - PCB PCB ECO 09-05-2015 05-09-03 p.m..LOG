@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=SPISIMO-A Pin=P11-1
+Removed Pin From Net: NetName=SPISOMI-A Pin=P11-2
+Removed Pin From Net: NetName=SPICLK-A Pin=P11-3
+Added Pin To Net: NetName=EQEPA-1 Pin=P11-1
+Added Pin To Net: NetName=EQEPB-1 Pin=P11-2
+Added Pin To Net: NetName=EQEPI-1 Pin=P11-3

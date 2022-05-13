@@ -1,0 +1,40 @@
+Removed Pin From Net: NetName=5V Pin=C21-1
+Removed Pin From Net: NetName=5V Pin=C22-1
+Removed Pin From Net: NetName=RXD Pin=J3-93
+Removed Pin From Net: NetName=5V Pin=Q1-5
+Removed Pin From Net: NetName=5V Pin=Q1-6
+Removed Pin From Net: NetName=5V Pin=Q1-7
+Removed Pin From Net: NetName=5V Pin=Q1-8
+Removed Pin From Net: NetName=SCIRX-A Pin=U4-25
+Removed Member From Class: ClassName=TMS320F28335 Member=C41
+Removed Member From Class: ClassName=TMS320F28335 Member=C42
+Removed Member From Class: ClassName=TMS320F28335 Member=C43
+Removed Member From Class: ClassName=DAC Member=J2
+Removed Member From Class: ClassName=TMS320F28335 Member=U10
+Added Component: Designator=C44(CAP4x7x1.5mm)
+Added Component: Designator=C45(C 1206)
+Added Component: Designator=P7(HDR1X2)
+Added Component: Designator=P8(HDR1X3)
+Added Pin To Net: NetName=GND Pin=C44-2
+Added Pin To Net: NetName=GND Pin=C45-1
+Added Pin To Net: NetName=GND Pin=P7-2
+Added Pin To Net: NetName=5V Pin=P8-2
+Added Pin To Net: NetName=5V HEADER Pin=P7-1
+Added Net: Name=5V HEADER
+Added Pin To Net: NetName=5V SUPPLY Pin=C44-1
+Added Pin To Net: NetName=5V SUPPLY Pin=C45-2
+Added Net: Name=5V SUPPLY
+Added Pin To Net: NetName=5V USB Pin=C21-1
+Added Pin To Net: NetName=5V USB Pin=C22-1
+Added Pin To Net: NetName=5V USB Pin=P8-1
+Added Pin To Net: NetName=5V USB Pin=Q1-5
+Added Pin To Net: NetName=5V USB Pin=Q1-6
+Added Pin To Net: NetName=5V USB Pin=Q1-7
+Added Pin To Net: NetName=5V USB Pin=Q1-8
+Added Net: Name=5V USB
+Added Pin To Net: NetName=EXTERN 5V Pin=P8-3
+Added Net: Name=EXTERN 5V
+Added Pin To Net: NetName=TXD Pin=U4-25
+Added Net: Name=TXD
+Added Class: Name=Power Supply
+Added Room: Name=Power Supply

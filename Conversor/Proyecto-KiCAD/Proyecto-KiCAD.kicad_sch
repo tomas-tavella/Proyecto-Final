@@ -3637,6 +3637,9 @@
     (path "/678606eb-e9b9-4186-9416-630f4cda44b7"
       (reference "#PWR?") (unit 1) (value "GND2") (footprint "")
     )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/6baf68d7-0b83-4420-84e4-4462fa9eeda3"
+      (reference "#PWR?") (unit 1) (value "GNDD") (footprint "")
+    )
     (path "/6c83c8cf-efeb-47f2-bbcd-e17231631c69"
       (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
     )
@@ -3685,8 +3688,14 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/e58b7a0f-4d12-4812-ae2f-4e3648a81a80"
       (reference "#PWR?") (unit 1) (value "GNDD") (footprint "")
     )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/e79d0b8d-8181-42bd-840f-41cff7c5f599"
+      (reference "#PWR?") (unit 1) (value "GNDD") (footprint "")
+    )
     (path "/e80413f7-c6ce-4a28-b254-f9f1c3a174b3"
       (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
+    )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/e8e14d22-b5b0-41db-aef3-d00157027028"
+      (reference "#PWR?") (unit 1) (value "GNDD") (footprint "")
     )
     (path "/ed293712-8d5a-435a-961e-9b57346df3e2"
       (reference "#PWR?") (unit 1) (value "+15V") (footprint "")
@@ -3771,6 +3780,12 @@
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/e208f09d-9b17-4b2e-9625-a858f29b0128"
       (reference "C?") (unit 1) (value "Cvref") (footprint "")
+    )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/e217edeb-b3ba-44d8-81d4-02e49c3809ac"
+      (reference "C?") (unit 1) (value "CREG_OUT") (footprint "")
+    )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/e832fd94-fef4-4845-a497-1fbc46656c91"
+      (reference "C?") (unit 1) (value "CREG_IN") (footprint "")
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/f8164270-f2b4-4d38-b6cd-1ebcbb4cc15d"
       (reference "C?") (unit 1) (value "Cvdd") (footprint "")
@@ -3912,6 +3927,9 @@
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/f9c9bc2b-0169-4558-8eb4-574491b5a697"
       (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/379d1ee4-361e-40cd-b130-2adeee3edb3d"
+      (reference "U?") (unit 1) (value "LM1117-1.8") (footprint "")
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/481895a7-7dd9-4546-9bff-febe44942491"
       (reference "U?") (unit 1) (value "TLC2272") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")

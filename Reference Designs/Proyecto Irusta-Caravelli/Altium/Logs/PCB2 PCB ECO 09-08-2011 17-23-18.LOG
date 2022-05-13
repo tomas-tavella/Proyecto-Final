@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GNDP Pin=U1-11
+Added Component: Designator=P48(HDR1X3*)
+Added Pin To Net: NetName=GNDP Pin=P48-1
+Added Pin To Net: NetName=P_15V Pin=P48-3
+Added Pin To Net: NetName=NetP48_2 Pin=P48-2
+Added Pin To Net: NetName=NetP48_2 Pin=U1-11
+Added Net: Name=NetP48_2
+Added Member To Class: ClassName=driver y convertidor Member=Component P48 Header 10

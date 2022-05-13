@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=AGND Pin=C25-1
+Removed Pin From Net: NetName=AVDD Pin=C25-2
+Change Component DesignItemId : Designator=C25 Old DesignItemId=C New DesignItemId=Capacitor pol
+Change Component Footprint: Designator=C25 Old Footprint=C 1206 New Footprint=CAP4x7x1.5mm
+Added Pin To Net: NetName=AVDD Pin=C25-1
+Added Pin To Net: NetName=AGND Pin=C25-2

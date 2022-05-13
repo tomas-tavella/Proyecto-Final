@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=ADCIN-B1 Pin=P?-11
+Removed Pin From Net: NetName=GND Pin=P?-12
+Change Component DesignItemId : Designator=P? Old DesignItemId=Header 12 New DesignItemId=Header 8
+Change Component Footprint: Designator=P? Old Footprint=HDR1X12 New Footprint=HDR1X8
+Change Component Comment : Designator=P? Old Comment=Header 12 New Comment=Header 8
+Change Component Designator: OldDesignator=P? NewDesignator=P5
+Added Pin To Net: NetName=GPIO-62 Pin=P5-2
+Added Pin To Net: NetName=ADCIN-B7 Pin=P5-3
+Added Pin To Net: NetName=GPIO-60 Pin=P5-4
+Added Pin To Net: NetName=ADCIN-B6 Pin=P5-5
+Added Pin To Net: NetName=GPIO-58 Pin=P5-6
+Added Pin To Net: NetName=ADCIN-B5 Pin=P5-7
+Added Pin To Net: NetName=GND Pin=P5-8
