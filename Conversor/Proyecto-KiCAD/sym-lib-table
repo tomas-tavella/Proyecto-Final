@@ -1,5 +1,5 @@
 (sym_lib_table
-  (lib (name "LM5056A")(type "KiCad")(uri "${KIPRJMOD}/Libraries/LM5056A.kicad_sym")(options "")(descr ""))
-  (lib (name "UCC21540")(type "KiCad")(uri "${KIPRJMOD}/Libraries/UCC21540.kicad_sym")(options "")(descr ""))
   (lib (name "Componentes proyecto")(type "KiCad")(uri "${KIPRJMOD}/Libraries/Componentes proyecto.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-17_16-55-27")(type "Legacy")(uri "${KIPRJMOD}/Libraries/ul_ADUM4221ARIZ/KiCAD/2022-05-17_16-55-27/2022-05-17_16-55-27.lib")(options "")(descr ""))
+  (lib (name "2022-05-17_17-00-40")(type "Legacy")(uri "${KIPRJMOD}/Libraries/ul_LM5056APMH-NOPB/KiCAD/2022-05-17_17-00-40/2022-05-17_17-00-40.lib")(options "")(descr ""))
 )
