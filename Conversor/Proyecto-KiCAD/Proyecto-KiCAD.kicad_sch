@@ -3748,6 +3748,9 @@
     (path "/520728bf-cbf8-4703-a351-7f30cf616283"
       (reference "R?") (unit 1) (value "RS") (footprint "")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/6596004c-174c-4a37-8f7e-7978eb67e2c9"
+      (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/65bf3158-f475-4592-ad02-c7c9a5d1cbdc"
       (reference "R?") (unit 1) (value "R2amp") (footprint "")
     )
@@ -3787,6 +3790,9 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/f9c9bc2b-0169-4558-8eb4-574491b5a697"
       (reference "R?") (unit 1) (value "Rpu") (footprint "")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/fdacbacb-3a21-4d23-94d6-fa80640ae07b"
+      (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/481895a7-7dd9-4546-9bff-febe44942491"
       (reference "U?") (unit 1) (value "TLC2272") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
@@ -3805,14 +3811,14 @@
     (path "/66a2fb96-f7f8-481c-8036-16047d50af8a"
       (reference "U?") (unit 1) (value "ADUM4221ARIZ") (footprint "RI-16-2_Creepage_ADI")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/68c0cbe7-7504-495e-aa72-4bab8b0470e2"
+      (reference "U?") (unit 1) (value "Si8642BB-B-IS1") (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm")
+    )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/98f0cf91-1424-4565-8aaa-6866fe98424e"
       (reference "U?") (unit 1) (value "MC7808") (footprint "")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/b0b29578-e440-4507-8700-c5a3280a8034"
       (reference "U?") (unit 1) (value "MC7805") (footprint "")
-    )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/c2344868-b702-4127-ab6f-ec77cb9fcb89"
-      (reference "U?") (unit 1) (value "ISO1640B") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/e573024c-7f98-4b31-a0c9-502cb18bd081"
       (reference "U?") (unit 1) (value "LM1117-3.3") (footprint "")
