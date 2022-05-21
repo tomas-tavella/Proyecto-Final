@@ -13,8 +13,7 @@
 	  Alt: Analog Devices LTC7061 100V Half Bridge Driver with Floating Grounds and Adjustable Dead-Time
 
 - Isolator: (Sin stock) Texas Instruments ISO1641 Bidirectional I2C Isolator -- Paquete SOIC-8
- 	   Alt: (Sin stock) Texas Instruments ISO7242 Quad-Channel Digital Isolator -- Paquete SOIC-16
-	   Alt: Skyworks Inc. SI8642AB-B-IS 1 Mbps, 2.5 kVRMS Digital Isolators -- Paquete SOIC-16 narrow-body
+ 	   Alt: Texas Instruments ISO7242 Quad-Channel Digital Isolator -- Paquete SOIC-16 (En el laboratorio)
 
 - Sensor I/V/P: Texas Instuments LM5056A 3 to 80V, 12-bit, I2C output -- Paquete HSSTOP-28 (con pad abajo)
  		   Alt: (Sin stock) Texas Instruments INA237 Precision Power Monitor With I2C Interface -- Paquete VSSOP-10

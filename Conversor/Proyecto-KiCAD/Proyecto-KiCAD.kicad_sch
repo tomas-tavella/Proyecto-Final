@@ -3457,6 +3457,9 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/3bcf52d2-b7c5-43ae-bb81-ca967d41eb84"
       (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/3c51dc42-a8a0-4f82-99e2-04b6686d51ba"
+      (reference "#PWR?") (unit 1) (value "GNDD") (footprint "")
+    )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/40484e0b-8816-49ef-a635-b2babebf868a"
       (reference "#PWR?") (unit 1) (value "+5VD") (footprint "")
     )
@@ -3539,6 +3542,9 @@
       (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
     )
     (path "/e80413f7-c6ce-4a28-b254-f9f1c3a174b3"
+      (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
+    )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/e8f05c7b-f9a8-4e10-beb6-a85e42582882"
       (reference "#PWR?") (unit 1) (value "GND1") (footprint "")
     )
     (path "/f22519fd-53d7-4060-bfb8-b193ee06a29f"
@@ -3781,6 +3787,12 @@
     (path "/bd3c5de1-f7ef-4c9d-8c0e-d8c3b38bd76d"
       (reference "R?") (unit 1) (value "RoffL") (footprint "")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/c0d19f91-461f-44d3-a02c-84414428b0aa"
+      (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/d9c581c4-9c4b-4d85-8d2f-281dc0dfb135"
+      (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
     (path "/df21c0de-3012-48d5-83bc-5497cc1b83ff"
       (reference "R?") (unit 1) (value "RonH") (footprint "")
     )
@@ -3792,6 +3804,9 @@
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/fdacbacb-3a21-4d23-94d6-fa80640ae07b"
       (reference "R?") (unit 1) (value "Rpu") (footprint "")
+    )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/47b8ea16-dc3e-4c48-bfd5-4c7615e3b200"
+      (reference "U?") (unit 1) (value "ISO7242C") (footprint "")
     )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/481895a7-7dd9-4546-9bff-febe44942491"
       (reference "U?") (unit 1) (value "TLC2272") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
@@ -3810,9 +3825,6 @@
     )
     (path "/66a2fb96-f7f8-481c-8036-16047d50af8a"
       (reference "U?") (unit 1) (value "ADUM4221ARIZ") (footprint "RI-16-2_Creepage_ADI")
-    )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/68c0cbe7-7504-495e-aa72-4bab8b0470e2"
-      (reference "U?") (unit 1) (value "Si8642BB-B-IS1") (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/98f0cf91-1424-4565-8aaa-6866fe98424e"
       (reference "U?") (unit 1) (value "MC7808") (footprint "")
