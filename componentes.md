@@ -9,16 +9,18 @@
 
 - Drivers: (Sin stock) Texas Instruments UCC21540A/UCC21542A dual-channel isolated gate driver with dual inputs -- Paquete SOIC-16 o SOIC-14
  	  Alt: (Sin stock) Texas Instruments UCC27200 High-Side and Low-Side Driver (non-isolated) -- Paquete SOIC-8
-      Alt: Analog Devices ADuM4221/ADuM4221-1 Isolated, Half Bridge Gate Drivers with Adjustable Dead Time, 4 A Output
-	  Alt: Analog Devices LTC7061 100V Half Bridge Driver with Floating Grounds and Adjustable Dead-Time
+ 	  Alt: Infineon Technologies 2ED21834-S06J 650 V half-bridge gate driver with integrated bootstrap diode -- Paquete DSO-14
 
 - Isolator: (Sin stock) Texas Instruments ISO1641 Bidirectional I2C Isolator -- Paquete SOIC-8
  	   Alt: Texas Instruments ISO7242 Quad-Channel Digital Isolator -- Paquete SOIC-16 (En el laboratorio)
+ 	   
+- Optoacopladores: Broadcom ACPL-P480 High CMR Intelligent Power Module and Gate Drive Interface Optocoupler -- Paquete SO-6
 
 - Sensor I/V/P: Texas Instuments LM5056A 3 to 80V, 12-bit, I2C output -- Paquete HSSTOP-28 (con pad abajo)
  		   Alt: (Sin stock) Texas Instruments INA237 Precision Power Monitor With I2C Interface -- Paquete VSSOP-10
 
-- Sensor efecto hall: Allegro Microsystems ACS709 High-Bandwidth, Fast Fault Response Current Sensor IC in Thermally Enhanced Package -- Hay en el laboratorio
+- Sensor efecto hall: (No hay) Allegro Microsystems ACS709 High-Bandwidth, Fast Fault Response Current Sensor IC in Thermally Enhanced Package -- Hay en el laboratorio
+                      Texas Instruments TMCS1100A4 1% High-Precision, Basic Isolation Hall-Effect Current Sensor With ±600V Working Voltage -- Paquete SOIC-8
 
 - DSP/MCU: Plaqueta Texas Instruments TMDSCNCD28335 -- TMS320F28335 DSP
 
