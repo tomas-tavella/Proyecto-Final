@@ -1328,58 +1328,6 @@
         )
       )
     )
-    (symbol "power:+10V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "+10V" (id 1) (at 0 3.556 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (id 3) (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Power symbol creates a global label with name \"+10V\"" (id 5) (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "+10V_0_1"
-        (polyline
-          (pts
-            (xy -0.762 1.27)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 2.54)
-            (xy 0.762 1.27)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-      )
-      (symbol "+10V_1_1"
-        (pin power_in line (at 0 0 90) (length 0) hide
-          (name "+10V" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "power:+5VP" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -1589,6 +1537,58 @@
           )
           (stroke (width 0) (type default) (color 0 0 0 0))
           (fill (type none))
+        )
+      )
+    )
+    (symbol "power:VDDA" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (id 0) (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "VDDA" (id 1) (at 0 3.81 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"VDDA\"" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "VDDA_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "VDDA_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "VDDA" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
         )
       )
     )
@@ -2709,22 +2709,6 @@
     (pin "2" (uuid ac1a0bf1-0bb6-4148-ad93-602f2494f69d))
   )
 
-  (symbol (lib_id "power:+10V") (at 162.56 133.35 0) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
-    (uuid 07b2da65-1825-486e-ae29-0ef2d0371d00)
-    (property "Reference" "#PWR0112" (id 0) (at 162.56 137.16 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+10V" (id 1) (at 162.56 128.27 0))
-    (property "Footprint" "" (id 2) (at 162.56 133.35 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (id 3) (at 162.56 133.35 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 230aa450-48a4-497c-8820-19b663f98139))
-  )
-
   (symbol (lib_id "power:GND1") (at 109.22 224.79 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 0b7b06c2-eddc-4c0e-9041-c04f576218bc)
@@ -3149,6 +3133,22 @@
     (pin "1" (uuid 9ab66597-6065-4108-a7ea-c7e8958e772d))
   )
 
+  (symbol (lib_id "power:VDDA") (at 162.56 186.69 0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 75552e51-aac3-4cd1-b8f4-3daa70ece248)
+    (property "Reference" "#PWR0104" (id 0) (at 162.56 190.5 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "VDDA" (id 1) (at 162.56 182.88 0))
+    (property "Footprint" "" (id 2) (at 162.56 186.69 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (id 3) (at 162.56 186.69 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid c8e0d6b4-d699-471f-aba1-afe4988f8a4c))
+  )
+
   (symbol (lib_id "power:PWR_FLAG") (at 318.77 168.91 270) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 76716b80-754b-4428-ba32-277857321723)
@@ -3325,6 +3325,22 @@
     (pin "2" (uuid 336eec0a-0369-45a9-94c4-e844b855e7fe))
   )
 
+  (symbol (lib_id "power:VDDA") (at 162.56 133.35 0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid a2916a14-5fd3-4ec2-893b-1c0391c71289)
+    (property "Reference" "#PWR0112" (id 0) (at 162.56 137.16 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "VDDA" (id 1) (at 162.56 129.54 0))
+    (property "Footprint" "" (id 2) (at 162.56 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (id 3) (at 162.56 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 8e34aafb-21a0-4025-ab39-02855d9c9485))
+  )
+
   (symbol (lib_id "power:+5VP") (at 115.57 210.82 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid a73864eb-1fb1-4104-a9e2-d0fd9171cf14)
@@ -3372,22 +3388,6 @@
     (pin "2" (uuid d05cf3dc-f2ca-4071-ba21-c89314a44c46))
   )
 
-  (symbol (lib_id "power:+10V") (at 162.56 186.69 0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid b74893ef-c260-40e7-8209-5d840ce53541)
-    (property "Reference" "#PWR0104" (id 0) (at 162.56 190.5 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+10V" (id 1) (at 162.56 182.88 0))
-    (property "Footprint" "" (id 2) (at 162.56 186.69 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (id 3) (at 162.56 186.69 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid c0c19e0f-c4cb-4786-a645-ccc8cac9c877))
-  )
-
   (symbol (lib_name "ACPL-P480_2") (lib_id "Componentes proyecto:ACPL-P480") (at 96.52 199.39 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid b83b48c1-b915-4411-a265-f9767be3dee1)
@@ -3402,8 +3402,8 @@
     (pin "1" (uuid 77125597-70e6-4974-b9d2-e42a26bfb599))
     (pin "2" (uuid a5735af9-23dc-47f6-a34a-a52a6c0de4f2))
     (pin "3" (uuid ebe37721-cca7-4716-8028-28c5d0ff8c23))
-    (pin "4" (uuid 2f97e40d-6b51-40fc-a4bd-0e85e11af75f))
-    (pin "4" (uuid 2f97e40d-6b51-40fc-a4bd-0e85e11af75f))
+    (pin "4" (uuid 2f97e40d-6b51-40fc-a4bd-0e85e11af760))
+    (pin "4" (uuid 2f97e40d-6b51-40fc-a4bd-0e85e11af760))
     (pin "6" (uuid 0b9cad8a-b662-4249-8cfe-5acce9986449))
   )
 
@@ -3558,8 +3558,8 @@
     (pin "1" (uuid c6597171-7fd7-4399-b057-cc6ac18f9780))
     (pin "2" (uuid d02e4611-1f0f-421c-be6b-f2f5bdc2364b))
     (pin "3" (uuid 26b65c20-bbcc-4f93-8141-e008fa4f517f))
-    (pin "4" (uuid 020d2f92-062f-4430-ae1e-400b25764e55))
-    (pin "4" (uuid 020d2f92-062f-4430-ae1e-400b25764e55))
+    (pin "4" (uuid 020d2f92-062f-4430-ae1e-400b25764e56))
+    (pin "4" (uuid 020d2f92-062f-4430-ae1e-400b25764e56))
     (pin "6" (uuid 4eb7642d-4a2f-4ce0-9fd8-dfa2226a4698))
   )
 
@@ -3758,8 +3758,8 @@
     (pin "1" (uuid 0968c020-b4dd-416a-8ceb-16586d772a95))
     (pin "2" (uuid 4f085fe9-aef8-4613-9425-8732b39130bb))
     (pin "3" (uuid 0f674ab6-a271-4cad-8d9b-c87c5abe6895))
-    (pin "4" (uuid 56c67f3e-f95b-4ccb-b1e7-4209fdc4fb53))
-    (pin "4" (uuid 56c67f3e-f95b-4ccb-b1e7-4209fdc4fb53))
+    (pin "4" (uuid 56c67f3e-f95b-4ccb-b1e7-4209fdc4fb54))
+    (pin "4" (uuid 56c67f3e-f95b-4ccb-b1e7-4209fdc4fb54))
     (pin "6" (uuid ad195128-6d35-4e68-a4b7-f10303a2bdb1))
   )
 
@@ -3878,8 +3878,8 @@
     (pin "1" (uuid 5f14424d-5108-46e3-82d2-d3cde5797def))
     (pin "2" (uuid 3e781eef-7ee3-42a4-9fa8-9b6df2083ee4))
     (pin "3" (uuid 2dd5a415-37b2-4e3c-926d-b797efdb6200))
-    (pin "4" (uuid 6766b9f9-a7e5-4187-a90c-08b43973f8da))
-    (pin "4" (uuid 6766b9f9-a7e5-4187-a90c-08b43973f8da))
+    (pin "4" (uuid 6766b9f9-a7e5-4187-a90c-08b43973f8db))
+    (pin "4" (uuid 6766b9f9-a7e5-4187-a90c-08b43973f8db))
     (pin "6" (uuid 42bb898e-5fe8-42d0-8268-2a03a092f050))
   )
 
@@ -4005,9 +4005,6 @@
     (path "/76716b80-754b-4428-ba32-277857321723"
       (reference "#FLG0103") (unit 1) (value "PWR_FLAG") (footprint "")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/c551a176-3eca-47e1-88b7-11fb1f4eec67"
-      (reference "#FLG0104") (unit 1) (value "PWR_FLAG") (footprint "")
-    )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/f73698a8-3de1-4678-a688-c220e770e30e"
       (reference "#FLG0105") (unit 1) (value "PWR_FLAG") (footprint "")
     )
@@ -4020,8 +4017,8 @@
     (path "/34a77200-f2ce-4adc-a07c-7ff02b04c2d1"
       (reference "#PWR0103") (unit 1) (value "GND1") (footprint "")
     )
-    (path "/b74893ef-c260-40e7-8209-5d840ce53541"
-      (reference "#PWR0104") (unit 1) (value "+10V") (footprint "")
+    (path "/75552e51-aac3-4cd1-b8f4-3daa70ece248"
+      (reference "#PWR0104") (unit 1) (value "VDDA") (footprint "")
     )
     (path "/0b7b06c2-eddc-4c0e-9041-c04f576218bc"
       (reference "#PWR0105") (unit 1) (value "GND1") (footprint "")
@@ -4044,8 +4041,8 @@
     (path "/f6ea13d8-b1cf-4319-88cf-e935b8506808"
       (reference "#PWR0111") (unit 1) (value "GND1") (footprint "")
     )
-    (path "/07b2da65-1825-486e-ae29-0ef2d0371d00"
-      (reference "#PWR0112") (unit 1) (value "+10V") (footprint "")
+    (path "/a2916a14-5fd3-4ec2-893b-1c0391c71289"
+      (reference "#PWR0112") (unit 1) (value "VDDA") (footprint "")
     )
     (path "/95eb5cdd-7714-4dcb-af23-b9b1b8518d4a"
       (reference "#PWR0113") (unit 1) (value "GND1") (footprint "")
@@ -4185,9 +4182,6 @@
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/b241b700-35a4-49ec-8458-bf9a7b661007"
       (reference "#PWR0158") (unit 1) (value "GND1") (footprint "")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/3d1a03e6-4a51-4cd8-beb7-f4c4e1032574"
-      (reference "#PWR0159") (unit 1) (value "GND1") (footprint "")
-    )
     (path "/40ada2ea-a259-4aaf-a47d-4f1bafebc3ab"
       (reference "C1") (unit 1) (value "Csnub1") (footprint "")
     )
@@ -4269,9 +4263,6 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/719ab75d-663b-4bfe-bd6d-2136535a1442"
       (reference "C27") (unit 1) (value "C") (footprint "")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/c96b5793-aefc-4c7f-9fcb-3342464bea01"
-      (reference "C28") (unit 1) (value "CREGin") (footprint "")
-    )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/c06d6c45-819d-45e2-90be-511deb13cd0e"
       (reference "C29") (unit 1) (value "CREG_IN") (footprint "")
     )
@@ -4302,9 +4293,6 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/a3dfa3dc-6353-4a06-9579-76a22116089d"
       (reference "D5") (unit 1) (value "MBR0520") (footprint "Diode_SMD:D_SOD-123")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/fb68a379-dd80-4a1c-aa86-99bb5d3288c5"
-      (reference "D6") (unit 1) (value "MBR340") (footprint "Diode_THT:D_DO-201AD_P15.24mm_Horizontal")
-    )
     (path "/bcaf2dca-bfb6-45b7-bff9-b0d7d064715a"
       (reference "J1") (unit 1) (value "ConnPWM1324") (footprint "")
     )
@@ -4325,9 +4313,6 @@
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/51a7c2c0-8cd9-464f-a5d9-ef3db7db5670"
       (reference "J7") (unit 1) (value "ConnAlim12-18") (footprint "")
-    )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/455b6c81-fc7d-403c-a3f8-0e5597541c5d"
-      (reference "L1") (unit 1) (value "L") (footprint "")
     )
     (path "/7c4723ef-9098-48c6-a170-8710177e4d8e"
       (reference "Q1") (unit 1) (value "IRFP150") (footprint "Package_TO_SOT_THT:TO-247-3_Vertical")
@@ -4401,12 +4386,6 @@
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/0bacfedd-60d4-484c-9db8-7983db07e0ea"
       (reference "R20") (unit 1) (value "R") (footprint "")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/07b09dec-6b3b-48a6-bfc6-7b2476162937"
-      (reference "R21") (unit 1) (value "R2") (footprint "")
-    )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/5d4b47d3-2d08-4bc3-93db-ce441235acad"
-      (reference "R22") (unit 1) (value "R1") (footprint "")
-    )
     (path "/f6b3adcb-0799-42a8-87ad-7d3738e77a1e"
       (reference "U1") (unit 1) (value "ACPL-P480") (footprint "Package_SO:SSO-6_6.8x4.6mm_P1.27mm_Clearance7mm")
     )
@@ -4439,9 +4418,6 @@
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/20bae4ad-329c-434d-9ade-038187088ecb"
       (reference "U11") (unit 1) (value "LM7805_TO220") (footprint "Package_TO_SOT_THT:TO-220-3_Vertical")
-    )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/8e6752df-f11d-43f7-ab81-61ef784878ab"
-      (reference "U12") (unit 1) (value "LM2576HVS-ADJ") (footprint "Package_TO_SOT_SMD:TO-263-5_TabPin3")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/581089b1-75b4-48f9-abac-91a1bf7fabba"
       (reference "U13") (unit 1) (value "THB3-1211") (footprint "")
