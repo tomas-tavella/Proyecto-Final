@@ -328,6 +328,18 @@
     [
       "59d8992c-71f3-4d96-a665-43f8d7d91dab",
       "Fuentes"
+    ],
+    [
+      "3cb0c9f3-4bf3-4fae-ab31-6b0aab400894",
+      "Drivers y Optos"
+    ],
+    [
+      "4e173558-325e-4066-ac16-fbddaffe7aba",
+      "Conversor"
+    ],
+    [
+      "60853f38-91c4-4bbd-acc4-45c0340c062b",
+      "Placa DSP"
     ]
   ],
   "text_variables": {}
