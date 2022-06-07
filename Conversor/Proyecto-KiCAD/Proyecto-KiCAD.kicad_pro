@@ -340,6 +340,10 @@
     [
       "60853f38-91c4-4bbd-acc4-45c0340c062b",
       "Placa DSP"
+    ],
+    [
+      "9467d480-2e9e-42f3-bd74-f5a846e88aad",
+      "Socket Interfaces"
     ]
   ],
   "text_variables": {}

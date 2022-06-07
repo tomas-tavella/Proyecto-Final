@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "TMS320F28335-altium-import")(type "KiCad")(uri "${KIPRJMOD}/TMS320F28335-altium-import.kicad_sym")(options "")(descr ""))
+)
