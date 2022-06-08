@@ -773,7 +773,7 @@
       (reference "J7") (unit 1) (value "ConnAlim12-18") (footprint "")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/2e15a1ea-9119-41be-a976-d7860b6967e2"
-      (reference "J?") (unit 1) (value "DIM100") (footprint "")
+      (reference "J?") (unit 1) (value "DIM100") (footprint "5390213-1:TE_5390213-1")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/6458dfb0-0a89-4dc7-8522-3bcc4e8c8a79"
       (reference "LED?") (unit 1) (value "Led smd") (footprint "")

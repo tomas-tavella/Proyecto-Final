@@ -4531,7 +4531,7 @@
     (property "Value" "DIM100" (id 1) (at 37.846 149.86 90)
       (effects (font (size 1.524 1.524)) (justify left bottom))
     )
-    (property "Footprint" "" (id 2) (at -78.74 2.286 0)
+    (property "Footprint" "5390213-1:TE_5390213-1" (id 2) (at -78.74 2.286 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Datasheet" "" (id 3) (at -78.74 2.286 0)
