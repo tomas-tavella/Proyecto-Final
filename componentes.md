@@ -11,8 +11,7 @@
 
 - Isolator: Texas Instruments ISO7242C Quad-Channel Digital Isolator -- Paquete SOIC-16 (En el laboratorio)
  	   
-- Optoacopladores: Broadcom ACPL-P343 4.0 Amp Output Current IGBT Gate Drive Optocoupler with Rail-to-Rail Output Voltage -- Paquete SO-6
-                   (Alt) 6N137 High Speed Optocoupler, 10 Mbd -- Paquete DIP-8
+- Optoacopladores: Broadcom ACPL-P480 High CMR Intelligent Power Module and Gate Drive Interface Optocoupler  -- Paquete SO-6
 
 - Sensor I/V/P: Texas Instuments LM5056A 3 to 80V, 12-bit, I2C output -- Paquete HSSTOP-28 (con pad abajo)
 
@@ -23,5 +22,6 @@
 - Fuente aislada para parte digital: TRACO THB 3-1211 9-18 Vdc in
 
 - Reguladores: Fairchild Semi LM7805 3-Terminal 1A Positive Voltage Regulator (para +5VP) -- Paquete TO-252/D-PAK
+               Texas Instruments LP2985 150-mA, Low-Noise, Low-Dropout Regulator With Shutdown -- Paquete SOT-23-5 (Usado en placa adaptadora)
 
 - Op-Amp: Texas Instruments OPA365AID 50-MHz, Zerø-Crossover, Low-Distortion, High CMRR, RRI/O, Single-Supply Operational Amplifier -- Paquete SOIC-8
