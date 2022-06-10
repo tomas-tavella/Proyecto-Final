@@ -2035,6 +2035,11 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 22dd76f4-d2fb-492e-8dae-6a3e581cb5c9)
   )
+  (text "Hay que unir SDAO e SDAI luego del aislador,\nestán separadas para facilitar la aislación"
+    (at 224.79 57.15 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 26f6b77b-75fc-4b14-a9a5-463172033113)
+  )
   (text "1.5kΩ" (at 147.32 52.07 90)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 33781f7c-7dbc-4ffe-b050-6065a2f201ec)
