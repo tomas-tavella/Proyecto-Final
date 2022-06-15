@@ -21,7 +21,15 @@
 \usepackage{subfigure}                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
 \usepackage{listings}                           % Para poder incluir código
 \usepackage{xcolor}                             % Para poder definir colores  
-\usepackage{enumitem}                           % Para poder poner letras como items de listas      
+\usepackage{enumitem}                           % Para poder poner letras como items de listas
+\usepackage{afterpage}                          % Para poder insertar pagina en blanco
+
+\newcommand\blankpage{                          % Comando para pagina en blanco sin numero de hoja
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
 
 \definecolor{codegreen}{rgb}{0,0.6,0}           % Colores para el código
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -53,17 +61,21 @@
 
     \nocite{*}                                  % Se usa para que aparezcan todas la referencias del .bib sin tener que 
                                                 % citarlas en el texto
-    \input{Secciones/1 - Portada.tex}
+    \afterpage{\blankpage}                      % Página en blanco entre portada y agradecimientos
 
-    \tableofcontents \newpage
+    \input{Secciones/Portada.tex}
+                          
+    \newpage 
 
-    \input{Secciones/2 - Enunciado.tex}
+    \input{Secciones/Agradecimientos.tex}
 
-    \input{Secciones/3 - Interpretacion del problema.tex}
+    \newpage
 
-    \input{Secciones/4 - Resolucion.tex}
+    \input{Secciones/Abstract.tex}
 
-    \input{Secciones/5 - Conclusiones.tex}
+    \newpage \tableofcontents \newpage
+
+    \input{Secciones/1 - Introduccion.tex}
 
     %\printbibliography 
     
