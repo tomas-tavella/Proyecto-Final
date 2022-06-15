@@ -1145,7 +1145,6 @@
     )
   )
 
-
   (junction (at 104.14 119.38) (diameter 0) (color 0 0 0 0)
     (uuid 00dbfb96-da41-4ce6-989c-d53c645ce066)
   )
@@ -2741,10 +2740,10 @@
     (property "Reference" "R38" (id 0) (at 266.7 74.9299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "R" (id 1) (at 266.7 77.4699 0)
+    (property "Value" "Rfix" (id 1) (at 266.7 77.4699 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 264.16 76.2 0)
+    (property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" (id 2) (at 264.16 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 264.16 76.2 0)
