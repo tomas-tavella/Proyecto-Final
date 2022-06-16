@@ -989,6 +989,7 @@
     )
   )
 
+
   (junction (at 34.29 81.28) (diameter 0) (color 0 0 0 0)
     (uuid 01ac61a0-e2ad-438f-b1f6-9c2867a521fc)
   )
@@ -1719,7 +1720,7 @@
     (effects (font (size 2.54 2.54)) (justify left))
     (uuid 26497548-becf-4157-ae04-1dc694c8f1cb)
   )
-  (hierarchical_label "+3.3V" (shape bidirectional) (at 266.7 139.7 0)
+  (hierarchical_label "+3V3" (shape bidirectional) (at 266.7 139.7 0)
     (effects (font (size 2.54 2.54)) (justify left))
     (uuid 3ab46830-666f-4b1a-a786-aa47f157a4d5)
   )
