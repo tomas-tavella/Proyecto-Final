@@ -2189,7 +2189,7 @@
     (property "Value" "FT232BL" (id 1) (at 80.7594 121.92 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_DFN_QFN:QFN-32-1EP_7x7mm_P0.65mm_EP5.4x5.4mm" (id 2) (at 99.06 118.11 0)
+    (property "Footprint" "Package_QFP:LQFP-32_7x7mm_P0.8mm" (id 2) (at 99.06 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232BM.pdf" (id 3) (at 73.66 87.63 0)

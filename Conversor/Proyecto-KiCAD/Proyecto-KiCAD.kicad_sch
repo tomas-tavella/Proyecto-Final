@@ -1041,15 +1041,6 @@
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/53ce6d5f-5adf-4971-bfed-2fa2db9fc77c"
       (reference "R36") (unit 1) (value "220") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/758154b2-f8fc-4a4b-8c5e-4030372d6946"
-      (reference "R37") (unit 1) (value "Rfix") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
-    )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/a101593b-7461-449d-9328-18fae890634d"
-      (reference "R38") (unit 1) (value "Rfix") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
-    )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/6872d14d-c324-440f-8198-260f7af3a756"
-      (reference "R39") (unit 1) (value "Rfix") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
-    )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/9d333b7f-3f37-4475-850b-75cdb729d89a"
       (reference "SW1") (unit 1) (value "Switch") (footprint "Button_Switch_THT:SW_PUSH_6mm")
     )
@@ -1105,7 +1096,7 @@
       (reference "U13") (unit 1) (value "THB3-1211") (footprint "Package_DIP:DIP-24_W15.24mm")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/90517b62-3a93-49bb-88f0-f182932070fb"
-      (reference "U14") (unit 1) (value "FT232BL") (footprint "Package_DFN_QFN:QFN-32-1EP_7x7mm_P0.65mm_EP5.4x5.4mm")
+      (reference "U14") (unit 1) (value "FT232BL") (footprint "Package_QFP:LQFP-32_7x7mm_P0.8mm")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/8799b7bd-3dcb-4566-bdd0-782fad5f4350"
       (reference "U15") (unit 1) (value "LP2985-3.3") (footprint "Package_TO_SOT_SMD:SOT-23-5")
