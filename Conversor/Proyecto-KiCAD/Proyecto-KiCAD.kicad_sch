@@ -420,9 +420,6 @@
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/2f71a7bb-49a1-4d24-99f3-ad167f8a3dae"
       (reference "#FLG01") (unit 1) (value "PWR_FLAG") (footprint "")
     )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/758906b6-ca36-483a-85ac-66ecfac3100a"
-      (reference "#FLG0102") (unit 1) (value "PWR_FLAG") (footprint "")
-    )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/4704e982-0cea-4cba-9496-99d71894ec7e"
       (reference "#FLG0103") (unit 1) (value "PWR_FLAG") (footprint "")
     )
@@ -657,6 +654,9 @@
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/0fd88c1e-8d3c-4792-ae1a-701f2638c984"
       (reference "#PWR0145") (unit 1) (value "GND2") (footprint "")
     )
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/879057e5-0f07-4cf1-a0bc-5f97c96bd87f"
+      (reference "#PWR0146") (unit 1) (value "GND1") (footprint "")
+    )
     (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/afc03dd1-f21a-4de2-adbb-33985a556592"
       (reference "#PWR0148") (unit 1) (value "GNDD") (footprint "")
     )
@@ -700,7 +700,7 @@
       (reference "C4") (unit 1) (value "Csnub4") (footprint "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/3d7b5eee-dda5-4c80-9511-ca65dd620b34"
-      (reference "C5") (unit 1) (value "Cin") (footprint "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm")
+      (reference "C5") (unit 1) (value "Cin") (footprint "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/f9ad3acb-9f6a-4ba2-b71e-db24e3516070"
       (reference "C6") (unit 1) (value "Cf") (footprint "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm")
@@ -844,19 +844,19 @@
       (reference "D5") (unit 1) (value "MBR0520") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/6fac4ac1-f7fd-4f51-8aff-ff3429750049"
-      (reference "J1") (unit 1) (value "ConnPila") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "J1") (unit 1) (value "ConnPila") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/c49473e7-a80a-48e9-a02d-8f2bf6384376"
-      (reference "J2") (unit 1) (value "ConnTrafoP") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "J2") (unit 1) (value "ConnTrafoP") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/b2fea396-d052-4efc-9f02-e7a920615a05"
-      (reference "J3") (unit 1) (value "ConnTrafoS") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "J3") (unit 1) (value "ConnTrafoS") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/934ebc67-670d-4cb2-bc6a-7d608ed83566"
-      (reference "J4") (unit 1) (value "ConnLf") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "J4") (unit 1) (value "ConnLf") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/e9eedfac-d9c4-4924-9852-e11e11a5a8ac"
-      (reference "J5") (unit 1) (value "ConnCarga") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "J5") (unit 1) (value "ConnCarga") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/b6ee4507-5df6-421b-b91c-a67cd8ce3ff5"
       (reference "J6") (unit 1) (value "Barrel_Jack_Switch") (footprint "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal")
