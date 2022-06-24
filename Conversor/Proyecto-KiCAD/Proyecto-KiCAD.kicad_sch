@@ -1105,7 +1105,7 @@
       (reference "U15") (unit 1) (value "LP2985-3.3") (footprint "Package_TO_SOT_SMD:SOT-23-5")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/79e1d4a9-8ce1-49b0-8b8f-b5bd639c81d4"
-      (reference "Y1") (unit 1) (value "6 MHz") (footprint "Crystal:Crystal_HC18-U_Vertical")
+      (reference "Y1") (unit 1) (value "6 MHz") (footprint "Crystal:Resonator-2Pin_W10.0mm_H5.0mm")
     )
   )
 )
