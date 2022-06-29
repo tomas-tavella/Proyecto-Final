@@ -66,10 +66,15 @@
     \input{Secciones/Portada.tex}
                           
     \newpage 
+    \thispagestyle{empty}                       % Para que no se muestre el número de página al final (igual contribuye a la cuenta total)
+    \afterpage{\blankpage}
 
     \input{Secciones/Agradecimientos.tex}
 
     \newpage
+    \thispagestyle{empty}
+    \afterpage{\blankpage}
+    \addtocounter{page}{+2}
 
     \input{Secciones/Abstract.tex}
 
