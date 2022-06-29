@@ -849,20 +849,20 @@
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/7926b804-5009-4666-98b8-ce77140216ac"
       (reference "C48") (unit 1) (value "33nF") (footprint "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder")
     )
-    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/a3dfa3dc-6353-4a06-9579-76a22116089d"
-      (reference "D1") (unit 1) (value "MBR0520") (footprint "Diode_SMD:D_SOD-123")
-    )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/4d3891af-2296-4617-9152-ae88093796e9"
+      (reference "D1") (unit 1) (value "MUR860") (footprint "Package_TO_SOT_THT:TO-220F-2_Vertical")
+    )
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/97235626-04e6-46dc-8e8b-e05c9f715800"
       (reference "D2") (unit 1) (value "MUR860") (footprint "Package_TO_SOT_THT:TO-220F-2_Vertical")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/4bd5241c-193e-4a28-a87a-5215ebce622f"
       (reference "D3") (unit 1) (value "MUR860") (footprint "Package_TO_SOT_THT:TO-220F-2_Vertical")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/97235626-04e6-46dc-8e8b-e05c9f715800"
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/d49eb49e-dd7e-48f7-9345-a3efa9d6655b"
       (reference "D4") (unit 1) (value "MUR860") (footprint "Package_TO_SOT_THT:TO-220F-2_Vertical")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/d49eb49e-dd7e-48f7-9345-a3efa9d6655b"
-      (reference "D5") (unit 1) (value "MUR860") (footprint "Package_TO_SOT_THT:TO-220F-2_Vertical")
+    (path "/02b36b52-6a67-4b1a-aeda-ca74c124cf8d/a3dfa3dc-6353-4a06-9579-76a22116089d"
+      (reference "D5") (unit 1) (value "MBR0520") (footprint "Diode_SMD:D_SOD-123")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/b6ee4507-5df6-421b-b91c-a67cd8ce3ff5"
       (reference "J1") (unit 1) (value "Barrel_Jack_Switch") (footprint "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal")
@@ -948,10 +948,10 @@
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/22c0e2f8-1dbf-4e88-869b-95a467b80a65"
       (reference "Q1") (unit 1) (value "IRFP150") (footprint "Package_TO_SOT_THT:TO-247-3_Vertical")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/f48eb6b9-d9c0-440d-8d87-fe897d8a032b"
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/b10a209c-b9a6-4e4a-86f3-77ba3c9e8d18"
       (reference "Q2") (unit 1) (value "IRFP150") (footprint "Package_TO_SOT_THT:TO-247-3_Vertical")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/b10a209c-b9a6-4e4a-86f3-77ba3c9e8d18"
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/f48eb6b9-d9c0-440d-8d87-fe897d8a032b"
       (reference "Q3") (unit 1) (value "IRFP150") (footprint "Package_TO_SOT_THT:TO-247-3_Vertical")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/2935b844-095c-4026-9258-99ca3b68fe6b"
