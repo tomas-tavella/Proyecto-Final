@@ -925,7 +925,7 @@
       (reference "P7") (unit 1) (value "Header 7X2") (footprint "Connector_PinSocket_2.54mm:PinSocket_2x07_P2.54mm_Vertical")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/1b12012e-f6f8-4762-bfff-fe3389b33da1"
-      (reference "P8") (unit 1) (value "Header UART") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+      (reference "P8") (unit 1) (value "Header UART") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/6832dd14-628e-4ce0-a900-709dab27722e"
       (reference "P9") (unit 1) (value "Header I2C") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")

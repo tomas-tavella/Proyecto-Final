@@ -4332,7 +4332,7 @@
     (property "Value" "Header UART" (id 1) (at 207.01 41.91 0)
       (effects (font (size 1.524 1.524)) (justify left bottom))
     )
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" (id 2) (at 190.5 38.1 0)
+    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" (id 2) (at 190.5 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 190.5 38.1 0)
