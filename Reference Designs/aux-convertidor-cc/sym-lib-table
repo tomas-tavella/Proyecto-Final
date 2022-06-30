@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "spade_connector")(type "Legacy")(uri "${KIPRJMOD}/lib/62409-1.lib")(options "")(descr ""))
+  (lib (name "terminal_block")(type "KiCad")(uri "${KIPRJMOD}/lib/terminal_block.kicad_sym")(options "")(descr ""))
+)

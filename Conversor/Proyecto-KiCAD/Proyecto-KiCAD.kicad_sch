@@ -867,20 +867,20 @@
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/b6ee4507-5df6-421b-b91c-a67cd8ce3ff5"
       (reference "J1") (unit 1) (value "Barrel_Jack_Switch") (footprint "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/6fac4ac1-f7fd-4f51-8aff-ff3429750049"
-      (reference "J2") (unit 1) (value "ConnPila") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/9c125a16-4341-4d34-8fcb-84c7c770443e"
+      (reference "J2") (unit 1) (value "ConnPila") (footprint "")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/c49473e7-a80a-48e9-a02d-8f2bf6384376"
-      (reference "J3") (unit 1) (value "ConnTrafoP") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/0c37096e-8542-4a10-8fa7-97da7d8fbc69"
+      (reference "J3") (unit 1) (value "ConnTrafoP") (footprint "")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/b2fea396-d052-4efc-9f02-e7a920615a05"
-      (reference "J4") (unit 1) (value "ConnTrafoS") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/29a9785e-5026-46c4-b0a3-6b97e7219dda"
+      (reference "J4") (unit 1) (value "ConnTrafoS") (footprint "")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/934ebc67-670d-4cb2-bc6a-7d608ed83566"
-      (reference "J5") (unit 1) (value "ConnLf") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/e2a0c1c2-75a7-42db-8f89-aa8d67bed8b6"
+      (reference "J5") (unit 1) (value "ConnLf") (footprint "")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/e9eedfac-d9c4-4924-9852-e11e11a5a8ac"
-      (reference "J6") (unit 1) (value "ConnCarga") (footprint "TerminalBlock:TerminalBlock_Wuerth_691311400102_P7.62mm")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/a0323493-3acc-4d19-9dbf-03b596eb2436"
+      (reference "J6") (unit 1) (value "ConnCarga") (footprint "")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/2e15a1ea-9119-41be-a976-d7860b6967e2"
       (reference "J7") (unit 1) (value "DIMM100") (footprint "5390213-1:TE_5390213-1")
@@ -1014,8 +1014,8 @@
     (path "/3cb0c9f3-4bf3-4fae-ab31-6b0aab400894/c7fef406-ca99-4ae4-b9c6-c8ce45ad46db"
       (reference "R18") (unit 1) (value "RS") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
     )
-    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/40033236-f14a-4ccd-b2d0-bb7bf13a556d"
-      (reference "R19") (unit 1) (value "RS") (footprint "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder")
+    (path "/4e173558-325e-4066-ac16-fbddaffe7aba/9bb6f01d-fa87-4fc0-9201-731c8d7cab97"
+      (reference "R19") (unit 1) (value "RS") (footprint "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/57effa59-51da-4098-9a98-9ec9c22588ce"
       (reference "R20") (unit 1) (value "0") (footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
