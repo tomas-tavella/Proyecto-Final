@@ -868,19 +868,19 @@
       (reference "J1") (unit 1) (value "Barrel_Jack_Switch") (footprint "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/9c125a16-4341-4d34-8fcb-84c7c770443e"
-      (reference "J2") (unit 1) (value "ConnPila") (footprint "")
+      (reference "J2") (unit 1) (value "ConnPila") (footprint "DegsonScrewTerminal:Degson_Screw_Terminal_block_01x02")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/0c37096e-8542-4a10-8fa7-97da7d8fbc69"
-      (reference "J3") (unit 1) (value "ConnTrafoP") (footprint "")
+      (reference "J3") (unit 1) (value "ConnTrafoP") (footprint "DegsonScrewTerminal:Degson_Screw_Terminal_block_01x02")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/29a9785e-5026-46c4-b0a3-6b97e7219dda"
-      (reference "J4") (unit 1) (value "ConnTrafoS") (footprint "")
+      (reference "J4") (unit 1) (value "ConnTrafoS") (footprint "DegsonScrewTerminal:Degson_Screw_Terminal_block_01x02")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/e2a0c1c2-75a7-42db-8f89-aa8d67bed8b6"
-      (reference "J5") (unit 1) (value "ConnLf") (footprint "")
+      (reference "J5") (unit 1) (value "ConnLf") (footprint "DegsonScrewTerminal:Degson_Screw_Terminal_block_01x02")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/a0323493-3acc-4d19-9dbf-03b596eb2436"
-      (reference "J6") (unit 1) (value "ConnCarga") (footprint "")
+      (reference "J6") (unit 1) (value "ConnCarga") (footprint "DegsonScrewTerminal:Degson_Screw_Terminal_block_01x02")
     )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/2e15a1ea-9119-41be-a976-d7860b6967e2"
       (reference "J7") (unit 1) (value "DIMM100") (footprint "5390213-1:TE_5390213-1")
