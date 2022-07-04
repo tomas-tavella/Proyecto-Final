@@ -885,6 +885,12 @@
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/2e15a1ea-9119-41be-a976-d7860b6967e2"
       (reference "J7") (unit 1) (value "DIMM100") (footprint "5390213-1:TE_5390213-1")
     )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/836d1cb6-1c4a-43cf-a985-a7c4e1512588"
+      (reference "J8") (unit 1) (value "VDDA Header") (footprint "1725656")
+    )
+    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/4ce38418-b6f9-4b34-8d8a-5782239bae4b"
+      (reference "J9") (unit 1) (value "5V Header") (footprint "1725656")
+    )
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/9467d480-2e9e-42f3-bd74-f5a846e88aad/d79debca-e905-4cb2-8628-6d1d2f0a0310"
       (reference "LED1") (unit 1) (value "Led smd") (footprint "Diode_SMD:D_1206_3216Metric_Pad1.42x1.75mm_HandSolder")
     )
@@ -903,17 +909,11 @@
     (path "/60853f38-91c4-4bbd-acc4-45c0340c062b/4eaaf73e-a1c5-47f8-95a2-de4d23f144b5/70952003-46f0-4eee-a650-33c5edb68cba"
       (reference "LED6") (unit 1) (value "Led smd") (footprint "Diode_SMD:D_1206_3216Metric_Pad1.42x1.75mm_HandSolder")
     )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/855e25ff-7ba5-4074-9ee0-6bd8d3e74ddf"
-      (reference "P1") (unit 1) (value "VDDA Header") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-    )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/cbc378b3-cb1e-4bdf-a914-dcd0d256f0a1"
       (reference "P2") (unit 1) (value "SW_SPDT") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/752c93af-8393-4dfe-af75-605a7ee96e3f"
       (reference "P3") (unit 1) (value "SW_SPDT") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-    )
-    (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/a101d4c3-f30d-4e5a-b734-8e42fa34f07e"
-      (reference "P4") (unit 1) (value "5V Header") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
     )
     (path "/59d8992c-71f3-4d96-a665-43f8d7d91dab/c8629ecc-0737-4562-b79c-881588ce5df4"
       (reference "P5") (unit 1) (value "5V Header") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")

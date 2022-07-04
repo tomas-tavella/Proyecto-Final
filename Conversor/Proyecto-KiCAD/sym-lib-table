@@ -3,4 +3,5 @@
   (lib (name "2022-05-17_16-55-27")(type "Legacy")(uri "${KIPRJMOD}/Libraries/ul_ADUM4221ARIZ/KiCAD/2022-05-17_16-55-27/2022-05-17_16-55-27.lib")(options "")(descr ""))
   (lib (name "2022-05-17_17-00-40")(type "Legacy")(uri "${KIPRJMOD}/Libraries/ul_LM5056APMH-NOPB/KiCAD/2022-05-17_17-00-40/2022-05-17_17-00-40.lib")(options "")(descr ""))
   (lib (name "5390213-1")(type "Legacy")(uri "${KIPRJMOD}/Libraries/5390213-1/5390213-1.lib")(options "")(descr ""))
+  (lib (name "1725656")(type "Legacy")(uri "${KIPRJMOD}/Libraries/Conector 12V/1725656.lib")(options "")(descr ""))
 )
