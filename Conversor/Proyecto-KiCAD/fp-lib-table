@@ -2,4 +2,5 @@
   (lib (name "5390213-1")(type "KiCad")(uri "${KIPRJMOD}/Libraries/5390213-1")(options "")(descr ""))
   (lib (name "DegsonScrewTerminal")(type "KiCad")(uri "${KIPRJMOD}/Libraries/DegsonScrewTerminal")(options "")(descr ""))
   (lib (name "Conector 12V")(type "KiCad")(uri "${KIPRJMOD}/Libraries/Conector 12V")(options "")(descr ""))
+  (lib (name "LogoFI")(type "KiCad")(uri "${KIPRJMOD}/Libraries/LogoFI")(options "")(descr ""))
 )

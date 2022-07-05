@@ -1,14 +1,12 @@
--  Cambiar conector de primario al lado del de secundario
+✅ Cambiar conector de primario al lado del de secundario
 ✅ Ver todos los cap. y diodos que faltan
--  Punto estrella de conexion de tierras con paralelo RC (Un pad en el punto donde van)
+✅ Punto estrella de conexion de tierras con paralelo RC (Un pad en el punto donde van)
 ✅ Sensor de efecto hall de la capa de abajo, invertir conectores de Carga e Inductor y acercar el capacitor a la carga
 ✅ Capacitores de entrada y salida, uno solo por cada lado
--  Revisar que ancho de pista < ancho de pads
+✅ Revisar que ancho de pista < ancho de pads
 ✅ RC serie SMD paralelo a transitores
 ✅ RC serie THT paralelo a diodos
 ✅ Test points que no corten pistas
--  Mas ancho a las conexiones de tierra en la parte de potencia
--  Tratar de no usar pads circulares en la parte de potencia
--  Disminuir el recorrido y espacio entre pistas de drivers a transistores, como recomienda la hoja de datos
--  Invertir de lugar los dos conectores del primario
-
+✅ Más ancho a las conexiones de tierra en la parte de potencia
+✅ Tratar de no usar pads circulares en la parte de potencia
+✅ Disminuir el recorrido y espacio entre pistas de drivers a transistores, como recomienda la hoja de datos
