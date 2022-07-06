@@ -1371,7 +1371,7 @@
       (reference "C27") (unit 1) (value "CS") (footprint "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/3d7b5eee-dda5-4c80-9511-ca65dd620b34"
-      (reference "C28") (unit 1) (value "Cin") (footprint "Capacitor_THT:CP_Radial_D22.0mm_P10.00mm_SnapIn")
+      (reference "C28") (unit 1) (value "Cin") (footprint "Capacitor_THT:CP_Radial_D25.0mm_P10.00mm_SnapIn")
     )
     (path "/4e173558-325e-4066-ac16-fbddaffe7aba/25f51ec6-f593-41cf-b654-289efa26003f"
       (reference "C29") (unit 1) (value "CD1") (footprint "Capacitor_THT:CP_Radial_Tantal_D4.5mm_P2.50mm")

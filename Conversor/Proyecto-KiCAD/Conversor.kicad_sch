@@ -1696,7 +1696,7 @@
     (property "Value" "Cin" (id 1) (at 73.66 99.7838 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Capacitor_THT:CP_Radial_D22.0mm_P10.00mm_SnapIn" (id 2) (at 71.12 99.06 0)
+    (property "Footprint" "Capacitor_THT:CP_Radial_D25.0mm_P10.00mm_SnapIn" (id 2) (at 71.12 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 71.12 99.06 0)
