@@ -10,3 +10,4 @@
 ✅ Más ancho a las conexiones de tierra en la parte de potencia
 ✅ Tratar de no usar pads circulares en la parte de potencia
 ✅ Disminuir el recorrido y espacio entre pistas de drivers a transistores, como recomienda la hoja de datos
+- Leer la nota de aplicación SLYT403 para ver como hacer la aislación del bus I2C
