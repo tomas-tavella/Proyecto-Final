@@ -1985,7 +1985,7 @@
     (in_bom yes) (on_board yes)
     (uuid 9bb6f01d-fa87-4fc0-9201-731c8d7cab97)
     (property "Reference" "R23" (id 0) (at 54.61 87.63 90))
-    (property "Value" "0.004Ω" (id 1) (at 54.61 92.71 90))
+    (property "Value" "0.004" (id 1) (at 54.61 92.71 90))
     (property "Footprint" "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T2.21mm" (id 2) (at 54.61 91.948 90)
       (effects (font (size 1.27 1.27)) hide)
     )
