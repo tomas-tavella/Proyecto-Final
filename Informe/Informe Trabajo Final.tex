@@ -24,8 +24,8 @@
 \usepackage{enumitem}                           % Para poder poner letras como items de listas
 \usepackage{afterpage}                          % Para poder insertar pagina en blanco
 \usepackage[sc]{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
-%\usepackage{bold-extra}
 \usepackage[T1]{fontenc}
+\usepackage[pagecolor=none]{pagecolor}
 
 \titleformat*{\section}{\Huge\scshape\bfseries}
 \titleformat*{\subsection}{\LARGE\bfseries}
@@ -78,9 +78,11 @@
 
 \begin{document}
 
+    \definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
+
     \nocite{*}                                  % Se usa para que aparezcan todas la referencias del .bib sin tener que 
                                                 % citarlas en el texto
-    \afterpage{\blankpage}                      % Página en blanco entre portada y agradecimientos
+    \newpagecolor{AzulFI}\afterpage{\restorepagecolor\blankpage}    % Página en blanco entre portada y agradecimientos
 
     \input{Secciones/Portada.tex}
                           
