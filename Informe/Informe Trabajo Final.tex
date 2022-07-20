@@ -23,6 +23,15 @@
 \usepackage{xcolor}                             % Para poder definir colores  
 \usepackage{enumitem}                           % Para poder poner letras como items de listas
 \usepackage{afterpage}                          % Para poder insertar pagina en blanco
+\usepackage[sc]{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
+%\usepackage{bold-extra}
+\usepackage[T1]{fontenc}
+
+\titleformat*{\section}{\Huge\scshape\bfseries}
+\titleformat*{\subsection}{\LARGE\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
 
 \newcommand\blankpage{                          % Comando para pagina en blanco sin numero de hoja
     \null
@@ -57,6 +66,16 @@
 
 \lstset{style=mystyle}
 
+\newcommand{\divider}
+{
+\begin{center}
+    \Huge
+    \textbf{------------------------------------------------}
+\end{center}
+\vspace{0.25cm}
+\normalsize
+}
+
 \begin{document}
 
     \nocite{*}                                  % Se usa para que aparezcan todas la referencias del .bib sin tener que 
@@ -78,9 +97,16 @@
 
     \input{Secciones/Abstract.tex}
 
-    \newpage \tableofcontents \newpage
+    \newpage
+    \afterpage{\blankpage} 
+    \tableofcontents
+    \newpage
 
     \input{Secciones/1 - Introduccion.tex}
+    
+    \newpage
+
+    \input{Secciones/2 - Estudio conversor.tex}
 
     %\printbibliography 
     
