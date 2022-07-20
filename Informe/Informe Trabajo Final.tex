@@ -12,10 +12,11 @@
 % Paquetes útiles
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage[labelfont=bf]{caption}              % Para que "Figura x.y" este en bold
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{float}                              % Permite forzar una posición para una figura
-\usepackage{svg}                                % Para poder insertar SVGs
+%\usepackage{svg}                                % Para poder insertar SVGs
 \usepackage[justification=centering]{caption}   % Para poder centrar captions de figuras
 \usepackage{gensymb}                            % Símbolo de grados (\degree)
 \usepackage{subfigure}                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
@@ -27,7 +28,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[pagecolor=none]{pagecolor}
 
-\titleformat*{\section}{\Huge\scshape\bfseries}
+\titleformat*{\section}{\Huge\centering\scshape\bfseries}
 \titleformat*{\subsection}{\LARGE\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 \titleformat*{\paragraph}{\large\bfseries}
@@ -66,7 +67,7 @@
 
 \lstset{style=mystyle}
 
-\newcommand{\divider}
+\newcommand{\divider}                           % Macro para divisores horizontales
 {
 \begin{center}
     \Huge
@@ -75,6 +76,9 @@
 \vspace{0.25cm}
 \normalsize
 }
+
+\numberwithin{figure}{section}                  % Numeros de figura por seccion
+\numberwithin{equation}{section}                % Numeros de ecuacion por seccion
 
 \begin{document}
 
