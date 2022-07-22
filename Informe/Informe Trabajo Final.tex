@@ -28,23 +28,26 @@
 \usepackage[T1]{fontenc}
 \usepackage[pagecolor=none]{pagecolor}
 
-\titleformat*{\section}{\Huge\centering\scshape\bfseries}
-\titleformat*{\subsection}{\LARGE\bfseries}
+\titleformat*{\section}{\huge\centering\scshape\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 \titleformat*{\paragraph}{\large\bfseries}
 \titleformat*{\subparagraph}{\large\bfseries}
 
-\newcommand\blankpage{                          % Comando para pagina en blanco sin numero de hoja
+\newcommand{\blankpage}
+{                          % Comando para pagina en blanco sin numero de hoja
     \null
     \thispagestyle{empty}
     \addtocounter{page}{-1}
     \newpage
-    }
+}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}           % Colores para el código
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
+\definecolor{GrisTitulo}{rgb}{0.9, 0.9, 0.9}
 
 \lstdefinestyle{mystyle}{                       % Parametros para setear como se 
     backgroundcolor=\color{backcolour},         % muestra el codigo
@@ -82,8 +85,6 @@
 
 \begin{document}
 
-    \definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
-
     \nocite{*}                                  % Se usa para que aparezcan todas la referencias del .bib sin tener que 
                                                 % citarlas en el texto
     \newpagecolor{AzulFI}\afterpage{\restorepagecolor\blankpage}    % Página en blanco entre portada y agradecimientos
@@ -111,8 +112,6 @@
     \input{Secciones/1 - Introduccion.tex}
     
     \newpage
-
-    \input{Secciones/2 - Estudio conversor.tex}
 
     %\printbibliography 
     
