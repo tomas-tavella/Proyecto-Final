@@ -17,7 +17,7 @@ Hoy en día, más de medio siglo después, las consecuencias de este desmedido i
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.11]{Imagenes/Grafico Temperatura.png}
-    \caption{Temperatura superficial promedio del planeta, relativo a la temperatura promedio de 1961-1990, desde 1850 hasta 2019.}
+    \caption{Temperatura superficial promedio del planeta, relativo a la del período 1961-1990, desde 1850 hasta 2019.}
     \label{Temp_Tierra}
 \end{figure}
 
@@ -26,13 +26,34 @@ Sin embargo, los combustibles fósiles y fuentes de energía no renovables sigue
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.11]{Imagenes/Grafico Fuentes de Energía.png}
-    \caption{Distribución de producción global de energía según fuente, desde 1950 hasta 2019.}
+    \caption{Consumo global de energía primaria según fuente, desde 1950 hasta 2019.}
     \label{Emisiones_CO2}
 \end{figure}
 
-Con esta motivación, el Instituto de Investigaciones en Electrónica, Control y Procesamiento de Señales (LEICI) de la Facultad de Ingeniería de la UNLP se embarcó en en proyecto ``Electrónica de Potencia y Sistemas de Control Avanzado Aplicados a Fuentes de Energía Alternativas'', dentro del cuál se enmarca el presente trabajo, que utiliza pilas de combustible a base de hidrógeno como fuente de energía alternativa.\\
+Con esta motivación, el Instituto de Investigaciones en Electrónica, Control y Procesamiento de Señales (LEICI) de la Facultad de Ingeniería de la UNLP se embarcó en el proyecto ``Electrónica de Potencia y Sistemas de Control Avanzado Aplicados a Fuentes de Energía Alternativas'', dentro del cuál se enmarca el presente trabajo, que utiliza celdas de combustible en Sistemas Híbridos de Generación de Energía como fuente de energía alternativa.\\
 
-La plataforma experimental para la evaluación de sistemas híbridos basados en pilas de combustible consiste de múltiples partes, que se detallan en la figura \ref{diag_plataforma} a continuación.
+\subsection{Sistemas Híbridos de Generación de Energía}
+
+Un Sistema Híbrido de Generación de Energía (SHGE), en su descripción más general, es un sistema que combina distintas fuentes de energía, aprovechando las ventajas y suplementando las falencias de cada una de ellas. Generalmente, estos sistemas suelen combinar multiples fuentes de energías alternativas, como pueden ser, por ejemplo, generación solar mediante paneles y eólica mediante turbinas$^{[HybridEnergySystemModels]}$.\\
+
+En nuestro caso, el sistema consiste en el módulo de generación principal basado en celdas de combustible, un módulo de generación alternativo como podría ser un sistema eólico o solar, un Sistema de Almacenamiento de Energía (SAE) basado en un banco de supercapacitores, y adicionalmente  un electrolizador para alimentar combustible a las celdas. Todos estos módulos son adaptados mediante sistemas de conversión eléctrica de potencia y conectados a un bus común de corriente continua (CC) con una tensión fija de $75\ V$ (figura \ref{SHGE}).$^{[2012Talpone][2019FIAnderson]}$.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.75]{Imagenes/SHGE.png}
+    \caption{Diagrama esquemático del SHGE en estudio (placeholder).}
+    \label{SHGE}
+\end{figure}
+
+Resumiendo el funcionamiento brevemente, en este sistema el módulo de generación por celdas de combustible se encarga de entregar el nivel de potencia necesario para satisfacer la potencia demandada por la carga en el bus de CC. Mientras tanto, el módulo de generación alternativo tiene el rol de proveer potencia a la carga cuando el módulo de generación principal no es capaz de satisfacer por completo la demanda. El SAE aprovecha la capacidad de rápida de descarga de los supercapacitores junto con su alta capacitancia (almacena grandes cantidades de energía) para darle al SHGE velocidad de respuesta ante repentinos cambios de potencia demandada, a los que los módulos de generación no son capaces de responder a tiempo (luego, en momentos de menor demanda toma energía del sistema para cargar los supercapacitores). Finalmente, el electrolizador toma energía del sistema para generar el hidrógeno necesario para el funcionamiento de las celdas de combustible a partir de agua, mediante la reacción de electrólisis que se explicará en detalle más adelante$^{[2019FIAnderson]}$.\\
+
+Este trabajo se enfoca en el módulo de generación principal basado en celdas de combustible; preocupándose principalmente en el estudio, diseño, implementación y validación de una plataforma experimental para la evaluación de SHGE basado en celdas de combustible (figura \ref{diag_plataforma}), compuesto principalmente por cuatro partes:
+\begin{itemize}
+    \item El \textbf{Emulador de Celdas de Combustible}, usado en lugar de las celdas de combustible.
+    \item \textbf{Conversor CC-CC Conmutado}, el sistema de conversión de potencia encargado de adaptar los niveles de tensión de entrada y salida.
+    \item El \textbf{Sistema de Control}, que se encarga de monitorear y controlar el correcto y seguro funcionamiento de la plataforma.
+    \item La \textbf{Carga Eléctronica Variable}, utilizada para simular distintas condiciones de carga del bus de CC.
+\end{itemize}
 
 \begin{figure}[H]
     \centering
