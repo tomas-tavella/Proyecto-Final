@@ -14,7 +14,7 @@ El precipitado incremento de la población mundial en las últimas décadas, cau
 
 Hoy en día, más de medio siglo después, las consecuencias de este desmedido incremento del consumo global de combustibles fósiles se pueden observar claramente en la temperatura promedio del aire superficial de la Tierra, que ya es más de 1°C mayor a temperaturas medidas a principio del siglo previo (figura \ref{Temp_Tierra})$^{[OWID-CO2AndGreenhouseEmissions]}$, con algunos estimados conservadores de más de 2.5°C para finales de siglo$^{[ref 12 Wikipedia]}$. Los efectos perjudiciales de este incremento de temperatura se pueden ver en muchas partes, como la extinción de especies, el retroceso de los glaciares, el aumento de incidencia e intensidad de fenómenos climatológicos extremos (tormentas, sequías, olas de calor, etc.), entre muchos otros.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.11]{Imagenes/Grafico Temperatura.png}
     \caption{Temperatura superficial promedio del planeta, relativo a la del período 1961-1990, desde 1850 hasta 2019.}
@@ -23,7 +23,7 @@ Hoy en día, más de medio siglo después, las consecuencias de este desmedido i
 
 Sin embargo, los combustibles fósiles y fuentes de energía no renovables siguen conformando una mayoría en el panorama de generación energética global: en el año 2019, alrededor del 85\% de la energía producida mundialmente provino de fuentes no renovables$^{[OWID-EnergyProduction]}$ (figura \ref{Emisiones_CO2}). Para frenar el avance del cambio climático, se debe acelerar el ritmo de adopción de energías alternativas como reemplazo de los combustibles fósiles, disminuyendo la emisión de CO$_2$ y metano en la atmósfera.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.11]{Imagenes/Grafico Fuentes de Energía.png}
     \caption{Consumo global de energía primaria según fuente, desde 1950 hasta 2019.}
@@ -40,14 +40,14 @@ En nuestro caso, el sistema consiste en el módulo de generación principal basa
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.75]{Imagenes/SHGE.png}
-    \caption{Diagrama esquemático del SHGE en estudio (placeholder).}
+    \includegraphics[scale=0.35]{Imagenes/SHGE.pdf}
+    \caption{Sistema Híbrido de Generación de Energía (SHGE), con flujos de potencia indicados para cada módulo.}
     \label{SHGE}
 \end{figure}
 
-Resumiendo el funcionamiento brevemente, en este sistema el módulo de generación por celdas de combustible se encarga de entregar el nivel de potencia necesario para satisfacer la potencia demandada por la carga en el bus de CC. Mientras tanto, el módulo de generación alternativo tiene el rol de proveer potencia a la carga cuando el módulo de generación principal no es capaz de satisfacer por completo la demanda. El SAE aprovecha la capacidad de rápida de descarga de los supercapacitores junto con su alta capacitancia (almacena grandes cantidades de energía) para darle al SHGE velocidad de respuesta ante repentinos cambios de potencia demandada, a los que los módulos de generación no son capaces de responder a tiempo (luego, en momentos de menor demanda toma energía del sistema para cargar los supercapacitores). Finalmente, el electrolizador toma energía del sistema para generar el hidrógeno necesario para el funcionamiento de las celdas de combustible a partir de agua, mediante la reacción de electrólisis que se explicará en detalle más adelante$^{[2019FIAnderson]}$.\\
+En este sistema, el módulo de generación por celdas de combustible se encarga de entregar el nivel de potencia necesario para satisfacer la potencia demandada por la carga en el bus de CC. Mientras tanto, el módulo de generación alternativo tiene el rol de proveer potencia a la carga cuando el módulo de generación principal no es capaz de satisfacer por completo la demanda. El SAE aprovecha la capacidad de rápida de descarga de los supercapacitores junto con su alta capacitancia (almacena grandes cantidades de energía) para darle al SHGE velocidad de respuesta ante repentinos cambios de potencia demandada, a los que los módulos de generación no son capaces de responder a tiempo (luego, en momentos de menor demanda toma energía del sistema para cargar los supercapacitores). Finalmente, el electrolizador toma energía del sistema para generar el hidrógeno necesario para el funcionamiento de las celdas de combustible a partir de agua, mediante la reacción de electrólisis que se explicará en detalle más adelante$^{[2019FIAnderson]}$.\\
 
-En particular, este trabajo se enfoca en el estudio, diseño, implementación y validación de una plataforma experimental para la evaluación de módulos de celdas de combustible para Sistemas Híbridos de Generación de Energía (figura \ref{diag_plataforma}). Esta plataforma se compone de cuatro partes principales:
+En particular, este trabajo se enfoca en el estudio, diseño, implementación y validación de una plataforma experimental para la evaluación del Módulo de Celdas de Combustible (figura \ref{diag_plataforma}) para Sistemas Híbridos de Generación de Energía. Esta plataforma se compone de cuatro partes principales:
 
 \begin{itemize}
     \item El \textbf{Emulador de Celdas de Combustible}, usado en lugar de las celdas de combustible.
@@ -56,7 +56,7 @@ En particular, este trabajo se enfoca en el estudio, diseño, implementación y 
     \item La \textbf{Carga Eléctronica Variable}, utilizada para simular distintas condiciones de carga del bus de CC.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{Imagenes/Plataforma Experimental.pdf}
     \caption{Diagrama de la plataforma experimental en estudio.}
