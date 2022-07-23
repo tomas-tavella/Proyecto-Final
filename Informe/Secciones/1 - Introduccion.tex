@@ -47,7 +47,8 @@ En nuestro caso, el sistema consiste en el módulo de generación principal basa
 
 Resumiendo el funcionamiento brevemente, en este sistema el módulo de generación por celdas de combustible se encarga de entregar el nivel de potencia necesario para satisfacer la potencia demandada por la carga en el bus de CC. Mientras tanto, el módulo de generación alternativo tiene el rol de proveer potencia a la carga cuando el módulo de generación principal no es capaz de satisfacer por completo la demanda. El SAE aprovecha la capacidad de rápida de descarga de los supercapacitores junto con su alta capacitancia (almacena grandes cantidades de energía) para darle al SHGE velocidad de respuesta ante repentinos cambios de potencia demandada, a los que los módulos de generación no son capaces de responder a tiempo (luego, en momentos de menor demanda toma energía del sistema para cargar los supercapacitores). Finalmente, el electrolizador toma energía del sistema para generar el hidrógeno necesario para el funcionamiento de las celdas de combustible a partir de agua, mediante la reacción de electrólisis que se explicará en detalle más adelante$^{[2019FIAnderson]}$.\\
 
-Este trabajo se enfoca en el módulo de generación principal basado en celdas de combustible; preocupándose principalmente en el estudio, diseño, implementación y validación de una plataforma experimental para la evaluación de SHGE basado en celdas de combustible (figura \ref{diag_plataforma}), compuesto principalmente por cuatro partes:
+En particular, este trabajo se enfoca en el estudio, diseño, implementación y validación de una plataforma experimental para la evaluación de módulos de celdas de combustible para Sistemas Híbridos de Generación de Energía (figura \ref{diag_plataforma}). Esta plataforma se compone de cuatro partes principales:
+
 \begin{itemize}
     \item El \textbf{Emulador de Celdas de Combustible}, usado en lugar de las celdas de combustible.
     \item \textbf{Conversor CC-CC Conmutado}, el sistema de conversión de potencia encargado de adaptar los niveles de tensión de entrada y salida.
@@ -55,14 +56,12 @@ Este trabajo se enfoca en el módulo de generación principal basado en celdas d
     \item La \textbf{Carga Eléctronica Variable}, utilizada para simular distintas condiciones de carga del bus de CC.
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{Imagenes/Plataforma Experimental.pdf}
     \caption{Diagrama de la plataforma experimental en estudio.}
     \label{diag_plataforma}
 \end{figure}
 
-
-
-\subsection{Conversores CC-CC conmutados}
+Todo lo que refiere a esta plataforma se va a tratar en detalle a lo largo del desarrollo de los siguientes capítulos de este informe. Se comienza por un estudio en profundidad de la teoría de funcionamiento de sus componentes, pasando por una simulación de toda la plataforma para verificar su funcionamiento. Luego, se describe el proceso por el cuál se diseñó e implementó el sistema en una placa de circuito impreso (PCB, de \textit{Printed Circuit Board} en inglés); y se concluye el trabajo con la validación del correcto funcionamiento de la plataforma terminada.\\
 

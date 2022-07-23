@@ -45,3 +45,6 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+
+# Archivos de backup de draw.io
+*.bkp
