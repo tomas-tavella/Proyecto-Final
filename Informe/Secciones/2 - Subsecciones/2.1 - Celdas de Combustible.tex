@@ -6,7 +6,7 @@ Por estas razones se eligió trabajar con esta tecnología, particularmente con 
 
 \subsubsection{Principio de Funcionamiento de las Celdas de Combustible}
 
-Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica mediante una corriente y una diferencia de potencial$^{[FC-FundamentalsAndApplications]}$. En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.
+Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica mediante una corriente y una diferencia de potencial$^{[FC-FundamentalsAndApplications]}$. En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.linux/
 
 \begin{equation}\label{redox_celda}
     2H_2\ +\ O_2\ \longrightarrow\ 2H_2O
@@ -21,7 +21,7 @@ La estructura interna de una celda de combustible, visible en la figura \ref{fue
     \label{fuel_cell}
 \end{figure}
 
-La reacción redox de la ecuación \ref{redox_celda}, dentro de una celda de combustible como la del esquema, en realidad se separa en dos reacciones parciales distintas:
+La reacción redox de la ecuación \ref{redox_celda}, dentro de una celda de combustible como la del esquema, en realidad se separa en dos reacciones parciales distintas, la oxidación y reducción respectivamente:
 
 \begin{equation}\label{redox_anodo}
     2H_2\ \longrightarrow\ 4H^{+}\ +\ 4e^-
@@ -67,19 +67,41 @@ En tanto a la geometría de las celdas, se ha expermientado con una gran varieda
 
 \subsubsection{Tipos de Celdas}
 
-Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nuestro caso nos vamos a enfocar en la distinción más común, que es la clasificación según el material usado como electrolito. Hoy en día, hay seis tipos distintos de celdas segun electrolito, descritas a continuación, con una mayor profundización mayor en las del tipo PEMFC que se mencionaron anteriormente, ya que son este tipo de pilas las que nos interesa en nuestra aplicación particular.
+Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nuestro caso nos vamos a enfocar en la distinción más común, que es la clasificación según el material usado como electrolito. Hoy en día, hay seis tipos distintos de celdas segun electrolito, descritas a continuación, con una mayor profundización mayor en las del tipo PEMFC que se mencionaron anteriormente, ya que son este tipo de pilas las que nos interesa en nuestra aplicación particular.\\
 
 \begin{itemize}
     \item \textbf{Celda de Combustible Alcalina (AFC)}\\
-    Hola
-    \item \textbf{Celda de Combustible de Metanol Directo (DMFC)}\\
-    Hola
-    \item \textbf{Celda de Combustible de Ácido Fosfórico (PAFC)}\\
-    Hola
-    \item \textbf{Celda de Combustible de Carbonato Fundido (MCFC)}\\
-    Hola
-    \item \textbf{Celda de Combustible de Óxido Sólido (SOFC)}\\
-    Hola
+    Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de 85\% para celdas de alta temperatura (250°C), y entre 35\% y 50\% para celdas de baja temperatura (<120°C)), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso.\\
+
     \item \textbf{Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}\\
-    Hola
+    Las PEMFC, también llamadas Celdas de Combustible de Electrolito Polimérico Sólido (SPEFC) son las celdas de combustible más utilizadas al día de hoy, habiendo conseguido usos en vehículos de combustible alternativo, lo que resultó en una gran inversión para su desarrollo. Estas celdas operan en rangos bajos de temperatura (entre 65°C y 105°C) y tienen un electrolito de estado sólido.\\´
+    
+    Este electrolito es una membrana de intercambio protónico: un membrana semipermeable que permite la conducción de protones y al mismo tiempo funcionando de aislación eléctrica entre los electrodos, y como barrera física para separar el combustible del comburente. Esta membrana solía fabricarse de sulfonato de poliéstireno, pero hoy en día se usan materiales basados en Politetrafluoretileno (PTFE) como el Nafion de DuPont o el Dow de Dow Chemical, que son más estables y poseen mayor conductividad de protones.\\
+
+    Su baja temperatura de operación, uso de materiales no exóticos, capacidad de altas densidades de corriente, resistencia a la corrosión dada por el electrolito sólido y bajo tiempo de arranque han hecho a las PEMFC la opción más popular al elegir un tipo de celda de combustible para utilizar. Sin embargo tiene sus desventajas, como el angosto rango de temperatura en el que requiere operar.\\
+
+    Como esta es la tecnología de celda que nos interesa, se va a dedicar una sección para continuar más detalladamente la descripción de este tipo de celdas.\\
+
+    \item \textbf{Celda de Combustible de Metanol Directo (DMFC)}\\
+    Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica.\\
+
+    \item \textbf{Celda de Combustible de Carbonato Fundido (MCFC)}\\
+    Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre 600°C y 700°C. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de niquel y cátodos de óxido de níquel.\\
+
+    Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líqido.\\
+
+    \item \textbf{Celda de Combustible de Óxido Sólido (SOFC)}\\
+    Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre 600°C y 1000°C.\\
+
+    Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\\
+
+    \item \textbf{Celda de Combustible de Ácido Fosofórico (PAFC)}\\
+    Las PAFC utilizan ácido fosfórico ($H_3PO_4$) con concetración de 100\% estabilizado por una matriz basada en carburo de silicio ($SiC$) como electrolito, y operan en un rango de temperaturas entre 150°C y 220°C. Estas celdas son relativamente modernas y se destacan por su alta potencia, pudiendo llegar hasta 20 MW, suficiente para una planta de generación intermedia.\\
+
+    Estas celdas son poco sensibles a contaminación de $CO$ y $CO_2$, y su baja temperatura de operación permite el uso de materiales comunes para su construcción. Sin enmbargo, su uso de ácido como electrolito requiere materiales más resistentes para sus electrodos.\\
+
 \end{itemize}
+
+\subsubsection{Celdas de Combustible tipo PEMFC}
+
+Si bien la tensión y la corriente son funciones sinusoidales
