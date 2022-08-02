@@ -27,6 +27,7 @@
 \usepackage[sc]{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
 \usepackage[T1]{fontenc}
 \usepackage[pagecolor=none]{pagecolor}
+\usepackage{siunitx}                            % Para notación científica
 
 \titleformat*{\section}{\huge\centering\scshape\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
@@ -79,6 +80,8 @@
 \vspace{0.25cm}
 \normalsize
 }
+
+\newcommand{\quotes}[1]{``#1''}                 % Comando para double quotes
 
 \numberwithin{figure}{section}                  % Numeros de figura por seccion
 \numberwithin{equation}{section}                % Numeros de ecuacion por seccion
