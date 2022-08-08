@@ -155,11 +155,17 @@ Sin embargo, esto no es suficiente para un análisis eléctrico completo del dis
     \label{V-I_celda}
 \end{figure}
 
-En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de \textbf{pérdidas de activación} cerca de corriente nula, seguida por la región de \textbf{pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de \textbf{pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes de la curva, obteniendo sus ecuaciones correspondientes.\\
+En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de \textit{pérdidas de activación} cerca de corriente nula, seguida por la región de \textit{pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de \textit{pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes de la curva, obteniendo sus ecuaciones correspondientes.\\
 
 \begin{enumerate}
     \bfseries \item Región de Pérdidas de Activación\\
-    \normalfont Hola
+    \normalfont Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
+
+    La ecuación asociada este comportamiento, formulada empíricamente por el químico suiso Julius Tafel en 1905, es una ecuación que es describe la caída de tensión en un electrodo para una gran variedad de reacciones, incluida la rección redox de agua que nos interesa. La ecuación de Tafel relaciona la caída de tensión en un electrodo $\Delta V_{act}$ con la corriente $i$ que circula a través del mismo mediante una forma logarítmica:
+    
+    \begin{equation}\label{eq_tafel}
+        \Delta V_{act}=A\cdot ln\left(\frac{i}{i_0}\right)
+    \end{equation}
 
     \bfseries \item Región de Pérdidas Óhmicas\\
     \normalfont Hola
