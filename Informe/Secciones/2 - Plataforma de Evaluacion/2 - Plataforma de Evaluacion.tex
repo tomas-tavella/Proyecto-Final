@@ -14,7 +14,7 @@ En este capítulo, se realiza un detallado análisis de la Plataforma Experiment
 
 \begin{itemize}
     \item Emulador de Celdas de Combustible
-    \item Conversor CC-CC Conmutado
+    \item Convertidor CC-CC Conmutado
     \item Sistema de Control
     \item Carga Electrónica Variable
 \end{itemize}
@@ -26,10 +26,10 @@ En este capítulo, se realiza un detallado análisis de la Plataforma Experiment
     \label{diag_plataforma}
 \end{figure}
 
-Esta plataforma, con sus distintos bloques, se encarga de evaluar la \textit{performance} de celdas de combustible conectadas a un sistema híbrido de generación. Con este fin, un emulador de celdas de combustible toma el puesto de celdas de combustible reales, y una carga electrónica variable se utiliza para simular cualquier tipo de condiciones de carga que se deseen en el bus de CC. Para poder conectar el emulador a la carga, se debe implementar un subsistema (Conversor CC-CC Conmutado) que adapte los niveles de tensión de salida del emulador de celdas a la tensión fija de salida en la carga, adicionando un módulo de control que monitorea los estados del conversor, y los controla mediante los disparos de las llaves del puente completo.\\
+Esta plataforma, con sus distintos bloques, se encarga de evaluar la \textit{performance} de celdas de combustible conectadas a un sistema híbrido de generación. Con este fin, un emulador de celdas de combustible toma el puesto de celdas de combustible reales, y una carga electrónica variable se utiliza para simular cualquier tipo de condiciones de carga que se deseen en el bus de CC. Para poder conectar el emulador a la carga, se debe implementar un subsistema (Convertidor CC-CC Conmutado) que adapte los niveles de tensión de salida del emulador de celdas a la tensión fija de salida en la carga, adicionando un módulo de control que monitorea los estados del convertidor, y los controla mediante los disparos de las llaves del puente completo.\\
 
-El principal objetivo de este proyecto es el diseño e implementación de la etapa de adaptación de tensión (es decir, el conversor con su sistema de control), pero se hace un estudio detallado de todas los componentes de la plataforma, de manera de obtener un entendimiento más completo de todo el sistema. Por esta razón, a continuación se hace un análisis en profundidad de cada una de las partes individuales, comenzando por el emulador de celdas de combustible.\\
+El principal objetivo de este proyecto es el diseño e implementación de la etapa de adaptación de tensión (es decir, el convertidor con su sistema de control), pero se hace un estudio detallado de todas los componentes de la plataforma, de manera de obtener un entendimiento más completo de todo el sistema. Por esta razón, a continuación se hace un análisis en profundidad de cada una de las partes individuales, comenzando por el emulador de celdas de combustible.\\
 
 \input{Secciones/2 - Plataforma de Evaluacion/2.1 - Celdas de Combustible.tex}
 
-\input{Secciones/2 - Plataforma de Evaluacion/2.2 - Conversor CC-CC Conmutado.tex}
+\input{Secciones/2 - Plataforma de Evaluacion/2.2 - Convertidor CC-CC Conmutado.tex}
