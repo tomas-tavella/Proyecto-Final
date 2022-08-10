@@ -14,7 +14,7 @@
 \usepackage{amsfonts}
 \usepackage[labelfont=bf]{caption}              % Para que "Figura x.y" este en bold
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
+%\usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{float}                              % Permite forzar una posición para una figura
 %\usepackage{svg}                                % Para poder insertar SVGs
 \usepackage[justification=centering]{caption}   % Para poder centrar captions de figuras
@@ -25,11 +25,15 @@
 \usepackage{enumitem}                           % Para poder poner letras como items de listas
 \usepackage{afterpage}                          % Para poder insertar pagina en blanco
 \usepackage[sc]{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
-\usepackage[T1]{fontenc}
 \usepackage[pagecolor=none]{pagecolor}
 \usepackage{siunitx}                            % Para notación científica
+\usepackage{mathspec}
 
-\titleformat*{\section}{\huge\centering\scshape\bfseries}
+\setmainfont{Montserrat}
+\setmathrm{Montserrat}
+\setmathfont(Digits,Latin){Montserrat}
+
+\titleformat*{\section}{\scshape\huge\centering\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 \titleformat*{\paragraph}{\large\bfseries}
@@ -74,8 +78,7 @@
 \newcommand{\divider}                           % Macro para divisores horizontales
 {
 \begin{center}
-    \Huge
-    \textbf{------------------------------------------------}
+    \hrulefill
 \end{center}
 \vspace{0.25cm}
 \normalsize

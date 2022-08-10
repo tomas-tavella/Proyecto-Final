@@ -12,6 +12,7 @@
 *.synctex.gz
 *.synctex(busy)
 *.toc
+*.xdv
 **/.vscode/
 
 # For PCBs designed using KiCad: https://www.kicad.org/
