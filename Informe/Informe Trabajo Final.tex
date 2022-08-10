@@ -1,11 +1,10 @@
 \documentclass{article}
 
-%------------------------------------------ Paquetes útiles ------------------------------------------%
-
 \usepackage[spanish]{babel}                     % Configuración de leguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
 \usepackage[autostyle=true]{csquotes}
-\usepackage[backend=biber]{biblatex}            % Paquete para bibliografía
+\usepackage[backend=biber]{biblatex}            % Paquete para bibliografía 
+\addbibresource{Bibliografia.bib}              % Llamo al archivo que contiene las referencias
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{caption}                            % Para que "Figura x.y" este en bold
@@ -27,8 +26,6 @@
 \usepackage{mathspec}                           % Para tipografías custom, incluyendo ecuaciones
 
 %-------------------------------------------------------------------------------------------------------%
-
-\addbibresource{Bibliografia.bib}               % Llamo al archivo que contiene las referencias
 
 % Definir todas las tipografías de mathspec
 
