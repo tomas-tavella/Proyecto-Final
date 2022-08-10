@@ -34,8 +34,8 @@ La reacción redox de la ecuación \ref{redox_celda}, dentro de una celda de com
 De esta manera, alimentado simultáneamente el terminal negativo con combustible (hidrógeno) y el terminal positivo con oxidante (oxígeno) se producen las dos reacciones en las superficies de contacto del electrolito:
 
 \begin{itemize}
-    \item \textbf{En el ánodo ocurre la oxidación:} las moléculas de $H_2$ pierden sus electrones, bifurcándose los iones positivos de hidrógeno ($H^{+}$) por el electrolito y los electrones libres a través de la carga (ecuación \ref{redox_anodo}). Es una reacción exotérmica (libera calor) que resulta en el calentamiento de la celda.
-    \item \textbf{En el cátodo ocurre la reducción:} los iones $H^{+}$ del electrolito, los electrones libres, y las moléculas de oxígeno reaccionan para formar como producto el agua (ecuación \ref{redox_catodo}).
+    \item {\SemiBold En el ánodo ocurre la oxidación:} las moléculas de $H_2$ pierden sus electrones, bifurcándose los iones positivos de hidrógeno ($H^{+}$) por el electrolito y los electrones libres a través de la carga (ecuación \ref{redox_anodo}). Es una reacción exotérmica (libera calor) que resulta en el calentamiento de la celda.
+    \item {\SemiBold En el cátodo ocurre la reducción:} los iones $H^{+}$ del electrolito, los electrones libres, y las moléculas de oxígeno reaccionan para formar como producto el agua (ecuación \ref{redox_catodo}).
 \end{itemize}
 
 Mediante este proceso electroquímico se generan dos corrientes distintas: una corriente interna de iones $H^{+}$ (cargas positivas) en el electrolito, desde el ánodo hacia el cátodo; y una corriente externa de electrones $e^-$ (cargas negativas) circulando por la carga, en el mismo sentido que la corriente de iones. Esta última corriente de electrones es la que nos resulta útil para poder alimentar algún tipo de carga.\\
@@ -70,11 +70,11 @@ En tanto a la geometría de las celdas, se ha expermientado con una gran varieda
 Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nuestro caso nos vamos a enfocar en la distinción más común, que es la clasificación según el material usado como electrolito. Hoy en día, hay seis tipos distintos de celdas segun electrolito, descritas a continuación, con una mayor profundización mayor en las del tipo PEMFC que se mencionaron anteriormente, ya que son este tipo de pilas las que nos interesa en nuestra aplicación particular.\\
 
 \begin{itemize}
-    \item \textbf{Celda de Combustible Alcalina (AFC)}\\
+    \item {\SemiBold Celda de Combustible Alcalina (AFC)}\\
 
     Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de \SI{85}{\percent} para celdas de alta temperatura (\SI{250}{\celsius}), y entre \SI{35}{\percent} y \SI{50}{\percent} para celdas de baja temperatura (<\SI{120}{\celsius})), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso$^{[FCHandbook][FCCarrette]}$.\\
 
-    \item \textbf{Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}\\
+    \item {\SemiBold Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}\\
 
     Las PEMFC, también llamadas Celdas de Combustible de Electrolito Polimérico Sólido (SPEFC) son las celdas de combustible más utilizadas al día de hoy, habiendo conseguido usos en vehículos de combustible alternativo, lo que resultó en una gran inversión para su desarrollo. Estas celdas operan en rangos bajos de temperatura (entre \SI{65}{\celsius} y \SI{105}{\celsius}) y tienen un electrolito de estado sólido.\\
     
@@ -84,23 +84,23 @@ Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nu
 
     Como esta es la tecnología de celda que nos interesa, se va a dedicar una sección para continuar más detalladamente la descripción de este tipo de celdas.\\
 
-    \item \textbf{Celda de Combustible de Metanol Directo (DMFC)}\\
+    \item {\SemiBold Celda de Combustible de Metanol Directo (DMFC)}\\
 
     Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica$^{[FCHandbook][FCCarrette]}$.\\
 
-    \item \textbf{Celda de Combustible de Carbonato Fundido (MCFC)}\\
+    \item {\SemiBold Celda de Combustible de Carbonato Fundido (MCFC)}\\
 
     Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre \SI{600}{\celsius} y \SI{700}{\celsius}. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de niquel y cátodos de óxido de níquel.\\
 
     Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líqido$^{[FCHandbook][FCCarrette]}$.\\
 
-    \item \textbf{Celda de Combustible de Óxido Sólido (SOFC)}\\
+    \item {\SemiBold Celda de Combustible de Óxido Sólido (SOFC)}\\
 
     Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre \SI{600}{\celsius} y \SI{1000}{\celsius}.\\
 
     Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC$^{[FCHandbook][FCCarrette]}$.\\
 
-    \item \textbf{Celda de Combustible de Ácido Fosofórico (PAFC)}\\
+    \item {\SemiBold Celda de Combustible de Ácido Fosofórico (PAFC)}\\
 
     Las PAFC utilizan ácido fosfórico ($H_3PO_4$) con concetración de \SI{100}{\percent} estabilizado por una matriz basada en carburo de silicio ($SiC$) como electrolito, y operan en un rango de temperaturas entre \SI{150}{\celsius} y \SI{220}{\celsius}. Estas celdas son relativamente modernas y se destacan por su alta potencia, pudiendo llegar hasta \SI{20}{\mega\watt}, suficiente para una planta de generación intermedia.\\
 
@@ -150,7 +150,7 @@ Entonces, si despejamos la tensión de circuito abierto $E$ (es decir corriente 
     \boxed{E=-\frac{\Delta\bar{g_f}}{2F}=\SI{1.183}{\volt}}
 \end{equation}
 
-Con esta ecuación, por lo tanto, se puede obtener la \textbf{tensión de circuito abierto de celda} \textit{teórica} de una celda de combustible cualquiera; pero se debe tener en cuenta que este valor es ideal, y no tiene en cuenta múltiples factores que reducen la eficiencia (y la tensión de circuito abierto) del dispositivo: no es posible utilizar el \SI{100}{\percent} del combustible disponible, algunas dinámicas de las reacciones utilizan parte de la energía química generada, entre otros. Además, en este desarrollo no se consideró la variación de la energía libre de Gibbs con la presión y concentracion de gases.\\
+Con esta ecuación, por lo tanto, se puede obtener la {\Medium tensión de circuito abierto de celda} \textit{teórica} de una celda de combustible cualquiera; pero se debe tener en cuenta que este valor es ideal, y no tiene en cuenta múltiples factores que reducen la eficiencia (y la tensión de circuito abierto) del dispositivo: no es posible utilizar el \SI{100}{\percent} del combustible disponible, algunas dinámicas de las reacciones utilizan parte de la energía química generada, entre otros. Además, en este desarrollo no se consideró la variación de la energía libre de Gibbs con la presión y concentracion de gases.\\
 
 Sin embargo, esto no es suficiente para un análisis eléctrico completo del dispositivo. Ahora se deben describir las distintas partes de una curva típica de tensión-corriente de una celda de combustible de baja presión y temperatura (como las PEMFC), y al mismo tiempo presentar las ecuaciones que la describen para poder obtener el modelo eléctrico completo que se busca. Se puede ver esta curva típica en la figura \ref{V-I_celda}.
 
@@ -164,7 +164,7 @@ Sin embargo, esto no es suficiente para un análisis eléctrico completo del dis
 En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de \textit{pérdidas de activación} cerca de corriente nula, seguida por la región de \textit{pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de \textit{pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes de la curva, obteniendo sus ecuaciones correspondientes.\\
 
 \begin{enumerate}
-    \bfseries \item Región de Pérdidas de Activación\\
+    \SemiBold \item Región de Pérdidas de Activación\\
 
     \normalfont Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
 
@@ -178,7 +178,7 @@ En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la re
 
     En el caso particular del hidrógeno como combustible, las pérdidas se concentran casi únicamente en el ánodo (donde ocurre la oxidación), con la densidad $i_0$ del ánodo generalmente mas de \num{10000} veces mayor a la del cátodo, por lo que generalmente las pérdidas de activación de este último se pueden despreciar, teniendo en cuenta únicamente las del ánodo.\\
 
-    \bfseries \item Región de Pérdidas Óhmicas\\
+    \SemiBold \item Región de Pérdidas Óhmicas\\
 
     \normalfont Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm:
 
@@ -188,7 +188,7 @@ En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la re
 
     Donde $r$ debe ser la resistencia por unidad de área (\unit{\ohm\metre\squared}) si se trabaja con $i$ como densidad de corriente (\unit{\ampere\per\metre\squared}).\\
 
-    \bfseries \item Región de Pérdidas de Concentración\\
+    \SemiBold \item Región de Pérdidas de Concentración\\
     
     \normalfont Esta última región de pérdidas viene dada, como dice su nombre, por la reducción de la concentración de combustible y comburente en el ánodo y cátodo respectivamente, condición que se ve exacerbada al trabajar con corrientes y cargas muy elevadas. Esta reducción en concentración se traduce a una reducción de la tensión de celda $\Delta V_{conc}$.\\
 

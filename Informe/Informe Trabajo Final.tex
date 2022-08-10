@@ -1,22 +1,18 @@
 \documentclass{article}
 
-% Configuración de leguaje
-\usepackage[spanish]{babel}
+%------------------------------------------ Paquetes útiles ------------------------------------------%
 
-% Configurar tamaño de pagina y márgenes
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[spanish]{babel}                     % Configuración de leguaje
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
 \usepackage[autostyle=true]{csquotes}
 \usepackage[backend=biber]{biblatex}            % Paquete para bibliografía
-\addbibresource{Bibliografia.bib}               % Llamo al archivo que contiene las referencias
-
-% Paquetes útiles
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage[labelfont=bf]{caption}              % Para que "Figura x.y" este en bold
+\usepackage{caption}                            % Para que "Figura x.y" este en bold
 \usepackage{graphicx}
 %\usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{float}                              % Permite forzar una posición para una figura
-%\usepackage{svg}                                % Para poder insertar SVGs
+%\usepackage{svg}                               % Para poder insertar SVGs
 \usepackage[justification=centering]{caption}   % Para poder centrar captions de figuras
 \usepackage{gensymb}                            % Símbolo de grados (\degree)
 \usepackage{subfigure}                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
@@ -25,37 +21,69 @@
 \usepackage{enumitem}                           % Para poder poner letras como items de listas
 \usepackage{afterpage}                          % Para poder insertar pagina en blanco
 \usepackage[sc]{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
+\usepackage{titletoc}
 \usepackage[pagecolor=none]{pagecolor}
 \usepackage{siunitx}                            % Para notación científica
-\usepackage{mathspec}
+\usepackage{mathspec}                           % Para tipografías custom, incluyendo ecuaciones
+
+%-------------------------------------------------------------------------------------------------------%
+
+\addbibresource{Bibliografia.bib}               % Llamo al archivo que contiene las referencias
+
+% Definir todas las tipografías de mathspec
 
 \setmainfont{Montserrat}
+\newfontfamily\Thin{Montserrat Thin}
+\newfontfamily\ExtraLight{Montserrat ExtraLight}
+\newfontfamily\Light{Montserrat Light}
+\newfontfamily\Medium{Montserrat Medium}
+\newfontfamily\SemiBold{Montserrat SemiBold}
+\newfontfamily\Bold{Montserrat Bold}
+\newfontfamily\ExtraBold{Montserrat ExtraBold}
+\newfontfamily\Black{Montserrat Black}
 \setmathrm{Montserrat}
 \setmathfont(Digits,Latin){Montserrat}
 
-\titleformat*{\section}{\scshape\huge\centering\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
-\titleformat*{\paragraph}{\large\bfseries}
-\titleformat*{\subparagraph}{\large\bfseries}
+% Definir formato de titulos de secciones y subsecciones
+
+\titleformat*{\section}{\scshape\huge\centering\Bold}
+\titleformat*{\subsection}{\Large\Bold}
+\titleformat*{\subsubsection}{\large\SemiBold}
+\titleformat*{\paragraph}{\large\SemiBold}
+\titleformat*{\subparagraph}{\large\SemiBold}
+
+% Formato de captions de figuras
+
+\DeclareCaptionFormat{custom}
+{%
+    \SemiBold #1#2 \normalfont #3                       % #1 es el número, #2 el separador y #3 el texto
+}
+\captionsetup{format=custom}
+
+\dottedcontents{section}[1.5em]{\Bold}{1.5em}{0pc}      % Secciones en Bold en TableofContents
+
+% Comando para pagina en blanco sin numero de hoja
 
 \newcommand{\blankpage}
-{                          % Comando para pagina en blanco sin numero de hoja
+{                          
     \null
     \thispagestyle{empty}
     \addtocounter{page}{-1}
     \newpage
 }
 
-\definecolor{codegreen}{rgb}{0,0.6,0}           % Colores para el código
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
-%\definecolor{GrisTitulo}{rgb}{0.9, 0.9, 0.9}
+% Definición de colores
 
-\lstdefinestyle{mystyle}{                       % Parametros para setear como se 
-    backgroundcolor=\color{backcolour},         % muestra el codigo
+\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
+%\definecolor{codegreen}{rgb}{0,0.6,0}
+%\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+%\definecolor{codepurple}{rgb}{0.58,0,0.82}
+%\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Parametros para setear como se muestra el codigo
+
+\lstdefinestyle{mystyle}{                       
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
@@ -75,7 +103,9 @@
 
 \lstset{style=mystyle}
 
-\newcommand{\divider}                           % Macro para divisores horizontales
+% Macro para divisores horizontales
+
+\newcommand{\divider}                           
 {
 \begin{center}
     \hrulefill
@@ -84,10 +114,18 @@
 \normalsize
 }
 
+% Macro para comillas
+
 \newcommand{\quotes}[1]{``#1''}                 % Comando para double quotes
+
+% Números de figura y ecuación por seccion (1.1 , 2.1, etc.)
 
 \numberwithin{figure}{section}                  % Numeros de figura por seccion
 \numberwithin{equation}{section}                % Numeros de ecuacion por seccion
+
+%---------------------------------------------------------------------------------------------------------%
+%------------------------------------------ Inicio de Documento ------------------------------------------%
+%---------------------------------------------------------------------------------------------------------%
 
 \begin{document}
 
