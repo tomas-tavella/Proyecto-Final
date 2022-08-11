@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 
 \usepackage[spanish]{babel}                     % Configuración de leguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
+\usepackage{fancyhdr}
 \usepackage[autostyle=true]{csquotes}
 \usepackage[backend=biber]{biblatex}            % Paquete para bibliografía 
 \addbibresource{Bibliografia.bib}              % Llamo al archivo que contiene las referencias
@@ -43,7 +44,7 @@
 
 % Definir formato de titulos de secciones y subsecciones
 
-\titleformat*{\section}{\scshape\huge\centering\Bold}
+\titleformat*{\section}{\color{AzulFI_dark}\scshape\huge\centering\Bold}
 \titleformat*{\subsection}{\Large\Bold}
 \titleformat*{\subsubsection}{\large\SemiBold}
 \titleformat*{\paragraph}{\large\SemiBold}
@@ -53,7 +54,7 @@
 
 \DeclareCaptionFormat{custom}
 {%
-    \SemiBold #1#2 \normalfont #3                       % #1 es el número, #2 el separador y #3 el texto
+    \textit{\SemiBold\color{AzulFI_dark} #1#2 \normalfont\normalcolor \textit{#3}}                       % #1 es el número, #2 el separador y #3 el texto
 }
 \captionsetup{format=custom}
 
@@ -75,11 +76,21 @@
 
 % Definición de colores
 
-\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}
+\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}          % 0064A5
+\definecolor{AzulFI_dark}{rgb}{0, 0.196, 0.3216}     % 003252
 %\definecolor{codegreen}{rgb}{0,0.6,0}
 %\definecolor{codegray}{rgb}{0.5,0.5,0.5}
 %\definecolor{codepurple}{rgb}{0.58,0,0.82}
 %\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Estilo del header y footer
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+\pagestyle{fancy}
+\fancyfoot[C]{\rule[1mm]{4cm}{0.2mm} \ \ {\color{AzulFI_dark}\SemiBold \thepage} \ \ \rule[1mm]{4cm}{0.2mm}}
+\fancyhead[L]{\color{AzulFI_dark}{\SemiBold \thesection}}
+\fancyhead[R]{\scshape{\SemiBold Nombre de Sección}}
 
 % Parametros para setear como se muestra el codigo
 
