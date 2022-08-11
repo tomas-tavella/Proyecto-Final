@@ -42,6 +42,18 @@
 \setmathrm{Montserrat}
 \setmathfont(Digits,Latin){Montserrat}
 
+%\setmainfont{Libre Franklin}
+%\newfontfamily\Thin{Libre Franklin Thin}
+%\newfontfamily\ExtraLight{Libre Franklin ExtraLight}
+%\newfontfamily\Light{Libre Franklin Light}
+%\newfontfamily\Medium{Libre Franklin Medium}
+%\newfontfamily\SemiBold{Libre Franklin SemiBold}
+%\newfontfamily\Bold{Libre Franklin Bold}
+%\newfontfamily\ExtraBold{Libre Franklin ExtraBold}
+%\newfontfamily\Black{Libre Franklin Black}
+%\setmathrm{Libre Franklin}
+%\setmathfont(Digits,Latin){Libre Franklin}
+
 % Definir formato de titulos de secciones y subsecciones
 
 \titleformat*{\section}{\color{AzulFI_dark}\scshape\huge\centering\Bold}
@@ -85,12 +97,23 @@
 
 % Estilo del header y footer
 
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-
 \pagestyle{fancy}
-\fancyfoot[C]{\rule[1mm]{4cm}{0.2mm} \ \ {\color{AzulFI_dark}\SemiBold \thepage} \ \ \rule[1mm]{4cm}{0.2mm}}
-\fancyhead[L]{\color{AzulFI_dark}{\SemiBold \thesection}}
-\fancyhead[R]{\scshape{\SemiBold Nombre de Sección}}
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}                          % Borra el numero de sección de \rightmark            
+\renewcommand{\subsectionmark}[1]{}                                     % No marca las subsecciones
+
+\fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
+%\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
+\fancyfoot[C]{}
+\fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
+\fancyhead[L]{\color{AzulFI_dark}\scshape{\SemiBold Capítulo \thesection}}
+
+\fancypagestyle{plain}{
+    \fancyhead[L,C,R]{}
+    \fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
+    \fancyfoot[C]{}
+    %\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
+}
 
 % Parametros para setear como se muestra el codigo
 
@@ -162,8 +185,10 @@
 
     \newpage
     \afterpage{\blankpage} 
+    \thispagestyle{plain}
     \tableofcontents
     \newpage
+    \addtocounter{page}{+1}
 
     \input{Secciones/1 - Introduccion/1 - Introduccion.tex}
     
