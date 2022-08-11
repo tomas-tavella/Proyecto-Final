@@ -1,6 +1,8 @@
 \subsection{Convertidor CC-CC Conmutado}
 
-Un convertidor CC-CC es un dispositivo electrónico que tiene como objetivo convertir una tensión continua $V_{in}$ a la entrada, a una tensión continua $V_{out}$ de distinta magnitud a la salida, transfiriendo la mayor cantidad de energía posible de la entrada hacia la salida. Dependiendo del tipo de convertidor, esta tensión de salida puede ser menor, mayor o tanto menor como mayor a la tensión de entrada. Estos dispositivos son necesarios en casos, como el nuestro, en el que los niveles de tensión de entrada y salida no son compatibles y deben ser adaptados.\\
+Un convertidor CC-CC es un dispositivo electrónico que tiene como objetivo convertir una tensión continua, generalmente no regulada (es decir que no es fija), $V_{in}$ a la entrada, a una tensión continua regulada $V_{out}$ de distinta magnitud a la salida, transfiriendo la mayor cantidad de energía posible de la entrada hacia la salida. Dependiendo del tipo de convertidor, esta tensión de salida puede ser menor, mayor o tanto menor como mayor a la tensión de entrada.\\
+
+Estos convertidores son de interés para nuestra aplicación, ya que la tensión $V_{stack}$ que entrega la pila (ecuación \ref{v_stack}) es una tensión continua no regulada, que varía apreciablemente con la corriente demandada; mientras que a la salida se demanda una tensión fija y regulada $V_{bus}$ para conectar al bus de continua del sistema híbrido de la figura \ref{SHGE}.\\
 
 La forma más básica que se podría concebir para un dispositivo que cumpla esta función es la de un simple divisor resistivo, en el cual la tensión $V_{out}$ depende de las resistencias $R_1$ y $R_2$ y la tensión de entrada $V_{in}$.
 
@@ -12,8 +14,13 @@ Entonces, variando la relación entre $R_1$ y $R_2$, se puede variar la tensión
 
 Los convertidores CC-CC se suelen separar en dos principales categorías: los {\Medium reguladores lineales}, que son un caso complejizado del divisor resistivo donde se utiliza un transistor como resistencia varibale (además de un diodo para regular la tensión de salida); y los {\Medium convertidores conmutados}, en los cuales uno o más transistores, actuando como llaves, son conmutados a alta frecuencia y junto con dispositivos que almacenan energía (como inductores y capacitores) producen una tensión continua a la salida.\\
 
-Dado que para esta plataforma se utiliza un convertidor conmutado (principalmente por su gran ventaja en eficiencia energética), se enfocará el análisis únicamente en éstos; comenzando por una explicación de los conceptos básicos necesarios para comprender su funcionamiento y poder avanzar hacia las topologías más avanzadas en las que se basa nuestro convertidor.\\
+Dado que para esta plataforma se utiliza un convertidor conmutado (principalmente por su gran ventaja en eficiencia energética), se enfocará el análisis únicamente en éstos; comenzando por una explicación de los conceptos básicos necesarios para comprender su funcionamiento y poder avanzar hacia las topologías más complejas, en las que se basa nuestro convertidor.\\
 
-\subsubsection{Conceptos Básicos de Convertidores Conmutados}
+\subsubsection{Conceptos Básicos de Convertidores CC-CC Conmutados}
 
-{\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}
+Como se detalló más arriba, los convertidores CC-CC conmutados consisten, en su forma más básica, en una fuente de continua no regulada a la entrada; y un transistor (que puede ser BJT, MOSFET o IGBT) que, mediante una excitación en su tercer terminal, se conmuta entre los modos de alta impedancia e impedancia nula, actuando como llave abierta y llave cerrada respectivamente. La proporción del tiempo total de ciclo en la que el transistor está conduciendo (llave cerrada) se denomina ciclo de trabajo o \textit{duty cycle} y se suele simbolizar con la letra $D$. Como se verá más adelante, este es un parámetro crucial para el funcionamiento de este tipo de convertidores, ya que controlándolo se puede variar el nivel de tensión y corriente de salida.\\
+
+
+\begin{center}
+    {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}
+\end{center}
