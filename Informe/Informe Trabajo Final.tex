@@ -109,7 +109,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}                          % Borra el numero de sección de \rightmark            
 \renewcommand{\subsectionmark}[1]{}                                     % No marca las subsecciones
 
-\fancyfoot[LO,RE]{\normalfont[\ {\color{AzulFI_dark}\SemiBold \thepage}\normalfont\ ]}
+\fancyfoot[RO,LE]{\normalfont[\ {\color{AzulFI_dark}\SemiBold \thepage}\normalfont\ ]}
 %\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
 \fancyfoot[C]{}
 \fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
@@ -186,7 +186,7 @@
     \newpage
     \thispagestyle{empty}
     \afterpage{\blankpage}
-    \addtocounter{page}{+2}
+    \addtocounter{page}{+1}
 
     \input{Secciones/Abstract.tex}
 
