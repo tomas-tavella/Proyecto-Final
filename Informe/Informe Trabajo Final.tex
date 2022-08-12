@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,twoside]{article}
 
 \usepackage[spanish]{babel}                     % Configuración de leguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
@@ -39,7 +39,7 @@
 \newfontfamily\Bold{Montserrat Bold}
 \newfontfamily\ExtraBold{Montserrat ExtraBold}
 \newfontfamily\Black{Montserrat Black}
-\setmathrm{Montserrat}
+\setmathrm[BoldFont = {Montserrat SemiBold Italic}]{Montserrat}
 \setmathfont(Digits,Latin){Montserrat}
 
 %\setmainfont{Libre Franklin}
@@ -86,6 +86,13 @@
     \newpage
 }
 
+\newcommand{\chapterendEven}
+{                          
+    \null
+    \thispagestyle{empty}
+    \newpage
+}
+
 % Definición de colores
 
 \definecolor{AzulFI}{rgb}{0, 0.394, 0.645}          % 0064A5
@@ -102,7 +109,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}                          % Borra el numero de sección de \rightmark            
 \renewcommand{\subsectionmark}[1]{}                                     % No marca las subsecciones
 
-\fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
+\fancyfoot[LO,RE]{\normalfont[\ {\color{AzulFI_dark}\SemiBold \thepage}\normalfont\ ]}
 %\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
 \fancyfoot[C]{}
 \fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
@@ -110,7 +117,7 @@
 
 \fancypagestyle{plain}{
     \fancyhead[L,C,R]{}
-    \fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
+    %\fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
     \fancyfoot[C]{}
     %\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
 }
