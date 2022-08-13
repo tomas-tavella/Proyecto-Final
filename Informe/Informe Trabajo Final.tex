@@ -1,4 +1,4 @@
-\documentclass[10pt,twoside]{article}
+\documentclass[10pt,twoside]{article}           % Twoside para poder poner números en lados alternados
 
 \usepackage[spanish]{babel}                     % Configuración de leguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
@@ -13,7 +13,7 @@
 %\usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{float}                              % Permite forzar una posición para una figura
 %\usepackage{svg}                               % Para poder insertar SVGs
-\usepackage[justification=centering]{caption}   % Para poder centrar captions de figuras
+\usepackage[justification=centering,labelsep=space]{caption}   % Para poder centrar captions de figuras
 \usepackage{gensymb}                            % Símbolo de grados (\degree)
 \usepackage{subfigure}                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
 \usepackage{listings}                           % Para poder incluir código
@@ -57,7 +57,7 @@
 % Definir formato de titulos de secciones y subsecciones
 
 \titleformat*{\section}{\color{AzulFI_dark}\scshape\huge\centering\Bold}
-\titleformat*{\subsection}{\Large\Bold}
+\titleformat*{\subsection}{\Large\Bold\scshape}
 \titleformat*{\subsubsection}{\large\SemiBold}
 \titleformat*{\paragraph}{\large\SemiBold}
 \titleformat*{\subparagraph}{\large\SemiBold}
@@ -66,14 +66,14 @@
 
 \DeclareCaptionFormat{custom}
 {%
-    \textit{\SemiBold\color{AzulFI_dark} #1#2 \normalfont\normalcolor \textit{#3}}                       % #1 es el número, #2 el separador y #3 el texto
+    \SemiBold\scshape\color{AzulFI_dark} #1#2 \normalfont\normalcolor \textit{#3}                     % #1 es el número, #2 el separador y #3 el texto
 }
 \captionsetup{format=custom}
 
 % Formato de Table of Contents (ToC)
 
 \contentsmargin{2em}
-\dottedcontents{section}[1.5em]{\vspace{0.4cm}\Bold}{1.5em}{0pc}      % Secciones en Bold en TableofContents
+\dottedcontents{section}[1.5em]{\vspace{0.4cm}\Bold\scshape\color{AzulFI_dark}}{1.5em}{0pc}      % Secciones en Bold en TableofContents
 \dottedcontents{subsection}[3.5em]{\vspace{0.1cm}\Medium}{2em}{0.6pc}
 
 % Comando para pagina en blanco sin numero de hoja
@@ -110,16 +110,13 @@
 \renewcommand{\subsectionmark}[1]{}                                     % No marca las subsecciones
 
 \fancyfoot[RO,LE]{\normalfont[\ {\color{AzulFI_dark}\SemiBold \thepage}\normalfont\ ]}
-%\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
 \fancyfoot[C]{}
 \fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
 \fancyhead[L]{\color{AzulFI_dark}\scshape{\SemiBold Capítulo \thesection}}
 
 \fancypagestyle{plain}{
     \fancyhead[L,C,R]{}
-    %\fancyfoot[R]{{\color{AzulFI_dark}\SemiBold \thepage}}
     \fancyfoot[C]{}
-    %\fancyfoot[L]{{\color{AzulFI_dark}\SemiBold Tomás Tavella}}
 }
 
 % Parametros para setear como se muestra el codigo
@@ -201,7 +198,7 @@
     
     \newpage
 
-    \input{Secciones/2 - Plataforma de Evaluacion/2 - Plataforma de Evaluacion.tex}
+    \input{Secciones/2 - Analisis de la Plataforma/2 - Analisis de la Plataforma.tex}
 
     \newpage
 
