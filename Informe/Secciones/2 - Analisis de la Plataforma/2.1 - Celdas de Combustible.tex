@@ -48,7 +48,7 @@ Entonces, para obtener un dispositivo con una tensión de salida de niveles util
 
 Esto se logra, como dice su nombre, apilando todas las celdas de combustible para formar el \textit{stack}, utilizando placas de interconexión para conectar electrodos de polaridad opuesta de dos celdas aledañas (es decir, se conecta el ánodo de una celda con el cátodo de la siguiente); además de cumplir la función de aislar el combustible de una celda del agente oxidante de la celda contigua. Este es el tipo de conexionado de celdas más común, llamado \textit{Planar-Bipolar Stacking} o Apilado Planar-Bipolar$^{[FCHandbook]}$.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.2]{Imagenes/Fuel Cell.png}
     \caption{Figura de un stack de celdas.}
@@ -151,6 +151,8 @@ Entonces, si despejamos la tensión de circuito abierto $E$ (es decir corriente 
 \end{equation}
 
 Con esta ecuación, por lo tanto, se puede obtener la {\Medium tensión de circuito abierto de celda} \textit{teórica} de una celda de combustible cualquiera; pero se debe tener en cuenta que este valor es ideal, y no tiene en cuenta múltiples factores que reducen la eficiencia (y la tensión de circuito abierto) del dispositivo: no es posible utilizar el 100 \% del combustible disponible, algunas dinámicas de las reacciones utilizan parte de la energía química generada, entre otros. Además, en este desarrollo no se consideró la variación de la energía libre de Gibbs con la presión y concentracion de gases.\\
+
+\paragraph{Modelo Tensión-Corriente}
 
 Sin embargo, esto no es suficiente para un análisis eléctrico completo del dispositivo. Ahora se deben describir las distintas partes de una curva típica de tensión-corriente de una celda de combustible de baja presión y temperatura (como las PEMFC), y al mismo tiempo presentar las ecuaciones que la describen para poder obtener el modelo eléctrico completo que se busca. Se puede ver esta curva típica en la figura \ref{V-I_celda}.
 
