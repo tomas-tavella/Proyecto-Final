@@ -1,36 +1,36 @@
-\documentclass[10pt,twoside]{article}           % Twoside para poder poner números en lados alternados
+\documentclass[10pt,twoside]{article}                           % Twoside para poder poner números en lados alternados
 
-\usepackage[spanish]{babel}                     % Configuración de leguaje
+\usepackage[spanish]{babel}                                     % Configuración de lenguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
 \usepackage{fancyhdr}
 \usepackage[autostyle=true]{csquotes}
-\usepackage[backend=biber,sorting=none]{biblatex}            % Paquete para bibliografía 
-\addbibresource{Bibliografia.bib}              % Llamo al archivo que contiene las referencias
+\usepackage[backend=biber,sorting=none]{biblatex}               % Paquete para bibliografía 
+\addbibresource{Bibliografia.bib}                               % Llamo al archivo que contiene las referencias
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{caption}                            % Para que "Figura x.y" este en bold
+\usepackage{caption}                                            % Para que "Figura x.y" este en bold
 \usepackage{graphicx}
-%\usepackage[colorlinks=true, allcolors=black]{hyperref}
-\usepackage{float}                              % Permite forzar una posición para una figura
-\usepackage[justification=centering,labelsep=space]{caption}   % Para poder centrar captions de figuras
-\usepackage{gensymb}                            % Símbolo de grados (\degree)
-\usepackage{subfigure}                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
-\usepackage{listings}                           % Para poder incluir código
-\usepackage{xcolor}                             % Para poder definir colores  
-\usepackage{enumitem}                           % Para poder poner letras como items de listas
-\usepackage{afterpage}                          % Para poder insertar pagina en blanco
-\usepackage{titlesec}                       % Para cambiar tamaño de headers de secciones, subsecciones, etc.
-\usepackage{titletoc}
-\usepackage[pagecolor=none]{pagecolor}
-\usepackage{siunitx}                            % Para notación científica
-\usepackage{mathspec}                           % Para tipografías custom, incluyendo ecuaciones
+\usepackage[hidelinks]{hyperref}                                % Para links entre partes del documento (hidelinks no le cambia el color a los links)
+\usepackage{float}                                              % Permite forzar una posición para una figura
+\usepackage[justification=centering,labelsep=space]{caption}    % Para poder centrar captions de figuras
+\usepackage{gensymb}                                            % Símbolo de grados (\degree)
+\usepackage{subfigure}                                          % Para poder usar subfiguras (logos de UNLP y FI juntos)
+\usepackage{listings}                                           % Para poder incluir código
+\usepackage{xcolor}                                             % Para poder definir colores  
+\usepackage{enumitem}                                           % Para poder poner letras como items de listas
+\usepackage{afterpage}                                          % Para poder insertar pagina en blanco
+\usepackage{titlesec}                                           % Para cambiar tamaño de headers de secciones, subsecciones, etc.
+\usepackage{titletoc}                                           % Para modificar el aspecto del índice (Table of Contents - ToC)
+\usepackage[pagecolor=none]{pagecolor}                          % Para permitir usar colores de fondo en páginas
+\usepackage{siunitx}                                            % Para notación científica (y unidades SI)
+\usepackage{mathspec}                                           % Para tipografías custom, incluyendo ecuaciones (Incluye fontspec)
 
 %-------------------------------------------------------------------------------------------------------%
 
 % Definir todas las tipografías de mathspec
 
-\setmainfont{Montserrat}
-\newfontfamily\Thin{Montserrat Thin}
+\setmainfont{Montserrat}                                        % Letra principal
+\newfontfamily\Thin{Montserrat Thin}                            % Defino todos los pesos, también se pueden definir tipografías adicionales de la misma manera
 \newfontfamily\ExtraLight{Montserrat ExtraLight}
 \newfontfamily\Light{Montserrat Light}
 \newfontfamily\Medium{Montserrat Medium}
@@ -38,39 +38,29 @@
 \newfontfamily\Bold{Montserrat Bold}
 \newfontfamily\ExtraBold{Montserrat ExtraBold}
 \newfontfamily\Black{Montserrat Black}
-\setmathrm[BoldFont = {Montserrat SemiBold Italic}]{Montserrat}
-\setmathfont(Digits,Latin){Montserrat}
-
-%\setmainfont{Libre Franklin}
-%\newfontfamily\Thin{Libre Franklin Thin}
-%\newfontfamily\ExtraLight{Libre Franklin ExtraLight}
-%\newfontfamily\Light{Libre Franklin Light}
-%\newfontfamily\Medium{Libre Franklin Medium}
-%\newfontfamily\SemiBold{Libre Franklin SemiBold}
-%\newfontfamily\Bold{Libre Franklin Bold}
-%\newfontfamily\ExtraBold{Libre Franklin ExtraBold}
-%\newfontfamily\Black{Libre Franklin Black}
-%\setmathrm{Libre Franklin}
-%\setmathfont(Digits,Latin){Libre Franklin}
+\setmathrm[BoldFont = {Montserrat SemiBold Italic}]{Montserrat} 
+\setmathfont(Digits,Latin){Montserrat}                          % Tipografía de matemática
 
 % Comando para linea horizontal configurable que llene todo el espacio disponible 
 
-\newcommand{\xfill}[2][1ex]{{%                      % Si no hay texto antes del \xfill, hay que agregarle algun caracter como "\tiny\ " para que compile
+\newcommand{\xfill}[2][1ex]{{%                                  % Si no hay texto antes del \xfill, hay que agregarle algun caracter como "\tiny\ " para que compile
   \dimen0=#2\advance\dimen0 by #1
   \leaders\hrule height \dimen0 depth -#1\hfill%
 }}
 
 % Comando para pagina en blanco sin numero de hoja
 
-\newcommand{\blankpage}
+\newcommand{\ncblankpage}
 {                          
     \null
     \thispagestyle{empty}
-    \addtocounter{page}{-1}
+    \addtocounter{page}{-1}                         % No aumenta el contador de páginas
     \newpage
 }
 
-\newcommand{\chapterendEven}
+
+
+\newcommand{\blankpage}                             % Aumenta el contador de páginas
 {                          
     \null
     \thispagestyle{empty}
@@ -79,9 +69,9 @@
 
 % Definición de colores
 
-\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}          % 0064A5
-\definecolor{AzulFI_dark}{rgb}{0, 0.2353, 0.3882}     % 003C63
-\definecolor{AzulFI_darker}{rgb}{0, 0.196, 0.3216}     % 003252
+\definecolor{AzulFI}{rgb}{0, 0.394, 0.645}                  % 0064A5
+\definecolor{AzulFI_dark}{rgb}{0, 0.2353, 0.3882}           % 003C63
+\definecolor{AzulFI_darker}{rgb}{0, 0.196, 0.3216}          % 003252
 %\definecolor{codegreen}{rgb}{0,0.6,0}
 %\definecolor{codegray}{rgb}{0.5,0.5,0.5}
 %\definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -179,22 +169,22 @@
 
 \begin{document}
 
-    \nocite{*}                                  % Se usa para que aparezcan todas la referencias del .bib sin tener que 
-                                                % citarlas en el texto
+    \nocite{*}                                                      % Se usa para que aparezcan todas la referencias del .bib sin tener que citarlas en el texto
+
     \newpagecolor{AzulFI}\afterpage{\restorepagecolor\blankpage}    % Página en blanco entre portada y agradecimientos
 
     \input{Secciones/Portada.tex}
-                          
+    
+    \addtocounter{page}{-1}                                         % No cuenta la portada al número de páginas
     \newpage 
-    \thispagestyle{empty}                       % Para que no se muestre el número de página al final (igual contribuye a la cuenta total)
-    \afterpage{\blankpage}
+    \thispagestyle{empty}                                           % Para que no se muestre el número de página al final (igual contribuye a la cuenta total)
+    \afterpage{\ncblankpage}
 
     \input{Secciones/Agradecimientos.tex}
 
     \newpage
     \thispagestyle{empty}
     \afterpage{\blankpage}
-    \addtocounter{page}{+1}
 
     \input{Secciones/Abstract.tex}
 
@@ -203,7 +193,6 @@
     \thispagestyle{plain}
     \tableofcontents
     \newpage
-    \addtocounter{page}{+1}
 
     \input{Secciones/1 - Introduccion/1 - Introduccion.tex}
     
