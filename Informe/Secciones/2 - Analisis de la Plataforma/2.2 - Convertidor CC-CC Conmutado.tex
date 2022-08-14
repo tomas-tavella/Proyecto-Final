@@ -16,7 +16,7 @@ Los convertidores CC-CC se suelen separar en dos principales categorías: los {\
 
 Dado que para esta plataforma se utiliza un convertidor conmutado (principalmente por su gran ventaja en eficiencia energética), se enfocará el análisis únicamente en éstos; comenzando por una explicación de los conceptos básicos necesarios para comprender su funcionamiento.\\
 
-\subsubsection{Conceptos Básicos de Convertidores CC-CC Conmutados}
+\subsubsection{Conceptos Básicos}
 
 Como se detalló más arriba, los convertidores CC-CC conmutados consisten, en su forma más básica, en una fuente de continua no regulada a la entrada; y un transistor (que puede ser BJT, MOSFET o IGBT) que, mediante una excitación en su tercer terminal, se conmuta entre los modos de alta impedancia e impedancia nula, actuando como llave abierta y llave cerrada respectivamente. La proporción del tiempo total de ciclo ($T_s$) en la que el transistor está conduciendo ($t_{on}$) se denomina {\Medium ciclo de trabajo} o {\Medium \textit{duty cycle}} y se suele simbolizar con la {\Medium letra \textit{D}}. Como se verá más adelante, este es un parámetro crucial para el funcionamiento de este tipo de convertidores, ya que controlándolo se puede variar el nivel de tensión y corriente de salida.
 
@@ -36,7 +36,7 @@ Los convertidores CC-CC conmutados se clasifican en dos grandes grupos, usando c
 
 En la siguiente sección se va a detallar el funcionamiento de los dos convertidores no aislados más sencillos, los convertidores reductor y elevador, a manera de introducir los principios de funcionamiento de convertidores conmutados que van a ser necesarios para luego poder entender las topologías más complejas que se utilizan en esta plataforma.\\
 
-\subsubsection{Ejemplo Básico de un Convertidor CC-CC Conmutado}
+\subsubsection{El Convertidor Reductor}
 
 La forma más básica posible de un convertidor conmutado tiene un esquema circuital similar al convertidor lineal mencionado más arriba, con la diferencia de que el transistor, (que previamente actuaba como una resistencia variable para conformar el divisor resistivo) en este caso, actúa como el interruptor del circuito, conmutando entre llave abierta y cerrada (figura \ref{proto_reductor}). Para este análisis vamos a considerar que el dispositivo semiconductor actúa como una llave ideal, sin impedancia cuando está cerrado y con impedancia infinita cuando está abierto.
 
@@ -66,7 +66,7 @@ En principio, si se considera el transistor como interruptor ideal, la eficienci
 
 Sin embargo, en muchos casos y aplicaciones (incluido el de este trabajo) no es suficiente obtener una salida de pulsos y controlar su tensión media, si no que se necesita obtener una tensión puramente continua directamente en la salida, como puede ser el caso para una fuente de alimentación.\\
 
-Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida luego del interruptor, que se encarga de eliminar los componentes de alta frecuencia relacionados a la conmutación, dejando pasar únicamente los componentes de continua. El convertidor que resulta es la topología de convertidor CC-CC conmutado más sencilla: el {\Medium convertidor reductor} o {\Medium \textit{buck}} de la figura \ref{reductor}.
+Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida luego del interruptor, que se encarga de eliminar los componentes de alta frecuencia relacionados a la conmutación, dejando pasar únicamente los componentes de continua. El convertidor que resulta es la topología de convertidor CC-CC conmutado más sencilla: el {\Medium convertidor reductor} o {\Medium \textit{buck}} de la figura \ref{reductor}, que obtiene su nombre porque, como se ve en la ecuación \ref{valor_medio_reductor}, reduce la tensión de entrada.\\$\bar{i}_C$
 
 \begin{figure}[H]
     \centering
@@ -77,7 +77,16 @@ Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida lue
 
 Además del filtro ya mencionado, se agrega un diodo de rueda libre o \textit{flyback} en derivación entre el transistor y el inductor (diodo $D_1$ de la figura \ref{reductor}). Este dispositivo cumple la función de proveer un camino de circulación para la corriente $i_L$ del inductor cuando el interruptor se encuentra abierto, que resulta necesario ya que la corriente sobre un inductor no puede variar abruptamente. Entonces, cuando el interruptor está abierto, el diodo entra en polarización directa y permite la circulación de corriente; mientras que cuando está el interruptor cerrado, el diodo se polariza con una tensión inversa $V_s$ y actúa como un circuito abierto, eliminando su influencia sobre el convertidor durante $t_{on}$.\\
 
+\paragraph{Análisis Detallado}
 
+Durante su funcionamiento en estado estacionario, los convertidores reductores (y todos los convertidores CC-CC) tienen las siguientes propiedades:
+
+\begin{enumerate}
+    \item La corriente $i_L$ sobre el inductor es periódica de período $T_s$, es decir, $i_L(t+T_s) = i_L(t)$.
+    \item La tensión media $\bar{V}_L$ que cae en el inductor es nula, ya que si no lo fuera su corriente crecería sin límite.
+    \item La corriente media $\bar{i}_C$ que circula por el capacitor es nula, ya que si no lo fuera su tensión crecería sin límite.
+    \item La potencia absorbida por la carga es igual a la potencia entregada por la fuente. Para componentes no ideales, las pérdidas son entregadas por la fuente de entrada.
+\end{enumerate}
 
 \begin{center}
     {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}

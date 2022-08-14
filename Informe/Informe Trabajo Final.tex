@@ -4,7 +4,7 @@
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
 \usepackage{fancyhdr}
 \usepackage[autostyle=true]{csquotes}
-\usepackage[backend=biber]{biblatex}            % Paquete para bibliografía 
+\usepackage[backend=biber,sorting=none]{biblatex}            % Paquete para bibliografía 
 \addbibresource{Bibliografia.bib}              % Llamo al archivo que contiene las referencias
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -212,7 +212,7 @@
     \input{Secciones/2 - Analisis de la Plataforma/2 - Analisis de la Plataforma.tex}
 
     \newpage
-
-    %\printbibliography 
+    \thispagestyle{plain}
+    \printbibliography[heading=bibintoc,title={Referencias}]
     
 \end{document}
