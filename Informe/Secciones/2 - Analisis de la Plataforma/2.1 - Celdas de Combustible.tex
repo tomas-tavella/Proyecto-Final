@@ -21,7 +21,7 @@ La estructura interna de una celda de combustible, visible en la figura \ref{fue
     \label{fuel_cell}
 \end{figure}
 
-La reacción redox de la ecuación \ref{redox_celda}, dentro de una celda de combustible como la del esquema, en realidad se separa en dos reacciones parciales distintas:
+La reacción redox de la ecuación \ref{redox_celda}, dentro de una celda de combustible como la del esquema, en realidad se separa en dos reacciones parciales distintas.
 
 \begin{equation}\label{redox_anodo}
     H_2\ \longrightarrow\ 2H^{+}\ +\ 2e^-
@@ -122,7 +122,7 @@ Evidentemente, la energía entregada por la reacción es entonces la diferencia 
     \Delta\bar{g_f} = \bar{g_f}_{productos} - \bar{g_f}_{reactivos}
 \end{equation}
 
-Entonces, teniendo en cuenta la reacción redox de la ecuación \ref{redox_celda}, donde el producto es un mol de $H_2O$ y los reactivos son un mol de $H_2$ y medio mol de $O_2$, para nuestro caso la ecuación anterior resulta:
+Entonces, teniendo en cuenta la reacción redox de la ecuación \ref{redox_celda}, donde el producto es un mol de $H_2O$ y los reactivos son un mol de $H_2$ y medio mol de $O_2$, para nuestro caso la ecuación anterior resulta
 
 \begin{equation}\label{delta_gibbs_celda}
     \Delta\bar{g_f} = \bar{g_f}_{(H_2O)} - \bar{g_f}_{(H_2)} - \frac{1}{2}\bar{g_f}_{(O_2)}
@@ -130,7 +130,7 @@ Entonces, teniendo en cuenta la reacción redox de la ecuación \ref{redox_celda
 
 Ahora, teniendo en cuenta que el trabajo eléctrico realizado es el producto de la carga por la tensión ($W_E=Q\cdot E$), y considerando un proceso sin irreversibilidades y con combustible y comburente puro, se puede decir entonces que el trabajo eléctrico es aproximadamente igual a la energía química entregada por la reacción de la celda, es decir que $W_E = \Delta\bar{g_f}$.\\
 
-Lo que hace falta, entonces, es obtener la cantidad de carga que circula a través del circuito externo por cada mol de agua que se produce. Como se puede ver en las dos reacciones parciales de las ecuaciones \ref{redox_anodo} y \ref{redox_catodo}, por cada mol de $H_2O$ que se obtiene, dos átomos de hidrógeno pierden su electrón, y en consecuencia, dos electrones circulan a través de la carga. Entonces, si $e$ es la carga de un electrón (\SI{1.602e-19}{\coulomb}) y $N$ es el número de Avogadro (\num{6.022e-23}) que indica la cantidad de partículas en un mol, la carga por cada mol de agua resulta:
+Lo que hace falta, entonces, es obtener la cantidad de carga que circula a través del circuito externo por cada mol de agua que se produce. Como se puede ver en las dos reacciones parciales de las ecuaciones \ref{redox_anodo} y \ref{redox_catodo}, por cada mol de $H_2O$ que se obtiene, dos átomos de hidrógeno pierden su electrón, y en consecuencia, dos electrones circulan a través de la carga. Entonces, si $e$ es la carga de un electrón (\SI{1.602e-19}{\coulomb}) y $N$ es el número de Avogadro (\num{6.022e-23}) que indica la cantidad de partículas en un mol, la carga por cada mol es
 
 \begin{equation}\label{carga_mol}
     Q=-2\cdot Ne=-2\cdot F=\SI{192970}{\coulomb}
@@ -138,7 +138,7 @@ Lo que hace falta, entonces, es obtener la cantidad de carga que circula a trav�
 
 Donde $F$ es la constante de Faraday, que indica la carga de un mol de electrones.\\
 
-Reemplazando la ecuación \ref{carga_mol} en la expresión del trabajo eléctrico (recordando que es equivalente a $\Delta\bar{g_f}$), se obtiene que la energía obtenida por mol de producto es:
+Reemplazando la ecuación \ref{carga_mol} en la expresión del trabajo eléctrico (recordando que es equivalente a $\Delta\bar{g_f}$), se obtiene la siguiente expresión de energía obtenida por mol de producto.
 
 \begin{equation}\label{trabajo_elec}
     W_E=\Delta\bar{g_f}=-2F\cdot E
@@ -170,7 +170,7 @@ En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la re
 
     \normalfont Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
 
-    La ecuación asociada este comportamiento, formulada empíricamente por el químico suiso Julius Tafel en 1905, es una ecuación que es describe la caída de tensión en un electrodo para una gran variedad de reacciones, incluida la rección redox de agua que nos interesa. La ecuación de Tafel relaciona la caída de tensión en un electrodo $\Delta V_{act}$ con la densidad de corriente $i$ que circula a través del mismo mediante una forma logarítmica:
+    La ecuación asociada este comportamiento, formulada empíricamente por el químico suiso Julius Tafel en 1905, es una ecuación que es describe la caída de tensión en un electrodo para una gran variedad de reacciones, incluida la rección redox de agua que nos interesa. La ecuación de Tafel relaciona la caída de tensión en un electrodo $\Delta V_{act}$ con la densidad de corriente $i$ que circula a través del mismo mediante una forma logarítmica.
     
     \begin{equation}\label{perd_act}
         \Delta V_{act}=A\cdot \ln\left(\frac{i}{i_0}\right)
@@ -182,7 +182,7 @@ En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la re
 
     \SemiBold \item Región de Pérdidas Óhmicas\\
 
-    \normalfont Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm:
+    \normalfont Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm.
 
     \begin{equation}\label{perd_ohm}
         \Delta V_{ohm}=i\cdot r
@@ -194,7 +194,7 @@ En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la re
     
     \normalfont Esta última región de pérdidas viene dada, como dice su nombre, por la reducción de la concentración de combustible y comburente en el ánodo y cátodo respectivamente, condición que se ve exacerbada al trabajar con corrientes y cargas muy elevadas. Esta reducción en concentración se traduce a una reducción de la tensión de celda $\Delta V_{conc}$.\\
 
-    En general, el consenso es que no existe una única ecuación analítica que sea capaz de describir este comportamiento para cualquier caso. Entonces, hoy en día es muy común el uso de una ecuación de bases empíricas que, con la correcta elección de constantes, se ajusta muy bien al comportamiento real observado experimentalmente, y relaciona $\Delta V_{conc}$  exponencialmente con la densidad de corriente $i$:
+    En general, el consenso es que no existe una única ecuación analítica que sea capaz de describir este comportamiento para cualquier caso. Entonces, hoy en día es muy común el uso de una ecuación de bases empíricas que, con la correcta elección de constantes, se ajusta muy bien al comportamiento real observado experimentalmente, y relaciona $\Delta V_{conc}$  exponencialmente con la densidad de corriente $i$.
 
     \begin{equation}\label{perd_conc}
         \Delta V_{conc}=m\cdot e^{ni}
@@ -229,7 +229,7 @@ Vale aclarar que, al ser la densidad de corriente de intercambio una magnitud mu
     \boxed{V_{celda} = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}}
 \end{equation}
 
-Para obtener la tensión de una pila, solo es necesario multiplicar la tensión $V_{celda}$ por la cantidad de celdas $N$ del stack:
+Para obtener la tensión de una pila, solo es necesario multiplicar la tensión $V_{celda}$ por la cantidad de celdas $N$ del stack.
 
 \begin{equation}\label{v_stack}
     V_{stack} = NV_{celda} = NE_{oc} - N(A\cdot\ln(i)) - N(i\cdot r) - N(m\cdot e^{ni})

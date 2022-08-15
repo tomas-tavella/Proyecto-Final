@@ -77,16 +77,112 @@ Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida lue
 
 Además del filtro ya mencionado, se agrega un diodo de rueda libre o \textit{flyback} en derivación entre el transistor y el inductor (diodo $D_1$ de la figura \ref{reductor}). Este dispositivo cumple la función de proveer un camino de circulación para la corriente $i_L$ del inductor cuando el interruptor se encuentra abierto, que resulta necesario ya que la corriente sobre un inductor no puede variar abruptamente. Entonces, cuando el interruptor está abierto, el diodo entra en polarización directa y permite la circulación de corriente; mientras que cuando está el interruptor cerrado, el diodo se polariza con una tensión inversa $V_s$ y actúa como un circuito abierto, eliminando su influencia sobre el convertidor durante $t_{on}$.\\
 
-\paragraph{Análisis Detallado}
-
 Durante su funcionamiento en estado estacionario, los convertidores reductores (y todos los convertidores CC-CC) tienen las siguientes propiedades:
 
-\begin{enumerate}
+\begin{itemize}
     \item La corriente $i_L$ sobre el inductor es periódica de período $T_s$, es decir, $i_L(t+T_s) = i_L(t)$.
     \item La tensión media $\bar{V}_L$ que cae en el inductor es nula, ya que si no lo fuera su corriente crecería sin límite.
     \item La corriente media $\bar{i}_C$ que circula por el capacitor es nula, ya que si no lo fuera su tensión crecería sin límite.
     \item La potencia absorbida por la carga es igual a la potencia entregada por la fuente. Para componentes no ideales, las pérdidas son entregadas por la fuente de entrada.
+\end{itemize}
+
+\paragraph{Análisis Detallado}
+
+Ahora se va a realizar un análisis más en profundidad de la topología. Pero antes, es necesario aclarar el conjunto de condiciones que se asumirán, necesarias para simplificar y facilitar la comprensión de esta explicación:
+
+\begin{enumerate}
+    \item El circuito opera en estado estacionario, es decir que todos las respuestas transitorias ya se extinguieron.
+    \item La corriente del inductor es continua, es decir que circula siempre en la misma dirección.
+    \item El capacitor $C$ es lo suficientemente grande como para mantener la tensión de salida constante.
+    \item El período de conmutación es $T_s$, con $t_{on} = DT_s$ y $t_{off} = (1-D)T_s$.
+    \item Todos los componentes son ideales.
 \end{enumerate}
+
+Para poder determinar la tensión de salida $v_o$ del sistema, se va a determinar primero la corriente y tensión del inductor $L$ del filtro de salida, para cada uno de los dos estados del circuito: {\Medium llave abierta} y {\Medium llave cerrada}. Para cumplir la condición de funcionamiento en estado estacionario, la corriente $i_L$ debe tener una variación total nula durante un período $T_s$ (es decir que la corriente debe ser la misma al principio y final de un ciclo), y, como se mencionó más arriba, su tensión media debe ser idénticamente nula.\\
+
+\subparagraph{Llave Cerrada}
+
+Al estar la llave cerrada durante el tiempo $t_{on} = DT_s$, la tensión de entrada $V_s$ cae directamente sobre el diodo $D_1$, polarizándolo con una tensión inversa que no permite que circule corriente por el mismo, y en consecuencia, neutralizando su efecto sobre el circuito. Se puede ver el circuito equivalente para este estado en la figura \ref{reductor_llave_cerrada}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{Imagenes/Reductor Llave Cerrada.png}
+    \caption{Circuito equivalente de un convertidor reductor para llave cerrada  (Placeholder).}
+    \label{reductor_llave_cerrada}
+\end{figure}
+
+Entonces, recordando que la tensión que cae sobre una bobina es proporcional a la corriente que circula sobre ella (con $L$ como constante de proporcionalidad), la tensión sobre el inductor del circuito resulta
+
+\begin{equation}\label{ec_tensionL_cerrada}
+    v_L = V_s - v_o = L\frac{di_L}{dt}
+\end{equation}
+
+Como la tensión, y por lo tanto la derivada de la corriente, son valores constantes y positivos, la corriente por el inductor es descrita por una recta de pendiente positiva. El cambio neto de corriente $(\Delta i_L)_{cerrado}$ mientras la llave permanece cerrada es entonces
+
+\begin{equation}
+    \frac{di_L}{dt} = \frac{(\Delta i_L)_{cerrado}}{\Delta t} = \frac{(\Delta i_L)_{cerrado}}{DT_s} = \frac{V_s - v_o}{L}\\
+\end{equation}
+
+Reorganizando:
+
+\begin{equation}\label{deltaiL_cerrada}
+    \boxed{
+        (\Delta i_L)_{cerrado} = \left(\frac{V_s - v_o}{L}\right)DT_s
+    }
+\end{equation}
+
+\subparagraph{Llave abierta}
+
+Ahora, al abrirse la llave durante el tiempo $t_{off} = (1-D)T_s$, el diodo entra en modo de polarización directa, permitiendo la circulación de la corriente acumulada en el inductor. La fuente queda desconectada y no entrega energía, conformándose el circuito equivalente de la figura \ref{reductor_llave_abierta}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{Imagenes/Reductor Llave Abierta.png}
+    \caption{Circuito equivalente de un convertidor reductor para llave abierta (Placeholder).}
+    \label{reductor_llave_abierta}
+\end{figure}
+
+En este intervalo de tiempo, la tensión sobre el inductor es
+
+\begin{equation}\label{ec_tensionL_abierta}
+    v_L = -v_o = L\frac{di_L}{dt}
+\end{equation}
+
+Entonces, aplicando un razonamiento análogo al del período de llave cerrada, con la diferencia que en este caso, al ser la tensión $v_L$ negativa, la recta de la corriente $i_L$ es decreciente, se obtiene que el cambio neto de corriente $(\Delta i_L)_{abierto}$ mientras la llave está abierta es
+
+\begin{equation}
+    \frac{di_L}{dt} = \frac{(\Delta i_L)_{abierto}}{(1-D)T_s} = \frac{-v_o}{L}\\
+\end{equation}
+
+Reordenando:
+
+\begin{equation}\label{deltaiL_abierta}
+    \boxed{
+        (\Delta i_L)_{abierto} = -\left(\frac{v_o}{L}\right)(1-D)T_s
+    }
+\end{equation}
+
+Como se mencionó antes, para este análisis se asumió el funcionamiento en estado estacionario, por lo que la suma de los cambios netos de corriente de las ecuaciones \ref{deltaiL_cerrada} y \ref{deltaiL_abierta} para ambos estados del circuito debe ser igual a cero.
+
+\begin{equation}
+    (\Delta i_L)_{cerrado} + (\Delta i_L)_{abierto} = 0
+\end{equation}
+
+Reemplazando ambas variables por sus expresiones, se obtiene
+
+\begin{equation}
+    \left(\frac{V_s - v_o}{L}\right)DT_s - \left(\frac{v_o}{L}\right)(1-D)T_s  = 0
+\end{equation}
+
+Despejando $v_o$ de la ecuación anterior, se obtiene que esta tensión varía únicamente en función de la tensión de entrada $V_s$ y el ciclo de trabajo $D$.
+
+\begin{equation}\label{vo_reductor}
+    \boxed{
+        v_o = V_sD
+    }
+\end{equation}
+
+Este resultado es idéntico al de la ecuación \ref{valor_medio_reductor} obtenido para el convertidor básico de la figura \ref{proto_reductor}. En conclusión, {\Medium en un convertidor reductor, la tensión de salida siempre es menor o igual a la entrada}.\\
 
 \begin{center}
     {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}
