@@ -160,9 +160,10 @@
 
 % Formato de Table of Contents (ToC)
 
-%\contentsmargin{2em}
+\contentsmargin{1em}
 \dottedcontents{section}[1.5em]{\large\vspace{0.4cm}\Bold\scshape\color{AzulFI_dark}}{1.5em}{0pc}      % Secciones en Bold en TableofContents
-\dottedcontents{subsection}[3.5em]{\vspace{0.1cm}\Medium}{2em}{0.6pc}
+\dottedcontents{subsection}[4em]{\vspace{0.1cm}\Medium}{2.5em}{0.6pc}
+\dottedcontents{subsubsection}[7.5em]{}{3.5em}{0.6pc}
 
 %---------------------------------------------------------------------------------------------------------%
 %------------------------------------------ Inicio de Documento ------------------------------------------%
@@ -176,7 +177,7 @@
 
     \input{Secciones/Portada.tex}
     
-    \addtocounter{page}{-1}                                         % No cuenta la portada al número de páginas
+    \addtocounter{page}{-1}
     \newpage 
     \thispagestyle{empty}                                           % Para que no se muestre el número de página al final (igual contribuye a la cuenta total)
     \afterpage{\ncblankpage}
