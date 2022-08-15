@@ -6,7 +6,7 @@ Por estas razones se eligió trabajar con esta tecnología, particularmente con 
 
 \subsubsection{Principio de Funcionamiento}
 
-Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica mediante una corriente y una diferencia de potencial$^{[FC-FundamentalsAndApplications]}$. En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.
+Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica mediante una corriente y una diferencia de potencial.\textsuperscript{\cite{FC-FundAndAppl}} En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.
 
 \begin{equation}\label{redox_celda}
     H_2\ +\ \frac{1}{2}O_2\ \longrightarrow\ H_2O
@@ -46,7 +46,7 @@ Sin embargo, una celda de combustible individual como en la figura \ref{fuel_cel
 
 Entonces, para obtener un dispositivo con una tensión de salida de niveles utilizables, esta tecnología generalmente se comercializa en forma de pilas o \textit{stacks} de celdas individuales conectadas en serie como se ve en la figura \ref{fuel_cell_stack}, generalmente de entre diez y cien celdas, cuya tensión es la suma de la tensión de cada celda que la compone.\\
 
-Esto se logra, como dice su nombre, apilando todas las celdas de combustible para formar el \textit{stack}, utilizando placas de interconexión para conectar electrodos de polaridad opuesta de dos celdas aledañas (es decir, se conecta el ánodo de una celda con el cátodo de la siguiente); además de cumplir la función de aislar el combustible de una celda del agente oxidante de la celda contigua. Este es el tipo de conexionado de celdas más común, llamado \textit{Planar-Bipolar Stacking} o Apilado Planar-Bipolar$^{[FCHandbook]}$.
+Esto se logra, como dice su nombre, apilando todas las celdas de combustible para formar el \textit{stack}, utilizando placas de interconexión para conectar electrodos de polaridad opuesta de dos celdas aledañas (es decir, se conecta el ánodo de una celda con el cátodo de la siguiente); además de cumplir la función de aislar el combustible de una celda del agente oxidante de la celda contigua. Este es el tipo de conexionado de celdas más común, llamado \textit{Planar-Bipolar Stacking} o Apilado Planar-Bipolar.\textsuperscript{\cite{FCHandbook}}
 
 \begin{figure}[h]
     \centering
@@ -72,7 +72,7 @@ Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nu
 \begin{itemize}
     \item {\SemiBold Celda de Combustible Alcalina (AFC)}\\
 
-    Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de 85 \% para celdas de alta temperatura (\SI{250}{\celsius}), y entre 35 \% y 50 \% para celdas de baja temperatura (<\SI{120}{\celsius})), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso$^{[FCHandbook][FCCarrette]}$.\\
+    Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de 85 \% para celdas de alta temperatura (\SI{250}{\celsius}), y entre 35 \% y 50 \% para celdas de baja temperatura (<\SI{120}{\celsius})), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
     \item {\SemiBold Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}\\
 
@@ -80,31 +80,31 @@ Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nu
     
     Este electrolito es una membrana de intercambio protónico: un membrana semipermeable que permite la conducción de protones y al mismo tiempo funcionando de aislación eléctrica entre los electrodos, y como barrera física para separar el combustible del comburente. Esta membrana solía fabricarse de sulfonato de poliéstireno, pero hoy en día se usan materiales basados en Politetrafluoretileno (PTFE) como el Nafion de DuPont o el Dow de Dow Chemical, que son más estables y poseen mayor conductividad de protones.\\
 
-    Su baja temperatura de operación, uso de materiales no exóticos, capacidad de altas densidades de corriente, resistencia a la corrosión dada por el electrolito sólido y bajo tiempo de arranque han hecho a las PEMFC la opción más popular al elegir un tipo de celda de combustible para utilizar. Sin embargo tiene sus desventajas, como el angosto rango de temperatura en el que requiere operar$^{[FCHandbook][FCCarrette]}$.\\
+    Su baja temperatura de operación, uso de materiales no exóticos, capacidad de altas densidades de corriente, resistencia a la corrosión dada por el electrolito sólido y bajo tiempo de arranque han hecho a las PEMFC la opción más popular al elegir un tipo de celda de combustible para utilizar. Sin embargo tiene sus desventajas, como el angosto rango de temperatura en el que requiere operar.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
     Como esta es la tecnología de celda que nos interesa, se va a dedicar una sección para continuar más detalladamente la descripción de este tipo de celdas.\\
 
     \item {\SemiBold Celda de Combustible de Metanol Directo (DMFC)}\\
 
-    Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica$^{[FCHandbook][FCCarrette]}$.\\
+    Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
     \item {\SemiBold Celda de Combustible de Carbonato Fundido (MCFC)}\\
 
-    Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre \SI{600}{\celsius} y \SI{700}{\celsius}. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de niquel y cátodos de óxido de níquel.\\
+    Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre \SI{600}{\celsius} y \SI{700}{\celsius}. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de níquel y cátodos de óxido de níquel.\\
 
-    Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líqido$^{[FCHandbook][FCCarrette]}$.\\
+    Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líquido.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
     \item {\SemiBold Celda de Combustible de Óxido Sólido (SOFC)}\\
 
     Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre \SI{600}{\celsius} y \SI{1000}{\celsius}.\\
 
-    Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC$^{[FCHandbook][FCCarrette]}$.\\
+    Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
     \item {\SemiBold Celda de Combustible de Ácido Fosofórico (PAFC)}\\
 
     Las PAFC utilizan ácido fosfórico ($H_3PO_4$) con concetración de 100 \% estabilizado por una matriz basada en carburo de silicio ($SiC$) como electrolito, y operan en un rango de temperaturas entre \SI{150}{\celsius} y \SI{220}{\celsius}. Estas celdas son relativamente modernas y se destacan por su alta potencia, pudiendo llegar hasta \SI{20}{\mega\watt}, suficiente para una planta de generación intermedia.\\
 
-    Estas celdas son poco sensibles a contaminación de $CO$ y $CO_2$, y su baja temperatura de operación permite el uso de materiales comunes para su construcción. Sin enmbargo, su uso de ácido como electrolito requiere materiales más resistentes para sus electrodos$^{[FCHandbook][FCCarrette]}$.\\
+    Estas celdas son poco sensibles a contaminación de $CO$ y $CO_2$, y su baja temperatura de operación permite el uso de materiales comunes para su construcción. Sin enmbargo, su uso de ácido como electrolito requiere materiales más resistentes para sus electrodos.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
 \end{itemize}
 
@@ -144,7 +144,7 @@ Reemplazando la ecuación \ref{carga_mol} en la expresión del trabajo eléctric
     W_E=\Delta\bar{g_f}=-2F\cdot E
 \end{equation}
 
-Entonces, si despejamos la tensión de circuito abierto $E$ (es decir corriente nula) de la ecuación anterior, podemos obtener una expresión para esta tensión en función de la energía de Gibbs de formación de la reacción, que para una temperatura de \SI{80}{\celsius} de una celda tipo PEM típica es de \SI{-228.2}{\kilo\joule\per\mole}$^{[FCSysExplained]}$.
+Entonces, si despejamos la tensión de circuito abierto $E$ (es decir corriente nula) de la ecuación anterior, podemos obtener una expresión para esta tensión en función de la energía de Gibbs de formación de la reacción, que para una temperatura de \SI{80}{\celsius} de una celda tipo PEM típica es de \SI{-228.2}{\kilo\joule\per\mole}.\textsuperscript{\cite{FCSysExplained}}
 
 \begin{equation}\label{tension_vacio}
     \boxed{E=-\frac{\Delta\bar{g_f}}{2F}=\SI{1.183}{\volt}}
