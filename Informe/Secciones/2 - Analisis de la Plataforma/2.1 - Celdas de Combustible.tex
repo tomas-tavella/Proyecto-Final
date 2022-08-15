@@ -69,44 +69,41 @@ En tanto a la geometría de las celdas, se ha expermientado con una gran varieda
 
 Hay muchas formas de clasificar las distintas tecnologías de celdas, pero en nuestro caso nos vamos a enfocar en la distinción más común, que es la clasificación según el material usado como electrolito. Hoy en día, hay seis tipos distintos de celdas segun electrolito, descritas a continuación, con una mayor profundización mayor en las del tipo PEMFC que se mencionaron anteriormente, ya que son este tipo de pilas las que nos interesa en nuestra aplicación particular.\\
 
-\begin{itemize}
-    \item {\SemiBold Celda de Combustible Alcalina (AFC)}\\
+\paragraph{Celda de Combustible Alcalina (AFC)}
 
-    Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de 85 \% para celdas de alta temperatura (\SI{250}{\celsius}), y entre 35 \% y 50 \% para celdas de baja temperatura (<\SI{120}{\celsius})), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Las AFC fueron las primeras celdas de combustible en ser desarrolladas, alrededor de 1960, e incluso hoy en día son las celdas de combustible con la mayor eficiencia eléctrica. Sin embargo, resultan poco viables, principalmente porque requieren gases muy puros para funcionar correctamente. Este requerimiento se da por el material electrolítico utilizado, el Hidróxido de Potasio (KOH) (en concentraciones de 85 \% para celdas de alta temperatura (\SI{250}{\celsius}), y entre 35 \% y 50 \% para celdas de baja temperatura (<\SI{120}{\celsius})), que reacciona facilmente con el dióxido de carbono que abunda en el aire, transformándose en $K_2CO_3$, destruyendo el electrolito y la celda en el proceso.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
-    \item {\SemiBold Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}\\
+\paragraph{Celda de Combustible de Membrana de Intercambio Protónico (PEMFC)}
 
-    Las PEMFC, también llamadas Celdas de Combustible de Electrolito Polimérico Sólido (SPEFC) son las celdas de combustible más utilizadas al día de hoy, habiendo conseguido usos en vehículos de combustible alternativo, lo que resultó en una gran inversión para su desarrollo. Estas celdas operan en rangos bajos de temperatura (entre \SI{65}{\celsius} y \SI{105}{\celsius}) y tienen un electrolito de estado sólido.\\
+Las PEMFC, también llamadas Celdas de Combustible de Electrolito Polimérico Sólido (SPEFC) son las celdas de combustible más utilizadas al día de hoy, habiendo conseguido usos en vehículos de combustible alternativo, lo que resultó en una gran inversión para su desarrollo. Estas celdas operan en rangos bajos de temperatura (entre \SI{65}{\celsius} y \SI{105}{\celsius}) y tienen un electrolito de estado sólido.\\
     
-    Este electrolito es una membrana de intercambio protónico: un membrana semipermeable que permite la conducción de protones y al mismo tiempo funcionando de aislación eléctrica entre los electrodos, y como barrera física para separar el combustible del comburente. Esta membrana solía fabricarse de sulfonato de poliéstireno, pero hoy en día se usan materiales basados en Politetrafluoretileno (PTFE) como el Nafion de DuPont o el Dow de Dow Chemical, que son más estables y poseen mayor conductividad de protones.\\
+Este electrolito es una membrana de intercambio protónico: un membrana semipermeable que permite la conducción de protones y al mismo tiempo funcionando de aislación eléctrica entre los electrodos, y como barrera física para separar el combustible del comburente. Esta membrana solía fabricarse de sulfonato de poliéstireno, pero hoy en día se usan materiales basados en Politetrafluoretileno (PTFE) como el Nafion de DuPont o el Dow de Dow Chemical, que son más estables y poseen mayor conductividad de protones.\\
 
-    Su baja temperatura de operación, uso de materiales no exóticos, capacidad de altas densidades de corriente, resistencia a la corrosión dada por el electrolito sólido y bajo tiempo de arranque han hecho a las PEMFC la opción más popular al elegir un tipo de celda de combustible para utilizar. Sin embargo tiene sus desventajas, como el angosto rango de temperatura en el que requiere operar.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Su baja temperatura de operación, uso de materiales no exóticos, capacidad de altas densidades de corriente, resistencia a la corrosión dada por el electrolito sólido y bajo tiempo de arranque han hecho a las PEMFC la opción más popular al elegir un tipo de celda de combustible para utilizar. Sin embargo tiene sus desventajas, como el angosto rango de temperatura en el que requiere operar.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
-    Como esta es la tecnología de celda que nos interesa, se va a dedicar una sección para continuar más detalladamente la descripción de este tipo de celdas.\\
+Como esta es la tecnología de celda que nos interesa, se va a dedicar una sección para continuar más detalladamente la descripción de este tipo de celdas.\\
 
-    \item {\SemiBold Celda de Combustible de Metanol Directo (DMFC)}\\
+\paragraph{Celda de Combustible de Metanol Directo (DMFC)}
 
-    Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Las DMFC son un tipo especial de celdas de baja temperatura basadas en tecnología de las PEMFC, operando a temperaturas ligeramente mayores a estas. A diferencia de otras tecnologías, estas celdas utilizan metanol como combustible directamente, ahorrándose el paso de reformarlo a hidrógeno. El metanol es un combustible atractivo, ya que se puede producir a partir de gas natural o biomasa renovable y tiene una elevada energía específica.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
-    \item {\SemiBold Celda de Combustible de Carbonato Fundido (MCFC)}\\
+\paragraph{Celda de Combustible de Carbonato Fundido (MCFC)}
 
-    Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre \SI{600}{\celsius} y \SI{700}{\celsius}. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de níquel y cátodos de óxido de níquel.\\
+Las MCFC, desarrolladas a mediados del siglo XX, son celdas de combustible de alta temperatura de operación, entre \SI{600}{\celsius} y \SI{700}{\celsius}. Su electrolito esta compuesto de carbonatos fundidos de litio y sodio ($Li_2CO_3$ y $Na_2CO_3$) estabilizados por una matriz de fibras de alúmina ($Al_2O_3$). Suelen tener ánodos de níquel y cátodos de óxido de níquel.\\
 
-    Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líquido.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Estas celdas pueden operar con una amplia variedad de combustibles, y, por su alta temperatura, no son tan susceptibles a contaminación por $CO$ o $CO_2$. Además, a diferencia del resto de las tecnologías, no son necesarios materiales catalizadores en los electrodos, ya que la combinación del níquel y las altas temperaturas proveen suficiente actividad electroquímica. Sin embargo, estas temperaturas generan problemas con los distintos materiales, reduciendo la vida útil de las celdas. Además tienen un electrolito altamente corrosivo y en estado líquido.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
-    \item {\SemiBold Celda de Combustible de Óxido Sólido (SOFC)}\\
+\paragraph{Celda de Combustible de Óxido Sólido (SOFC)}
 
-    Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre \SI{600}{\celsius} y \SI{1000}{\celsius}.\\
+Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre \SI{600}{\celsius} y \SI{1000}{\celsius}.\\
 
-    Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
-    \item {\SemiBold Celda de Combustible de Ácido Fosofórico (PAFC)}\\
+\paragraph{Celda de Combustible de Ácido Fosofórico (PAFC)}
 
-    Las PAFC utilizan ácido fosfórico ($H_3PO_4$) con concetración de 100 \% estabilizado por una matriz basada en carburo de silicio ($SiC$) como electrolito, y operan en un rango de temperaturas entre \SI{150}{\celsius} y \SI{220}{\celsius}. Estas celdas son relativamente modernas y se destacan por su alta potencia, pudiendo llegar hasta \SI{20}{\mega\watt}, suficiente para una planta de generación intermedia.\\
+Las PAFC utilizan ácido fosfórico ($H_3PO_4$) con concetración de 100 \% estabilizado por una matriz basada en carburo de silicio ($SiC$) como electrolito, y operan en un rango de temperaturas entre \SI{150}{\celsius} y \SI{220}{\celsius}. Estas celdas son relativamente modernas y se destacan por su alta potencia, pudiendo llegar hasta \SI{20}{\mega\watt}, suficiente para una planta de generación intermedia.\\
 
-    Estas celdas son poco sensibles a contaminación de $CO$ y $CO_2$, y su baja temperatura de operación permite el uso de materiales comunes para su construcción. Sin enmbargo, su uso de ácido como electrolito requiere materiales más resistentes para sus electrodos.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
-
-\end{itemize}
+Estas celdas son poco sensibles a contaminación de $CO$ y $CO_2$, y su baja temperatura de operación permite el uso de materiales comunes para su construcción. Sin enmbargo, su uso de ácido como electrolito requiere materiales más resistentes para sus electrodos.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
 
 \subsubsection{Modelo Eléctrico de las PEMFC}
 
@@ -165,44 +162,41 @@ Sin embargo, esto no es suficiente para un análisis eléctrico completo del dis
 
 En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de \textit{pérdidas de activación} cerca de corriente nula, seguida por la región de \textit{pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de \textit{pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes de la curva, obteniendo sus ecuaciones correspondientes.\\
 
-\begin{enumerate}
-    \SemiBold \item Región de Pérdidas de Activación\\
+\subparagraph{Región de Pérdidas de Activación}
 
-    \normalfont Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
+Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
 
-    La ecuación asociada este comportamiento, formulada empíricamente por el químico suiso Julius Tafel en 1905, es una ecuación que es describe la caída de tensión en un electrodo para una gran variedad de reacciones, incluida la rección redox de agua que nos interesa. La ecuación de Tafel relaciona la caída de tensión en un electrodo $\Delta V_{act}$ con la densidad de corriente $i$ que circula a través del mismo mediante una forma logarítmica.
+La ecuación asociada este comportamiento, formulada empíricamente por el químico suiso Julius Tafel en 1905, es una ecuación que es describe la caída de tensión en un electrodo para una gran variedad de reacciones, incluida la rección redox de agua que nos interesa. La ecuación de Tafel relaciona la caída de tensión en un electrodo $\Delta V_{act}$ con la densidad de corriente $i$ que circula a través del mismo mediante una forma logarítmica.
     
-    \begin{equation}\label{perd_act}
-        \Delta V_{act}=A\cdot \ln\left(\frac{i}{i_0}\right)
-    \end{equation}
+\begin{equation}\label{perd_act}
+    \Delta V_{act}=A\cdot \ln\left(\frac{i}{i_0}\right)
+\end{equation}
 
-    La constante $i_0$ (llamada \textit{densidad de corriente de intercambio}) se puede considerar como la densidad de corriente para la cual la tensión de celda se comienza a alejar de la ideal de la ecuación \ref{tension_vacio}, y su valor aumenta mientras más rápida sea la reacción. En contraste, la constante $A$ que multiplica al logaritmo es mayor para una reacción electroquímica lenta.\\
+La constante $i_0$ (llamada \textit{densidad de corriente de intercambio}) se puede considerar como la densidad de corriente para la cual la tensión de celda se comienza a alejar de la ideal de la ecuación \ref{tension_vacio}, y su valor aumenta mientras más rápida sea la reacción. En contraste, la constante $A$ que multiplica al logaritmo es mayor para una reacción electroquímica lenta.\\
 
-    En el caso particular del hidrógeno como combustible, las pérdidas se concentran casi únicamente en el ánodo (donde ocurre la oxidación), con la densidad $i_0$ del ánodo generalmente mas de \num{10000} veces mayor a la del cátodo, por lo que generalmente las pérdidas de activación de este último se pueden despreciar, teniendo en cuenta únicamente las del ánodo.\\
+En el caso particular del hidrógeno como combustible, las pérdidas se concentran casi únicamente en el ánodo (donde ocurre la oxidación), con la densidad $i_0$ del ánodo generalmente mas de \num{10000} veces mayor a la del cátodo, por lo que generalmente las pérdidas de activación de este último se pueden despreciar, teniendo en cuenta únicamente las del ánodo.\\
 
-    \SemiBold \item Región de Pérdidas Óhmicas\\
+\subparagraph{Región de Pérdidas Óhmicas}
 
-    \normalfont Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm.
+Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm.
 
-    \begin{equation}\label{perd_ohm}
-        \Delta V_{ohm}=i\cdot r
-    \end{equation}
+\begin{equation}\label{perd_ohm}
+    \Delta V_{ohm}=i\cdot r
+\end{equation}
 
-    Donde $r$ debe ser la resistencia por unidad de área (\unit{\ohm\metre\squared}) si se trabaja con $i$ como densidad de corriente (\unit{\ampere\per\metre\squared}).\\
+Donde $r$ debe ser la resistencia por unidad de área (\unit{\ohm\metre\squared}) si se trabaja con $i$ como densidad de corriente (\unit{\ampere\per\metre\squared}).\\
 
-    \SemiBold \item Región de Pérdidas de Concentración\\
+\subparagraph{Región de Pérdidas de Concentración}
     
-    \normalfont Esta última región de pérdidas viene dada, como dice su nombre, por la reducción de la concentración de combustible y comburente en el ánodo y cátodo respectivamente, condición que se ve exacerbada al trabajar con corrientes y cargas muy elevadas. Esta reducción en concentración se traduce a una reducción de la tensión de celda $\Delta V_{conc}$.\\
+Esta última región de pérdidas viene dada, como dice su nombre, por la reducción de la concentración de combustible y comburente en el ánodo y cátodo respectivamente, condición que se ve exacerbada al trabajar con corrientes y cargas muy elevadas. Esta reducción en concentración se traduce a una reducción de la tensión de celda $\Delta V_{conc}$.\\
 
-    En general, el consenso es que no existe una única ecuación analítica que sea capaz de describir este comportamiento para cualquier caso. Entonces, hoy en día es muy común el uso de una ecuación de bases empíricas que, con la correcta elección de constantes, se ajusta muy bien al comportamiento real observado experimentalmente, y relaciona $\Delta V_{conc}$  exponencialmente con la densidad de corriente $i$.
+En general, el consenso es que no existe una única ecuación analítica que sea capaz de describir este comportamiento para cualquier caso. Entonces, hoy en día es muy común el uso de una ecuación de bases empíricas que, con la correcta elección de constantes, se ajusta muy bien al comportamiento real observado experimentalmente, y relaciona $\Delta V_{conc}$  exponencialmente con la densidad de corriente $i$.
 
-    \begin{equation}\label{perd_conc}
-        \Delta V_{conc}=m\cdot e^{ni}
-    \end{equation}
+\begin{equation}\label{perd_conc}
+    \Delta V_{conc}=m\cdot e^{ni}
+\end{equation}
 
-    Donde las constantes $m$ y $n$ suelen estar alrededor de \SI{3e-5}{\volt} y \SI{8e-3}{\cm\squared\per\milli\ampere} respectivamente.\\
-
-\end{enumerate}
+Donde las constantes $m$ y $n$ suelen estar alrededor de \SI{3e-5}{\volt} y \SI{8e-3}{\cm\squared\per\milli\ampere} respectivamente.\\
 
 Habiendo obtenido la ecuacion para la tensión irreversible (ecuación \ref{tension_vacio}) y las ecuaciones de cada una de las tres regiones (ecuaciones \ref{perd_act}, \ref{perd_ohm} y \ref{perd_conc}), se pueden combinar todas en una única expresión que modela la tensión de una celda para cualquier densidad de corriente:
 
