@@ -200,16 +200,18 @@ Donde las constantes $m$ y $n$ suelen estar alrededor de \SI{3e-5}{\volt} y \SI{
 
 Habiendo obtenido la ecuacion para la tensión irreversible (ecuación \ref{tension_vacio}) y las ecuaciones de cada una de las tres regiones (ecuaciones \ref{perd_act}, \ref{perd_ohm} y \ref{perd_conc}), se pueden combinar todas en una única expresión que modela la tensión de una celda para cualquier densidad de corriente:
 
-\begin{flalign}
-    V_{celda} & = E - \Delta V_{act} - \Delta V_{ohm} - \Delta V_{conc}\\
-              & = E - A\cdot \ln\left(\frac{i}{i_0}\right) - i\cdot r - m\cdot e^{ni}
-\end{flalign}
+\begin{equation}
+    \begin{aligned}
+        V_{celda} & = E - \Delta V_{act} - \Delta V_{ohm} - \Delta V_{conc}\\
+                  & = E - A\cdot \ln\left(\frac{i}{i_0}\right) - i\cdot r - m\cdot e^{ni}
+    \end{aligned}
+\end{equation}
 
 Sin embargo, todavía se pueden realizar algunas simplificaciones. Para la ecuación \ref{perd_act}, que expresa la caída de tension por activación, la densidad de corriente de intercambio $i_0$ es muy baja, mucho menor a la densidad de corriente $i$, por lo que esta ecuación se puede modificar de la siguiente manera:
 
-\begin{equation}
+\begin{equation*}
     \Delta V_{act} = A\cdot \ln(i) - A\cdot \ln(i_0)
-\end{equation}
+\end{equation*}
 
 Como el último término solo depende de $i_0$, que es un valor constante, se lo puede agrupar con la tensión irreversible $E$, para obtener una tensión de circuito abierto real y reversible $E_{oc}$.
 

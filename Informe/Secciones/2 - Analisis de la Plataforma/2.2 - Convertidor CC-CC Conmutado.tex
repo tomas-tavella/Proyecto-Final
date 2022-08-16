@@ -119,9 +119,9 @@ Entonces, recordando que la tensión que cae sobre una bobina es proporcional a 
 
 Como la tensión, y por lo tanto la derivada de la corriente, son valores constantes y positivos, la corriente por el inductor es descrita por una recta de pendiente positiva. El cambio neto de corriente $(\Delta i_L)_{cerrado}$ mientras la llave permanece cerrada es entonces
 
-\begin{equation}
+\begin{equation*}
     \frac{di_L}{dt} = \frac{(\Delta i_L)_{cerrado}}{\Delta t} = \frac{(\Delta i_L)_{cerrado}}{DT_s} = \frac{V_s - v_o}{L}\\
-\end{equation}
+\end{equation*}
 
 Reorganizando:
 
@@ -150,9 +150,9 @@ En este intervalo de tiempo, la tensión sobre el inductor es
 
 Entonces, aplicando un razonamiento análogo al del período de llave cerrada, con la diferencia que en este caso, al ser la tensión $v_L$ negativa, la recta de la corriente $i_L$ es decreciente, se obtiene que el cambio neto de corriente $(\Delta i_L)_{abierto}$ mientras la llave está abierta es
 
-\begin{equation}
+\begin{equation*}
     \frac{di_L}{dt} = \frac{(\Delta i_L)_{abierto}}{(1-D)T_s} = \frac{-v_o}{L}\\
-\end{equation}
+\end{equation*}
 
 Reordenando:
 
@@ -170,11 +170,11 @@ Como se mencionó antes, para este análisis se asumió el funcionamiento en est
 
 Reemplazando ambas variables por sus expresiones, se obtiene
 
-\begin{equation}
+\begin{equation*}
     \left(\frac{V_s - v_o}{L}\right)DT_s - \left(\frac{v_o}{L}\right)(1-D)T_s  = 0
-\end{equation}
+\end{equation*}
 
-Despejando $v_o$ de la ecuación anterior, se obtiene que esta tensión varía únicamente en función de la tensión de entrada $V_s$ y el ciclo de trabajo $D$.
+Despejando de la ecuación anterior, se consigue una expresión para la tensión de salida $v_o$ de este convertidor.
 
 \begin{equation}\label{vo_reductor}
     \boxed{
@@ -183,6 +183,18 @@ Despejando $v_o$ de la ecuación anterior, se obtiene que esta tensión varía �
 \end{equation}
 
 Este resultado es idéntico al de la ecuación \ref{valor_medio_reductor} obtenido para el convertidor básico de la figura \ref{proto_reductor}. En conclusión, {\Medium en un convertidor reductor, la tensión de salida siempre es menor o igual a la entrada}.\\
+
+Evidentemente, por el resultado obtenido en la ecuación \ref{vo_reductor}, la salida se controla únicamente con el ciclo de trabajo $D$ del transistor. Por ejemplo, si aumenta la tensión de alimentación $V_s$ pero se desea mantener $v_o$ a un nivel constante, se compensa este aumento con una disminución del ciclo de trabajo (o viceversa). Si se agrega un sensor que mida la tensión de salida, se puede implementar un lazo de control automático que mantiente $v_o$ fijada a una referencia mediante la variación de $D$.\\
+
+\subsubsection{Convertidores CC-CC Aislados}
+
+Habiendo entendido el funcionamiento del convertidor reductor en la anterior sección (que cae en la categoría de convertidores CC-CC no aislados), ahora vamos a pasar a los convertidores CC-CC aislados, categoría en la cual se encuentra el convertidor tipo puente completo de esta plataforma.\\
+
+Los convertidores aislados son generalmente utilizados en fuentes de alimentación de corriente continua, y a diferencia de los no aislados, tienen un transformador de alta frecuencia de por medio, para generar una {\Medium aislación galvánica entre la entrada y la salida}. Además, como los transformadores solo conducen corriente alterna, a su salida debe incluirse algún tipo de circuito rectificador para transformarla a corriente continua para alimentar a la carga.\\
+
+Es claro que el adicionado de un transformador agrega una mayor complejidad al circuito. Entonces, ¿por qué se busca esta aislación galvánica? Sin la aislación interpuesta, nuestra salida va a compartir la conexión a tierra con la fuente de alimentación, (que suelen tener tierras muy ruidosas) introduciendo ruido no deseado a la salida. En muchas aplicaciones hay una gran sensibilidad al ruido en la carga, por lo que es deseable mantenerlo lo más bajo posible, incluso si agrega complejidad al diseño. Adicionalmente, la presencia de aislación galvánica presenta una ventaja en cuestiones de seguridad, tanto para proteger a quienes operan con el circuito como para protección de los componentes del mismo circuito.\\
+
+Otra ventaja es la mayor flexibilidad que un transformador en la etapa de continua aporta al diseño, ya que variando la relación de vueltas entre bobinados (por ejemplo con el uso de múltiples bobinados) se puede variar la tensión de salida entre distintos niveles.\\
 
 \begin{center}
     {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}

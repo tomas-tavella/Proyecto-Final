@@ -67,6 +67,11 @@
     \newpage
 }
 
+\newcommand{\dual}
+{
+    \ \ 
+}
+
 % Definición de colores
 
 \definecolor{AzulFI}{rgb}{0, 0.394, 0.645}                  % 0064A5
@@ -84,14 +89,24 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}                          % Borra el numero de sección de \rightmark            
 \renewcommand{\subsectionmark}[1]{}                                     % No marca las subsecciones
 
-\fancyfoot[RO,LE]{\normalfont[\ {\color{AzulFI_dark}\SemiBold \thepage}\normalfont\ ]}
-\fancyfoot[C]{}
-\fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
-\fancyhead[L]{\color{AzulFI_dark}\scshape{\SemiBold Capítulo \thesection}}
+% Estilo viejo
+%\fancyfoot[RO]{\xfill[2.5pt]{0.4pt}\Medium[\ {\color{AzulFI_dark}\Bold \thepage}\Medium\ ]}
+%\fancyfoot[LE]{\Medium[\ {\color{AzulFI_dark}\Bold \thepage}\Medium\ ]\xfill[2.5pt]{0.4pt}}
+%\fancyfoot[C]{}
+%\fancyhead[R]{\color{AzulFI_dark}\scshape{\SemiBold \rightmark}}        % \rightmark da la sección
+%\fancyhead[L]{\color{AzulFI_dark}\scshape{\SemiBold Capítulo \thesection}}
+
+% Estilo nuevo
+\fancyfoot[CO]{\SemiBold |\hspace{0.5em}\color{AzulFI_dark}Tomás Tavella\hspace{0.5em}\normalcolor |\xfill[0.5ex]{0.8pt}|\color{AzulFI_dark}\hspace{0.5em}\thepage\normalcolor\hspace{0.5em}|}
+\fancyfoot[CE]{\SemiBold |\hspace{0.5em}\color{AzulFI_dark}\thepage\hspace{0.5em}\normalcolor |\xfill[0.5ex]{0.8pt}|\color{AzulFI_dark}\hspace{0.5em}Tomás Tavella\normalcolor\hspace{0.5em}|}
+\fancyhead[R,L]{}
+\fancyhead[CO]{\SemiBold  |\hspace{0.5em}\scshape\color{AzulFI_dark}Capítulo \thesection\normalcolor\hspace{0.5em}|\xfill[0.5ex]{0.8pt}|\color{AzulFI_dark}\hspace{0.5em}\rightmark\hspace{0.5em}|}
+\fancyhead[CE]{\SemiBold  |\hspace{0.5em}\scshape\color{AzulFI_dark}\rightmark\normalcolor\hspace{0.5em}|\xfill[0.5ex]{0.8pt}|\color{AzulFI_dark}\hspace{0.5em}Capítulo \thesection\hspace{0.5em}|}
+\renewcommand{\headrulewidth}{0pt}
 
 \fancypagestyle{plain}{
     \fancyhead[L,C,R]{}
-    \fancyfoot[C]{}
+    %\fancyfoot[C]{}                                                    % Sólo va con el estilo viejo
     \renewcommand{\headrulewidth}{0pt}                                  % Para que no haya linea horizontal de encabezado en las páginas de índice y título de sección
 }
 
@@ -142,7 +157,7 @@
 
 \titleformat{\section}[display]                                     % display permite el numero en linea separada del nombre
 {\raggedright\color{AzulFI_dark}\scshape\Bold\Huge\centering}       % Formato del título de seccion
-{\normalcolor \tiny\ \Huge\xfill[8pt]{1pt}\ \ \color{AzulFI_dark}\thesection\normalcolor\ \ \xfill[8pt]{1pt}\tiny\ }{0.5em}{}       % Formato del número de seccion
+{\normalcolor \tiny\ \Huge\xfill[8pt]{1pt}\dual\color{AzulFI_dark}\thesection\normalcolor\dual\xfill[8pt]{1pt}\tiny\ }{0.5em}{}       % Formato del número de seccion
 
 \titleformat{\subsection}[hang]{\raggedright\color{AzulFI_dark}\scshape\LARGE\Bold}{\thesubsection\quad}{0.5em}{}                      % Se agrega raggedright a todos para que no separe palabras en dos cuando tiene que hacer un line break
 
