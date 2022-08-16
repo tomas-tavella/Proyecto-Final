@@ -42,8 +42,8 @@ La forma más básica posible de un convertidor conmutado tiene un esquema circu
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{Imagenes/Proto Reductor.png}
-    \caption{Circuito de un convertidor conmutado básico, con el transistor $Q_1$ actuando como llave (Placeholder).}
+    \includegraphics[scale=0.8]{Imagenes/Proto Reductor.pdf}
+    \caption{Circuito de un convertidor conmutado básico, y su equivalente con el transistor $Q_1$ como llave ideal.}
     \label{proto_reductor}
 \end{figure}
 
@@ -70,8 +70,8 @@ Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida lue
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{Imagenes/Reductor.png}
-    \caption{Circuito de un convertidor reductor o buck completo (Placeholder).}
+    \includegraphics[scale=0.8]{Imagenes/Reductor.pdf}
+    \caption{Circuito de un convertidor reductor o buck, con componentes ideales.}
     \label{reductor}
 \end{figure}
 
@@ -106,8 +106,8 @@ Al estar la llave cerrada durante el tiempo $t_{on} = DT_s$, la tensión de entr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{Imagenes/Reductor Llave Cerrada.png}
-    \caption{Circuito equivalente de un convertidor reductor para llave cerrada  (Placeholder).}
+    \includegraphics[scale=0.8]{Imagenes/Reductor Llave Cerrada.pdf}
+    \caption{Circuito equivalente de un convertidor reductor para llave cerrada.}
     \label{reductor_llave_cerrada}
 \end{figure}
 
@@ -137,8 +137,8 @@ Ahora, al abrirse la llave durante el tiempo $t_{off} = (1-D)T_s$, el diodo entr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{Imagenes/Reductor Llave Abierta.png}
-    \caption{Circuito equivalente de un convertidor reductor para llave abierta (Placeholder).}
+    \includegraphics[scale=0.8]{Imagenes/Reductor Llave Abierta.pdf}
+    \caption{Circuito equivalente de un convertidor reductor para llave abierta.}
     \label{reductor_llave_abierta}
 \end{figure}
 
@@ -196,6 +196,27 @@ Es claro que el adicionado de un transformador agrega una mayor complejidad al c
 
 Otra ventaja es la mayor flexibilidad que un transformador en la etapa de continua aporta al diseño, ya que variando la relación de vueltas entre bobinados (por ejemplo con el uso de múltiples bobinados) se puede variar la tensión de salida entre distintos niveles.\\
 
+Ahora se procederá a derivar las distintas topologías de convertidores aislados, partiendo del convertidor reductor (no aislado) que se explico más arriba. Estos convertidores que obtendremos los vamos a llamar {\Medium convertidores aislados derivados del reductor} o \textit{isolated buck-derived converters}\textsuperscript{\cite{SoftSwitchPWM}}, comenzando por el convertidor \textit{forward}.\\
+
+\paragraph{El Convertidor Forward}
+
+Si tomamos el circuito del reductor de la figura \ref{reductor}, y le agregamos un transformador de alta frecuencia entre la llave $Q_1$ y el diodo $D_1$, se obtiene la aislación galvánica buscada, como se observa en el circuito de la figura \ref{desarrollo_forward1}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{Imagenes/Desarrollo Forward 1.pdf}
+    \caption{Convertidor reductor con un transformador interpuesto entre la llave $Q_1$ y el diodo $D_1$.}
+    \label{desarrollo_forward1}
+\end{figure}
+
+Cuando la llave está cerrada, la tensión $V_s$ de entrada se aplica sobre el bobinado primario del transformador, traduciéndose a una tensión de la misma polaridad (por la ubicación de los puntos homólogos) pero afectada por la relación de vueltas $n$. Esto genera que el núcleo ferromagnético del transformador se magnetice, y aumente su flujo de magentización $\phi_m$.\\
+
+Cuando la llave se abre, la corriente del inductor de filtro circula por el diodo $D_1$, cortocircuitando el bobinado secundario del transformador. Esto fuerza que la tensión y la corriente del transformador se anulen, y por lo tanto, el flujo magnetizante se mantiene constante.\\
+
+Entonces, durante un período de conmutación $T_s$, el flujo $\phi_m$ del núcleo del transformador tiene un incremento neto. Pasados suficientes ciclos de conmutación, este flujo aumenta lo suficiente como para saturar el transformador, cosa que no es deseable, ya que puede resultar en corrientes elevadas y eventualmente, la destrucción del transistor de potencia que actúa como llave.\\
+
+Para solucionar este problema, se debe agregar algún circuito auxiliar que, durante el período en el que la llave está abierta, aplique una tensión negativa en el bobinado primario y permita una circulación inversa de corriente para restablecer el flujo magnetizante a su valor original.\\
+
 \begin{center}
-    {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold} {\ExtraBold ExtraBold} {\Black Black}
+    {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold}
 \end{center}
