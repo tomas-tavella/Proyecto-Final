@@ -213,9 +213,36 @@ Cuando la llave está cerrada, la tensión $V_s$ de entrada se aplica sobre el b
 
 Cuando la llave se abre, la corriente del inductor de filtro circula por el diodo $D_1$, cortocircuitando el bobinado secundario del transformador. Esto fuerza que la tensión y la corriente del transformador se anulen, y por lo tanto, el flujo magnetizante se mantiene constante.\\
 
-Entonces, durante un período de conmutación $T_s$, el flujo $\phi_m$ del núcleo del transformador tiene un incremento neto. Pasados suficientes ciclos de conmutación, este flujo aumenta lo suficiente como para saturar el transformador, cosa que no es deseable, ya que puede resultar en corrientes elevadas y eventualmente, la destrucción del transistor de potencia que actúa como llave.\\
+Entonces, durante un período de conmutación $T_s$, el flujo $\phi_m$ del núcleo del transformador tiene un incremento neto. Pasados suficientes períodos, este flujo aumenta lo suficiente como para saturar el transformador, cosa que no es deseable, ya que puede resultar en corrientes elevadas y eventualmente, la destrucción del transistor de potencia que actúa como llave.\\
 
-Para solucionar este problema, se debe agregar algún circuito auxiliar que, durante el período en el que la llave está abierta, aplique una tensión negativa en el bobinado primario y permita una circulación inversa de corriente para restablecer el flujo magnetizante a su valor original.\\
+Para solucionar este problema, se debe agregar algún circuito auxiliar de restablecimiento del núcleo que, durante el período en el que la llave está abierta, aplique una tensión negativa en el bobinado primario y permita una circulación inversa de corriente para restablecer el flujo magnetizante a su valor original.\\
+
+Pero, al aplicar esta tensión negativa en el primario, se refleja en una tensión negativa del secundario que polariza en directa a $D_1$, cortocircuitando este bobinado. Para arreglar este inconveniente, se puede agregar un diodo rectificador $D_R$ en serie con el bobinado secundario, que no permita la circulación inversa de corriente.\\
+
+Teniendo esto en cuenta, se ve en la figura \ref{forward} el circuito de un {\Medium convertidor \textit{forward}} derivado de un reducto, dónde se agregaron el circuito de restablecimiento de núcleo, compuesto por un bobinado auxiliar y un diodo $D_r$ en serie; en paralelo con el bobinado primario y la llave $Q_1$ (en posiciones invertidas); y el diodo rectificador $D_R$ en el secundario (respecto a la figura \ref{desarrollo_forward1}).\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{Imagenes/Desarrollo Forward 1.pdf}
+    \caption{Circuito de un convertidor forward, desarrollado a partir del circuito de un reductor (Placeholder).}
+    \label{forward}
+\end{figure}
+
+Dado que este circuito es similar a un convertidor reductor, solo que con un transformador de relación de vueltas $n$ interpuesto (y los circuitos auxiliares que no afectan la salida), se puede ver que su relación entrada-salida será similar a la del convertidor en el que se basa (ecuación \ref{vo_reductor}) pero afectada por la relación de vueltas del transformador.\textsuperscript{\cite{PotenciaHart}}
+
+\begin{equation}\label{vo_forward}
+    \boxed{
+        v_o = \left(\frac{N_2}{N_1}\right)V_sD = nV_sD
+    }
+\end{equation}
+
+Con estos resultados se puede ver la flexibilidad aportada por el transformador: a pesar de ser muy similar a un circuito que solo permite reducir la tensión, con la relación de vueltas se puede obtener cualquier nivel de tensión que se desee a la salida. Sin embargo, al tener que restablecer la magnetización del núcleo, se suele limitar el ciclo de trabajo a 50 \% para poder lograr la demagnetización completa.\textsuperscript{\cite{SoftSwitchPWM}}\\
+
+Otra consecuencia, que surge del agregado del bobinado auxiliar, es la tensión que el transistor debe soportar cuando se encuentra abierto. Si las vueltas de ambos bobinados (primario y auxiliar) son iguales, en el transistor abierto cae una tensión $2V_s$, es decir el doble de la tensión de entrada. Esto puede ser problemático, ya que se deben conseguir transistores que soporten una mayor tensión, característica que viene de mano con un desempeño de alta frecuencia disminuido y un mayor precio.\\
+
+[Alguna cosa para conectar el forward con el push-pull, como lo que dice en el primer párrafo de push-pull del libro]. Esto se va a desarrollar partiendo del circuito de la figura \ref{forward}.\\
+
+\paragraph{El Convertidor Push-Pull}
 
 \begin{center}
     {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold}
