@@ -236,13 +236,15 @@ Dado que este circuito es similar a un convertidor reductor, solo que con un tra
     }
 \end{equation}
 
-Con estos resultados se puede ver la flexibilidad aportada por el transformador: a pesar de ser muy similar a un circuito que solo permite reducir la tensión, con la relación de vueltas se puede obtener cualquier nivel de tensión que se desee a la salida. Sin embargo, al tener que restablecer la magnetización del núcleo, se suele limitar el ciclo de trabajo a 50 \% para poder lograr la demagnetización completa.\textsuperscript{\cite{SoftSwitchPWM}}\\
+Con estos resultados se puede ver la flexibilidad aportada por el transformador: a pesar de ser muy similar a un circuito que solo permite reducir la tensión, con la relación de vueltas se puede obtener cualquier nivel de tensión que se desee a la salida. Sin embargo, al tener que restablecer la magnetización del núcleo, se suele limitar el ciclo de trabajo a 50 \% para poder lograr la demagnetización completa.\\
 
-Otra consecuencia, que surge del agregado del bobinado auxiliar, es la tensión que el transistor debe soportar cuando se encuentra abierto. Si las vueltas de ambos bobinados (primario y auxiliar) son iguales, en el transistor abierto cae una tensión $2V_s$, es decir el doble de la tensión de entrada. Esto puede ser problemático, ya que se deben conseguir transistores que soporten una mayor tensión, característica que viene de mano con un desempeño de alta frecuencia disminuido y un mayor precio.\\
+Otra consecuencia, que surge de la necesidad de restablecer el flujo magnetizante del núcleo, es que al estar el ciclo de trabajo limitado a la mitad del período, los requerimientos de filtrado aumentan considerablemente. Esto requiere de la utilización de una bobina $L$ de mucha mayor inductancia, lo que aumenta su costo y tamaño, además de introducir una gran cantidad de armónicos de la frecuencia de conmutación que distorsionan la forma de onda de salida.\textsuperscript{\cite{SoftSwitchPWM}}\\
 
-[Alguna cosa para conectar el forward con el push-pull, como lo que dice en el primer párrafo de push-pull del libro]. Esto se va a desarrollar partiendo del circuito de la figura \ref{forward}.\\
+Entonces, se debe encontrar un circuito que sea capaz de obtener una tensión rectificada de secundario que supere el 50 \% de ciclo de trabajo, disminuyendo los requerimientos del filtro y la presencia de armónicos no deseados. Es posible obtener un circuito de estas características, el cual se va a desarrollar partiendo del circuito del convertidor forward de la figura \ref{forward}.\\
 
 \paragraph{El Convertidor Push-Pull}
+
+[Derivación del push-pull a partir del forward]\\
 
 \begin{center}
     {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold}
