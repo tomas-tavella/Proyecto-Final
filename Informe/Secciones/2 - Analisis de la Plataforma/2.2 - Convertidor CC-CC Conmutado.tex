@@ -18,9 +18,9 @@ Dado que para esta plataforma se utiliza un convertidor conmutado (principalment
 
 \subsubsection{Conceptos Básicos}
 
-Como se detalló más arriba, los convertidores CC-CC conmutados consisten, en su forma más básica, en una fuente de continua no regulada a la entrada; y un transistor (que puede ser BJT, MOSFET o IGBT) que, mediante una excitación en su tercer terminal, se conmuta entre los modos de alta impedancia e impedancia nula, actuando como llave abierta y llave cerrada respectivamente. La proporción del tiempo total de ciclo ($T_s$) en la que el transistor está conduciendo ($t_{on}$) se denomina {\Medium ciclo de trabajo} o {\Medium \textit{duty cycle}} y se suele simbolizar con la {\Medium letra \textit{D}}. Como se verá más adelante, este es un parámetro crucial para el funcionamiento de este tipo de convertidores, ya que controlándolo se puede variar el nivel de tensión y corriente de salida.
+Como se detalló más arriba, los convertidores CC-CC conmutados consisten, en su forma más básica, en una fuente de continua no regulada a la entrada; y un transistor (que puede ser BJT, MOSFET o IGBT) que, mediante una excitación en su tercer terminal, se conmuta entre los modos de alta impedancia e impedancia nula, actuando como llave abierta y llave cerrada respectivamente. La proporción del tiempo total de ciclo ($T_s$) en la que el transistor está conduciendo ($t_{on}$) se denomina {\Medium ciclo de trabajo} o {\Medium \textit{duty cycle}} y se suele simbolizar con la {\Medium letra \textit{D}}. Como se verá más adelante, este es un parámetro crucial para el funcionamiento de este tipo de convertidores, ya que controlándolo se puede variar el nivel de tensión y corriente de salida.\\
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{Imagenes/Duty Cycle.pdf}
     \caption{Una forma de onda cuadrada con ciclo de trabajo $D$ del 25 \%.}
@@ -42,7 +42,7 @@ La forma más básica posible de un convertidor conmutado tiene un esquema circu
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Proto Reductor.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Proto Reductor.pdf}
     \caption{Circuito de un convertidor conmutado básico, y su equivalente con el transistor $Q_1$ como llave ideal.}
     \label{proto_reductor}
 \end{figure}
@@ -70,7 +70,7 @@ Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida lue
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Reductor.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Reductor.pdf}
     \caption{Circuito de un convertidor reductor o buck, con componentes ideales.}
     \label{reductor}
 \end{figure}
@@ -106,7 +106,7 @@ Al estar la llave cerrada durante el tiempo $t_{on} = DT_s$, la tensión de entr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Reductor Llave Cerrada.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Reductor Llave Cerrada.pdf}
     \caption{Circuito equivalente de un convertidor reductor para llave cerrada.}
     \label{reductor_llave_cerrada}
 \end{figure}
@@ -137,7 +137,7 @@ Ahora, al abrirse la llave durante el tiempo $t_{off} = (1-D)T_s$, el diodo entr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Reductor Llave Abierta.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Reductor Llave Abierta.pdf}
     \caption{Circuito equivalente de un convertidor reductor para llave abierta.}
     \label{reductor_llave_abierta}
 \end{figure}
@@ -204,7 +204,7 @@ Si tomamos el circuito del reductor de la figura \ref{reductor}, y le agregamos 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Desarrollo Forward 1.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Desarrollo Forward 1.pdf}
     \caption{Convertidor reductor con un transformador interpuesto entre la llave $Q_1$ y el diodo $D_1$.}
     \label{desarrollo_forward}
 \end{figure}
@@ -223,8 +223,8 @@ Teniendo esto en cuenta, se ve en la figura \ref{forward} el circuito de un {\Me
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Forward.pdf}
-    \caption{Circuito de un convertidor forward, desarrollado a partir del circuito de un reductor.}
+    \includegraphics[scale=0.6]{Imagenes/Forward.pdf}
+    \caption{Circuito de un convertidor aislado tipo forward, desarrollado a partir del circuito de un reductor.}
     \label{forward}
 \end{figure}
 
@@ -232,7 +232,7 @@ Dado que este circuito es similar a un convertidor reductor, solo que con un tra
 
 \begin{equation}\label{vo_forward}
     \boxed{
-        v_o = \left(\frac{N_2}{N_1}\right)V_sD = nV_sD
+        v_o = \left(\frac{N_S}{N_P}\right)V_sD = nV_sD
     }
 \end{equation}
 
@@ -242,7 +242,7 @@ Además, con el circuito de restablecimiento de flujo, el estrés de tensión so
 
 \subparagraph{Forward de Doble Llave}
 
-Para solucionar este inconveniente, se puede diseñar un converitdor forward de dos llaves o \textit{double-ended}, que disminuye el estrés de tensión de cada llave a $V_s$.\\
+Para solucionar este inconveniente, se puede diseñar un converitdor forward de dos llaves o \textit{double-ended}, que disminuye el estrés de tensión de cada llave a $V_s$ sin cambiar la tensión de salida, que se mantiene igual a la ecuación \ref{vo_forward} del convertidor forward común.\\
 
 Entonces, si agregamos una segunda llave $Q_2$ en serie a la llave original, ambas conmutando al mismo tiempo, la tensión de llave abierta se reparte entre ambas llaves, logrando lo que se buscaba. Para asegurar que en cada llave caiga la tensión $V_s$ correspondiente, se agregan los diodos $D_1$ y $D_2$, conectados entre el terminal negativo del transformador y $V_s$, y entre el terminal negativo de $V_s$ y el terminal positivo del transformador respectivamente.\\
 
@@ -250,29 +250,50 @@ Estos diodos, durante el tiempo en que ninguna llave conduce, permiten el flujo 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Forward Double-Ended.pdf}
-    \caption{Circuito de un convertidor forward de doble llave o double-ended.}
+    \includegraphics[scale=0.6]{Imagenes/Forward Double-Ended.pdf}
+    \caption{Circuito de un convertidor aislado tipo forward de doble llave o double-ended.}
     \label{forward_doubleended}
 \end{figure}
 
-Una consecuencia que existe para ambos tipos de convertidores forward (normal y double-ended), que surge de la necesidad de restablecer el flujo magnetizante del núcleo, es que al estar el ciclo de trabajo limitado a la mitad del período, los requerimientos de filtrado aumentan considerablemente. Esto requiere de la utilización de una bobina $L$ de mucha mayor inductancia, lo que aumenta su costo y tamaño, además de introducir una gran cantidad de armónicos de la frecuencia de conmutación que distorsionan la forma de onda de salida.\textsuperscript{\cite{SoftSwitchPWM}}\\
+Una consecuencia que existe para ambos tipos de convertidores forward (normal y double-ended), es que al estar el ciclo de trabajo limitado a la mitad del período, los requerimientos de filtrado aumentan considerablemente. Esto requiere de la utilización de una bobina de mucha mayor inductancia, aumentando su costo y tamaño, además de introducir una gran cantidad de armónicos de la frecuencia de conmutación.\textsuperscript{\cite{SoftSwitchPWM}}\\
 
-Entonces, se debe encontrar un circuito que sea capaz de obtener una tensión rectificada de secundario que supere el 50 \% de ciclo de trabajo, disminuyendo los requerimientos del filtro y la presencia de armónicos no deseados. Es posible obtener un circuito de estas características, el cual se va a desarrollar partiendo del circuito del convertidor forward de una llave de la figura \ref{forward}.\\
+Entonces, se debe encontrar un circuito que sea capaz de obtener una tensión rectificada de secundario que supere el 50 \% de ciclo de trabajo, disminuyendo los requerimientos del filtro y la presencia de armónicos no deseados. Vamos a obtener este circuito partiendo del circuito del convertidor forward de una llave de la figura \ref{forward}.\\
 
 \paragraph{El Convertidor Push-Pull}
 
-Una posible solución podría ser la conexión de dos convertidores forward en paralelo en el primario, que luego compartan el diodo $D_1$ y el filtro de salida LC del lado secundario. Los interruptores $Q_1$ y $Q_2$ deben operar de manera complementaria, con $Q_1$ conduciendo cuando $Q_2$ se abre y viceversa (ambos con el mismo ciclo de trabajo); así se obtiene una tensión rectificada del doble de ciclo de trabajo de de cada llave.\\
+Una posible solución podría ser la conexión de dos convertidores forward en paralelo en el primario, que luego compartan el diodo $D_1$ y el filtro de salida LC del lado secundario. Los interruptores $Q_1$ y $Q_2$ deben operar de manera complementaria, con $Q_1$ conduciendo cuando $Q_2$ se abre y viceversa (ambos con el mismo ciclo de trabajo); obteniendo una tensión rectificada del doble de ciclo de trabajo de cada llave.\\
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Forward Double-Ended.pdf}
+    \includegraphics[scale=0.6]{Imagenes/Desarrollo Push-Pull 1.pdf}
     \caption{Dos convertidores forward conectados en paralelo en el primario, compartiendo diodo y filtro de salida.}
     \label{desarrollo_pushpull}
 \end{figure}
 
-El circuito resultante de la figura \ref{desarrollo_pushpull}, sin embargo, se puede simplificar. Si hacemos que ambos bobinados primarios compartan su núcleo magnético; entonces, se puede agregar un diodo en antiparalelo a cada llave, de manera que cada uno de estos diodos, junto con los bobinado que tienen en serie, pueden funcionar como circuitos de restablecimiento del núcleo cuando la otra llave esta conduciendo (es decir, cuando $Q_2$ conduce, el diodo antiparalelo de $Q_1$ y su bobinado restablecen la magentización del núcleo, y viceversa).\\
+El circuito resultante de la figura \ref{desarrollo_pushpull}, sin embargo, se puede simplificar. Si hacemos que ambos bobinados primarios compartan su núcleo magnético; entonces, se puede agregar un diodo en antiparalelo a cada llave, de manera que cada uno de estos diodos, junto con los bobinados que tienen en serie, pueden funcionar como circuitos de restablecimiento del núcleo cuando la otra llave esta conduciendo (es decir, cuando $Q_2$ conduce, el diodo antiparalelo de $Q_1$ y su bobinado restablecen la magentización del núcleo, y viceversa).\\
 
-Entonces, los circuitos de restablecimiento heredados del convertidor forward son redundantes, y por lo tanto se pueden remover para simplificar el circuito
+Entonces, los circuitos de restablecimiento heredados del convertidor forward son redundantes, y por lo tanto se pueden remover para simplificar el circuito, resultando en el {\Medium convertidor \textit{push-pull}} que se observa en la figura \ref{pushpull}. Además, el diodo de rueda libre $D_{FW}$ se puede remover, ya que con el rectificador de punto medio conformado por $D_{R1}$ y $D_{R2}$ se forma un camino para la circulación de la corriente del inductor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/Push-Pull.pdf}
+    \caption{Circuito de un convertidor aislado tipo push-pull.}
+    \label{pushpull}
+\end{figure}
+
+Para obtener su tensión de salida no es necesario realizar toda la deducción matemática. Al ser esta topología esencialmente dos convertidores forward que conducen de manera alternada (cada columna del primario es equivalente a un covertidor forward), el ciclo de trabajo de la onda rectificada es el doble del de cada una de las columnas. Entonces, es razonable decir que su tensión $v_o$ es dos veces la del convertidor forward (ecuación \ref{vo_forward})\textsuperscript{\cite{PotenciaHart}}, siempre que ambos bobinados primarios y secundarios sean iguales.
+
+\begin{equation}\label{vo_pushpull}
+    \boxed{
+        v_o = 2\left(\frac{N_{S1}}{N_{P1}}\right)V_sD = 2\left(\frac{N_{S2}}{N_{P2}}\right)V_sD
+    }
+\end{equation}
+
+Esta topología soluciona los problemas de rectificación que tienen los convertidores forward, pero cada llave debe soportar $2V_s$ de tensión cuando está abierta (porque son dos forward intercalados), introduciendo de vuelta la problemática que se solucionó con el forward double-ended. Sería desable entonces, encontrar una topología aislada que sea capaz de solucionar ambos inconvenientes.\\
+
+\subsubsection{El Convertidor de Puente Completo}
+
+Esta tipo particular de convertidor aislado es el que se utiliza en la plataforma en estudio. Se va a obtener su circuito partiendo del convertidor forward de dos llaves de la figura \ref{forward_doubleended}, detallando sus ventajas y desventajas. Luego se va a desarrollar un modelo matemático para representarlo y se explicará la forma de controlarlo mediante el método \textit{phase-shift}.\\
 
 %\begin{center}
 %    {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold}

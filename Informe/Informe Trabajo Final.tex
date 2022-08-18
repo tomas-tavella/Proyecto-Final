@@ -70,6 +70,7 @@
 \definecolor{AzulFI}{rgb}{0, 0.394, 0.645}                  % 0064A5
 \definecolor{AzulFI_dark}{rgb}{0, 0.2353, 0.3882}           % 003C63
 \definecolor{AzulFI_darker}{rgb}{0, 0.196, 0.3216}          % 003252
+\definecolor{AzulFI_light}{rgb}{0.898, 0.9373, 0.9647}      % E5EFF6
 %\definecolor{codegreen}{rgb}{0,0.6,0}
 %\definecolor{codegray}{rgb}{0.5,0.5,0.5}
 %\definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -147,6 +148,10 @@
 \normalsize
 }
 
+% Macro para usar colorbox en ecuaciones
+
+\newcommand{\highlight}[1]{\colorbox{AzulFI_light}{$\displaystyle #1$}}
+
 % Macro para comillas
 
 \newcommand{\quotes}[1]{``#1''}                 % Comando para double quotes
@@ -164,7 +169,7 @@
 
 \titleformat{\subsection}[hang]{\raggedright\color{AzulFI_dark}\scshape\LARGE\Bold}{\thesubsection\quad}{0.5em}{}                      % Se agrega raggedright a todos para que no separe palabras en dos cuando tiene que hacer un line break
 
-\titleformat{\subsubsection}[hang]{\raggedright\color{AzulFI_dark}\scshape\Large\SemiBold}{\thesubsubsection\quad}{0.5em}{}
+\titleformat{\subsubsection}[hang]{\raggedright\color{AzulFI_dark}\scshape\Large\Bold}{\thesubsubsection\quad}{0.5em}{}
 \titleformat{\paragraph}[hang]{\raggedright\color{AzulFI_dark}\large\SemiBold}{}{0.5em}{}
 \titleformat*{\subparagraph}{\raggedright\SemiBold}
 

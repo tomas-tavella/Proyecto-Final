@@ -222,7 +222,9 @@ Como el último término solo depende de $i_0$, que es un valor constante, se lo
 Vale aclarar que, al ser la densidad de corriente de intercambio una magnitud muy chica, al calcular su logaritmo natural se obtiene un número negativo, por lo que la tensión de circuito abierto reversible $E_{oc}$ resulta, como es esperable, menor la la tensión irreversible $E$. Entonces, la expresión final que describe la relación tensión vs. corriente de una celda de combustible se muestra en la siguiente ecuación.
 
 \begin{equation}\label{v_celda}
-    \boxed{V_{celda} = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}}
+    \boxed{
+    \highlight{V_{celda} = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}}
+    }
 \end{equation}
 
 Para obtener la tensión de una pila, solo es necesario multiplicar la tensión $V_{celda}$ por la cantidad de celdas $N$ del stack.
@@ -234,3 +236,5 @@ Para obtener la tensión de una pila, solo es necesario multiplicar la tensión 
 \subsubsection{Emulador de Celdas de Combustible}
 
 Información sobre la pila particular que se va a simular (Horizon H300) y el emulador de pilas que se va a usar.\\
+
+\newpage
