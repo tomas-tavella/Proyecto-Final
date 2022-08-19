@@ -222,19 +222,34 @@ Como el último término solo depende de $i_0$, que es un valor constante, se lo
 Vale aclarar que, al ser la densidad de corriente de intercambio una magnitud muy chica, al calcular su logaritmo natural se obtiene un número negativo, por lo que la tensión de circuito abierto reversible $E_{oc}$ resulta, como es esperable, menor la la tensión irreversible $E$. Entonces, la expresión final que describe la relación tensión vs. corriente de una celda de combustible se muestra en la siguiente ecuación.
 
 \begin{equation}\label{v_celda}
-    \boxed{
-    \highlight{V_{celda} = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}}
-    }
+    %\boxed{
+    V_{celda}(i) = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}
+    %}
 \end{equation}
 
 Para obtener la tensión de una pila, solo es necesario multiplicar la tensión $V_{celda}$ por la cantidad de celdas $N$ del stack.
 
 \begin{equation}\label{v_stack}
-    V_{stack} = NV_{celda} = NE_{oc} - N(A\cdot\ln(i)) - N(i\cdot r) - N(m\cdot e^{ni})
+    \boxed{
+    \highlight{V_{stack}(i) = NV_{celda}(i) = N\cdot (E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni})}
+    }
 \end{equation}
 
 \subsubsection{Emulador de Celdas de Combustible}
 
-Información sobre la pila particular que se va a simular (Horizon H300) y el emulador de pilas que se va a usar.\\
+Esta plataforma se basa en la utilización de un modelo comercial particular de pila de combustible: el módulo H-300 de la serie H de pilas de combustible de Horizon Fuel Cell Technologies de la figura \ref{H300}. Esta es una pila de combustible de \SI[]{300}[]{\watt} enfriada por aire del tipo PEMFC, qur consiste en un stack de \num{60} celdas. Su desempeño nominal es de \SI[]{36}[]{\volt} de tensión a \SI[]{9}[]{\ampere} de corriente y tiene una tensión de circuito abierto de aproximadamente \SI[]{60}[]{\volt}.\textsuperscript{\cite{HSeriesBrochure}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{Imagenes/Horizon H-300.png}
+    \caption{Pila de combustible tipo PEMFC, modelo Horizon Fuell Cell Technologies H-300.}
+    \label{H300}
+\end{figure}
+
+Sin embargo, dado que este módulo no está presente en el laboratorio, como reemplazo se utiliza un {\Medium módulo de emulación de pilas de combustible}. Este módulo permite la reproducción de una curva tensión-corriente de una pila en condiciones de trabajo controladas.\\
+
+Este módulo consiste de un convertidor CC-CC conmutado de tipo reductor, (que se explicará mas adelante) que impone una tensión de salida en función de la corriente suministrada a través de un lazo de control. El modelo que utiliza para obtener la tensión de salida en función de la corriente es el que se se obtuvo en la ecuación \ref{v_stack} y en el gráfico de la figura \ref{V-I_celda}. El módulo se puede ajustar a distintos modelos de celdas mediante la variación de las constantes $N$, $E_{oc}$, $A$, $r$, $m$ y $n$. Los valores de la curva se almacenan en una tabla de \textit{look-up} implementada en un FPGA.\\
+
+Adicionalmente a la característica tensión-corriente de la celda, este módulo permite simular el filtro pasabajos propio de la pila que se ve en el diagrama de la plataforma de la figura \ref{diag_plataforma}. Este filtro cumple la función de proteger a las celdas y evitar deterioro de las mismas mediante una reducción del rizado de corriente que puede generar la conmutación del convertidor.\textsuperscript{\cite{Argencon2018}}\\
 
 \newpage
