@@ -153,14 +153,14 @@ Con esta ecuación, por lo tanto, se puede obtener la {\Medium tensión de circu
 
 Sin embargo, esto no es suficiente para un análisis eléctrico completo del dispositivo. Ahora se deben describir las distintas partes de una curva típica de tensión-corriente de una celda de combustible de baja presión y temperatura (como las PEMFC), y al mismo tiempo presentar las ecuaciones que la describen para poder obtener el modelo eléctrico completo que se busca. Se puede ver esta curva típica en la figura \ref{V-I_celda}.\\
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{Imagenes/Curva V-I Celda.png}
     \caption{Curva de tensión vs. corriente típica de una celda de combustible tipo PEM (Placeholder).}
     \label{V-I_celda}
 \end{figure}
 
-En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de \textit{pérdidas de activación} cerca de corriente nula, seguida por la región de \textit{pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de \textit{pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes de la curva, obteniendo sus ecuaciones correspondientes.\\
+En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de {\Medium pérdidas de activación} cerca de corriente nula, seguida por la región de {\Medium pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de {\Medium pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes y se obtienen sus ecuaciones correspondientes.\\
 
 \subparagraph{Región de Pérdidas de Activación}
 
@@ -239,7 +239,7 @@ Para obtener la tensión de una pila, solo es necesario multiplicar la tensión 
 
 Esta plataforma se basa en la utilización de un modelo comercial particular de pila de combustible: el módulo H-300 de la serie H de pilas de combustible de Horizon Fuel Cell Technologies de la figura \ref{H300}. Esta es una pila de combustible de \SI[]{300}[]{\watt} enfriada por aire del tipo PEMFC, qur consiste en un stack de \num{60} celdas. Su desempeño nominal es de \SI[]{36}[]{\volt} de tensión a \SI[]{9}[]{\ampere} de corriente y tiene una tensión de circuito abierto de aproximadamente \SI[]{60}[]{\volt}.\textsuperscript{\cite{HSeriesBrochure}}\\
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{Imagenes/Horizon H-300.png}
     \caption{Pila de combustible tipo PEMFC, modelo Horizon Fuell Cell Technologies H-300.}
