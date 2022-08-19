@@ -38,7 +38,7 @@ En la siguiente sección se va a detallar el funcionamiento del convertidor no a
 
 \subsubsection{El Convertidor Reductor}
 
-La forma más básica posible de un convertidor conmutado tiene un esquema circuital similar al convertidor lineal mencionado más arriba, con la diferencia de que el transistor, (que previamente actuaba como una resistencia variable para conformar el divisor resistivo) en este caso, actúa como el interruptor del circuito, conmutando entre llave abierta y cerrada (figura \ref{proto_reductor}). Para este análisis vamos a considerar que el dispositivo semiconductor actúa como una llave ideal, sin impedancia cuando está cerrado y con impedancia infinita cuando está abierto.
+La forma más básica posible de un convertidor conmutado tiene un esquema circuital similar al convertidor lineal mencionado más arriba, con la diferencia de que el transistor, (que previamente actuaba como una resistencia variable para conformar el divisor resistivo) en este caso, actúa como el interruptor del circuito, conmutando entre llave abierta y cerrada (figura \ref{proto_reductor}). Para este análisis vamos a considerar que el dispositivo semiconductor actúa como una llave ideal, sin impedancia cuando está cerrado y con impedancia infinita cuando está abierto.\\
 
 \begin{figure}[H]
     \centering
@@ -66,7 +66,7 @@ En principio, si se considera el transistor como interruptor ideal, la eficienci
 
 Sin embargo, en muchos casos y aplicaciones (incluido el de este trabajo) no es suficiente obtener una salida de pulsos y controlar su tensión media, si no que se necesita obtener una tensión puramente continua directamente en la salida, como puede ser el caso para una fuente de alimentación.\\
 
-Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida luego del interruptor, que se encarga de eliminar los componentes de alta frecuencia relacionados a la conmutación, dejando pasar únicamente los componentes de continua. El convertidor que resulta es la topología de convertidor CC-CC conmutado más sencilla: el {\Medium convertidor reductor} o {\Medium \textit{buck}} de la figura \ref{reductor}, que obtiene su nombre porque, como se ve en la ecuación \ref{valor_medio_reductor}, reduce la tensión de entrada.\\$\bar{i}_C$
+Para solucionar este problema, se agrega un filtro pasa-bajos LC a la salida luego del interruptor, que se encarga de eliminar los componentes de alta frecuencia relacionados a la conmutación, dejando pasar únicamente los componentes de continua. El convertidor que resulta es la topología de convertidor CC-CC conmutado más sencilla: el {\Medium convertidor reductor} o {\Medium \textit{buck}} de la figura \ref{reductor}, que obtiene su nombre porque, como se ve en la ecuación \ref{valor_medio_reductor}, reduce la tensión de entrada.\\
 
 \begin{figure}[H]
     \centering
@@ -102,7 +102,7 @@ Para poder determinar la tensión de salida $v_o$ del sistema, se va a determina
 
 \subparagraph{Llave Cerrada}
 
-Al estar la llave cerrada durante el tiempo $t_{on} = DT_s$, la tensión de entrada $V_s$ cae directamente sobre el diodo $D_1$, polarizándolo con una tensión inversa que no permite que circule corriente por el mismo, y en consecuencia, neutralizando su efecto sobre el circuito. Se puede ver el circuito equivalente para este estado en la figura \ref{reductor_llave_cerrada}.
+Al estar la llave cerrada durante el tiempo $t_{on} = DT_s$, la tensión de entrada $V_s$ cae directamente sobre el diodo $D_1$, polarizándolo con una tensión inversa que no permite que circule corriente por el mismo, y en consecuencia, neutralizando su efecto sobre el circuito. Se puede ver el circuito equivalente para este estado en la figura \ref{reductor_llave_cerrada}.\\
 
 \begin{figure}[H]
     \centering
@@ -133,7 +133,7 @@ Reorganizando:
 
 \subparagraph{Llave abierta}
 
-Ahora, al abrirse la llave durante el tiempo $t_{off} = (1-D)T_s$, el diodo entra en modo de polarización directa, permitiendo la circulación de la corriente acumulada en el inductor. La fuente queda desconectada y no entrega energía, conformándose el circuito equivalente de la figura \ref{reductor_llave_abierta}.
+Ahora, al abrirse la llave durante el tiempo $t_{off} = (1-D)T_s$, el diodo entra en modo de polarización directa, permitiendo la circulación de la corriente acumulada en el inductor. La fuente queda desconectada y no entrega energía, conformándose el circuito equivalente de la figura \ref{reductor_llave_abierta}.\\
 
 \begin{figure}[H]
     \centering
@@ -200,7 +200,7 @@ Ahora se procederá a derivar las distintas topologías de convertidores aislado
 
 \paragraph{El Convertidor Forward}
 
-Si tomamos el circuito del reductor de la figura \ref{reductor}, y le agregamos un transformador de alta frecuencia entre la llave $Q_1$ y el diodo $D_1$, se obtiene la aislación galvánica buscada, como se observa en el circuito de la figura \ref{desarrollo_forward}.
+Si tomamos el circuito del reductor de la figura \ref{reductor}, y le agregamos un transformador de alta frecuencia entre la llave $Q_1$ y el diodo $D_1$, se obtiene la aislación galvánica buscada, como se observa en el circuito de la figura \ref{desarrollo_forward}.\\
 
 \begin{figure}[H]
     \centering
@@ -246,7 +246,7 @@ Para solucionar este inconveniente, se puede diseñar un converitdor forward de 
 
 Entonces, si agregamos una segunda llave $Q_2$ en serie a la llave original, ambas conmutando al mismo tiempo, la tensión de llave abierta se reparte entre ambas llaves, logrando lo que se buscaba. Para asegurar que en cada llave caiga la tensión $V_s$ correspondiente, se agregan los diodos $D_1$ y $D_2$, conectados entre el terminal negativo del transformador y $V_s$, y entre el terminal negativo de $V_s$ y el terminal positivo del transformador respectivamente.\\
 
-Estos diodos, durante el tiempo en que ninguna llave conduce, permiten el flujo inverso de corriente por el bobinado, cumpliendo el rol adicional de circuito de restablecimiento de $\phi_m$. Esto hace redundante al bobinado $N_R$ y su diodo $D_r$, por lo que se pueden remover, resultando en el circuito de la figura \ref{forward_doubleended}.
+Estos diodos, durante el tiempo en que ninguna llave conduce, permiten el flujo inverso de corriente por el bobinado, cumpliendo el rol adicional de circuito de restablecimiento de $\phi_m$. Esto hace redundante al bobinado $N_R$ y su diodo $D_r$, por lo que se pueden remover, resultando en el circuito de la figura \ref{forward_doubleended}.\\
 
 \begin{figure}[H]
     \centering
@@ -272,7 +272,7 @@ Una posible solución podría ser la conexión de dos convertidores forward en p
 
 El circuito resultante de la figura \ref{desarrollo_pushpull}, sin embargo, se puede simplificar. Si hacemos que ambos bobinados primarios compartan su núcleo magnético; entonces, se puede agregar un diodo en antiparalelo a cada llave, de manera que cada uno de estos diodos, junto con los bobinados que tienen en serie, pueden funcionar como circuitos de restablecimiento del núcleo cuando la otra llave esta conduciendo (es decir, cuando $Q_2$ conduce, el diodo antiparalelo de $Q_1$ y su bobinado restablecen la magentización del núcleo, y viceversa).\\
 
-Entonces, los circuitos de restablecimiento heredados del convertidor forward son redundantes, y por lo tanto se pueden remover para simplificar el circuito, resultando en el {\Medium convertidor \textit{push-pull}} que se observa en la figura \ref{pushpull}. Además, el diodo de rueda libre $D_{FW}$ se puede remover, ya que con el rectificador de punto medio conformado por $D_{R1}$ y $D_{R2}$ se forma un camino para la circulación de la corriente del inductor.
+Entonces, los circuitos de restablecimiento heredados del convertidor forward son redundantes, y por lo tanto se pueden remover para simplificar el circuito, resultando en el {\Medium convertidor \textit{push-pull}} que se observa en la figura \ref{pushpull}. Además, el diodo de rueda libre $D_{FW}$ se puede remover, ya que con el rectificador de punto medio conformado por $D_{R1}$ y $D_{R2}$ se forma un camino para la circulación de la corriente del inductor.\\
 
 \begin{figure}[H]
     \centering
@@ -293,7 +293,40 @@ Esta topología soluciona los problemas de rectificación que tienen los convert
 
 \subsubsection{El Convertidor de Puente Completo}
 
-Esta tipo particular de convertidor aislado es el que se utiliza en la plataforma en estudio. Se va a obtener su circuito partiendo del convertidor forward de dos llaves de la figura \ref{forward_doubleended}, detallando sus ventajas y desventajas. Luego se va a desarrollar un modelo matemático para representarlo y se explicará la forma de controlarlo mediante el método \textit{phase-shift}.\\
+Este tipo particular de convertidor aislado, que es el elegido para esta plataforma, es el más complejo dentro de su categoría: utiliza cuatro llaves distintas, y por lo tanto tiene un sobresaliente rendimiento para aplicaciones de alta potencia y tensión. Se va a obtener su circuito a partir de las topologías previamente explicadas, detallando sus ventajas y desventajas. Luego se va a desarrollar un modelo matemático para representarlo y se explicará la forma de controlarlo mediante el método \textit{phase-shift}.\\
+
+Si tomamos el circuito del convertidor forward de dos llaves de la figura \ref{forward_doubleended}, se puede concebir una conxión alternativa para el mismo, donde intercambiamos los lugares de la llave y el diodo en cada una de las dos columnas, e invertimos la posición del punto homólogo del secundario. Entonces, cuando ambas llaves están cerradas (recordando que en esta topología ambas llaves conmutan en conjunto) el núcleo se magnetiza negativamente, y una vez que se abren, lo corriente (positiva) que circula por los diodos restablece los niveles de magnetización.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/Forward Double-Ended.pdf}
+    \caption{Dos variantes de convertidores forward de dos llaves conectados en paralelo (Placeholder).}
+    \label{desarrollo_fullbridge}
+\end{figure}
+
+Si conectamos ambas variantes del forward de dos llaves en paralelo, obtenemos el circuito de la figura \ref{desarrollo_fullbridge}, donde las llaves $Q_1$ y $Q_4$ conmutan en sincronía, y desfasadas un tiempo $T_s/2$ de $Q_2$ y $Q_3$ (que también conmutan en sincronía).\\
+
+Siguiendo los pasos de la derivación del push-pull, si hacemos que ambos bobinados primarios compartan un solo núcleo magnético y conectamos diodos antiparalelos a cada una de las llaves, el flujo magnetizante del núcleo puede ser restablecido por los diodos de $Q_1$ y $Q_4$ y el bobinado primario $N_{P1}$, o bien por los diodos de $Q_2$ y $Q_3$ y el bobinado primario $N_{P2}$.\\
+
+Entonces, los diodos $D_1$ a $D_4$ provenientes de los convertidores forward resultan redundantes por la utilización de los diodos antiparalelos, y pueden ser removidos del circuito. Lo que queda entonces, es notar que ahora ambos bobinados primarios tienen formas de onda de tensión y corriente idénticas, por lo que pueden unirse sus terminales positivos y sus terminales negativos, quedando, efectivamente conectados en paralelo. Si ambos bobinados están conectados en paralelo, uno de ellos es redundante y se puede remover sin consecuencias para el funcionamiento del circuito.\\
+
+Entonces, si aplicamos todos estos cambios al circuito de la figura \ref{desarrollo_fullbridge}, obtenemos el circuito de un {\Medium convertidor aislado de puente completo} o {\Medium \textit{full-bridge}} en la figura \ref{fullbridge_partido}. Al igual que en el desarrollo del push-pull, el diodo $D_{FW}$ también se puede eliminar ya que los diodos del rectificador de punto medio ya proveen un camino para la corriente del transistor.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/Push-Pull.pdf}
+    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de punto medio en el secundario (Placeholder).}
+    \label{fullbridge_partido}
+\end{figure}
+
+Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Para simplificar la construcción del transformador de alta frecuencia y disminuir los requerimientos de desempeño impuestos a los diodos rectificadores del secundario, se utiliza un {\Medium rectificador de tipo puente completo} en el secundario como en la figura \ref{fullbridge}. Esta topología utiliza cuatro diodos en vez de dos, pero cada diodo debe soportar la mitad de la tensión inversa. Además, el transformador resulta más sencillo ya que solo tiene un bobinado secundario y no requiere tener punto medio.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/Push-Pull.pdf}
+    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de puente completo en el secundario (Placeholder).}
+    \label{fullbridge}
+\end{figure}
 
 %\begin{center}
 %    {\Thin Thin} {\ExtraLight ExtraLight} {\Light Light} Regular {\Medium Medium}  {\SemiBold SemiBold} {\Bold Bold}
