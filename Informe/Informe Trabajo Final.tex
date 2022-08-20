@@ -2,6 +2,7 @@
 
 \usepackage[spanish]{babel}                                     % Configuración de lenguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
+%\usepackage[a4paper, top=2cm, bottom=2cm, outer=0cm, inner=0cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage[autostyle=true]{csquotes}
 \usepackage[backend=biber,sorting=none]{biblatex}               % Paquete para bibliografía 
@@ -9,6 +10,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{caption}                                            % Para que "Figura x.y" este en bold
+\usepackage{eso-pic}                                            % Para poder poner imágenes de fondo
+\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}                                % Para links entre partes del documento (hidelinks no le cambia el color a los links)
 \usepackage{float}                                              % Permite forzar una posición para una figura
@@ -196,9 +199,12 @@
 
     \nocite{*}                                                      % Se usa para que aparezcan todas la referencias del .bib sin tener que citarlas en el texto
 
-    \newpagecolor{AzulFI}\afterpage{\restorepagecolor\blankpage}    % Página en blanco entre portada y agradecimientos
+    \newgeometry{top=1cm,bottom=1cm,left=2cm,right=2cm,marginparwidth=1.75cm}
+    %\newpagecolor{AzulFI}\afterpage{\restorepagecolor\blankpage}    % Página en blanco entre portada y agradecimientos
+    
 
     \input{Secciones/Portada.tex}
+    \restoregeometry\blankpage
     
     \addtocounter{page}{-1}
     \newpage 
