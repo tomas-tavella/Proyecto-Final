@@ -1,0 +1,36 @@
+\subsection{Consideraciones Generales}
+
+\subsubsection{Aislación de Tierras}
+
+En toda la plataforma se va a trabajar con tres puestas a tierra distintas y aisladas entre sí: $GND_1$ es la tierra del primario del convertidor, $GND_2$ es la tierra del secundario del convertidor, y $GND_D$ es la tierra de las partes de señal y digitales, como los sensores y el DSC.\\
+
+Esto, si bien agrega una mayor complejidad al diseño, es ventajoso por múltiples razones. Primero, evita la generación de interferencia de modo común entre las tierras del convertidor ($GND_1$ y $GND_2$) que manejan altas corrientes y por lo tanto son más ruidosas; y la tierra de señal $GND_D$ de más bajas corrientes que es más sensible al ruido. Además, dadas las altas corrientes del convertidor, esta separación permite la protección de los circuitos de señal ante picos de corriente y tensión inesperados en la parte de potencia.\\
+
+Es por estas razones que además de la tierra, también los circuitos de señal y potencia se encuentran separados por la etapa de aislación entre potencia y señal. Adicionalmente, las fuentes de alimentación externas se encuentran separadas para los componentes de potencia y señal, manteniendo la aislación deseada.\\
+
+\subsubsection{Selección de Componentes}
+
+En líneas generales, a la hora de elegir un circuito para el diseño de los distintos bloques, si es posible se trata de elegir una solución más integrada (es decir utilizar un circuito integrado que haga esta tarea en vez de diseñar un circuito discreto). Esto simplifica los circuitos y disminuye la cantidad de componentes necesarios a la hora de implementarlos. Además, al estar toda la solución integrada, el rendimiento es más predecible y se encuentra acotado a los parámetros dados por el fabricante del circuito integrado.\\
+
+En todos los casos, se utilizan como guía para el diseño de todas las partes los parámetros de rendimiento y las recomendaciones de diseño especificadas en las hojas de datos  y notas de aplicación de los fabricantes de cada circuito integrado.\\
+
+\subsubsection{Herramientas de Software}
+
+\paragraph{Software EDA}
+
+Para realizar el diseño de todos los esquemas circuitales del sistema, y luego plasmarlos a una placa de circuito impreso se debe utilizar un herramienta de automatización de diseño electrónico o EDA (del inglés \textit{Electronic Design Automation}). Existe una gran variedad de programas que cumplen este propósito, estando entre los más conocidos el \textit{Altium Designer} de \textit{Altium}, el \textit{EAGLE} de \textit{Autodesk}, el \textit{KiCad} y el \textit{Proteus Design Suite} de \textit{Labcenter Electronics}.\\
+
+Para este proyecto se eligió utilizar la plataforma {\Medium KiCad} (que se encuentra en la versión 6.0.7 al momento de escribir este informe), una suite de software libre, gratuita y de código abierto que incluye todas la funcionalidades necesarias para el diseño electrónico. Cuenta con herramientas de captura de esquemático, diseño de PCB, simulación mediante SPICE o Ngspice, visualización de archivos de fabricación y cálculos de diseño de PCB.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/KiCad.pdf}
+    \caption{Logotipo de la plataforma KiCad EDA.}
+    \label{logo_kicad}
+\end{figure}
+
+El programa también cuenta con una extensa biblioteca de componentes y \textit{footprints} (son las \quotes{huellas} de los componentes en en el circuito impreso) y la capacidad de crear o importar bilbiotecas. Además tiene la capacidad de generar archivos de fabricación, modelos tridimensionales de la PCB y una \textit{bill of materials} (lista de componentes).\\
+
+\paragraph{Software de Simulación} Simulink
+
+\paragraph{Otras Herramientas} Git y GitHub

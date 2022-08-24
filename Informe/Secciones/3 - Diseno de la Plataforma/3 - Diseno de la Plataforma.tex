@@ -5,16 +5,16 @@
 
 \Large\scshape
 \begin{center}
-    \textrm{Diseño e implementación de los circuitos principales y auxiliares de la plataforma}
+    \textrm{Diseño de los circuitos principales y auxiliares de la plataforma}
 \end{center}
 \normalfont
 %\normalsize
 
 \divider
 
-Si bien con el análisis del anterior capítulo se pudo conseguir un panorama general del funcionamiento de la plataforma, se presentan otras complejidades a la hora de plasmarlo en un sistema real: se requieren múltiples circuitos auxiliares además de los bloques principales (por ejemplo circuitos de adquisición de señales); aparecen consideraciones de diseño que no existen en el plano teórico; entre otras cuestiones. Este capítulo está dedicado al diseño e implementación real de la plataforma completa en una placa de circuito impreso o PCB, teniendo en cuenta estas complicaciones.\\
+Si bien con el análisis del anterior capítulo se pudo conseguir un panorama general del funcionamiento de la plataforma, se presentan otras complejidades a la hora de plasmarlo en un sistema real: se requieren múltiples circuitos auxiliares además de los bloques principales (por ejemplo circuitos de adquisición de señales); aparecen consideraciones de diseño que no existen en el plano teórico; entre otras cuestiones. Este capítulo está dedicado al diseño real de la plataforma completa para luego implementar en una placa de circuito impreso o PCB, teniendo en cuenta estas complicaciones.\\
 
-En la siguiente figura se presenta un diagrama de la plataforma con un mayor detalle que el de la figura \ref{diag_plataforma}, dónde se pueden ver los distintos bloques auxiliares que va a ser necesario implementar.\\
+En la siguiente figura se muestra un diagrama detallado de la plataforma, dónde se presentan todos los distintos bloques funcionales, incluyendo los bloques auxiliares que no se trataron en el análisis del anterior capítulo.\\
 
 \begin{figure}[h]
     \centering
@@ -22,3 +22,22 @@ En la siguiente figura se presenta un diagrama de la plataforma con un mayor det
     \caption{Diagrama detallado de la plataforma de evaluación, incluyendo los distintos circuitos auxiliares (Placeholder).}
     \label{diag_detallado}
 \end{figure}
+
+Cada uno de estos seis bloques cumplen una función específica que se detalla a continuación:\\
+
+\begin{itemize}
+    \item {\SemiBold Convertidor CC-CC Conmutado:} Este es el convertidor de tipo puente completo que se trató en el capítulo anterior. En este capítulo se va a realizar el dimensionamiento de todos sus componentes teniendo en cuenta sus especificaciones. 
+    \item {\SemiBold\textit{Driver}:} Este circuito se encarga de entregar la corriente y tensión necesaria para disparar los transistores de potencia y conmutarlos correctamente.
+    \item {\SemiBold Sistema de Medición:} Este bloque contiene todos los circuitos y componentes necesarios para realizar las mediciones de todos los parámetros de interés de la plataforma. Esto incluye, además de sensores, los circuitos de acondicionamiento de señal donde se requieran.
+    \item {\SemiBold Etapa de Aislación:} Esta etapa se encarga de generar una barrera de aislación eléctrica entre los componentes de potencia y los componentes de señal del circuito.
+    \item {\SemiBold Sistema de Control:} Este es el bloque de control que se explicó en el anterior capítulo. Obtiene información de distintos parámetros por medio del sistema de medición, y ejerce la acción de control disparando las llaves mediante el driver.
+    \item {\SemiBold Circuito de Alimentación:} Es el circuito que se encarga de proveer las corrientes y tensiones necesarias para los componentes que requieren alguna alimentación externa para funcionar (por ejemplo el controlador digital de señales).\\
+\end{itemize}
+
+A lo largo de este capítulo se va a tratar uno por uno el diseño de los circuitos que componen a cada uno de los bloques, utilizando múltiples diseños como referencia (ya sean de otros trabajos de investigación o diseños sugeridos de los propios fabricantes). Se van a eligir y dimensionanar los componentes que forman parte de ellos, hasta obtener un esquemático circuital detallado de la plataforma experimental de evaluación completa.\\
+
+Pero antes de comenzar con el primer bloque, se van a plantear algunas consideraciones y criterios generales que se van a utilizar en el diseño de todos los componentes y circuitos de la plataforma.\\
+
+\newpage
+
+\input{Secciones/3 - Diseno de la Plataforma/3.1 - Consideraciones Generales.tex}
