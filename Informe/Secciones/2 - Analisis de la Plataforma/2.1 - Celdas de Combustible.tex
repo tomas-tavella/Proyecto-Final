@@ -251,5 +251,3 @@ Sin embargo, dado que este módulo no está presente en el laboratorio, como ree
 Este módulo consiste de un convertidor CC-CC conmutado de tipo reductor, (que se explicará mas adelante) que impone una tensión de salida en función de la corriente suministrada a través de un lazo de control. El modelo que utiliza para obtener la tensión de salida en función de la corriente es el que se se obtuvo en la ecuación \ref{v_stack} y en el gráfico de la figura \ref{V-I_celda}. El módulo se puede ajustar a distintos modelos de celdas mediante la variación de las constantes $N$, $E_{oc}$, $A$, $r$, $m$ y $n$. Los valores de la curva se almacenan en una tabla de \textit{look-up} implementada en un FPGA.\\
 
 Adicionalmente a la característica tensión-corriente de la celda, este módulo permite simular el filtro pasabajos propio de la pila que se ve en el diagrama de la plataforma de la figura \ref{diag_plataforma}. Este filtro cumple la función de proteger a las celdas y evitar deterioro de las mismas mediante una reducción del rizado de corriente que puede generar la conmutación del convertidor.\textsuperscript{\cite{Argencon2018}}\\
-
-\newpage
