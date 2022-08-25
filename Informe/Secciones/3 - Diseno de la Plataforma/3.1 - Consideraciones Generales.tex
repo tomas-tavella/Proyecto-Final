@@ -31,6 +31,28 @@ Para este proyecto se eligió utilizar la plataforma {\Medium KiCad} (que se enc
 
 El programa también cuenta con una extensa biblioteca de componentes y \textit{footprints} (son las \quotes{huellas} de los componentes en en el circuito impreso) y la capacidad de crear o importar bilbiotecas. Además tiene la capacidad de generar archivos de fabricación, modelos tridimensionales de la PCB y una \textit{bill of materials} (lista de componentes).\\
 
-\paragraph{Software de Simulación} Simulink
+\paragraph{Software de Simulación}
 
-\paragraph{Otras Herramientas} Git y GitHub
+Para todo lo que se refiere a la simualción de la plataforma; más particularmente las simulaciones del funcionamiento del convertidor CC-CC para su comprensión, estudio, diseño y dimensionamiento; se utilizó la herramienta {\Medium\textit{Simulink}} dentro de la suite de software de \textit{MATLAB-Simulink}.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.08]{Imagenes/Simulink.png}
+    \caption{Logotipo de la plataforma de simulación Simulink.}
+    \label{logo_simulink}
+\end{figure}
+
+Específicamente, para simulaciones circuitales se hizo uso de el paquete \textit{Simscape Electrical} dentro de Simulink, que permite trabajar con tensiones y corrientes, a diferencia de las herramientas estándar que trabajan con diagramas de bloques.\\
+
+\paragraph{Otras Herramientas}
+
+Adicionalmente, para llevar un control de versiones completo del diseño de la plataforma sobre el que se trabaja, además de mantener un historial completo de todos los cambios, se trabajó con la herramienta de software de control de versiones {\Medium\textit{Git}}.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/Git.pdf}
+    \caption{Logotipo del software de control de versiones Git.}
+    \label{logo_git}
+\end{figure}
+
+Con este software se crea un \textit{repositorio} donde se almacenan los archivos que se quiere controlar, manteniendo un control de la historia de cada uno de los archivos del repositorio. Para mantener los archivos sincronizados entre varias computadoras y mantener copias de seguridad, se utiliza adicionalmente la plataforma web {\Medium\textit{GitHub}} para hostear el repositorio en la nube, manteniendo una copia segura que se puede copiar a cualquier computadora.\\
