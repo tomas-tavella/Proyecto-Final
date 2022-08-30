@@ -28,18 +28,84 @@ Entonces, con todas estas características quedan definidas las especificaciones
 
 \subsubsection{Selección de Llaves}
 
-Las cuatro llaves ideales que conforman el circuito puente del lado primario son implementadas por algún dispositivo electrónico de tres terminales (los polos positivo y negativo de la llave, y un tercer terminal de control con el que se comanda la conmutación de la llave). Existen dentro de estas llaves dos categorías distintas: las \textit{llaves semicontroladas}, donde la llave no se puede controlar completamente (por ejemplo se puede comandar el cierre pero no la apertura) y las \textit{llaves completamente controladas} que, como su nombre dice, pueden ser cerradas y abiertas mediante su tercer terminal.\\
+Las cuatro llaves ideales que conforman el circuito puente del lado primario son implementadas por algún dispositivo electrónico de tres terminales (los dos terminales de potencia, y un tercer terminal de control con el que se comanda la conmutación de la llave). Existen dentro de estas llaves dos categorías distintas: las \textit{llaves semicontroladas}, donde la llave no se puede controlar completamente (por ejemplo se puede comandar el cierre pero no la apertura) y las \textit{llaves completamente controladas} que, como su nombre dice, pueden ser cerradas y abiertas mediante su tercer terminal.\\
 
-En nuestro caso, la topología de puente completo exige la apertura y cierre de las cuatro llaves a la frecuencia de conmutación, por lo que se requieren {\Medium llaves completamente controladas}. Dentro de esta categoría existen tres tipos distintos de transistores de potencia que vamos a evaluar para utilizar en la plataforma: el transistor bipolar o BJT (\textit{Bipolar Junction Transistor}), el transistor IGBT (\textit{Insulated-Gate Bipolar Transistor}) y el transistor de efecto de campo o MOSFET (\textit{Metal-Oxide-Semiconductor Field-Effect Transistor}).\\
+En nuestro caso, la topología de puente completo exige la apertura y cierre de las cuatro llaves a la frecuencia de conmutación, por lo que se requieren {\Medium llaves completamente controladas}, dentro de las cuales se pueden elegir una serie de transistores o tiristores.\\
 
-\paragraph{Transistor Bipolar}
+\paragraph{Tecnologías de Transistores}
 
-\lipsum[1]\\
+En nuestro caso, nos vamos a enfocar únicamente en los tres tipos distintos de transistores de potencia, evaluandolos para su uso en la plataforma: el transistor bipolar o BJT (\textit{Bipolar Junction Transistor}), el transistor IGBT (\textit{Insulated-Gate Bipolar Transistor}) y el transistor de efecto de campo o MOSFET (\textit{Metal-Oxide-Semiconductor Field-Effect Transistor}).\\
 
-\paragraph{IGBT}
+\subparagraph{Transistor Bipolar}
 
-\lipsum[1]\\
+El transistor bipolar de la figura \ref{bjt} cuenta con su terminal de control, la \textit{base} (B), y sus dos terminales de potencia, el \textit{colector} (C) y \textit{emisor} (E). Este dispositivo se controla mediante la inyección de corriente por la base, por lo que se puede decir que es una llave controlada por corriente.\\
 
-\paragraph{MOSFET}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/BJT.png}
+    \caption{El transistor bipolar (a) su símbolo eléctrico, (b) su curva característica, (c) su curva como llave ideal (Placeholder).}
+    \label{bjt}
+\end{figure}
 
-\lipsum[1]\\
+Su funcionamiento viene dado por las curvas de corriente de colector $I_C$ contra tensión colector-emisor $V_{CE}$ en el primer cuadrante. El transistor se encuentra en su estado apagado (región de corte) en el área debajo de la curva de corriente de base $I_B$ nula; mientras que se encuentra encendido (región de saturación) en el área donde la tensión $V_{CE}$ es menor a la tensión de saturación ($V_{CE} \leq {V_{CE}}_{sat}$).\\
+
+Hoy en día, los BJT rara vez son utilizados como llaves de potencia, ya que las otras dos tecnologías tienen grandes ventajas frente a este tipo de dispositivo. Primero, al ser un dispositivo controlado por corriente, estos transistores pierden mucha energía de forma disipativa al ser conmutados. Además, al ser un dispositivo de portadores minoritarios, su tiempo de conmutación se ve afectado, cayendo en el orden de los \unit[]{\micro\second}. Sin embargo, como ventaja tienen su baja impedancia de salida, lo que les da una muy baja pérdida de conducción.\textsuperscript{\cite{PotenciaHart}\cite{PowerElecRenewableEnergySystems}}\\
+
+\subparagraph{MOSFET}
+
+El MOSFET de la figura \ref{mosfet} tiene al \textit{gate} (G) como terminal de control, y los terminales de \textit{drain} (D) y \textit{source} (S) como terminales de potencia. Este transistor se controla mediante la variación de la tensión gate-source $V_{GS}$, por lo que, a diferencia del BJT, es un dispositivo controlado por tensión.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/MOSFET.png}
+    \caption{El MOSFET (a) su símbolo eléctrico, (b) su curva característica, (c) su curva como llave ideal (Placeholder).}
+    \label{mosfet}
+\end{figure}
+
+Su funcionamiento es caracterizado por las curvas de corriente de drain $I_D$ versus tensión drain-source $V_{DS}$ en el primer cuadrante. Para encontrarse en estado apagado o región de corte, la tensión de control $V_{GS}$ debe ser menor a una tensión umbral o \textit{threshold} $v_T$ que depende del dispositivo (esto corresponde a la región debajo de la marca OFF en la figura). Cuando la tensión de control supera este umbral, el dispostivo entra en conducción, con una resistencia drain-source ${R_{DS}}_{on}$ baja de orden de \unit[]{\milli\ohm}.\\
+
+Los MOSFET tienen varias características que los hacen deseables como interruptores electrónicos de potencia: al ser controlados por tensión, la pérdida disipativa de potencia para la conmutación es muy baja; como el dispositivo trabaja con portadores mayoritarios, su velocidad de conmutación es muy rápida, con tiempos de conmutación en el orden de los \unit[]{\nano\second}; y tienen una alta impedancia de entrada. Además, por su construcción, tienen un diodo antiparalelo incluido entre D y S, cosa que es deseable para muchas topologías de convertidores.\\
+
+Sin embargo, tienen como desventaja una limitación en tensión y corriente, ya que no soportan corrientes que excedan los \SI[]{200}[]{\ampere} ni tensiones por encima de \SI[]{1}[]{\kilo\volt}; además de tener una elevada impedancia de salida, generando pérdidas de conducción.\textsuperscript{\cite{PotenciaHart}\cite{PowerElecRenewableEnergySystems}}\\
+
+\subparagraph{IGBT}
+
+Los transistores del tipo IGBT podrían ser considerados como un híbrido entre las dos tecnologías anteriores, combinando las ventajas de ambos. Este dispositivo tiene un terminal de control llamado gate (G) al igual que el MOSFET, y dos terminales de potencia, el colector (C) y emisor (E), al igual que el BJT. Se controla mediante la tensión gate-emisor $V_{GE}$, por lo que es controlado por tensión al igual que el MOSFET.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/IGBT.png}
+    \caption{El IGBT (a) su símbolo eléctrico, (b) su curva característica, (c) su curva como llave ideal (Placeholder).}
+    \label{igbt}
+\end{figure}
+
+Se caracteriza por la curva de corriente de colector $I_C$ contra tensión gate-emisor $V_{GE}$ de la figura \ref{igbt}, y a diferencia de los anteriores dos transistores, opera en los cuadrantes primero y segundo, es decir que puede bloquear tensión bidireccionalmente y conducir corriente de forma unidireccional.\\
+
+Este transistor combina las ventajas de los BJT y los MOSFET, es decir que tiene una alta impedancia de entrada como el MOSFET, disminuyendo las pérdidas disipativas de la conmutación; una baja impedancia de salida como el BJT, disminuyendo las pérdidas de conducción; y soporta muy altas tensiones, por encima de \SI[]{1}[]{\kilo\volt}, y corrientes mayores a \SI[]{500}[]{\ampere}. Sin embargo, si bien su velocidad de conmutación es superior a la del transistor bipolar, pero no alcanza los cortos tiempos del orden de \unit[]{\nano\second} de los MOSFET, además de ser la tecnología más costosa dentro de las presentadas.\textsuperscript{\cite{PotenciaHart}\cite{PowerElecRenewableEnergySystems}}\\
+
+\paragraph{Selección de MOSFET}
+
+Como las llaves de la plataforma de evaluación nunca excederán los \SI[]{15}[]{\ampere}, y la tensión sobre las llaves no puede superar los \SI[]{100}[]{\volt}, los transistores del tipo MOSFET son la elección más lógica. Sus límites de tensión y corriente están muy por encima de los requierimientos de este diseño, tienen la velocidad de conmutación más rápida y son más económicos que los IGBT. SI bien sus pérdidas de conducción son elevadas, para aplicaciones de relativamente baja potencia como la de este proyecto, se pueden conseguir modelos con muy bajara resistencia de salida ${R_{DS}}_{on}$, mitigando la mayor desventaja de esta tecnología.\\
+
+Entonces, habiendo seleccionado una tecnología de llave, ahora debemos elegir un modelo particular de MOSFET que satisfaga los parámetros necesarios para ser utilizado en el puente de transistores del convertidor. Las características que debe cumplir son:\\
+
+\begin{itemize}
+    \item Tensión drain-source $V_{DS} > \SI[]{65}[]{\volt}$, dado que cada transistor debe soportar tensión igual a ${v_{FC}}_{max}$.
+    \item Corriente de drain continua $I_D > \SI[]{10}[]{\ampere}$, que es la corriente máxima que es capaz de entregar el modulo de pila de combustible.
+    \item Potencia de disipación $P_D > \SI[]{75}[]{\watt}$, ya que la potencia nominal de \SI[]{300}[]{\watt} se distribuye entre las cuatro llaves.
+    \item Tiempo de \textit{rise} $t_r$ y \textit{fall} $t_f$ mucho menor al tiempo de un período $T_s = 1/f_s = \SI[]{50}[]{\micro\second}$.
+    \item Resistencia de salida ${R_{DS}}_{on}$ lo más baja posible.
+\end{itemize}
+
+Con esto en cuenta, se debe buscar en catálogos y leer especificaciones en hojas de datos para elegir un modelo que cumpla con estas características. Consultando en comerciantes locales y en páginas internacionales como Mouser o DigiKey, se llegó a la familia IRFP de MOSFETs de potencia, con una amplia selección de corrientes y tensiones máximas.\\
+
+Particularmente, se eligió el modelo {\Medium IRFP150}, cuyas especificaciones se muestran en la siguiente tabla. Estos dispositivos se eligieron por su bajo tiempo de conmutación y resistencia de salida, además fue un facto adicional la disponibilidad de los mismos en el instituto, eliminando la necesidad de comprarlos.\\
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{llllll}
+    {\SemiBold Fabricante} & {\SemiBold Modelo} & {\SemiBold\textit{V\textsubscript{DS}}} & {\SemiBold\textit{I\textsubscript{D}}} & {\SemiBold\textit{P\textsubscript{D}}} & {\SemiBold\textit{R\textsubscript{DS}}}\\
+    International Rectifier & IRFP150 & \SI[]{100}[]{\volt} & \SI[]{41}[]{\ampere} & \SI[]{230}[]{\watt} & \SI[]{55}[]{\milli\ohm} 
+    \end{tabular}
+\end{center}
+\end{table}
