@@ -85,7 +85,7 @@ Este transistor combina las ventajas de los BJT y los MOSFET, es decir que tiene
 
 \paragraph{Selección de MOSFET}
 
-Como las llaves de la plataforma de evaluación nunca excederán los \SI[]{15}[]{\ampere}, y la tensión sobre las llaves no puede superar los \SI[]{100}[]{\volt}, los transistores del tipo MOSFET son la elección más lógica. Sus límites de tensión y corriente están muy por encima de los requierimientos de este diseño, tienen la velocidad de conmutación más rápida y son más económicos que los IGBT. SI bien sus pérdidas de conducción son elevadas, para aplicaciones de relativamente baja potencia como la de este proyecto, se pueden conseguir modelos con muy bajara resistencia de salida ${R_{DS}}_{on}$, mitigando la mayor desventaja de esta tecnología.\\
+Como las llaves de la plataforma de evaluación nunca excederán los \SI[]{15}[]{\ampere}, y la tensión sobre las llaves no puede superar los \SI[]{70}[]{\volt}, los transistores del tipo MOSFET son la elección más lógica. Sus límites de tensión y corriente están muy por encima de los requierimientos de este diseño, tienen la velocidad de conmutación más rápida y son más económicos que los IGBT. SI bien sus pérdidas de conducción son elevadas, para aplicaciones de relativamente baja potencia como la de este proyecto, se pueden conseguir modelos con muy bajara resistencia de salida ${R_{DS}}_{on}$, mitigando la mayor desventaja de esta tecnología.\\
 
 Entonces, habiendo seleccionado una tecnología de llave, ahora debemos elegir un modelo particular de MOSFET que satisfaga los parámetros necesarios para ser utilizado en el puente de transistores del convertidor. Las características que debe cumplir son:\\
 
@@ -99,13 +99,37 @@ Entonces, habiendo seleccionado una tecnología de llave, ahora debemos elegir u
 
 Con esto en cuenta, se debe buscar en catálogos y leer especificaciones en hojas de datos para elegir un modelo que cumpla con estas características. Consultando en comerciantes locales y en páginas internacionales como Mouser o DigiKey, se llegó a la familia IRFP de MOSFETs de potencia, con una amplia selección de corrientes y tensiones máximas.\\
 
-Particularmente, se eligió el modelo {\Medium IRFP150}, cuyas especificaciones se muestran en la siguiente tabla. Estos dispositivos se eligieron por su bajo tiempo de conmutación y resistencia de salida, además fue un facto adicional la disponibilidad de los mismos en el instituto, eliminando la necesidad de comprarlos.\\
+Particularmente, se eligió el modelo {\Medium IRFP150N} de International Rectifier, cuyas especificaciones se muestran en la siguiente tabla. Estos dispositivos se eligieron por su bajo tiempo de conmutación y resistencia de salida, además fue un factor adicional la disponibilidad de los mismos en el instituto, eliminando la necesidad de comprarlos.\\
 
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
 \begin{table}[h]
 \begin{center}
-    \begin{tabular}{llllll}
-    {\SemiBold Fabricante} & {\SemiBold Modelo} & {\SemiBold\textit{V\textsubscript{DS}}} & {\SemiBold\textit{I\textsubscript{D}}} & {\SemiBold\textit{P\textsubscript{D}}} & {\SemiBold\textit{R\textsubscript{DS}}}\\
-    International Rectifier & IRFP150 & \SI[]{100}[]{\volt} & \SI[]{41}[]{\ampere} & \SI[]{230}[]{\watt} & \SI[]{55}[]{\milli\ohm} 
+    \begin{tabular}{lrrrrrr}
+    {\SemiBold Modelo} & $\mathbf{V_{DS}}$ [\unit{\volt}] & $\mathbf{I_D}$ [\unit{\ampere}] & $\mathbf{P_D}$ [\unit{\watt}] & $\mathbf{{R_{DS}}_{on}}$ [\unit{\milli\ohm}] & $\mathbf{t_{on}}$ [\unit{\nano\second}] & $\mathbf{t_{off}}$ [\unit{\nano\second}]\\
+    \hline
+    IRFP150N & \num{100} & \num{42} & \num{160} & \num{36} & \num{67} & \num{85}
     \end{tabular}
+    \caption{Especificaciones del MOSFET de potencia IRFP150N de International Rectifier.\textsuperscript{\cite{DatasheetIRFP150}}}
+    \label{tabla:IRFP150}
 \end{center}
 \end{table}
+
+Donde $V_{DS}$ es la tensión de ruptura drain-source, $I_D$ es la máxima corriente continua de drain, $P_D$ es la máxima disipación de potencia, ${R_{DS}}_{on}$ la resistencia drain-source en estado encendido, $t_{on}$ el tiempo de encendido y $t_{off}$ el tiempo de apagado.\\
+
+Este transistor es un nMOSFET (canal N) de enriquecimiento de tecnología HEXFET, que tiene incluido en su interior el diodo antiparalelo necesario para la topología de convertidor en uso. Como se puede ver en las especificaciones, cumple con todos nuestros requerimientos: soporta tensiones, corrientes y potencias muy por encima de las requeridas (dando un buen margen de seguridad); una resistencia de conducción muy baja, resultando en pérdidas de menos de \SI[]{0.5}[]{\watt} en cada transistor para \SI[]{10}[]{\ampere} de corriente; y tiempos de encendido y apagado más de cien veces menor al $T_s$ de \SI[]{50}[]{\micro\second}.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.15]{Imagenes/IRFP150-TO247AC.png}
+    \caption{IRFP150N con su encapsulado de potencia tipo TO-247AC.}
+    \label{irfp150}
+\end{figure}
+
+El encapsulado es del tipo TO-247AC, visible en la figura \ref{irfp150}. Este es un encapsulado utilizado para dispositivos de alta disipación de potencia, por su tamaño y su superficie metálica que facilita la utilización de un disipador para mantener la temperatura bajo control.\\
+
+\subsubsection{Selección de Diodos Rectificadores}
+
+\lipsum[1]\\
+
+\lipsum[2]
