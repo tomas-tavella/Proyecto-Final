@@ -2,7 +2,7 @@
 
 Como se explicó más arriba, para excitar un transistor MOSFET y encenderlo, es necesario mantener una tensión $V_{GS}$ entre gate y source mayor a una tensión umbral dependiente del modelo. En nuestro caso, esta tensión umbral del IRFP150N es de \SI[]{4}[]{\volt}, como se ve en la tabla \ref{tabla:IRFP150}. Entonces, se debe diseñar algún circuito que sea capaz de proveer estos pulsos de tensión al gate de cada transistor, entregando también la corriente necesaria para cargar y descargar sus capacitancias de gate suficientemente rápido (llamadas corrientes de \textit{source} y \textit{sink}).\\
 
-Este es el llamado {\Medium circuito \textit{driver}} o {\Medium circuito de excitación} y debe existir uno para cada uno de los cuatro transistores del puente. Ahora debemos establecer algunos requerimientos que se tienen que cumplir o son deseables del circuito:\\
+Este es el llamado {\Medium circuito \textit{driver}} o {\Medium circuito de excitación} y debe existir uno para cada uno de los cuatro transistores del puente. Ahora debemos establecer algunos requerimientos que debe cumplir el circuito:\\
 
 \begin{itemize}
     \item Tensión de operación mayor a \SI[]{100}[]{\volt}, por encima de la máxima tensión de la pila de combustible.
@@ -31,7 +31,7 @@ Sin embargo, este dispositivo no se pudo obtener por falta de disponibilidad, po
     \hline
     Infineon & 2ED21834-S06J & \num{650} & \num{2.5} & \num{200} & \num{10}-\num{20}
     \end{tabular}
-    \caption{Especificaciones del driver para MOSFET modelo 2ED21834-S06J de Infineon Technologies.\textsuperscript{\cite{DatasheetDriver}}}
+    \caption{Especificaciones del driver modelo 2ED21834-S06J de Infineon Technologies.\textsuperscript{\cite{DatasheetDriver}}}
     \label{tabla:driver}
 \end{center}
 \end{table}
@@ -56,9 +56,15 @@ En nuestro caso, se deben utilizar dos de estos dispositivos, uno para cada colu
     \label{circuito_driver}
 \end{figure}
 
-Aquí se puede ver el driver, indicado por la referencia U12, al que le llegan las señales de comando PWM a sus pines HIN y /LIN para el transistor del lado alto y bajo de la columna respectivamente (al estar negada  la entrada para el transistor bajo, la señal que le llega debe estar invertida). Luego, conectado entre el pin DT y tierra se encuentra la resistencia de dead-time, que con un valor de \SI[]{0}[]{\ohm} resulta en un tiempo de \SI[]{400}[]{\nano\second}. En la salida, se conecta a los pines HO (alto) y LO (bajo) una resistencia limitadora en paralelo con un diodo par permitir la descarga de las capacitancias de los transistores, y entre los pines VB y VS se coloca el capacitor de bootstrap, dimensionado de acuerdo a la nota de aplicación \cite{Bootstrap}.\\
+Aquí se puede ver el driver, indicado por la referencia U12, al que le llegan las señales de comando PWM a sus pines HIN y /LIN para el transistor del lado alto y bajo de la columna respectivamente (al estar negada  la entrada para el transistor bajo, la señal que le llega debe estar invertida). Luego, conectado entre el pin DT y tierra se encuentra la resistencia de dead-time, que cuyo valor define el dead-time o tiempo muerto $t_{DT}$. En la salida, se conecta a los pines HO (alto) y LO (bajo) una resistencia limitadora en paralelo con un diodo que permite la descarga de las capacitancias de los transistores, y entre los pines VB y VS se coloca el capacitor que completa el circuito de bootstrap, que se explicará mas adelante. En lo que hace referencia a conexiones a tierra, este circuito, al estar del lado primario del convertidor, se conecta a la referencia $GND_1$.\\
 
-El resto de los componentes conforman conexiones adicionales de capacitores y resistencias que se realizaron según la recomendación que Infineon provee en la hoja de datos del driver. Además al estar del lado primario, todas su conexiones a tierra se realizan a $GND_1$.\\
+El dimensionamiento de todos estos componentes se va a tratar a continuación siguiendo las recomendaciones del fabricante disponibles en hojas de datos y notas.
+
+\subsubsection{Dimensionamiento de Componentes}
+
+\lipsum[1]\\
+
+\lipsum[2]\\
 
 \subsubsection{Esquema Interno del Dispositivo}
 
@@ -74,3 +80,5 @@ El resto de los componentes conforman conexiones adicionales de capacitores y re
 \lipsum[2]\\
 
 \lipsum[3]\\
+
+\lipsum[4]\\
