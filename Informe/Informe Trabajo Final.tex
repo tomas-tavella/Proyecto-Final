@@ -1,6 +1,6 @@
 \documentclass[10pt,twoside]{article}                           % Twoside para poder poner números en lados alternados
 
-\usepackage[spanish]{babel}                                     % Configuración de lenguaje
+\usepackage[spanish,es-tabla]{babel}                                     % Configuración de lenguaje
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}          % Configurar tamaño de pagina y márgenes
 %\usepackage[a4paper, top=2cm, bottom=2cm, outer=0cm, inner=0cm]{geometry}
 \usepackage{fancyhdr}
@@ -9,6 +9,8 @@
 \addbibresource{Bibliografia.bib}                               % Llamo al archivo que contiene las referencias
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{makecell}                                           % Para poder poner line breaks en tablas
+\renewcommand\cellgape{\Gape[4pt]}
 \usepackage{caption}                                            % Para que "Figura x.y" este en bold
 \usepackage{eso-pic}                                            % Para poder poner imágenes de fondo
 \usepackage{multicol}                                           % Para multiples columnas

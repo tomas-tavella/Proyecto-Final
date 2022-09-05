@@ -139,13 +139,144 @@ Al igual que los métodos de bobina de Rogowski y transformador de corriente, es
 
 En tanto a sus problemas, los materiales utilizados para las placas metálicas de los sensores suelen tener {\Medium elevadas constantes de temperatura}, por lo que pueden resultar muy susceptibles a cambios de temperatura por sobrecalentamiento. También, para un campo magnético nulo existe una tensión de salida de \textit{offset} no nula, por lo que se requiere electrónica adicional para compensar por este error.\\
 
-Sin embargo, hoy en día existen soluciones integradas en pequeños empaquetados como el del driver de la sección anterior, que incluyen un sensor de efecto hall con toda la electrónica asociada necesaria para compensar la tensión de offset y las variaciones por temperatura. Estas son soluciones compactas y de alta precisión, a pesar de su precio mayor comparado con otros métodos.\\
+Sin embargo, hoy en día existen soluciones integradas en pequeños empaquetados de montaje superficial como los SOIC o SOP, que incluyen un sensor de efecto hall con toda la electrónica asociada necesaria para compensar la tensión de offset y las variaciones por temperatura. Estas son soluciones compactas y de alta precisión, a pesar de su precio mayor comparado con otros métodos.\\\pagebreak
 
-\paragraph{Selección de Sensores}
+\subparagraph{Resumen}
 
-\lipsum[4]\\
+A modo de resumen de todo lo explicado, se presenta la tabla \ref{tabla:resumen_sensores} que contiene las principales características de interés de las tecnologías de medición de corriente explicadas.\\
 
-\lipsum[5]\\
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{l|lllll}
+         & {\SemiBold Ancho de Banda} & {\SemiBold Precisión} & \makecell[l]{{\SemiBold Medición} \\ {\SemiBold de CC}} & {\SemiBold Aislación} & {\SemiBold Pérdidas}\\
+        \hline
+        Shunt & \unit{\kilo\hertz}-\unit{\mega\hertz} & \num{0,1}\% - \num{2}\% & Sí & No & \unit{\milli\watt}-\unit{\watt}\\
+        \makecell[l]{Bobina de \\ Rogowski} & \unit{\kilo\hertz}-\unit{\mega\hertz} & \num{0,1}\% - \num{1}\% & No & Sí & \unit{\milli\watt}\\
+        Transformador & \unit{\kilo\hertz}-\unit{\mega\hertz} & \num{0,1}\% - \num{1}\% & No & Sí & \unit{\milli\watt}\\
+        Efecto Hall & \unit{\kilo\hertz} & \num{0.5}\% - \num{5}\% & Sí & Sí & \unit{\milli\watt}
+    \end{tabular}
+    \caption{Resumen de las características principales de cada tecnología de sensado de corriente.\textsuperscript{\cite{CurrentSensing}}}
+    \label{tabla:resumen_sensores}
+\end{center}
+\end{table}
+
+Con la información de los distintos tipos de sensores de corriente que se explicaron, se deben seleccionar los modelos de los sensores de la tecnología adecuada para la medición de las variables, buscando en catálogos de sensores.\\
+
+\paragraph{Sensor de Corriente $\mathbf{i_o}$}
+
+La corriente de salida $i_o$ es la variable a medir más importante, ya que es la que directamente controla la potencia de salida que se entrega al bus de continua del sistema híbrido. Por esta razón, debe cumplir algunos requerimientos que se enumeran a continuación.\\
+
+\begin{itemize}
+    \item Capacidad de corriente mayor a \SI[]{4.5}[]{\ampere}.
+    \item Tensión de operación mayor a \SI[]{100}[]{\volt}.
+    \item Precisión de medición debajo del $\pm$1\%.
+    \item Ancho de banda $BW$ por encima de \SI[]{40}[]{\kilo\hertz}, el doble de la frecuencia de conmutación.
+    \item Capacidad de medir componentes de CC.
+    \item Es deseable que el sensor esté galvánicamente aislado del circuito del convertidor.\\
+\end{itemize}
+
+La necesidad de medir componentes de corriente continua elimina automáticamente la posibilidad de usar una bobina de Rogowski o un transformador de corriente. Por lo tanto, nos quedan como opciones únicamente la resistencia shunt y el sensor de efecto Hall, que dado que ambos son capaces de precisiones debajo del \num{1}\% y anchos de banda de \unit{\kilo\hertz}, se decide utilizar un {\Medium sensor de efecto Hall}, por la presencia de aislación galvánica.\\
+
+Entonces, buscando sensores de corriente de efecto Hall en catálogos online, se llegó al modelo {\Medium TMCS1100A4} de Texas Instruments, un sensor Hall de medición bidireccional (corrientes positivas y negativas) de alta precisión y aislamiento básico, todo en un encapsulado de montaje superficial de ocho pines tipo SOIC-8. Según la hoja de datos del fabricante, este dispostivo esta pensado para ser utilizado en la medición de corrientes de inversores y puentes completos. Sus especificaciones se presentan en la tabla \ref{tabla:sensor_hall}.\\
+
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{llrrrrr}
+    {\SemiBold Fabricante} & {\SemiBold Modelo} & $\mathbf{I_{in}}$ [\unit{\ampere}] & $\mathbf{V_{in}}$ [\unit{\volt}] & $\mathbf{BW}$ [\unit{\kilo\hertz}] & $\mathbf{e_i}$ & {\SemiBold Sens.} [\unit{\milli\volt\per\ampere}]\\
+    \hline
+    \makecell[l]{Texas \\ Instruments} & TMCS1100A4 & \num{12} & \num{600} &  \num{80} & $\pm$\num{0.9}\% & \num{400}
+    \end{tabular}
+    \caption{Especificaciones del sensor de corriente por efecto Hall, modelo TMCS1100A4 de Texas Instruments.\textsuperscript{\cite{TMCS1100}}}
+    \label{tabla:sensor_hall}
+\end{center}
+\end{table}
+
+Dónde $I_{in}$ es la máxima corriente unidireccional medible, $V_{in}$ es la máxima tensión de operación en la entrada, $BW$ es el ancho de banda de la medición, y $e_i$ es la precisión o error relativo de la medición.\\ 
+
+La variante A4 tiene una sensibilidad de \SI[]{400}[]{\milli\volt\per\ampere}, poniendo la tensión de salida en el rango de \num{0} a \SI[]{1.8}[]{\volt} para una corriente de salida $i_o$ máxima de \SI[]{4.5}[]{\ampere}. Además, si tomamos el error relativo máximo de $\pm$\num{0.9}\%, se obtiene que la precisión absoluta es de $\pm$\SI[]{40}[]{\milli\ampere}, más que suficiente para ser aplicado en la plataforma.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{Imagenes/SOIC8.jpg}
+    \caption{Sensor de corriente por efecto Hall, modelo TMCS1100A4 de Texas Instruments, en su encapsulado tipo SOIC-8.}
+    \label{encapsulado_hall}
+\end{figure}
+
+El sensor tiene cuatro pines para el sensado de corriente, dos llamados IN+ y dos llamados IN-. Como se trata de medición de corriente, se debe conectar el sensor en serie al camino de corriente, con la corriente entrando por los pines IN+ y saliendo por los pines IN-.\\
+
+Luego, el pin de tensión de referencia VREF se conecta a masa, ya que de esta manera se configura el sensor para utilizar un rango de medición unidireccional\textsuperscript{\cite{TMCS1100}}, ya que en nuestro caso la corriente solo puede circular hacia la carga (para obtener un rango bidireccional, se alimentar el pin con una tensión igual a la mitad de la alimentación).\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{Imagenes/Conexion TMCS1100.png}
+    \caption{Conexión del sensor TMCS1100A4, según recomendaciones del fabricante.}
+    \label{conexion_TMCS1100}
+\end{figure}
+
+Todas las conexiones a tierra del sensor se realizan en la tierra de señal o digital $GND_D$, ya que se encuentran todas del segundo lado del dispositivo, aislados del circuito de potencia del convertidor. El pin VS se conecta a la alimentación digital del sistema requiriendo una tensión de \SI[]{5}[]{\volt} positivos, con un capacitor de filtro conectado en derivación según recomendación del fabricante.\\
+
+El pin de salida VOUT, como se verá mas adelante, se debe conectar primero a un circuito que acondicione la señal que el sensor arroja, para luego poder ser conectado a la entrada del conversor analógico-digital (ADC) del controlador que convertirá los datos analógicos de corriente en datos digitales que pueda procesar.\\
+
+\paragraph{Sensor de $\mathbf{v_{FC}}$, $\mathbf{i_{FC}}$ y $\mathbf{v_o}$}
+
+Por una cuestión de simplicidad, se eligió buscar una única solución integrada que sea capaz de medir múltiples variables, en nuestro caso una corriente y dos tensiones. Dado que las variables restantes son de menor importancia, limitar el requerimiento de ancho de banda respecto a la corriente de salida. A continuación se detallan algunos requerimientos.\\
+
+\begin{itemize}
+    \item Capacidad de medición de corriente por arriba de \SI[]{10.5}[]{\ampere}.
+    \item Capacidad de medición de tensión por arriba de \SI[]{75}[]{\volt}.
+    \item Precisión mejor o igual al $\pm$\num{2}\%.
+    \item Capacidad de medir componentes de CC.
+    \item Ancho de banda $BW$ lo más alto posible.
+    \item Es deseable que el sensor esté galvánicamente aislado del circuito del convertidor.\\
+\end{itemize}
+
+Buscando en catálogos online de distintos fabricantes se encontró el {\Medium circuito integrado LM5056A} de Texas Instruments, descrito por el fabricante como un \quotes{Dispositivo de Administración de Potencia de Sistemas de Alta Tensión}.\\
+
+Consiste en un sensor de corriente de tipo shunt, junto con un sensor de tensión a la entrada del shunt y una medición de tensión auxiliar, con la capacidad adicional de calcular la potencia en base a las mediciones.  Al usar medición de tipo shunt, tiene la capacidad de medir componentes de CC, pero no posee aislación galvánica. Se detallan algunas especificaciones a continuación.\\
+
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{llrrrrr}
+    {\SemiBold Fabricante} & {\SemiBold Modelo} & $\mathbf{V_{in/out}}$ [\unit{\volt}] & $\mathbf{f_m}$ [\unit{\kilo\hertz}] & $\mathbf{I_{in(FSR)}}$ [\unit{\milli\volt}] & $\mathbf{e_{i}}$ & $\mathbf{e_v}$\\
+    \hline
+    \makecell[l]{Texas \\ Instruments} & LM5056A & \num{100} & \num{1} &  \num{27}/\num{54.4} & $\pm$\num{1.25}\% & $\pm$\num{1}\%
+    \end{tabular}
+    \caption{Especificaciones del sensor combinado de tensión, corriente y potencia por shunt, modelo LM5056A de Texas Instruments.\textsuperscript{\cite{LM5056A}}}
+    \label{tabla:LM5056A}
+\end{center}
+\end{table}
+
+Donde $V_{in/out}$ es la máxima tensión de entrada y salida medible, $f_m$ es la frecuencia de muestreo del sensor, $I_{in(FSR)}$ es la tensión de fondo de escala de medición de corriente, $e_i$ es la precisión de la medida de corriente, y $e_v$ es la precisión de la medida de tensión.\\
+
+Los parámetros analógicos de tensión y corriente medidos por el LM5056A son muestreados y convertidos a información digital mediante un conversor analógico-digital interno de \num{12} bits de resolución, (es decir $2^12 = 4096$ niveles distintos) con frecuencia de muestreo $f_m$ de \SI[]{1}[]{\kilo\hertz} como muestra la tabla. Una vez convertidos, se pueden transmitir mediante la interfaz de bus I\textsuperscript{2}C que provee el integrado, con pines SDAO para salida de datos, SDAI para entrada de datos y SCL para entrada de reloj. Esta interfaz se explica más adelante en la sección 3.4.3, sobre la etapa de transmisión.\\
+
+
+
+Este dispositivo viene en un empaquetado de montaje superficial del tipo HTSSOP-28 de 28 pines (figura \ref{encapsulado_LM5056}), que también incluye un contacto plano en la parte inferior, de conexión opcional para la disipación de calor.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.15]{Imagenes/HTSSOP.jpg}
+    \caption{Sensor de tensión, corriente y potencia, modelo LM5056A de Texas Instruments, en su encapsulado tipo HTSSOP-28.}
+    \label{encapsulado_LM5056}
+\end{figure}
+
+\lipsum[1]\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{Imagenes/Conexion LM5056A.png}
+    \caption{Conexión del sensor LM5056A para medir tensión y corriente de entrada y tensión de salida, según especificaciones del fabricante.}
+    \label{conexion_LM5056}
+\end{figure}
+
+\lipsum[2]\\
 
 \subsubsection{Etapa de Acondicionamiento}
 
