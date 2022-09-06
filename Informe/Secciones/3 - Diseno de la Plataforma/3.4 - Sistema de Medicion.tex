@@ -208,7 +208,7 @@ La variante A4 tiene una sensibilidad de \SI[]{400}[]{\milli\volt\per\ampere}, p
 
 El sensor tiene cuatro pines para el sensado de corriente, dos llamados IN+ y dos llamados IN-. Como se trata de medición de corriente, se debe conectar el sensor en serie al camino de corriente, con la corriente entrando por los pines IN+ y saliendo por los pines IN-.\\
 
-Luego, el pin de tensión de referencia VREF se conecta a masa, ya que de esta manera se configura el sensor para utilizar un rango de medición unidireccional\textsuperscript{\cite{TMCS1100}}, ya que en nuestro caso la corriente solo puede circular hacia la carga (para obtener un rango bidireccional, se alimentar el pin con una tensión igual a la mitad de la alimentación).\\
+Luego, el pin de tensión de referencia VREF se conecta a masa, que de esta manera configura el sensor para utilizar un rango de medición unidireccional (configurando la tensión de salida nula para corriente nula)\textsuperscript{\cite{TMCS1100}}, ya que en nuestro caso la corriente solo puede circular hacia la carga.\\
 
 \begin{figure}[h]
     \centering
@@ -226,7 +226,7 @@ El pin de salida VOUT, como se verá mas adelante, se debe conectar primero a un
 Por una cuestión de simplicidad, se eligió buscar una única solución integrada que sea capaz de medir múltiples variables, en nuestro caso una corriente y dos tensiones. Dado que las variables restantes son de menor importancia, limitar el requerimiento de ancho de banda respecto a la corriente de salida. A continuación se detallan algunos requerimientos.\\
 
 \begin{itemize}
-    \item Capacidad de medición de corriente por arriba de \SI[]{10.5}[]{\ampere}.
+    \item Capacidad de medición de corriente por arriba de \SI[]{11}[]{\ampere}.
     \item Capacidad de medición de tensión por arriba de \SI[]{75}[]{\volt}.
     \item Precisión mejor o igual al $\pm$\num{2}\%.
     \item Capacidad de medir componentes de CC.
@@ -267,7 +267,7 @@ Este dispositivo viene en un empaquetado de montaje superficial del tipo HTSSOP-
 
 Además de lo ya mencionado, el LM5056A tiene un pin al que se puede conectar un circuito que permite la medición de temperatura mediante la utilización de un transistor NPN modelo MMBT3904 conectado al pin DIODE, y medición de una tensión auxiliar de bajo valor mediante el pin VAUX.\\
 
-En la figura \ref{conexion_LM5056A}, se puede ver el esquema circuital del LM5056A dentro de la plataforma de evaluación. Los pines de medición principales son OUT, SENSE, VIN\_K y VIN. Al pin OUT se conecta la tensión de medición secundaria, que en nuestro caso es la tensión de carga $v_o$ fija de \SI[]{75}[]{\volt}. Luego, entre VIN\_K y SENSE se conecta la resistencia shunt $R_S$ para la medición de la corriente $i_{FC}$ de máximo de \SI[]{10.5}[]{\ampere}, con un capacitor $C_{shunt}$ en paralelo a $R_S$ según indicación del fabricante. Finalmente, el pin VIN se conecta al mismo punto circuital que VIN\_K, para poder medir la tensión de celda $v_{FC}$, variable entre \SI[]{30}[]{\volt} y \SI[]{65}[]{\volt}.\\
+En la figura \ref{conexion_LM5056A}, se puede ver el esquema circuital del LM5056A dentro de la plataforma de evaluación. Los pines de medición principales son OUT, SENSE, VIN\_K y VIN. Al pin OUT se conecta la tensión de medición secundaria, que en nuestro caso es la tensión de carga $v_o$ fija de \SI[]{75}[]{\volt}. Luego, entre VIN\_K y SENSE se conecta la resistencia shunt $R_{shunt}$ para la medición de la corriente $i_{FC}$ de máximo de \SI[]{10.5}[]{\ampere}, con un capacitor $C_{shunt}$ de \textit{bypass} en paralelo a $R_{shunt}$ según indicación del fabricante. Finalmente, el pin VIN se conecta al mismo punto circuital que VIN\_K, para poder medir la tensión de celda $v_{FC}$, variable entre \SI[]{30}[]{\volt} y \SI[]{65}[]{\volt}, con un capacitor de bypass para mejorar rendimiento en situaciones ruidosas, según recomendacion de fabricante.\\
 
 \begin{figure}[h]
     \centering
@@ -276,11 +276,54 @@ En la figura \ref{conexion_LM5056A}, se puede ver el esquema circuital del LM505
     \label{conexion_LM5056A}
 \end{figure}
 
-\lipsum[1]
+Como el dispositivo no tiene aislación incluida, todas sus tierras se conectan al punto común del primario del convertidor, $GND_1$. Luego, el pin CL se utiliza para la selección de rango de medición para la corriente, que puesto a tierra como en la figura, resulta en un fondo de escala de \SI[]{54.4}[]{\milli\volt}. El pin VAUX se deja abierto en caso de ser necesario la medición de una tensión auxiliar, DIODE se deja conectado a masa ya que no se necesita una medición de temperatura. Según el fabricante, al pin VREF se debe conectar un capacitor de bypass desde este pin a $GND_1$. La alimentación del LM5056A, conectado al pin VDD, es de \SI[]{5}[]{\volt}, con un capacitor de bypass en derivación entre alimentación y tierra.\\
+
+Finalmente, para calcular el valor que debe tener el resistor shunt $R_{shunt}$ se toma en cuenta el valor máximo de corriente a medir $i_{FC}$ con algún margen de seguridad, que en nuestro caso es \SI[]{11}[]{\ampere}. Después, utilizando la tensión de fondo de escala de \SI[]{54.4}[]{\milli\volt} elegida para la medición de corriente, se puede obtener el valor de $R_{shunt}$ realizando el cociente entre tensión y corriente, que resulta en un valor de shunt de \SI[]{5}[]{\milli\ohm}.
+
+\begin{equation}\label{calcullo_shunt}
+    \boxed{\highlight{
+    R_{shunt} = \frac{I_{in(FSR)}}{i_{FC(max)}} = \frac{\SI{54.4}{\milli\volt}}{\SI{11}{\ampere}} \approx \SI[]{5}[]{\milli\ohm}
+    }}
+\end{equation}
 
 \subsubsection{Etapa de Acondicionamiento}
 
-\lipsum[1]\\
+Una vez seleccionados los sensores, muchas veces es necesario agregar a la salida de los mismos un circuito de acondicionamiento, cuyo objetivo es adecuar los niveles de tensión y/o corriente que provee la salida del sensor a los niveles que son requeridos en la entrada de la siguiente etapa. En nuestro caso, esta etapa siguiente es el sistema de control de la plataforma, cuyo diseño se va a profundizar más adelante.\\
+
+Para el sensor LM5056A de la figura \ref{conexion_LM5056A} no es necesario implementar ninguna etapa de acondicionamiento, ya que el mismo transmite sus datos a través de su módulo de comunicación sincrónica $I^2C$, actuando como esclavo y el controlador como maestro. Esta dinámica se explica en detalle en la siguiente sección.\\
+
+\paragraph{Acondicionamiento de $\mathbf{i_o}$}
+
+El sensor de corriente de salida TMCS1100A4 de la figura \ref{conexion_TMCS1100} tiene una salida de tensión analógica, variable linealmente entre \SI[]{0}[]{\volt} y \SI[]{1.8}[]{\volt} para corriente $i_o$ desde nula hasta \SI[]{4.5}[]{\ampere}. Esta señal debe ingresar al conversor analógico-digital de \num{12} bits y \num{4096} niveles del DSC, que toma tensiones de entrada desde \SI[]{0}[]{\volt} hasta \SI[]{3}[]{\volt}.\\
+
+Entonces, como tanto la salida del sensor y la entrada de ADC tienen su origen en tensión nula y solo difieren en la máxima tensión que aceptan, se debe diseñar un circuito de acondicionamiento con una {\Medium ganancia positiva} que lleve los \SI[]{1.8}[]{\volt} del sensor al fondo de escala del ADC, de manera de aprovechar la resolución completa del conversor. Entonces, la ganancia $G_{cc}$ que debemos obtener del circuito se puede obtener con el cociente de las tensiones máximas.
+
+\begin{equation}\label{ganancia_acond}
+    G_{cc} = \frac{V_{max(ADC)}}{V_{max(Sensor)}} = \frac{\SI{3}{\volt}}{\SI{1.8}{\volt}} \approx 1.67
+\end{equation}
+
+Y como ambas escalas comienzan en cero, no es necesario que el circuito tenga ningún tipo de tensión de offset. Además, la salida del sensor y entrada al ADC del controlador son señales {\Medium \textit{single-ended}} (es decir que solo tiene un conductor para la señal y otro para la tensión de referencia de tierra), por lo que solo es relevante la amplificación single-ended del circuito.\\
+
+Para este propósito, se eligió un {\Medium amplificador diferencial} basado en un amplificador operacional, con una red de resistencias y capacitores que definen su ganancia $A_d$ y ancho de banda $BW$, que observa en la figura \ref{circuito_acond}. Este circuito, además de proveer la adaptación de niveles, actúa como un filtro pasabajos que le da al sistema una mayor inmunidad al ruido.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.2]{Imagenes/Acondicionamiento.png}
+    \caption{Circuito del amplificador diferencial de acondicionamiento, utilizando un amplificador operacional.}
+    \label{circuito_acond}
+\end{figure}
+
+Como el amplificador es diferencial pero la tensión a la entrada es single-ended ,y no se busca un amplificador inversor, se conecta la tensión de salida del sensor al pin positivo de entrada del operacional, con el pin negativo conectado a tierra. En este amplificador, se deben cumplir un par de condiciones, particularmente, las resistencias $R_1$ y $R_2$ deben ser iguales, al igual que las impedancias $Z_3$ y $Z_4$, que resultan del paralelo de las resistencias y las impedancias de los capacitores $C_3$ y $C_4$ a la frecuencia de interés de \SI[]{20}[]{\kilo\hertz}.\\
+
+Con estas condiciones, y asumiendo las características de un amplificador operacional ideal (tensiones $v_+$ y $v_-$ idénticas, y corrientes $i_+$ e $i_-$ nulas), se obtienen las siguientes dos expresiones para la ganancia y el ancho de banda del circuito.\textsuperscript{\cite{Caravelli-Irusta}\cite{DifferenceAmps}}\\
+
+\begin{equation}
+    G_{cc} = \frac{Z_3}{R_1} = \frac{Z_4}{R_2}
+\end{equation}
+
+\begin{equation}
+    BW = \frac{1}{2\pi R_3C_3} = \frac{1}{2\pi R_4C_4}
+\end{equation}
 
 \subsubsection{Etapa de Transmisión}
 
