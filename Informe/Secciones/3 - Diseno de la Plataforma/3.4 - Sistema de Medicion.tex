@@ -313,17 +313,86 @@ Para este propósito, se eligió un {\Medium amplificador diferencial} basado en
     \label{circuito_acond}
 \end{figure}
 
-Como el amplificador es diferencial pero la tensión a la entrada es single-ended ,y no se busca un amplificador inversor, se conecta la tensión de salida del sensor al pin positivo de entrada del operacional, con el pin negativo conectado a tierra. En este amplificador, se deben cumplir un par de condiciones, particularmente, las resistencias $R_1$ y $R_2$ deben ser iguales, al igual que las impedancias $Z_3$ y $Z_4$, que resultan del paralelo de las resistencias y las impedancias de los capacitores $C_3$ y $C_4$ a la frecuencia de interés de \SI[]{20}[]{\kilo\hertz}.\\
+Como el amplificador es diferencial pero la tensión a la entrada es single-ended ,y no se busca un amplificador inversor, se conecta la tensión de salida del sensor al pin positivo de entrada del operacional, con el pin negativo conectado a tierra. En este amplificador, se deben cumplir un par de condiciones, particularmente, las resistencias $R_1$ y $R_2$ deben ser iguales, al igual que las impedancias $Z_3$ y $Z_4$, que resultan del paralelo de las resistencias y las impedancias de los capacitores $C_3$ y $C_4$ a la frecuencia $f_s$ de interés de \SI[]{20}[]{\kilo\hertz}.\\
 
 Con estas condiciones, y asumiendo las características de un amplificador operacional ideal (tensiones $v_+$ y $v_-$ idénticas, y corrientes $i_+$ e $i_-$ nulas), se obtienen las siguientes dos expresiones para la ganancia y el ancho de banda del circuito.\textsuperscript{\cite{Caravelli-Irusta}\cite{DifferenceAmps}}\\
 
-\begin{equation}
+\begin{equation}\label{ec_gcc}
     G_{cc} = \frac{Z_3}{R_1} = \frac{Z_4}{R_2}
 \end{equation}
 
-\begin{equation}
+\begin{equation}\label{ec_bw}
     BW = \frac{1}{2\pi R_3C_3} = \frac{1}{2\pi R_4C_4}
 \end{equation}
+
+Entonces, si tomamos como requerimientos la ganancia $G_{cc}$ de \num{1.67} de la ecuación \ref{ganancia_acond} y un ancho de banda $BW$ (frecuencia de \SI[]{-3}[]{\deci\bel}) de \SI[]{100}[]{\kilo\hertz} mucho mayor a la frecuencia de conmutación del convertidor, y elegimos (arbitrariamente) resistencias $R_1$ y $R_2$ de \SI[]{16.5}[]{\kilo\ohm}, podemos despejar entonces la impedancia $Z_3$ de la ecuación \ref{ec_gcc}.
+
+\begin{equation}
+    Z_3 = Z_4 = G_{cc}R_1 = \SI{27.55}{\kilo\ohm}
+\end{equation}
+
+Con este valor y los requerimientos más arriba, tenemos que calcular los valores de ambos componentes del paralelo de $Z_3$ (o $Z_4$), $R_3$ y $C_3$ (o $R_4$ y $C_4$). Con este objetivo, planteamos la ecuación este paralelo.
+
+\begin{equation}
+    Z_3 = \frac{R_3\cdot X_{C3}}{R_3+X_{C3}} = \SI{27.55}{\kilo\ohm}
+\end{equation}
+
+Donde $X_{C3}$ es la impedancia capacitiva del paralelo, definido como el inverso del producto de la frecuencia angular de interés por la capacidad del capacitor $C_3$. Reemplazando por esta expresión, obtenemos la siguiente ecuación.
+
+\begin{equation}\label{eq_z3}
+        Z_3 = \frac{R_3}{2\pi fC_3R_3 + 1} = \SI[]{27.55}[]{\kilo\ohm}
+\end{equation}
+
+Con esta ecuación y la ecuación \ref{ec_bw} del ancho de banda de la topología, podemos conformar un sistema de ecuaciones de dos variables y dos ecuaciones no lineales.
+
+\begin{equation}\label{sist_eq}
+    \begin{aligned}
+        \frac{R_3}{2\pi fC_3R_3 + 1} &= \SI[]{27.55}[]{\kilo\ohm}\\
+        \frac{1}{2\pi R_3C_3}        &= \SI[]{100}[]{\kilo\hertz}
+    \end{aligned}
+\end{equation}
+
+Entonces, si despejamos $R_3$ y $C_3$ de este sistema de ecuaciones, obtenemos los siguientes valores para los mismos (recordar que $R_4$ y $C_4$ deben ser idénticos).
+
+\begin{equation*}
+    \begin{aligned}
+        R_3 = R_4 &= \SI[]{33.06}[]{\kilo\ohm}\\
+        C_3 = C_4 &= \SI[]{48.1}[]{\pico\farad}
+    \end{aligned}
+\end{equation*}
+
+Ahora solo falta redondear estos parámetros a los valores comerciales más cercanos para cada uno de los componentes, que se observan en la siguiente tabla.\\
+
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{rrrrrr}
+    $\mathbf{R_1}$ [\unit{\kilo\ohm}] & $\mathbf{R_2}$ [\unit{\kilo\ohm}] & $\mathbf{R_3}$ [\unit{\kilo\ohm}] & $\mathbf{R_4}$ [\unit{\kilo\ohm}] & $\mathbf{C_3}$ [\unit{\pico\farad}] & $\mathbf{C_4}$ [\unit{\pico\farad}]\\
+    \hline
+    \num{16.5} & \num{16.5} & \num{33} & \num{33} & \num{47} & \num{47}
+    \end{tabular}
+    \caption{Valores comerciales de todas las resistencias y capacitores del circuito de acondicionamiento.}
+    \label{tabla:componentes_acond}
+\end{center}
+\end{table}
+
+Si usamos estos valores finales para calcular las especificaciones de las ecuaciones de ganancia y ancho de banda, se obtienen los siguientes valores:
+
+\begin{equation*}
+    \boxed{\highlight{
+    \begin{aligned}
+        G_{cc} &= \num{1.673}\\
+        BW &= \SI[]{102.6}[]{\kilo\hertz}
+    \end{aligned}
+    }}
+\end{equation*}
+
+\paragraph{Selección del Amplificador Operacional}
+
+\lipsum[1]\\
+
+\lipsum[2]\\
 
 \subsubsection{Etapa de Transmisión}
 
