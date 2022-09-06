@@ -236,7 +236,7 @@ Por una cuestión de simplicidad, se eligió buscar una única solución integra
 
 Buscando en catálogos online de distintos fabricantes se encontró el {\Medium circuito integrado LM5056A} de Texas Instruments, descrito por el fabricante como un \quotes{Dispositivo de Administración de Potencia de Sistemas de Alta Tensión}.\\
 
-Consiste en un sensor de corriente de tipo shunt, junto con un sensor de tensión a la entrada del shunt y una medición de tensión auxiliar, con la capacidad adicional de calcular la potencia en base a las mediciones.  Al usar medición de tipo shunt, tiene la capacidad de medir componentes de CC, pero no posee aislación galvánica. Se detallan algunas especificaciones a continuación.\\
+Consiste en un sensor de corriente de tipo shunt, junto con un sensor de tensión a la entrada del shunt y una medición de tensión secundaria, con la capacidad adicional de calcular la potencia en base a las mediciones.  Al usar medición de tipo shunt, tiene la capacidad de medir componentes de CC, pero no posee aislación galvánica. Se detallan algunas especificaciones a continuación.\\
 
 \setlength{\tabcolsep}{6pt}
 \renewcommand{\arraystretch}{1.5}
@@ -254,9 +254,7 @@ Consiste en un sensor de corriente de tipo shunt, junto con un sensor de tensió
 
 Donde $V_{in/out}$ es la máxima tensión de entrada y salida medible, $f_m$ es la frecuencia de muestreo del sensor, $I_{in(FSR)}$ es la tensión de fondo de escala de medición de corriente, $e_i$ es la precisión de la medida de corriente, y $e_v$ es la precisión de la medida de tensión.\\
 
-Los parámetros analógicos de tensión y corriente medidos por el LM5056A son muestreados y convertidos a información digital mediante un conversor analógico-digital interno de \num{12} bits de resolución, (es decir $2^12 = 4096$ niveles distintos) con frecuencia de muestreo $f_m$ de \SI[]{1}[]{\kilo\hertz} como muestra la tabla. Una vez convertidos, se pueden transmitir mediante la interfaz de bus I\textsuperscript{2}C que provee el integrado, con pines SDAO para salida de datos, SDAI para entrada de datos y SCL para entrada de reloj. Esta interfaz se explica más adelante en la sección 3.4.3, sobre la etapa de transmisión.\\
-
-
+Los parámetros analógicos de tensión y corriente medidos por el LM5056A son muestreados y convertidos a información digital mediante un conversor analógico-digital interno de \num{12} bits de resolución, (es decir $2^{12} = 4096$ niveles distintos) con frecuencia de muestreo $f_m$ de \SI[]{1}[]{\kilo\hertz} como muestra la tabla. Una vez convertidos, se pueden transmitir mediante la interfaz de bus I\textsuperscript{2}C que provee el integrado, con pines SDAO para salida de datos, SDAI para entrada de datos y SCL para entrada de reloj. Esta interfaz se explica más adelante en la sección 3.4.3, sobre la etapa de transmisión.\\
 
 Este dispositivo viene en un empaquetado de montaje superficial del tipo HTSSOP-28 de 28 pines (figura \ref{encapsulado_LM5056}), que también incluye un contacto plano en la parte inferior, de conexión opcional para la disipación de calor.\\
 
@@ -267,16 +265,18 @@ Este dispositivo viene en un empaquetado de montaje superficial del tipo HTSSOP-
     \label{encapsulado_LM5056}
 \end{figure}
 
-\lipsum[1]\\
+Además de lo ya mencionado, el LM5056A tiene un pin al que se puede conectar un circuito que permite la medición de temperatura mediante la utilización de un transistor NPN modelo MMBT3904 conectado al pin DIODE, y medición de una tensión auxiliar de bajo valor mediante el pin VAUX.\\
+
+En la figura \ref{conexion_LM5056A}, se puede ver el esquema circuital del LM5056A dentro de la plataforma de evaluación. Los pines de medición principales son OUT, SENSE, VIN\_K y VIN. Al pin OUT se conecta la tensión de medición secundaria, que en nuestro caso es la tensión de carga $v_o$ fija de \SI[]{75}[]{\volt}. Luego, entre VIN\_K y SENSE se conecta la resistencia shunt $R_S$ para la medición de la corriente $i_{FC}$ de máximo de \SI[]{10.5}[]{\ampere}, con un capacitor $C_{shunt}$ en paralelo a $R_S$ según indicación del fabricante. Finalmente, el pin VIN se conecta al mismo punto circuital que VIN\_K, para poder medir la tensión de celda $v_{FC}$, variable entre \SI[]{30}[]{\volt} y \SI[]{65}[]{\volt}.\\
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=1]{Imagenes/Conexion LM5056A.png}
+    \includegraphics[scale=0.22]{Imagenes/Conexion LM5056A.png}
     \caption{Conexión del sensor LM5056A para medir tensión y corriente de entrada y tensión de salida, según especificaciones del fabricante.}
-    \label{conexion_LM5056}
+    \label{conexion_LM5056A}
 \end{figure}
 
-\lipsum[2]\\
+\lipsum[1]
 
 \subsubsection{Etapa de Acondicionamiento}
 
