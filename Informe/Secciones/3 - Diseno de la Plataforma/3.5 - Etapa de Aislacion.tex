@@ -72,7 +72,7 @@ Entonces, la onda PWM de entrada se conecta al ánodo del LED, con el cátodo co
 
 \subsubsection{Aislación I\textsuperscript{2}C}
 
-Como se vió más arriba, el bus I\textsuperscript{2}C es un bus bidireccional de dos cables: uno para la transmisión de datos bidireccional (SDA) y otro que lleva la señal de reloj (SCL), también de manera bidireccional. Sin embargo, los aisladores de señal son dispositivos unidireccionales, por lo que ambas líneas  se debe separar en dos lineas, una para cada dirección.\\
+Como se vió más arriba, el bus I\textsuperscript{2}C es un bus bidireccional \textit{half-duplex} de dos cables: uno para la transmisión de datos bidireccional (SDA) y otro que lleva la señal de reloj (SCL), también de manera bidireccional. Sin embargo, los aisladores de señal son dispositivos unidireccionales, por lo que ambas líneas  se debe separar en dos lineas, una para cada dirección.\\
 
 En el caso del LM5056A de la figura \ref{conexion_LM5056A}, la linea de reloj SCL es unidireccional, ya que solo es necesario que el sensor reciba el reloj del controlador; y, para facilitar la aislación, la linea de datos ya se encuentra dividida en dos lineas de entrada y salida (SDAI y SDAO respectivamente). Más adelante, luego del aislador, se debe utilizar algún método para unir las dos líneas de datos en una única linea bidireccional como especifica el protocolo. Con esta información, podemos plantear los requerimientos que debe cumplir el aislador de señal del bus de datos.\\
 
@@ -126,6 +126,17 @@ En el lado 2 (lado del controlador), se conectan las masas a $GND_D$ al estar de
 
 \paragraph{Separación de la Línea de Datos}
 
-{\Bold\scshape Falta completar esta sección.}\\
+Como se dijo más arriba, el protocolo I\textsuperscript{2}C define una única línea de datos bidireccional (half-duplex), pero dado que los aisladores de señal son dispositivos unidireccionales (y el LM5056A tiene un pin de entrada y otro de salida de datos), se debe interponer entre el controlador y el aislador de la figura \ref{conexion_ISO7242C} algún tipo de circuito que desglose la única línea de datos SDA proveniente del controlador en dos líneas de entrada y salida, SDAI y SDAO (en nuestro caso el reloj solo va del controlador al sensor, por lo que no es necesaria ninguna separación).\\
 
-\lipsum[1]\\
+Además, el bus I\textsuperscript{2}C un protocolo con salida open-drain (u open-collector si se trabaja con lógica TTL), requiriendo una resistencia de pull-up para definir el estado alto de señal, y el aislador es de salida push-pull (no es necesario ningún circuito externo para la señalización). Entonces, este circuito también se debe encargar de convertir la salida push-pull del ISO7242C en una salida open-drain compatible con el protocolo.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.2]{Imagenes/Circuito Separacion I2C.png}
+    \caption{Circuito implementado para la separación de la línea de datos en dos líneas unidireccionales.\textsuperscript{\cite{I2C-ISO}}}
+    \label{circuito_sep_i2c}
+\end{figure}
+
+El circuito implementado para cumplir estas funcionalidades es el de la figura \ref{circuito_sep_i2c}, tomado del desarrollo encontrado en \cite{I2C-ISO}. Consiste en un único transistor bipolar y dos diodos Schottky, rodeados por una red pasiva de resistencias y capacitores. Este circuito implementa una función de comparación que detecta la dirección de la señal y cambia los caminos de la señal de acuerdo a esto, evitando que una señal transmitida pueda volver a su fuente. Los diodos Schottky $D_{10}$ y $D_{11}$ de la figura se encargan de convertir las salidas a open-drain.\\
+
+Los valores y componentes del circuito de la figura son idénticos a los del desarrollo de \cite{I2C-ISO}, ya que el transistor MMBT3904 (transistor NPN de propósito general) y los diodos BAS40-04 (diodos Schottky de propósito general y conmutación rápida) se pueden conseguir fácilmente y vienen en encapsulados pequeños de montaje superficial tipo SOT-23 de tres pines. Los únicos componentes que se cambiaron fueron las resistencias de pull-up $R_4$ y $R_5$, que se eligieron de \SI[]{4.7}[]{\kilo\ohm} al igual que en el circuito de la figura \ref{conexion_ISO7242C}.\\
