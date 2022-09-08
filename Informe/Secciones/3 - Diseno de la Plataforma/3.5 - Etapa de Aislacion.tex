@@ -21,9 +21,43 @@ En este capítulo vamos a tratar las soluciones de aislación para los primeros 
 
 \subsubsection{Aislación de los Drivers}
 
-Cómo los drivers están conectados directamente a terminales de los transistores de potencia del convertidor, estos se encuentran dentro de la etapa de potencia de la plataforma. Sin embargo, las señales PWM que definen el tiempo y secuencia de conmutación de los transistores provienen del módulo PWM del controlador digital, todo dentro del área digital de la plataforma. Entonces, previo a las entradas de señal de los 2ED21834-S06J se debe interponer algun circuito de aislación de señal, para mantener la separación entre potencia y señal.\\
+Cómo los drivers están conectados directamente a terminales de los transistores de potencia del convertidor, estos se encuentran dentro de la etapa de potencia de la plataforma. Sin embargo, las señales PWM que definen el tiempo y secuencia de conmutación de los transistores provienen del módulo PWM del controlador digital, todo dentro del área digital de la plataforma. Entonces, previo a las entradas de señal de los 2ED21834-S06J se debe interponer algun circuito de aislación de señal, para mantener la separación entre las partes de potencia y digitales.\\
 
-\lipsum[2]\\
+Los requerimientos que la aplicación exige del circuito aislador se presentan en la siguiente lista.\\
+
+\begin{itemize}
+    \item Retardo de propagación mucho menor al período $T_s$ de \SI[]{50}[]{\micro\second} de las ondas PWM de excitación.
+    \item Tensión pico máxima de aislación superior a los \SI[]{100}[]{\volt}.
+    \item Niveles lógicos de salida compatibles con las entradas de los drivers.
+    \item Es deseable la utilización de encapsulados pequeños de montaje superficial.\\
+\end{itemize}
+
+Para este propósito se eligió utilizar el modelo {\Medium ACPL-P480} de Broadcom, un optoacoplador de un solo canal de alta velocidad, con un \textit{Schmitt trigger} que elimina la necesidad de circuitos externos para acondicionamiento de formas de onda. Algunos de sus parámetros más importantes se muestran en la tabla \ref{tabla:ACPL-P480}.\\
+
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{llrrrr}
+    {\SemiBold Fabricante} & {\SemiBold Modelo} & $\mathbf{V_{ISO}}$ [\unit{\volt}] & $\mathbf{t_{PHL}}$ [\unit{\nano\second}] & $\mathbf{t_{PLH}}$ [\unit{\nano\second}] & $\mathbf{PWD}$ [\unit{\nano\second}]\\
+    \hline
+    Broadcom & ACPL-P480 & \num{3750} & \num{150} &  \num{110} & \num{250}
+    \end{tabular}
+    \caption{Especificaciones del optoacoplador modelo ACPL-P480 de Broadcom.\textsuperscript{\cite{ACPL-P480}}}
+    \label{tabla:ACPL-P480}
+\end{center}
+\end{table}
+
+Dónde $V_{ISO}$ es la máxima tensión momentánea soportada entre entrada y salida, $t_{PHL}$ es el retardo de propagación para una transición a nivel lógico bajo, $t_{PLH}$ es el retardo de propagación para una transición a nivel lógico alto, y $PWD$ es la distorsión de ancho de pulso, definida como $|t_{PHL} - t_{PLH}|$.\\
+
+Este dispositivo viene en un empaquetado SMD de seis pines tipo \textit{stretched SO-6} o SO-6 estirado, como el de la figura \ref{encapsulado_opto}...\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.2]{Imagenes/SO6 Stretched.jpeg}
+    \caption{Optoacoplador modelo ACPL-P480 de Broadcom, en su encapsulado SMD tipo SO-6 stretched.}
+    \label{encapsulado_opto}
+\end{figure}
 
 \subsubsection{Aislación I\textsuperscript{2}C}
 
