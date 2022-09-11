@@ -128,12 +128,58 @@ En la mitad inferior de la tabla \ref{tabla:resumen_alimentacion} se encuentran 
     \item {\SemiBold Circuito de 3.3 V:} Únicamente necesario para la alimentación del lado digital del aislador para I\textsuperscript{2}C (ISO7242C), que consume un máximo de \SI[]{24}[]{\milli\ampere}.\\
 \end{itemize}
 
-\lipsum[1]\\
+A diferencia de los drivers de MOSFETs del lado de potencia, que reciben en su alimentación una tensión no regulada, todos los dispositivos del lado digital de la plataforma, tanto los de \SI[]{5}[]{\volt} como los de \SI[]{3.3}[]{\volt}, requieren en sus pines de alimentación una tensión regulada con poca variación, la cuál ya es provista directamente por la fuente aislada de la sección anterior.\\
 
 \paragraph{Circuito de 5 V}
 
-\lipsum[2]\\
+Para el circuito de \SI[]{5}[]{\volt} del lado digital de la plataforma, no es necesario utilizar un regulador. La {\Medium fuente aislada THB 3-1211} de la figura \ref{encapsulado_TRACO} ya provee a su salida esta tensión, aislada de la parte de potencia, con una muy baja regulación y una capacidad de corriente de \SI[]{600}[]{\milli\ampere} como se ve en la tabla \ref{tabla:TRACO}, cómodamente por encima de los \SI[]{300}[]{\milli\ampere} que son demandados por los componentes.\\
 
 \paragraph{Circuito de 3.3 V}
 
-\lipsum[3]\\
+Para implementar el circuito de alimentación de \SI[]{3.3}[]{\volt} aislado, se deben tomar los \SI[]{5}[]{\volt} a la salida de la fuente aislada, y mediante un regulador de tensión fija obtener los \SI[]{3.3}[]{\volt} regulados a la salida. Por este motivo, además por el bajo consumo de este circuito, los requerimientos de este regulador van a ser distintos a los del regulador de \SI[]{5}[]{\volt} de la figura \ref{encapsulado_LM7805}, ya que tiene una distinta tensión de salida y una mucho menor diferencia entre salida y entrada. Los requerimientos se plantearon de la siguiente manera:\\
+
+\begin{itemize}
+    \item Tensión de salida de \SI[]{3.3}[]{\volt}.
+    \item Regulación de tensión de salida menor a \SI[]{500}[]{\milli\volt}.
+    \item Tensión de dropout menor a \SI[]{1}[]{\volt}.
+    \item Corriente mínima de salida por debajo de \SI[]{10}[]{\milli\ampere}, para poder sostener el bajo consumo del ISO7242C.
+    \item Es deseable la utilización de encapsulados pequeños de montaje superficial.\\
+\end{itemize}
+
+Con estos requerimientos no es posible utilizar alguna variante de LM7805 utilizado para la alimentación del lado de potencia, ya que no existe ninguna con una salida de \SI{3.3}{\volt}, además de tener tensiones de dropout de alrededor de los \SI[]{2}[]{\volt}. Por estos motivos, es necesario buscar reguladores de tipo \textit{low-dropout}, que tienen tensiones de dropout del orden de los \unit{\milli\volt}.\\
+
+Luego de buscar en catálogos online y en los dispositivos disponibles en el instituto, se decidió por el modelo {\Medium LP2985-3.3} de Texas Instruments, un regulador low-dropout de \SI[]{3.3}[]{\volt} de tensión de salida. Se presenta abajo la tabla con sus principales especificaciones.\\
+
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{llrrrr}
+    {\SemiBold Fabricante} & {\SemiBold Modelo} & $\mathbf{V_{O}}$ [\unit{\volt}] & {\SemiBold Regulación} [\unit{\milli\volt}] & $\mathbf{V_{Drop}}$ [\unit{\milli\volt}] & $\mathbf{I_{O(min)}}$ [\unit{\milli\ampere}]\\
+    \hline
+    \makecell[l]{Texas \\ Instruments} & LP2985-3.3 & \num{3.3} & \num{1} & \num{90} & \num{1}
+    \end{tabular}
+    \caption{Especificaciones del regulador lineal low-dropout LP2985-3.3 de \SI[]{3.3}[]{\volt} de Texas Instruments.\textsuperscript{\cite{LP2985}}}
+    \label{tabla:LP2985}
+\end{center}
+\end{table}
+
+Donde $V_O$ es la tensión de salida (regulada) nominal, la regulación es la máxima variación de tensión de salida, $V_{Drop}$ es la tensión de dropout, e $I_{O(min)}$ es la mínima corriente de salida bajo la cual el dispostivo sigue regulando la tensión.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.2]{Imagenes/SOT-23-5.png}
+    \caption{Regulador lineal low-dropout LP2985-3.3 de Texas Instruments, en su encapsulado SMD de tipo SOT-23-5.}
+    \label{encapsulado_LP2985}
+\end{figure}
+
+El LP2985-3.3 se produce con un encapsulado de montaje superficial de cinco pines del tipo SOT-23-5 como se observa en la figura \ref{encapsulado_LP2985}. Además de los tres pines de entrada, tierra y salida normales, tiene un terminal para su activación y desactivación (ON/OFF), y un pin adicional (BYPASS) de utilización opcional.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.3]{Imagenes/Conexion LP2985.png}
+    \caption{Esquema de conexión del regulador lineal LP2985-3.3, según recomendaciones del fabricante.}
+    \label{conexion_LP2985}
+\end{figure}
+
+En la figura \ref{conexion_LP2985} se puede ver el circuito externo conectado al regulador, con capacitores conectados según la recomendación del fabricante en la hoja de datos. Los capacitores conectados entre el pin de entrada y tierra, y entre el pin salida y tierra son capacitores de bypass dimensionados según indicaciones. Luego se utiliza el terminal de BYPASS, conectando un capacitor en derivación entre este terminal y tierra, para disminuir el nivel de ruido en el pin de salida de \SI{3.3}{\volt}. El pin de activación ON/OFF se deja conectado a la entrada, dado que no se va a utilizar la función de desactivación. Todas las conexiones a tierra se realizan en la masa digital $GND_D$, al estar el regulador del lado aislado de los circuitos de alimentación.\\
