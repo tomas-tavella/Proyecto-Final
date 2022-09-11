@@ -16,8 +16,8 @@ La estructura interna de una celda de combustible, visible en la figura \ref{fue
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.35]{Imagenes/Fuel Cell.png}
-    \caption{Esquema de una celda de combustible, con todos sus componentes indicados (Placeholder).}
+    \includegraphics[scale=0.25]{Imagenes/Fuel Cell.png}
+    \caption{Esquema ilustrativo de una celda de combustible, con todos sus componentes indicados.}
     \label{fuel_cell}
 \end{figure}
 
@@ -50,8 +50,8 @@ Esto se logra, como dice su nombre, apilando todas las celdas de combustible par
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.2]{Imagenes/Fuel Cell.png}
-    \caption{Figura de un stack de celdas (Placeholder).}
+    \includegraphics[scale=0.5]{Imagenes/Fuel Cell Stack.png}
+    \caption{Diagrama interno de un stack de celdas conectadas por apilado planar-bipolar.}
     \label{fuel_cell_stack}
 \end{figure}
 
@@ -155,14 +155,14 @@ Sin embargo, esto no es suficiente para un análisis eléctrico completo del dis
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{Imagenes/Curva V-I Celda.png}
-    \caption{Curva de tensión vs. corriente típica de una celda de combustible tipo PEM (Placeholder).}
+    \includegraphics[scale=0.28]{Imagenes/Curva V-I Celda.png}
+    \caption{Curva de tensión vs. corriente típica de una celda de combustible tipo PEM, con sus tres regiones marcadas.}
     \label{V-I_celda}
 \end{figure}
 
 En esta curva se pueden señalar tres regiones de pérdidas bien marcadas: la región de {\Medium pérdidas de activación} cerca de corriente nula, seguida por la región de {\Medium pérdidas óhmicas}, y finalmente, acercándose a la máxima corriente, la región de {\Medium pérdidas de concentración}. Estas pérdidas se dan por algunas irreversibilidades de las reacciones que ocurren en la celda, que la alejan de su comportamiento ideal. A continuación se detallan estos componentes y se obtienen sus ecuaciones correspondientes.\\
 
-\subparagraph{Región de Pérdidas de Activación}
+\subparagraph{Región de Pérdidas de Activación ( I )}
 
 Como se puede ver, en la primera región hay una rápida caída de tensión de características no lineales. Esto ocurre por las llamadas \textit{pérdidas de activación}, que se generan por la lenta velocidad de reacción en las superficies de los electrodos para bajas densidades de corriente. Una porción de la tensión generada se pierde al generar la reacción electroquímica, que transfiere los electrones desde o hacia los electrodos.\\
 
@@ -176,7 +176,7 @@ La constante $i_0$ (llamada \textit{densidad de corriente de intercambio}) se pu
 
 En el caso particular del hidrógeno como combustible, las pérdidas se concentran casi únicamente en el ánodo (donde ocurre la oxidación), con la densidad $i_0$ del ánodo generalmente mas de \num{10000} veces mayor a la del cátodo, por lo que generalmente las pérdidas de activación de este último se pueden despreciar, teniendo en cuenta únicamente las del ánodo.\\
 
-\subparagraph{Región de Pérdidas Óhmicas}
+\subparagraph{Región de Pérdidas Óhmicas ( II )}
 
 Esta región es la que abarca el mayor rango de corrientes de celda, además de ser la más simple de modelar y entender. En este caso, las pérdidas se dan simplemente por la resistencia eléctrica al paso de corriente de ambos electrodos y la resistencia al paso de iones del electrolito, y por lo tanto, la caída de tension $\Delta V_{ohm}$ esta relacionada linealmente con la densidad de corriente $i$ mediante la Ley de Ohm.
 
@@ -186,7 +186,7 @@ Esta región es la que abarca el mayor rango de corrientes de celda, además de 
 
 Donde $r$ debe ser la resistencia por unidad de área (\unit{\ohm\metre\squared}) si se trabaja con $i$ como densidad de corriente (\unit{\ampere\per\metre\squared}).\\
 
-\subparagraph{Región de Pérdidas de Concentración}
+\subparagraph{Región de Pérdidas de Concentración ( III )}
     
 Esta última región de pérdidas viene dada, como dice su nombre, por la reducción de la concentración de combustible y comburente en el ánodo y cátodo respectivamente, condición que se ve exacerbada al trabajar con corrientes y cargas muy elevadas. Esta reducción en concentración se traduce a una reducción de la tensión de celda $\Delta V_{conc}$.\\
 
@@ -222,9 +222,7 @@ Como el último término solo depende de $i_0$, que es un valor constante, se lo
 Vale aclarar que, al ser la densidad de corriente de intercambio una magnitud muy chica, al calcular su logaritmo natural se obtiene un número negativo, por lo que la tensión de circuito abierto reversible $E_{oc}$ resulta, como es esperable, menor la la tensión irreversible $E$. Entonces, la expresión final que describe la relación tensión vs. corriente de una celda de combustible se muestra en la siguiente ecuación.
 
 \begin{equation}\label{v_celda}
-    %\boxed{
     V_{celda}(i) = E_{oc} - A\cdot\ln(i) - i\cdot r - m\cdot e^{ni}
-    %}
 \end{equation}
 
 Para obtener la tensión de una pila, solo es necesario multiplicar la tensión $V_{celda}$ por la cantidad de celdas $N$ del stack.
