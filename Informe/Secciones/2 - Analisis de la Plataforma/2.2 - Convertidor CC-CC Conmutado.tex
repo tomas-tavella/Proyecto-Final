@@ -10,7 +10,7 @@ La forma más básica que se podría concebir para un dispositivo que cumpla est
     V_{out} = V_{in}\cdot\frac{R_2}{R_1+R_2}
 \end{equation*}
 
-Entonces, variando la relación entre $R_1$ y $R_2$, se puede variar la tensión $V_{out}$ entre tensión nula y $V_{in}$. Sin embargo, se necesita solo un análisis superficial de esta topología para ver que no es viable para ningún tipo de aplicación, más que nada por su pobre eficiencia energética (para obtener una tensión igual a la mitad de la entrada, se pierde la mitad de la potencia en disipación resistiva).\\
+Entonces, variando la relación entre $R_1$ y $R_2$, se puede variar la tensión $V_{out}$ entre tensión nula y $V_{in}$. Sin embargo, se necesita solo un análisis superficial de esta topología para ver que no es viable, en especial para aplicaciones de alta potencia, más que nada por su pobre eficiencia energética (para obtener una tensión igual a la mitad de la entrada, se pierde la mitad de la potencia en disipación resistiva).\\
 
 Los convertidores CC-CC se suelen separar en dos principales categorías: los {\Medium reguladores lineales}, que son un caso complejizado del divisor resistivo donde se utiliza un transistor como resistencia variable (además de un diodo para regular la tensión de salida); y los {\Medium convertidores conmutados}, en los cuales uno o más transistores, actuando como llaves, son conmutados a alta frecuencia y junto con dispositivos que almacenan energía (como inductores y capacitores) producen una tensión continua a la salida.\\
 
@@ -299,8 +299,8 @@ Si tomamos el circuito del convertidor forward de dos llaves de la figura \ref{f
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.6]{Imagenes/Forward Double-Ended.pdf}
-    \caption{Dos variantes de convertidores forward de dos llaves conectados en paralelo (Placeholder).}
+    \includegraphics[scale=0.6]{Imagenes/Desarrollo Full-Bridge.pdf}
+    \caption{Dos variantes de convertidores forward de dos llaves conectados en paralelo.}
     \label{desarrollo_fullbridge}
 \end{figure}
 
@@ -314,8 +314,8 @@ Si aplicamos todos estos cambios al circuito de la figura \ref{desarrollo_fullbr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{Imagenes/Push-Pull.pdf}
-    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de punto medio en el secundario (Placeholder).}
+    \includegraphics[scale=0.6]{Imagenes/Full Bridge Onda Completa.pdf}
+    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de onda completa en el secundario.}
     \label{fullbridge_partido}
 \end{figure}
 
@@ -323,8 +323,8 @@ Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Par
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.6]{Imagenes/Push-Pull.pdf}
-    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de puente completo en el secundario (Placeholder).}
+    \includegraphics[scale=0.6]{Imagenes/Full Bridge.pdf}
+    \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de puente completo en el secundario.}
     \label{fullbridge}
 \end{figure}
 
