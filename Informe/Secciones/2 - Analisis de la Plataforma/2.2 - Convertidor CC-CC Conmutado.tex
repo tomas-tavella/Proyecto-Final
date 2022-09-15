@@ -4,15 +4,7 @@ Un convertidor CC-CC es un dispositivo electrónico que tiene como objetivo conv
 
 Estos convertidores son de interés para nuestra aplicación, ya que la tensión $V_{stack}$ que entrega la pila (ecuación \ref{v_stack}) es una tensión continua no regulada, que varía apreciablemente con la corriente demandada; mientras que a la salida se demanda una tensión fija y regulada $V_{bus}$ para conectar al bus de continua del sistema híbrido de la figura \ref{SHGE}.\\
 
-La forma más básica que se podría concebir para un dispositivo que cumpla esta función es la de un simple divisor resistivo, en el cual la tensión $V_{out}$ depende de las resistencias $R_1$ y $R_2$ y la tensión de entrada $V_{in}$.
-
-\begin{equation*}
-    V_{out} = V_{in}\cdot\frac{R_2}{R_1+R_2}
-\end{equation*}
-
-Entonces, variando la relación entre $R_1$ y $R_2$, se puede variar la tensión $V_{out}$ entre tensión nula y $V_{in}$. Sin embargo, se necesita solo un análisis superficial de esta topología para ver que no es viable, en especial para aplicaciones de alta potencia, más que nada por su pobre eficiencia energética (para obtener una tensión igual a la mitad de la entrada, se pierde la mitad de la potencia en disipación resistiva).\\
-
-Los convertidores CC-CC se suelen separar en dos principales categorías: los {\Medium reguladores lineales}, que son un caso complejizado del divisor resistivo donde se utiliza un transistor como resistencia variable (además de un diodo para regular la tensión de salida); y los {\Medium convertidores conmutados}, en los cuales uno o más transistores, actuando como llaves, son conmutados a alta frecuencia y junto con dispositivos que almacenan energía (como inductores y capacitores) producen una tensión continua a la salida.\\
+Los convertidores CC-CC se suelen separar en dos principales categorías: los {\Medium reguladores lineales}, que consisten en un divisor resistivo con una resistencia variable implementada mediante un transistor (además de un diodo para regular la tensión de salida); y los {\Medium convertidores conmutados}, en los cuales uno o más transistores, actuando como llaves, son conmutados a alta frecuencia y junto con dispositivos que almacenan energía (como inductores y capacitores) producen una tensión continua a la salida.\\
 
 Dado que para esta plataforma se utiliza un convertidor conmutado (principalmente por su gran ventaja en eficiencia energética), se enfocará el análisis únicamente en éstos; comenzando por una explicación de los conceptos básicos necesarios para comprender su funcionamiento.\\
 
