@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "IRFP150")(type "Legacy")(uri "${KIPRJMOD}/Libraries/IRFP150/IRFP150.lib")(options "")(descr ""))
+)
