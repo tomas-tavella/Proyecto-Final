@@ -1,0 +1,45 @@
+\subsection{Consideraciones Generales}
+
+\subsubsection{Software EDA}
+
+Para realizar el diseño de todos los esquemas circuitales del sistema, y luego plasmarlos a una placa de circuito impreso se debe utilizar un herramienta de automatización de diseño electrónico o EDA (del inglés \textit{Electronic Design Automation}). Existe una gran variedad de programas que cumplen este propósito, estando entre los más conocidos el \textit{Altium Designer} de \textit{Altium}, el \textit{EAGLE} de \textit{Autodesk}, el \textit{KiCad} y el \textit{Proteus Design Suite} de \textit{Labcenter Electronics}.\\
+
+Para este proyecto se eligió utilizar la plataforma {\Medium KiCad} (que se encuentra en la versión 6.0.7 al momento de escribir este informe), una suite de software libre, gratuita y de código abierto que incluye todas la funcionalidades necesarias para el diseño electrónico. Cuenta con herramientas de captura de esquemático, diseño de PCB, simulación mediante SPICE o Ngspice, visualización de archivos de fabricación y cálculos de diseño de PCB.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{Imagenes/KiCad.pdf}
+    \caption{Logotipo de la plataforma KiCad EDA.}
+    \label{logo_kicad}
+\end{figure}
+
+El programa también cuenta con una extensa biblioteca de componentes y \textit{footprints} (son las \quotes{huellas} de los componentes en en el circuito impreso) y la capacidad de crear o importar bilbiotecas. Además tiene la capacidad de generar archivos de fabricación, modelos tridimensionales de la PCB y una \textit{bill of materials} (lista de componentes).\\
+
+
+\subsubsection{Aislación de Tierras}
+
+En toda la plataforma se va a trabajar con tres puestas a tierra distintas y aisladas entre sí: $GND_1$ es la tierra del primario del convertidor, $GND_2$ es la tierra del secundario del convertidor, y $GND_D$ es la tierra de las partes de señal y digitales, como los sensores y el DSC.\\
+
+Esto, si bien agrega una mayor complejidad al diseño, es ventajoso por múltiples razones. Primero, evita la generación de interferencia de modo común entre las tierras del convertidor ($GND_1$ y $GND_2$) que manejan altas corrientes y por lo tanto son más ruidosas; y la tierra de señal $GND_D$ de más bajas corrientes que es más sensible al ruido. Además, dadas las altas corrientes del convertidor, esta separación permite la protección de los circuitos de señal ante picos de corriente y tensión inesperados en la parte de potencia.\\
+
+En la PCB, las tierras se implementan mediante la funcionalidad de KiCad (y otros software EDA) llamada \textit{fill zone} o rellenar zona, que permite elegir una zona en la plaqueta que es rellenada de cobre en todos los lugares donde no existan otras pistas. Esto facilita la interconexión de todos los componentes, en especial dado que la gran mayoría de estos tienen al menos una conexión a tierra.\\
+
+\subsubsection{Selección de Componentes}
+
+Para todos los componentes en los que sea posible, se eligieron encapsulados de tamaño reducido y de montaje superficial (SMD, del inglés \textit{Surface Mounted Devices}). Estos son encapsulados, que como su nombre indica, son montados sobre la superficie de la placa, sin necesidad de una perforación que la atraviese (como es el caso de la tecnología THT o \textit{through-hole}). Esto facilita el ruteo de las pistas de cobre, dado que si una pista pasa por la capa opuesta de un componente SMD, no es necesario esquivar los pines del mismo, que se encuentran únicamente de un lado de la PCB.\\
+
+\subsubsection{Anchos de Pistas}
+
+La selección de los anchos de las pistas de cobre de las distintas partes del circuito es un parámetro sumamente importante, y presenta una situación de compromiso entre la superficie ocupada por las pistas y su pérdida de potencia (y elevación de temperatura). Para realizar estos cálculos se utiliza la herramienta \textit{PCB Calculator} incluida en la suite de KiCad, que tiene la capacidad de realizar múltiples cálculos de utilidad en el diseño de PCBs, incluido el cáclulo de ancho de pista, basado en la ecuación definida por la norma IPC-2221.
+
+\begin{equation}\label{eq:IPC2221}
+    I = K\cdot (\Delta T)^{\num{0.44}}\cdot (\num{1550}\cdot W\cdot H)^{\num{0.725}}
+\end{equation}
+
+Donde $I$ es la corriente circulante por la pista en [\unit{\ampere}], $K$ es una constante definida por la norma de valor \num{0.048} para pistas externas, $\Delta T$ es la elevación de temperatura de pista en [\unit{\celsius}], y $W$ y $H$ son el ancho y grosor de la pista en [\unit{\milli\metre}].\\
+
+En nuestro caso, vamos a tomar un {\Medium grosor \textit{H} fijo de 0,035 mm} para ambas capas de cobre, que es un valor estándar; y una {\Medium elevación de temperatura de pista máxima de 20 °C}. Con estos valores fijados, se calculará el ancho $W$ de cada pista de la plaqueta.\\
+
+Para las pistas de señal ubicadas en la parte digital de la plataforma, se decidió utilizar como estándar un ancho de pista $W$ de \SI[]{0.25}[]{\milli\metre}, que dadas las bajas corrientes que estas manejan (rara vez por encima de \SI[]{100}[]{\milli\ampere}), su temperatura no llega a elevarse ni \SI[]{1}[]{\celsius} según la ecuación \ref{eq:IPC2221}. Además, este es un ancho muy reducido, cercano a los limites de fabricación de múltiples fabricantes de placas locales.\\
+
+\afterpage{\blankpage}

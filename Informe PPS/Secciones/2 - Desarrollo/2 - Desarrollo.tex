@@ -1,5 +1,5 @@
 \section{Desarrollo} \label{desarrollo}
-\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes/Fondo Capitulo 1.pdf}}
+\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes/Fondo Capitulo 2.pdf}}
 \thispagestyle{plain}
 
 \vspace{0.5cm}
@@ -13,6 +13,19 @@
 
 \divider
 
-\lipsum[1]\\
+En este capítulo vamos a tratar la implementación de la plataforma experimental completa de la figura \ref{fig:plataforma_det} sobre una placa de circuito impreso. Dada la complejidad de todos los circuitos de este sistema, con una cantidad de componentes que supera los 150, se decidió  implementar una PCB doble faz o doble capa, con unas dimensiones de aproximadamene \SI[]{15}[]{\centi\metre} x \SI[]{15}[]{\centi\metre}. En tanto a su construcción, se utiliza el sustrato FR-4 estándar (laminado de resina epoxi reforzado con vidrio) y vías de tipo PTH (del inglés \textit{Plated Through-Hole}).\\
 
-\lipsum[2]\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Imagenes/Plataforma Detallada.pdf}
+    \caption{Diagrama detallado de la plataforma experimental de evaluación, con los seis bloques que la componen.}
+    \label{fig:plataforma_det}
+\end{figure}
+
+Como se ve en el diagrama detallado de la plataforma, esta cuenta con seis bloques principales a ser implementados en la plaqueta: los dos bloques principales (el convertidor y el bloque de control) y los cuatro bloques auxiliares restantes que se encargan de diversas tareas como la adquisición de datos y la alimentación de los circuitos, entre otras. Vamos a dedicar una sección de este capítulo a la implementación en PCB de cada uno de estos subsistemas, luego de una breve descripción de su funcionamiento y de su esquema circuital.\\
+
+Antes de comenzar, vamos a establecer una serie de consideraciones de diseño generales que aplican a todos los circuitos a implementar y componentes a elegir.\\
+
+\input{Secciones/2 - Desarrollo/2.1 - Consideraciones Generales.tex}
+
+\newpage
