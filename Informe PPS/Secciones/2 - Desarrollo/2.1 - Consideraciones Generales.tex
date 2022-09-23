@@ -28,7 +28,9 @@ En la PCB, las tierras se implementan mediante la funcionalidad de KiCad (y otro
 
 Para todos los componentes en los que sea posible, se eligieron encapsulados de tamaño reducido y de montaje superficial (SMD, del inglés \textit{Surface Mounted Devices}). Estos son encapsulados, que como su nombre indica, son montados sobre la superficie de la placa, sin necesidad de una perforación que la atraviese (como es el caso de la tecnología THT o \textit{through-hole}). Esto facilita el ruteo de las pistas de cobre, dado que si una pista pasa por la capa opuesta de un componente SMD, no es necesario esquivar los pines del mismo, que se encuentran únicamente de un lado de la PCB.\\
 
-\subsubsection{Anchos de Pistas}
+Para componentes sencillos como capacitores, resistencias, diodos y LEDs, se elige, siempre que sea posible, los de tipo SMD de dimensiones 1206, que corresponden a un empaquetado de \SI[]{3}[]{\milli\metre} x \SI[]{1.5}[]{\milli\metre}.\\
+
+\subsubsection{Ancho de Pistas}
 
 La selección de los anchos de las pistas de cobre de las distintas partes del circuito es un parámetro sumamente importante, y presenta una situación de compromiso entre la superficie ocupada por las pistas y su pérdida de potencia (y elevación de temperatura). Para realizar estos cálculos se utiliza la herramienta \textit{PCB Calculator} incluida en la suite de KiCad, que tiene la capacidad de realizar múltiples cálculos de utilidad en el diseño de PCBs, incluido el cáclulo de ancho de pista, basado en la ecuación definida por la norma IPC-2221.
 
