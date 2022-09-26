@@ -1,45 +1,82 @@
 \subsection{Implementación en PCB}
 
-Una vez definidos todos los circuitos que componen a la plataforma, se llega a un total de {\Medium 185 componentes} discretos con decenas de empaquetados distintos, que deben todos ser posicionados en una placa de circuito impreso doble faz del menor tamaño posible. El resultado final de la plaqueta, con todos sus componentes (exceptuando los disipadores térmicos de los transistores y diodos de potencia) se observa en la figura \ref{fig:PCB_3D}.\\
+Una vez definidos todos los circuitos que componen a la plataforma, se llega a un total de {\Medium 197 componentes} discretos con decenas de empaquetados distintos, que deben todos ser posicionados en una placa de circuito impreso doble faz del menor tamaño posible. El resultado final de la plaqueta, con todos sus componentes (exceptuando los disipadores térmicos de los transistores y diodos de potencia) se observa en la figura \ref{fig:PCB_3D}.\\
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.32]{Imagenes/PCB 3D Raytracing.png}
+    \includegraphics[scale=0.34]{Imagenes/PCB 3D Raytracing.png}
     \caption{Modelo tridimensional de la implementación en PCB de la plataforma con todos sus componentes, vista desde la parte superior.}
     \label{fig:PCB_3D}
 \end{figure}
 
-Para comenzar, se va a realizar un listado de todos los componentes, clasificados según sus distintos encapsulados y sus \textit{footprints} correspondientes (es la \quotes{huella} de cada componente sobre la plaqueta), para luego detallar el proceso por el que se posicionaron y conectaron sobre la PCB.\\
+Para comenzar, se va a realizar un listado de todos los componentes, clasificados según sus distintos encapsulados y sus \textit{footprints} correspondientes (es la \quotes{huella} de cada componente sobre la plaqueta). Una vez establecido este listado, se procede a detallar el proceso de diseño de la placa de circuito impreso, comenzando por el posicionamiento de todos los componentes de la forma más compacta posible respetando la sepación de tierras y dando el espacio necesario para el ruteo de pistas. Finalmente se conectan todos los componentes según indica el esquema circuital de la plataforma, y se realizan verificaciones finales previo a la generación de los archivos de fabricación definitivos.\\
 
 \subsubsection{Listado de Componentes}
 
-\lipsum[1]\\
+En la tabla \ref{tabla:componentes} de la próxima página se presenta un listado de todos los componentes de la placa de circuito impreso, separados según su tipo de empaquetado, ya sea de montaje superficial (SMD) o de tipo through-hole (THT). Esto incluye circuitos integrados como los distintos sensores, resistencias y capacitores de todos los circuitos, transistores y diodos de potencia y auxiliares, y todos los distintos conectores de alimentación y señal.\\
 
 \setlength{\tabcolsep}{8pt}
-\renewcommand{\arraystretch}{1.5}
-\begin{table}[h]
+\renewcommand{\arraystretch}{1.45}
+\begin{table}[H]
 \begin{center}
-    \begin{tabular}{llrrr}
-        {\SemiBold Tipo} & {\SemiBold Dispositivo} & {\SemiBold Tensión} [\unit{\volt}] & {\SemiBold Corriente} [\unit{\milli\ampere}] & {\SemiBold Total} [\unit{\milli\ampere}]\\
+    \begin{tabular}{llrl}
+        & {\SemiBold Empaquetado} & {\SemiBold Cantidad} & {\SemiBold Descripción}\\
         \hline
-        \multirow{4}{*}{Potencia} & 2ED21834-S06J (x2) & \num{10}-\num{20} & 2200 & 2200\\
-        \cline{2-5}
-         & ACPL-P480 (x4) & \num{5} & \num{12} & \multirow{3}{*}{43.5} \\
-         & LM5056A & \num{5} & \num{7.5} & \\
-         & ISO7242C (Lado 1) & \num{5} & \num{24} & \\
+        \multirow{14}{*}{\SemiBold SMD} & 1206 & \num{85} & Capacitores, Resistores y LED\\
+        & 1210 & \num{1} & Capacitor Tantalio\\
+        & 3 x 5.4 \unit{\milli\metre} & \num{2} & Capacitores Aluminio\\
+        & 2512 & \num{1} & Resistor Shunt\\
+        & SOIC-8 & \num{3} & Sensor Hall y otros\\
+        & SOIC-16W & \num{1} & Aislador ISO7242C\\
+        & HTSSOP-28 & \num{1} & Sensor LM5056A\\
+        & SSO-6 & \num{4} & Optoacoplador ACPL-P480\\
+        & SO-14 & \num{2} & Drivers 2ED21834-S06J\\
+        & LQFP-32 & \num{1} & FTDI FT232BL\\
+        & SOD-123 & \num{1} & Diodo Schottky\\
+        & SOT-23 & \num{3} & Diodos Schottky y Transistores\\
+        & SOT-23-5 & \num{2} & Reguladores Lineales\\
+        & TO-252-2 & \num{1} & Regulador Lineal\\
         \hline
-        \multirow{4}{*}{Digital} & TMCS1100A4 & \num{5} & \num{6} & \multirow{3}{*}{331} \\
-         & TMS320F28335 & \num{5} & \num{300} & \\
-         & FT232BL & \num{5} & \num{25} & \\
-         \cline{2-5}
-         & ISO7242C (Lado 2) & \num{3.3} & \num{24} & 24
+        \multirow{19}{*}{\SemiBold THT} & D25\unit{\milli\metre} & \num{2} & Capacitores Electrolíticos \SI[]{680}[]{\micro\farad}\\
+        & D4\unit{\milli\metre} & \num{7} & Capacitores Electrolíticos\\
+        & D4,5\unit{\milli\metre} & \num{4} & Capacitores Tantalio\\
+        & D1,6\unit{\milli\metre} x L3,6\unit{\milli\metre} & \num{4} & Resistores\\
+        & TO-247AC & \num{4} & Transistores IRFP150\\
+        & TO-220 & \num{4} & Diodos MUR860\\
+        & DIP-24 & \num{1} & Fuente Aislada THB3-1211\\
+        & DO-35 & \num{4} & Diodos\\
+        & HC-18 & \num{1} & Cristal\\
+        & DIMM100 & \num{1} & Conector DIMM para DSC\\
+        & DCJ200-10A & \num{1} & Barrel Jack\\
+        & USB-B & \num{1} & Conector USB-B Hembra\\
+        & Degson Screw Terminal & \num{5} & Conectores Pila, Carga, etc.\\
+        & Phoenix Contact 2P & \num{2} & Conectores 5V y 12V Externo\\
+        & Pulsador P6\unit{\milli\metre} & \num{5} & Pulsadores\\
+        & Pin Header P2,54\unit{\milli\metre} & \num{34} & Tiras de Pines\\
+        & Pin Header P2,54\unit{\milli\metre} 2x7 & \num{1} & Conector J-TAG\\
+        & Pin Socket P2,54\unit{\milli\metre} & \num{6} & Conectores Pines Hembra\\
+        & Switch 3P P2,54\unit{\milli\metre} & \num{2} & Interruptor de 3 Polos\\
+        \hline
+        {\SemiBold Total} & & {\SemiBold 197} &
     \end{tabular}
-    \caption{Listado de los distintos encapsulados y footprints de todos los componentes de la placa. (Placeholder)}
-    \label{tabla:footprints}
+    \caption{Lista completa de componentes de la plataforma, clasificados según su tipo y modelo de encapsulado.}
+    \label{tabla:componentes}
 \end{center}
 \end{table}
 
+Ahora, todos estos componentes se deben posicionar de manera compacta en la placa doble faz de aproximadamente \SI[]{15}[]{\centi\metre} de lado, y conectarse de acuerdo a los circuitos presentados en la sección anterior, teniendo en cuenta las consideraciones de ancho de pista y conexión de tierras.\\
+
+\subsubsection{Posicionamiento de Componentes}
+
+\lipsum[1]\\
+
 \lipsum[2]\\
+
+\subsubsection{Ruteo de Pistas}
+
+\lipsum[3]\\
+
+\lipsum[4]\\
 
 \newpage\afterpage{\blankpage}
 
