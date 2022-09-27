@@ -18,9 +18,9 @@ El programa también cuenta con una extensa biblioteca de componentes y \textit{
 
 \subsubsection{Aislación de Tierras}
 
-En toda la plataforma se va a trabajar con tres puestas a tierra distintas y aisladas entre sí: $GND_1$ es la tierra del primario del convertidor, $GND_2$ es la tierra del secundario del convertidor, y $GND_D$ es la tierra de las partes de señal y digitales, como los sensores y el DSC.\\
+En toda la plataforma se va a trabajar con tres puestas a tierra distintas y aisladas entre sí: GND\textsubscript{1} es la tierra del primario del convertidor, GND\textsubscript{2} es la tierra del secundario del convertidor, y GND\textsubscript{D} es la tierra de las partes de señal y digitales, como los sensores y el DSC.\\
 
-Esto, si bien agrega una mayor complejidad al diseño, es ventajoso por múltiples razones. Primero, evita la generación de interferencia de modo común entre las tierras del convertidor ($GND_1$ y $GND_2$) que manejan altas corrientes y por lo tanto son más ruidosas; y la tierra de señal $GND_D$ de más bajas corrientes que es más sensible al ruido. Además, dadas las altas corrientes del convertidor, esta separación permite la protección de los circuitos de señal ante picos de corriente y tensión inesperados en la parte de potencia.\\
+Esto, si bien agrega una mayor complejidad al diseño, es ventajoso por múltiples razones. Primero, evita la generación de interferencia de modo común entre las tierras del convertidor (GND\textsubscript{1} y GND\textsubscript{2}) que manejan altas corrientes y por lo tanto son más ruidosas; y la tierra de señal $GND_D$ de más bajas corrientes que es más sensible al ruido. Además, dadas las altas corrientes del convertidor, esta separación permite la protección de los circuitos de señal ante picos de corriente y tensión inesperados en la parte de potencia.\\
 
 En la PCB, las tierras se implementan mediante la funcionalidad de KiCad (y otros software EDA) llamada \textit{fill zone} o rellenar zona, que permite elegir una zona en la plaqueta que es rellenada de cobre en todos los lugares donde no existan otras pistas. Esto facilita la interconexión de todos los componentes, en especial dado que la gran mayoría de estos tienen al menos una conexión a tierra.\\
 
