@@ -50,3 +50,6 @@ fp-info-cache
 
 # Archivos de backup de draw.io
 *.bkp
+
+# Otros
+*#
