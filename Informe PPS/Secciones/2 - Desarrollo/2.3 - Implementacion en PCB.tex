@@ -76,7 +76,75 @@ En la figura \ref{fig:PCB_cobre}, que corresponde a ambas capas de cobre de la p
 
 Esta región contiene todos los componentes que forman parte del circuito del convertidor CC-CC de puente completo de la plataforma de la figura \ref{fig:fullbridge}, con partes conectadas a la tierra del primario GND\textsubscript{1} y otras partes a la tierra del secundario GND\textsubscript{2}, causado por la presencia de un transformador que provee aislación galvánica entre primario y secundario.\\
 
-Abajo a la izquierda de esta región se encuentran los cuatro transistores MOSFET de potencia modelo IRFP150 que conforman el puente del lado primario, y hacia arriba se pueden ver los cuatro diodos de potencia modelo MUR860 del puente del lado secundario. Estos componentes se posicionaron deliberadamente en los bordes de la placa, ya que al manejar tan elevadas corrientes, requieren de un disipador de calor metálico que ocupa un gran espacio.\\
+Abajo a la izquierda de esta región se encuentran los cuatro transistores MOSFET de potencia modelo IRFP150 (encapsulado THT tipo TO-247AC) que conforman el puente del lado primario, y hacia arriba se pueden ver los cuatro diodos de potencia modelo MUR860 (encapsulado THT tipo TO-220) del puente del lado secundario. Estos componentes se posicionaron deliberadamente en los bordes de la placa, ya que requieren grandes disipadores metálicos para manejar efectivamente el calor generado por los niveles de potencia que manejan.\\
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.18\textwidth]{Imagenes/IRFP150-TO247AC.png}
+    \end{subfigure}
+    \hspace{2em}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.13\textwidth]{Imagenes/MUR860.png}
+    \end{subfigure}
+    \caption{De izquierda a derecha: encapsulados tipo TO-247AC y TO-220, correspondientes a los transistores IRFP150 y diodos MUR860.}
+    \label{fig:IRFP150-MUR860}
+\end{figure}
+
+También se pueden ver en esta región dos marcas circulares grandes, que corresponden a los capacitores electrolíticos de filtro a la entrada y salida del convertidor, en paralelo a la pila de hidrógeno y a la carga variable respectivamente. Estos son capacitores de valores elevados (ambos de \SI[]{680}[]{\micro\farad}), y en particular el de salida debe soportar tensiones pico que pueden superar los \SI[]{120}[]{\volt}. Por estas razones, se seleccionaron capacitores blindados de \SI[]{200}[]{\volt} de tensión máxima, que se consiguen en encapsulados muy grandes, en nuestro caso de \SI[]{25}[]{\milli\metre} de diámetro y \SI[]{40}[]{\milli\metre} de altura, similar al que se observa en la figura \ref{fig:CapFiltro}.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Imagenes/Capacitor Blindado.jpg}
+    \caption{Capacitor electrolítico blindado de \SI[]{25}[]{\milli\metre} de diámetro, similar al utilizado en la plataforma.}
+    \label{fig:CapFiltro}
+\end{figure}
+
+El inductor del filtro de salida y el transformador de alta frecuencia no se encuentran directamente sobre la placa, dado que son elementos de grandes dimensiones y aumentarían el tamaño de la PCB considerablemente si se colocaran en la misma. Por esta razón, se colocan terminales de alta tensión y corriente para conectar el primario y secundario del transformador, además del inductor de salida. Se utilizan dos conectores adicionales para conectar la pila de hidrógeno a la entrada y la carga variable a la salida.\\
+
+En la pista que conecta el terminal positivo de la pila de hidrógeno con el capacitor de filtro, se coloca la resistencia shunt de \SI[]{4}[]{\milli\ohm} utilizada por el sensor LM5056A para medir la corriente de pila. A diferencia del resto de las resistencias SMD, el shunt utiliza un encapsulado de dimensiones 2512, es decir \SI[]{6.4}[]{\milli\metre} x \SI[]{3}[]{\milli\metre}. Esto es necesario para poder realizar apropiadamente la conexión Kelvin de cuatro cables para la medición de la tensión shunt $V_S$: se conectan los cables que llevan la corriente por separado de los cables utilizados para medir la tensión, como se ve en la figura \ref{fig:ConexionShunt}.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{Imagenes/Conexion Kelvin.png}
+    \caption{Esquema de la conexión Kelvin de cuatro cables para la medición de la caida de tensión en la resistencia shunt.}
+    \label{fig:ConexionShunt}
+\end{figure}
+
+\subparagraph{Anchos de Pista}
+
+Utilizando la ecuación \ref{eq:IPC2221} establecida por la norma IPC-2221, se calculan los anchos de pistas necesarios teniendo en cuenta el grosor H fijo de \SI[]{0.035}[]{\milli\metre} y estableciendo la máxima elevación de temperatura de pista en \SI[]{20}[]{\celsius}.\\
+
+En el lado primario del convertidor, la máxima corriente que la pila de hidrógeno puede proveer es de aproximadamente \SI[]{10}[]{\ampere}, de manera que el ancho de pista del lado primario debe cumplir con el siguiente requerimiento:
+
+\begin{equation}\label{eq:Wprimario}
+    W_{primario} > \SI[]{4.72}[]{\milli\metre}
+\end{equation}
+
+Y en el lado secundario, dada la potencia máxima de \SI[]{300}[]{\watt} y la tensión de salida fija de \SI[]{75}[]{\volt}, la corriente máxima que circulará es de aproximadamente \SI[]{4}[]{\ampere}, por lo que el requerimiento de ancho de pista resulta:
+
+\begin{equation}\label{eq:Wsecundario}
+    W_{secundario} > \SI[]{1.34}[]{\milli\metre}
+\end{equation}
+
+Con estos requerimientos en cuenta, los tamaños finales de las pistas de primario y secundario están resumidos en la siguiente tabla.\\
+
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\begin{center}
+    \begin{tabular}{lr}
+        & {\SemiBold Ancho de Pista}\\
+        \hline
+        \Medium Primario & \SI[]{5}[]{\milli\metre}\\
+        \Medium Secundario & \SI[]{2}[]{\milli\metre}
+    \end{tabular}
+    \caption{Resumen de anchos de pista del circuito del convertidor CC-CC Conmutado.}
+    \label{tabla:anchos_convertidor}
+\end{center}
+\end{table}
 
 \paragraph{Región 2 - Circuito Driver}
 
@@ -97,12 +165,6 @@ Abajo a la izquierda de esta región se encuentran los cuatro transistores MOSFE
 \paragraph{Región 6 - Circuito de Alimentación}
 
 \lipsum[5]\\
-
-\subsubsection{Ruteo de Pistas}
-
-\lipsum[6]\\
-
-En la PCB, las tierras se implementan mediante la funcionalidad de KiCad (y otros software EDA) llamada \textit{fill zone} o rellenar zona, que permite elegir una zona en la plaqueta que es rellenada de cobre en todos los lugares donde no existan otras pistas. Esto facilita la interconexión de todos los componentes, en especial dado que la gran mayoría de estos tienen al menos una conexión a tierra.\\
 
 \newpage\afterpage{\blankpage}
 
