@@ -2,36 +2,24 @@
 \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes/Fondo Capitulo 2.pdf}}
 \thispagestyle{plain}
 
-\vspace{0.5cm}
-
-\Large\scshape
-\begin{center}
-    {\Medium Diseño e implementación de la placa de circuito \\impreso de la plataforma de evaulación}
-\end{center}
-\normalfont
-%\normalsize\vspace{2cm}
-
 \divider
 
-En este capítulo vamos a tratar la implementación de la plataforma experimental completa de la figura \ref{fig:plataforma_det} sobre una placa de circuito impreso. Dada la complejidad de todos los circuitos de este sistema, con una cantidad de componentes que supera los 150, se decidió  implementar una PCB doble faz o doble capa, con unas dimensiones de aproximadamene \SI[]{15}[]{\centi\metre} x \SI[]{15}[]{\centi\metre}. En tanto a su construcción, se utiliza el sustrato FR-4 estándar (laminado de resina epoxi reforzado con vidrio) y vías de tipo PTH (del inglés \textit{Plated Through-Hole}).\\
+Partiendo de los esquemas circuitales que conforman la plataforma, que en total cuenta con 185 componentes discretos, se procedió a su implementación en una placa de circuito impreso. Como guías generales para su diseño, se estableció que la PCB debía ser de doble capa, con unas dimensiones de aproximadamene \SI[]{15}[]{\centi\metre} x \SI[]{15}[]{\centi\metre}. En tanto a su construcción, se utiliza el sustrato FR-4 estándar (laminado de resina epoxi reforzado con vidrio) y vías de tipo PTH (del inglés \textit{Plated Through-Hole}). En la siguiente figura se puede observar un modelo tridimensional de la plaqueta finalizada, con todos los componentes en sus lugares correspondientes.\\
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.4]{Imagenes/Plataforma Detallada.pdf}
-    \caption{Diagrama detallado de la plataforma experimental de evaluación, con los seis bloques que la componen.}
+    \includegraphics[scale=0.3]{Imagenes/PCB 3D Raytracing.png}
+    \caption{Modelo tridimensional de la implementación en PCB de la plataforma
+    con todos sus componentes, vista desde la parte superior.}
     \label{fig:plataforma_det}
 \end{figure}
 
-Como se ve en el diagrama detallado de la plataforma, esta cuenta con seis bloques principales a ser implementados en la plaqueta: los dos bloques principales (el convertidor y el bloque de control) y los cuatro bloques auxiliares restantes que se encargan de diversas tareas como la adquisición de datos y la alimentación de los circuitos, entre otras. Vamos a comenzar por una breve descripción de los circuitos de cada bloque y sus componentes, para luego pasar a la implementación de todos estos en la PCB, tomando en cuenta algunas consideraciones generales de diseño de PCB que vamos a establecer.\\
-
-\input{Secciones/2 - Desarrollo/2.1 - Descripcion Circuital.tex}
+Con este fin se utilizo el software de diseño electrónico {\Medium KiCad}, una suite de software libre, gratuita y de código abierto que incluye todas la funcionalidades necesarias para el diseño electrónico. Cuenta con herramientas de captura de esquemático, diseño de PCB, simulación mediante SPICE o Ngspice, visualización de archivos de fabricación y cálculos de diseño de PCB. Dada la falta de experiencia con este tipo de software, las formas de utilización de la herramienta se aprendieron a medida que se iba completando el trabajo.\\
 
 \newpage
 
-\input{Secciones/2 - Desarrollo/2.2 - Consideraciones Generales.tex}
+\input{Secciones/2 - Desarrollo/2.1 - Activdades Realizadas.tex}
 
-\newpage
+\divider
 
-\input{Secciones/2 - Desarrollo/2.3 - Implementacion en PCB.tex}
-
-\newpage
+\input{Secciones/2 - Desarrollo/2.2 - Dificultades y Contratiempos.tex}

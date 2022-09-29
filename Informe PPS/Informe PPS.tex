@@ -218,12 +218,6 @@
     \newpage 
     \thispagestyle{empty}                                           % Para que no se muestre el número de página al final (igual contribuye a la cuenta total)
     \afterpage{\ncblankpage}
-
-    \input{Secciones/Abstract.tex}
-
-    \newpage
-    \afterpage{\blankpage} 
-    \thispagestyle{plain}
     \tableofcontents
     \newpage
 
@@ -232,10 +226,9 @@
     \afterpage{\blankpage}\newpage
 
     \input{Secciones/2 - Desarrollo/2 - Desarrollo.tex}
-
-    \newpage
-    \thispagestyle{plain}
-    \printbibliography[heading=bibintoc,title={Referencias}]
-    \thispagestyle{plain}
     
+    \newpage
+
+    \input{Secciones/3 - Conclusiones/3 - Conclusiones.tex}
+
 \end{document}
