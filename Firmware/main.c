@@ -12,7 +12,7 @@ extern void InitSysCtrl(void);
 
 int main(void)
 {
-    InitSysCtrl(); //Configure el DSP a 150Mhz y desahabilite el wachdog y habilita todos los clock de perifericos
+    InitSysCtrl();          //Configura el DSP a 150Mhz, desahabilita el watchdog y habilita todos los clock de perifericos
     DINT;
 
     ConfigGPIO();
