@@ -20,12 +20,26 @@ void main(void)
     ConfigEPWM1();
     ConfigEPWM2();
 
-    Uint16 phase = 1875;       // Cada incremento es 0.048° de desfase  ==>  7500 es 360°, 3750 es 180° y 1875 es 90°
+    Uint16 phase = 0;       // Cada incremento es 0.048° (6.67ns) de desfase  ==>  7500 es 360°, 3750 es 180° y 1875 es 90°
+    Uint16 flag = 1;
 
     while(1)
     {
-        EPwm2Regs.TBPHS.half.TBPHS = phase;
-        MyDelay(10);
+        // Oscila entre fase 0° y fase 180° (ida y vuelta)
+        switch (flag){
+            case 0 :
+                EPwm2Regs.TBPHS.half.TBPHS = phase--;
+                break;
+            case 1 :
+                EPwm2Regs.TBPHS.half.TBPHS = phase++;
+                break;
+            default :
+                break;
+        }
+        //EPwm2Regs.TBPHS.half.TBPHS = phase;
+        MyDelay(100000);
+        if(phase > 3750) flag = 0;
+        if(phase < 1) flag = 1;
     }
 }
 
