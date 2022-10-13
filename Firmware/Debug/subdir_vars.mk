@@ -4,7 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CMD_SRCS += \
-../28335_RAM_lnk.cmd 
+../28335_RAM_lnk.cmd \
+../DSP2833x_Headers_nonBIOS.cmd 
 
 ASM_SRCS += \
 ../DSP2833x_ADC_cal.asm \

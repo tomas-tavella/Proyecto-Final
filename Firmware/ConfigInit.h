@@ -108,8 +108,8 @@ void ConfigEPWM1(void)
     EPwm1Regs.AQCTLA.bit.CAD = 1;       //Clear at CMP when count down
 
     // ePWM1B ===> /PWM3
-    EPwm1Regs.AQCTLB.bit.CBU = 2;       // Igual que ePWM1A, porque el optoacoplador niega la señal PWM de abajo
-    EPwm1Regs.AQCTLB.bit.CBD = 1;
+    EPwm1Regs.AQCTLB.bit.CAU = 2;       // Igual que ePWM1A, porque el optoacoplador niega la señal PWM de abajo
+    EPwm1Regs.AQCTLB.bit.CAD = 1;       // Como el PWM de abajo está negado, el B se dispara igual, con el mismo contador del A
 
 
     //-----Modo de entrada ePmwA
@@ -127,6 +127,7 @@ void ConfigEPWM1(void)
     //-------------------------------------
 
     EPwm1Regs.CMPA.half.CMPA = 1875; //50% duty cycle
+    //EPwm1Regs.CMPB.
 
     //EPwm1Regs.ETSEL.bit.INTSEL = 2;//selecciona generar interrupcion
     //EPwm1Regs.ETSEL.bit.INTEN =  1;           //habilita la interrupcion del PWM1
@@ -159,8 +160,8 @@ void ConfigEPWM2(void)
     EPwm2Regs.AQCTLA.bit.CAD = 1;   //Clear at CMP when count down
 
     // ePWM2B ===> PWM2
-    EPwm1Regs.AQCTLB.bit.CBU = 2;   // Igual que ePWM2A, porque el optoacoplador niega la señal PWM de abajo
-    EPwm1Regs.AQCTLB.bit.CBD = 1;
+    EPwm2Regs.AQCTLB.bit.CAU = 2;   // Igual que ePWM2A, porque el optoacoplador niega la señal PWM de abajo
+    EPwm2Regs.AQCTLB.bit.CAD = 1;   // Como el PWM de abajo está negado, el B se dispara igual, con el mismo contador del A
 
     //-----Modo de entrada ePmwA
     //EPwm2Regs.DBCTL.bit.IN_MODE=0;
