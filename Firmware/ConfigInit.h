@@ -157,3 +157,39 @@ void ConfigEPWM2(void)
     EPwm2Regs.DBFED = DELAY_DB;             // Delay de rising edge (ePWM2A) [200ns]
     EPwm2Regs.DBRED = DELAY_DB;             // Delay de falling edge (ePWM2B), igual a RED
 }
+
+void ConfigInterrupt()
+{
+    // Enable XINT1 and XINT2 in the PIE: Group 1 interrupt 4 & 5
+    // Enable int1 which is connected to WAKEINT:
+    PieCtrlRegs.PIECTRL.bit.ENPIE = 1;          // Enable the PIE block
+    PieCtrlRegs.PIEIER1.bit.INTx4 = 1;          // Enable PIE Group 1 INT4   (XINT1)
+    PieCtrlRegs.PIEIER1.bit.INTx5 = 1;          // Enable PIE Group 1 INT5   (XINT2)
+    IER |= M_INT1;                              // Enable CPU int1
+    EINT;                                       // Enable Global Interrupts
+
+    // GPIO5 is XINT1, GPIO7 is XINT2
+    EALLOW;
+    GpioIntRegs.GPIOXINT1SEL.bit.GPIOSEL = 5;   // XINT1 is GPIO5    (Botón superior)
+    GpioIntRegs.GPIOXINT2SEL.bit.GPIOSEL = 7;   // XINT2 is GPIO7    (El inmediato abajo)
+    EDIS;
+
+    // Configure XINT1
+    XIntruptRegs.XINT1CR.bit.POLARITY = 0;      // Falling edge interrupt
+    XIntruptRegs.XINT2CR.bit.POLARITY = 0;      // Rising edge interrupt
+
+    // Enable XINT1 and XINT2
+    XIntruptRegs.XINT1CR.bit.ENABLE = 1;        // Enable XINT1
+    XIntruptRegs.XINT2CR.bit.ENABLE = 1;        // Enable XINT2
+}
+
+void ConfigLPM(void)
+{
+    // Write the LPM code value
+    EALLOW;
+    if (SysCtrlRegs.PLLSTS.bit.MCLKSTS != 1) // Only enter Idle mode when PLL is not in limp mode.
+    {
+       SysCtrlRegs.LPMCR0.bit.LPM = 0x0000;  // LPM mode = Idle
+    }
+    EDIS;
+}
