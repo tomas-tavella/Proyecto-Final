@@ -296,7 +296,7 @@ Si tomamos el circuito del convertidor forward de dos llaves de la figura \ref{f
     \label{desarrollo_fullbridge}
 \end{figure}
 
-Si conectamos ambas variantes del forward de dos llaves en paralelo, obtenemos el circuito de la figura \ref{desarrollo_fullbridge}, donde las llaves $Q_1$ y $Q_4$ conmutan en sincronía, y desfasadas un tiempo $T_s/2$ de $Q_2$ y $Q_3$ (que también conmutan en sincronía).\\
+Conectando ambas variantes del forward de dos llaves en paralelo, obtenemos el circuito de la figura \ref{desarrollo_fullbridge}, donde las llaves $Q_1$ y $Q_4$ conmutan en sincronía, y desfasadas un tiempo $T_s/2$ de $Q_2$ y $Q_3$ (que también conmutan en sincronía).\\
 
 Siguiendo los pasos de la derivación del push-pull, si hacemos que ambos bobinados primarios compartan un solo núcleo magnético y conectamos diodos antiparalelos a cada una de las llaves, el flujo magnetizante del núcleo puede ser restablecido por los diodos de $Q_1$ y $Q_4$ y el bobinado primario $N_{P1}$, o bien por los diodos de $Q_2$ y $Q_3$ y el bobinado primario $N_{P2}$.\\
 
@@ -311,7 +311,7 @@ Si aplicamos todos estos cambios al circuito de la figura \ref{desarrollo_fullbr
     \label{fullbridge_partido}
 \end{figure}
 
-Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Para simplificar la construcción del transformador de alta frecuencia y disminuir los requerimientos de desempeño impuestos a los diodos rectificadores del secundario, se utiliza un {\Medium rectificador de tipo puente completo} en el secundario como en la figura \ref{fullbridge}. Esta topología utiliza cuatro diodos en vez de dos, pero cada diodo debe soportar la mitad de la tensión inversa. Además, el transformador resulta más sencillo ya que solo tiene un bobinado secundario y no requiere tener punto medio.\\
+Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Para simplificar la construcción del transformador de alta frecuencia y disminuir los requerimientos de desempeño impuestos a los diodos rectificadores del secundario, se utiliza un {\Medium rectificador de tipo puente completo} en el secundario como se ve en la figura \ref{fullbridge}. Esta topología utiliza cuatro diodos en vez de dos, pero cada diodo debe soportar la mitad de la tensión inversa. Además, el transformador resulta más sencillo ya que solo tiene un bobinado secundario y no requiere punto medio.\\
 
 \begin{figure}[h]
     \centering
@@ -319,5 +319,29 @@ Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Par
     \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de puente completo en el secundario.}
     \label{fullbridge}
 \end{figure}
+    
+Esta topología de convertidor opera de manera similar a la del convertidor push-pull de la figura \ref{pushpull}, ya que sus formas de onda de tensión rectificada son idénticas: ondas cuadradas unipolares de ciclo de trabajo $D$. Por este motivo, se deduce que la tensión de salida del puente completo es idéntica a la de la ecuación \ref{vo_pushpull}.
 
-{\Large\Bold\scshape Sección por terminar.}\\
+\begin{equation}\label{vo_fullbridge}
+    \boxed{
+        \highlight{v_o = 2\left(\frac{N_{S}}{N_{P}}\right)V_sD}
+    }
+\end{equation}
+
+En este convertidor, las dos llaves de una misma pata ($Q_1$ y $Q_3$ o $Q_2$ y $Q_4$) conmutan completamente en contrafase, con un desfase de $T_s/2$. Esto se hace de manera de no permitir que se conforme un cortocircuito en paralelo a la fuente de entrada mediante el disparo de ambas llaves simultáneamente. Luego, la fase relativa entre ambas patas (o bien el desfase de la pata derecha respecto a la izquierda) se utiliza para controlar el tiempo o porcentaje del período $T_s$ en el que dos llaves diagonales se activan simultáneamente, momento durante el cuál circula corriente a través del bobinado del transformador.\\
+
+En la figura \ref{fullbridge-waveforms}, se pueden observar las dos principales formas de onda de tensión que demuestran el mecanismo de funcionamiento de nuestro convertidor.\\
+
+\begin{itemize}
+    \item {\Medium Tensión de bobinado primario \textit{v\textsubscript{P}}}: tomada como la resta entre la tensión de las patas izquierda y derecha del puente de llaves. Cuando las llaves $Q_1$ y $Q_4$ (diagonales) se encuentran activadas, se observa una tensión positiva en el bobinado, dada por la corriente positiva (entrante por el punto homólogo) a través del mismo. Caso contrario, cuando las llaves $Q_2$ y $Q_3$ se activan, se presenta una tensión negativa producto de la corriente negativa (saliente por el punto homólogo) que circula por el primario del transformador. En el tiempo restante la tensión medida es nula, ya que al no estar activadas un par de llaves diagonales, no circula ninguna corriente por el transformador.
+    \item {\Medium Tensión rectificada de secundario \textit{v\textsubscript{x}}}: es la tensión de salida del rectificador de puente completo del circuito del secundario. Al pasar la forma de onda anterior por el transformador de alta frecuencia, esta incrementa sus valores de tensión proporcionalmente de acuerdo a la relación de vueltas $N_S/N_P$. Luego, esta señal es rectificada por el puente de diodos del secundario, que invierte el signo de los pulsos negativos del primario y conserva el signo de los pulsos positivos (perdiendo ligeramente tensión según el doble de la caída de tensión directa de cada diodo). Esta señal luego es pasada por el filtro de salida (compuesto por el inductor y capacitor), que la transforma a una tensión continua con una ligera variación o \textit{ripple}. Cabe aclarar que luego de la rectificación, la frecuencia fundamental de la señal se duplica, al igual que la frecuencia fundamental del ripple a la salida del filtro.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.48]{Imagenes/Formas de onda Full-Bridge.png}
+    \caption{Formas de onda de tensión primaria $v_P$ y tensión rectificada $v_x$ respectivamente de un conversor de puente completo.}
+    \label{fullbridge-waveforms}
+\end{figure}
+
+\lipsum[1]\\
