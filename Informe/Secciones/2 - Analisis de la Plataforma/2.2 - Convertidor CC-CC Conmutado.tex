@@ -319,8 +319,10 @@ Sin embargo, esta no es la topología exacta que se utiliza en este trabajo. Par
     \caption{Circuito de un convertidor aislado tipo puente completo o full-bridge, con un rectificador de puente completo en el secundario.}
     \label{fullbridge}
 \end{figure}
-    
-Esta topología de convertidor opera de manera similar a la del convertidor push-pull de la figura \ref{pushpull}, ya que sus formas de onda de tensión rectificada son idénticas: ondas cuadradas unipolares de ciclo de trabajo $D$. Por este motivo, se deduce que la tensión de salida del puente completo es idéntica a la de la ecuación \ref{vo_pushpull}.
+
+En este convertidor, las dos llaves de una misma pata ($Q_1$ y $Q_3$ o $Q_2$ y $Q_4$) conmutan completamente en contrafase, con un desfase de $T_s/2$. Esto se hace de manera de no permitir que se conforme un cortocircuito en paralelo a la fuente de entrada mediante el disparo de ambas llaves simultáneamente. Luego, la fase relativa entre ambas patas (o bien el desfase de la pata derecha respecto a la izquierda) se utiliza para controlar el tiempo o porcentaje del período $T_s$ en el que dos llaves diagonales se activan simultáneamente, momento durante el cuál se energiza el bobinado del transformador.\textsuperscript{\cite{PaperFullBridge}}\\
+
+El circuito opera de manera similar a la del convertidor push-pull de la figura \ref{pushpull}, ya que sus formas de onda de tensión rectificada son idénticas: ondas cuadradas unipolares de ciclo de trabajo $D$. Por este motivo, se deduce que la tensión de salida del puente completo es idéntica a la de la ecuación \ref{vo_pushpull}.
 
 \begin{equation}\label{vo_fullbridge}
     \boxed{
@@ -328,14 +330,7 @@ Esta topología de convertidor opera de manera similar a la del convertidor push
     }
 \end{equation}
 
-En este convertidor, las dos llaves de una misma pata ($Q_1$ y $Q_3$ o $Q_2$ y $Q_4$) conmutan completamente en contrafase, con un desfase de $T_s/2$. Esto se hace de manera de no permitir que se conforme un cortocircuito en paralelo a la fuente de entrada mediante el disparo de ambas llaves simultáneamente. Luego, la fase relativa entre ambas patas (o bien el desfase de la pata derecha respecto a la izquierda) se utiliza para controlar el tiempo o porcentaje del período $T_s$ en el que dos llaves diagonales se activan simultáneamente, momento durante el cuál circula corriente a través del bobinado del transformador.\\
-
-En la figura \ref{fullbridge-waveforms}, se pueden observar las dos principales formas de onda de tensión que demuestran el mecanismo de funcionamiento de nuestro convertidor.\\
-
-\begin{itemize}
-    \item {\Medium Tensión de bobinado primario \textit{v\textsubscript{P}}}: tomada como la resta entre la tensión de las patas izquierda y derecha del puente de llaves. Cuando las llaves $Q_1$ y $Q_4$ (diagonales) se encuentran activadas, se observa una tensión positiva en el bobinado, dada por la corriente positiva (entrante por el punto homólogo) a través del mismo. Caso contrario, cuando las llaves $Q_2$ y $Q_3$ se activan, se presenta una tensión negativa producto de la corriente negativa (saliente por el punto homólogo) que circula por el primario del transformador. En el tiempo restante la tensión medida es nula, ya que al no estar activadas un par de llaves diagonales, no circula ninguna corriente por el transformador.
-    \item {\Medium Tensión rectificada de secundario \textit{v\textsubscript{x}}}: es la tensión de salida del rectificador de puente completo del circuito del secundario. Al pasar la forma de onda anterior por el transformador de alta frecuencia, esta incrementa sus valores de tensión proporcionalmente de acuerdo a la relación de vueltas $N_S/N_P$. Luego, esta señal es rectificada por el puente de diodos del secundario, que invierte el signo de los pulsos negativos del primario y conserva el signo de los pulsos positivos (perdiendo ligeramente tensión según el doble de la caída de tensión directa de cada diodo). Esta señal luego es pasada por el filtro de salida (compuesto por el inductor y capacitor), que la transforma a una tensión continua con una ligera variación o \textit{ripple}. Cabe aclarar que luego de la rectificación, la frecuencia fundamental de la señal se duplica, al igual que la frecuencia fundamental del ripple a la salida del filtro.
-\end{itemize}
+En la figura \ref{fullbridge-waveforms}, se pueden observar las dos importantes formas de onda de tensión que demuestran el mecanismo de funcionamiento del convertidor: la {\Medium tensión de bobinado primario \textit{v\textsubscript{P}}}, y la {\Medium tensión rectificada de secundario \textit{v\textsubscript{x}}} respectivamente.\\
 
 \begin{figure}[h]
     \centering
@@ -343,5 +338,10 @@ En la figura \ref{fullbridge-waveforms}, se pueden observar las dos principales 
     \caption{Formas de onda de tensión primaria $v_P$ y tensión rectificada $v_x$ respectivamente de un conversor de puente completo.}
     \label{fullbridge-waveforms}
 \end{figure}
+
+\begin{itemize}
+    \item {\Medium Tensión de bobinado primario \textit{v\textsubscript{P}}}: tomada como la resta entre la tensión de las patas izquierda y derecha del puente de llaves. Cuando las llaves $Q_1$ y $Q_4$ (diagonales) se encuentran activadas, se observa una tensión positiva en el bobinado, dada por la corriente positiva (entrante por el punto homólogo) a través del mismo. Caso contrario, cuando las llaves $Q_2$ y $Q_3$ se activan, se presenta una tensión negativa producto de la corriente negativa (saliente por el punto homólogo) que circula por el primario del transformador. En el tiempo restante la tensión medida es nula, ya que al no estar activadas un par de llaves diagonales, no circula ninguna corriente por el transformador.
+    \item {\Medium Tensión rectificada de secundario \textit{v\textsubscript{x}}}: es la tensión de salida del rectificador de puente completo del circuito del secundario. Al pasar la forma de onda anterior por el transformador de alta frecuencia, esta incrementa sus valores de tensión proporcionalmente de acuerdo a la relación de vueltas $N_S/N_P$. Luego, esta señal es rectificada por el puente de diodos del secundario, que invierte el signo de los pulsos negativos del primario y conserva el signo de los pulsos positivos (perdiendo ligeramente tensión según el doble de la caída de tensión directa de cada diodo). Cabe aclarar que luego de la rectificación, la frecuencia fundamental de la señal se duplica ($2f_s$) respecto a la tensión del primario.
+\end{itemize}
 
 \lipsum[1]\\
