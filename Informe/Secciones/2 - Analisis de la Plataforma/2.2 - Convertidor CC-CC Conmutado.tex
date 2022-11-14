@@ -335,7 +335,7 @@ En la figura \ref{fullbridge-waveforms}, se pueden observar las dos importantes 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.48]{Imagenes/Formas de onda Full-Bridge.png}
-    \caption{Formas de onda de tensión primaria $v_P$ y tensión rectificada $v_x$ respectivamente de un conversor de puente completo.}
+    \caption{Formas de onda de tensión primaria $v_P$ y tensión rectificada $v_x$ respectivamente de un convertidor de puente completo, con ciclo de trabajo de 50\%.}
     \label{fullbridge-waveforms}
 \end{figure}
 
@@ -344,4 +344,10 @@ En la figura \ref{fullbridge-waveforms}, se pueden observar las dos importantes 
     \item {\Medium Tensión rectificada de secundario \textit{v\textsubscript{x}}}: es la tensión de salida del rectificador de puente completo del circuito del secundario. Al pasar la forma de onda anterior por el transformador de alta frecuencia, esta incrementa sus valores de tensión proporcionalmente de acuerdo a la relación de vueltas $N_S/N_P$. Luego, esta señal es rectificada por el puente de diodos del secundario, que invierte el signo de los pulsos negativos del primario y conserva el signo de los pulsos positivos (perdiendo ligeramente tensión según el doble de la caída de tensión directa de cada diodo). Cabe aclarar que luego de la rectificación, la frecuencia fundamental de la señal se duplica ($2f_s$) respecto a la tensión del primario.
 \end{itemize}
 
-\lipsum[1]\\
+Una vez rectificada la tensión del primario, esta forma de onda de frecuencia $2f_s$ y ciclo de trabajo D, si bien es de tensiones puramente positivas, debe ser transformada a una tensión continua constante, para poder ser conectada al bus de continua. Por esta razón se coloca el filtro LC en cascada a la salida, con el inductor en serie y el capacitor en derivación, que actúa como un filtro pasabajos: para frecuencias elevadas, el inductor posee una gran impedancia que bloquea el paso de corriente, y el capacitor una muy baja impedancia, absorbiendo la mayor parte de la corriente de altas frecuencias.\\
+
+Sin embargo, estos circuitos de filtrado no son ideales: resultan en una salida con elevados contenidos de corriente continua, sumados a pequeñas oscilaciones comúnmente denominadas \textit{ripple} con una frecuencia fundamental de $2f_s$ en este caso. Este ripple suele ser de muy baja magnitud, y con la selección apropiada de valores de filtro se puede atenuar significativamente.\\
+
+El valor de la tensión de salida rectificada y filtrada $v_o$, y en consecuencia la corriente de salida, son ajustadas mediante la variación del ciclo de trabajo $D$ de $v_x$: a mayor ciclo de trabajo, mayor proporción del tiempo con circulación de corriente, por lo que la tensión y corriente medias de salida aumentan. Como se mencionó más arriba, este ciclo de trabajo se controla a través de la sincronización de los disparos de las llaves de potencia, variando el retardo entre los disparos de las dos patas del puente primario.\\
+
+Como se verá en detalle en un capítulo más adelante, el diseño del convertidor consiste en la selección y dimensionamiento de sus componentes, como los transistores y diodos, capacitores e inductores, etc. Para esta tarea se definen algunos parámetros de rendimiento del circuito como objetivos, como pueden ser la tensión y corriente de salida con sus magnitudes de ripple admisibles, frecuencia de operación, entre algunos otros.\\
