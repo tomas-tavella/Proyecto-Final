@@ -129,14 +129,6 @@ Este transistor es un nMOSFET (canal N) de enriquecimiento de tecnología HEXFET
 
 El encapsulado es del tipo TO-247AC, visible en la figura \ref{irfp150}. Este es un encapsulado through-hole o THT utilizado para dispositivos de alta disipación de potencia, por su tamaño y su superficie metálica que facilita la utilización de un disipador para mantener la temperatura bajo control.\\
 
-\subsubsection{Transformador}
-
-{\Bold\scshape\Large Falta completar esta sección.}\\
-
-\lipsum[3]\\
-
-\lipsum[4]\\
-
 \subsubsection{Selección de Diodos Rectificadores}
 
 Ahora debemos seleccionar los cuatro diodos que conforman el rectificador de puente completo en el secundario del convertidor. Al igual que los transistores de la sección anterior, estos deben ser diodos de potencia capaces de manejar la potencia de \SI[]{300}[]{\watt} que circulará a través de ellos. Se enumeran a continuación los requerimientos que deben cumplir los diodos seleccionados:\\
@@ -170,12 +162,47 @@ Estos son diodos rectificadores de potencia de la gama ultrafast recovery, pensa
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.18]{Imagenes/MUR860.png}
+    \includegraphics[scale=0.16]{Imagenes/MUR860.png}
     \caption{Diodo rectificador MUR860 con su encapsulado THT de potencia tipo TO-220AC.}
     \label{mur860}
 \end{figure}
 
 Se observa este diodo en su encapsulado THT de potencia tipo TO-220AC en la figura \ref{mur860}. Al igual que el encapsulado de los transistores IRFP150N, el TO-220AC posee una superficie metálica en contacto directo con el semiconductor interno que facilita la transferencia de calor hacia un disipador metálico.\\
+
+\subsubsection{Transformador}
+
+Habiendo seleccionado los transistores de potencia y rectificadores, corresponde ahora dimensionar el transformador que separa galvánicamente el puente de transistores del puente de diodos. Para todos los convertidores CC-CC conmutados y aislados, este transformador debe ser de alta frecuencia, que tiene algunas características particulares, necesarias reducir la inductancia parásita y las corrientes Eddy de pérdida en el núcleo, ya que estos parámetros se tornan más significativos a las altas frecuencias de conmutación de los convertidores.\\
+
+La relación de vueltas $n$ del transformador de la figura \ref{puente_completo}, definida en este caso como la relación entre las vueltas del bobinado secundario $N_S$ y el bobinado primario $N_P$, viene dada por la siguiente ecuación, que resulta de calcular el cociente entre la tensión de secundario $V_S$ y la mínima tensión de primario $V_{P(min)}$.\textsuperscript{\cite{SoftSwitchPWM}\cite{StudyDesignFullBridge}}
+
+\begin{equation}\label{relacion_vueltas}
+    n = \frac{N_S}{N_P} = \frac{V_{S}}{V_{P(min)}} = \frac{(V_{out}+2V_F)\ /\ D_{sec(max)}}{V_{in(min)}-2V_{RDS(on)}}
+\end{equation}
+
+La tensión equivalente del secundario, en el numerador, viene dada por la suma de la tensión fija de salida $V_{out}$ de \SI[]{75}{\volt} y la caída de tensión en directa de los rectificadores $V_F$, que según la tabla \ref{tabla:MUR860} es de unos \SI[]{1.5}{\volt}, todo dividido por el ciclo de trabajo máximo en el secundario $D_{sec(max)}$, tomado en este caso como \num{0.8} u \num{80}\%.\\
+
+Luego, en el denominador, se encuentra la expresión de la mínima posible tensión en el primario. Esta condición ocurre cuando la tensión que entrega la pila de combustible es la más baja en su curva V-I ($V_{in(min)}$), alrededor de \SI[]{28}{\volt}, coincidente con la máxima corriente de pila de \SI[]{10}{\ampere}. Luego, a esta tensión mínima se le resta la tensión de conducción $V_{RDS(on)}$ de ambos transistores que conforman un lazo con la pila y el bobinado primario, definida como la máxima caída de tensión sobre la resistencia drain-source de \SI[]{0.036}{\milli\ohm} detallada en la tabla \ref{tabla:IRFP150} para el transistor IRFP150.\\
+
+Resumiendo, los datos para calcular el valor de la relación de vueltas en base a la ecuación anterior son los siguientes:
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item $V_{out} = \SI[]{75}{\volt}$
+        \item $V_F = \SI[]{1.5}{\volt}$
+        \item $D_{sec(max)} = 0.8$
+        \item $V_{in(min)} = \SI[]{28}{\volt}$
+        \item $V_{RDS(on)} = \SI[]{10}{\ampere}\cdot\SI[]{0.036}{\ohm} = \SI[]{0.36}{\volt}$
+        \item[\vspace{\fill}]       % Para que la segunda columna quede bien espaciada verticalmente con cantidad impar de elementos
+    \end{itemize}
+\end{multicols}
+
+Con estos datos en cuenta, el valor necesario para la relación de vueltas del transformador de alta frecuencia del convertidor resulta:
+
+\begin{equation}\label{relacion_vueltas_valor}
+    \boxed{
+    \highlight{n = \frac{(V_{out}+2V_F)\ /\ D_{sec(max)}}{V_{in(min)}-2V_{RDS(on)}} = \num{3.57} \approx \num{3.6}}
+    }
+\end{equation}
 
 \subsubsection{Inductor de Salida}
 
