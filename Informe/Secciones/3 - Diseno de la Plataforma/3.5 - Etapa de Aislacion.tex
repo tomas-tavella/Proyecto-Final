@@ -13,12 +13,6 @@ Existen tres partes principales de la plataforma, donde se pasa de la parte digi
 
 En este capítulo vamos a tratar las soluciones de aislación para los primeros dos casos. En el tercer caso, el TMCS1100A4, al ser un dispositivo que funciona por medio del efecto Hall, ya tiene aislación incluida en su diseño, por lo que la salida del mismo ya se encuentra aislada del convertidor. Para el cuarto ítem, esto se va a tratar propiamente y en profundidad en la sección de este capítulo dedicada a los circuitos de alimentación de la plataforma.\\
 
-\subsubsection{Tecnologías de Aislación de Señal}
-
-{\Bold\scshape Falta completar esta sección.}\\
-
-\lipsum[1]\\
-
 \subsubsection{Aislación de los Drivers}
 
 Cómo los drivers están conectados directamente a terminales de los transistores de potencia del convertidor, estos se encuentran dentro de la etapa de potencia de la plataforma. Sin embargo, las señales PWM que definen el tiempo y secuencia de conmutación de los transistores provienen del módulo PWM del controlador digital, todo dentro del área digital de la plataforma. Entonces, previo a las entradas de señal de los 2ED21834-S06J se debe interponer algun circuito de aislación de señal, para mantener la separación entre las partes de potencia y digitales.\\

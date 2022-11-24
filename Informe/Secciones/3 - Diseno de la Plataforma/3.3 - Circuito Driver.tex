@@ -62,25 +62,56 @@ El dimensionamiento de todos estos componentes se va a tratar a continuación si
 
 \paragraph{Dimensionamiento de Componentes}
 
-{\Bold\scshape\Large Falta completar esta sección.}\\
+\subparagraph{Resistencia de Dead-Time (R47)}
 
-\lipsum[1]\\
+La resistencia de dead-time $R_{DT}$, con el identificador R47 en el diagrama circuital de la figura, es una resistencia conectada entre el pin DT y tierra, cuya funcionalidad es configurar la duración del dead-time $t_{DT}$ entre los disparos del transistor superior e inferior conectados al driver. El dead-time es un pequeño intervalo de tiempo luego de la desactivación de cada llave, en el cual el integrado no permite que se dispare el otro transistor, con el objetivo de no permitir la activación accidental de ambos transistores y evitar cortocircuitar la pila de combustible.
 
-%\subsubsection{Esquema Interno del Dispositivo}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Imagenes/Curva Dead-Time.png}
+    \caption{Curva de dead-time contra resistencia para el integrado 2ED21834-S06J.\textsuperscript{\cite{DatasheetDriver}}}
+    \label{curva_deadtime}
+\end{figure}
 
-%{\Bold\scshape\Large Falta completar esta sección.}\\
+En la figura \ref{curva_deadtime} se presenta la curva que relaciona el dead-time $t_{DT}$ con el valor de la resistencia $R_{DT}$, dónde se puede ver que existe una relación altamente lineal, variando entre un tiempo de \SI{400}{\nano\second} para \SI[]{0}{\ohm} de resistencia y \SI[]{5}{\micro\second} para \SI[]{200}{\kilo\ohm}.\\
 
-%\lipsum[1]\\
+La duración de $t_{DT}$ debe ser seleccionada de manera de ser cómodamente mayor al tiempo de apagado $t_{on}$ de los transistores, de \SI[]{85}{\nano\second} para los IRFP150 (tabla \ref{tabla:IRFP150}). Al mismo tiempo, también debe ser mucho menor a la duración de un semiciclo de las señal PWM de excitación, cuya duración es de \SI[]{25}{\micro\second}. Por esta razón, se eligió {\Medium cortocircuitar el pin DT a tierra} (colocar una resistencia de \SI[]{0}{\ohm}), obteniendo un {\Medium dead-time de 400 ns}, que es cinco veces mayor al tiempo de apagado de un IRFP150 y más de 60 veces más corto que un semiciclo de la señal de excitación.\\
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[scale=0.25]{Imagenes/Esquema Interno Driver.png}
-%    \caption{Diagrama de bloques interno del driver 2ED21834-S06J de Infineon Technologies.}
-%    \label{interno_driver}
-%\end{figure}
+Finalmente, en paralelo con $R_{DT}$ se colocó un capacitor cerámico $C_{DT}$ (C29 en la figura \ref{circuito_driver}) de desacople de \SI[]{10}{\nano\farad}, de acuerdo a la recomendación del fabricante de colocar un capacitor de valor mayor a \SI[]{1}{\nano\farad}.\\
 
-%\lipsum[2]\\
+\subparagraph{Circuito Bootstrap}
 
-%\lipsum[3]\\
+El circuito de bootstrap es un circuito compuesto por tres elementos en serie: un capacitor de bootstrap $C_{BS}$, un diodo de bootstrap $D_{BS}$ y una resistencia de bootstrap $R_{BS}$. En el caso del circuito del dirver de la figura \ref{circuito_driver}, se pueden ver los capacitores C33 y C35 que conforman la capacidad $C_{BS}$, mientras que la resistencia y el diodo se encuentran integrados dentro de 2ED21834-S06J, como se observa en la figura \ref{circuito_bootstrap}, tomada de la hoja de datos del integrado.\\
 
-%\lipsum[4]\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{Imagenes/Circuito Bootstrap.png}
+    \caption{Circuito bootstrap con diodo y resistencia serie internos del 2ED21834-S06J.\textsuperscript{\cite{DatasheetDriver}}}
+    \label{circuito_bootstrap}
+\end{figure}
+
+Este circuito se utiliza en drivers para configuraciones de medio puente, con la funcionalidad de proveer la polarización necesaria para poder disparar el MOSFET del lado alto. Cuando el MOSFET del lado bajo se encuentra encendido (y por lo tanto el MOSFET del lado alto apagado), el pin VS se conecta a tierra y circula una corriente a través del diodo $D_{BS}$ y resistencia $R_{BS}$ que carga el capacitor de bootstrap externo $C_{BS}$. Cuando la situación se invierte, con el MOSFET superior encendido y el inferior apagado, el pin VS se conecta a la tensión superior, y $C_{BS}$ descarga su tensión acumulada durante la fase previa sobre la compuerta del MOSFET superior mediante el pin HO.\\
+
+Entonces, solo hace falta dimensionar el capacitor $C_{BS}$, ya que tanto la resistencia como el diodo se encuentran integrados dentro del dispositivo y no es posible ajustar sus valores. Como una regla general, este capacitor debe almacenar una cantidad de carga lo suficientemente grande como para no perder más del 10\% de su carga durante el disparo y activación del MOSFET superior, o también, su capacidad debe ser al menos 10 veces mayor que la capacidad de gate $C_g$ del MOSFET a disparar.\textsuperscript{\cite{Bootstrap}}
+
+\begin{equation*}
+    C_{BS} \gg C_g
+\end{equation*}
+
+Esta capacidad de gate se puede calcular en base a la carga de gate total $Q_g$, que se puede encontrar en la hoja de datos del IRFP150 con un valor de \SI[]{110}{\nano\coulomb}.
+
+\begin{equation}\label{capacidad_gate}
+    C_g = \frac{Q_g}{V_{cc}-V_{D_{BS}}} = \frac{\SI[]{110}{\nano\coulomb}}{\SI[]{12}{\volt}-\SI[]{1.2}{\volt}} \approx \SI[]{10}{\nano\farad}
+\end{equation}
+
+Por lo tanto, la cota mínima del capacitor de bootstrap resulta:
+
+\begin{equation}\label{capacidad_bs_min}
+    C_{BS} > \SI[]{0.1}{\micro\farad} = 10\cdot C_g
+\end{equation}
+
+Como este valor es muy pequeño, y la hoja de datos del driver indica que se pueden utilizar capacidades $C_{BS}$ de hasta \SI[]{4.7}{\micro\farad}, se decidió utilizar un capacitor electrolítico de montaje through-hole, \SI[]{3.3}{\micro\farad} de capacidad y tensión máxima de \SI[]{50}{\volt}. Adicionalmente, según recomendación del fabricante, se agregó un capacitor cerámico de mucho menor valor (C33 en el circuito) en paralelo a $C_{BS}$ para obtener una solución óptima.\\
+
+\subparagraph{Resistencia de VS}
+
+La resistencia colocada en serie al pin VS, identificador R20 en el diagrama de la figura \ref{circuito_driver}, según la hoja de datos del fabricante, cumple el objetivo de reducir los picos negativos de tensión al momento de la conmutación, inducidos en VS por elementos parásitos de la placa de circuito impreso. Se indica que esta debe ser una resistencia con un valor máximo de \SI[]{5}{\ohm}\textsuperscript{\cite{DatasheetDriver}}, por lo que se decidió por colocar un pequeño resistor SMD 1206 de \SI[]{2}{\ohm}.\\
