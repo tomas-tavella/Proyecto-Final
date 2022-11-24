@@ -19,7 +19,7 @@ Esta potencia debe ser transferida por el convertidor hacia la carga variable a 
     \item {\SemiBold Potencia nominal \textit{P\textsubscript{N}}:}\quad\SI[]{300}[]{\watt}
     \item {\SemiBold Tensión de salida \textit{v\textsubscript{o}}:}\quad\SI[]{75}[]{\volt}
     \item {\SemiBold Corriente de salida \textit{i\textsubscript{o}}:}\quad\SI[]{4}[]{\ampere}
-    \item {\SemiBold Tensión de entrada \textit{v\textsubscript{FC}}:}\quad\SI[]{65}[]{\volt}\textsubscript{máx} , \SI[]{30}[]{\volt}\textsubscript{mín}
+    \item {\SemiBold Tensión de entrada \textit{v\textsubscript{FC}}:}\quad\SI[]{45}[]{\volt}\textsubscript{máx} , \SI[]{28}[]{\volt}\textsubscript{mín}
     \item {\SemiBold Corriente de entrada \textit{i\textsubscript{FC}}:}\quad\SI[]{9.5}[]{\ampere}
     \item {\SemiBold Frecuencia de conmutación \textit{f\textsubscript{s}}:}\quad\SI[]{20}[]{\kilo\hertz}\\
 \end{itemize}
@@ -200,22 +200,78 @@ Con estos datos en cuenta, el valor necesario para la relación de vueltas del t
 
 \begin{equation}\label{relacion_vueltas_valor}
     \boxed{
-    \highlight{n = \frac{(V_{out}+2V_F)\ /\ D_{sec(max)}}{V_{in(min)}-2V_{RDS(on)}} = \num{3.57} \approx \num{3.6}}
+    \highlight{\mathbf{n} = \frac{(V_{out}+2V_F)\ /\ D_{sec(max)}}{V_{in(min)}-2V_{RDS(on)}} = \num{3.57} \approx \num{3.6}}
     }
 \end{equation}
 
-\subsubsection{Inductor de Salida}
+\subsubsection{Filtro de Salida}
 
-{\Bold\scshape\Large Falta completar esta sección.}\\
+Con los diodos del rectificador de puente completo seleccionados, solo queda dimensionar el filtro LC de salida, compuesto por un inductor $L_f$ en serie y un capacitor $C_f$ en derivación (figura \ref{puente_completo}), que se encarga de transformar la onda rectificada a la salida del puente de diodos en una tensión continua para que se pueda conectar la plataforma al bus de continua del sistema híbrido.\\
 
-\lipsum[5]\\
+Para poder asignarle valores a estos componentes, se deben definir dos parámetros de rendimiento del filtro: el ripple de corriente máximo del inductor $\Delta I_{L_f}$ en ampere, y el ripple de tensión pico a pico de salida $\Delta V_{out_{pp}}$. La selección de estos parámetros presenta una relación de compromiso, ya que a medida que se hacen más exigentes los requerimientos, genera valores de inductancia y capacidad más grandes. Esto resulta en componentes más grandes y difíciles de colocar en una PCB compacta cómo la que se busca obtener.\\
 
-\lipsum[6]\\
+El ripple de corriente en el inductor viene dado por los ciclos de carga-descarga de $L_f$ : cuando la salida del rectificador es no nula, el inductor se carga con una pendiente fija; al conmutar a una tensión nula, se comienza a descargar a través de los diodos del rectificador, que actúan como rueda libre. Como el capacitor $C_f$ no puede tener una corriente continua (si fuese el caso, su tensión crecería sin límite), absorbe únicamente las variaciones de corriente con valor medio nulo, llegando a la carga únicamente la componente de corriente continua. El ripple de tensión que cae sobre la carga viene dado mayormente por la resistencia serie equivalente (ESR) del capacitor electrolítico.\textsuperscript{\cite{SoftSwitchPWM}}\\
 
-\subsubsection{Capacitores de Filtro}
+Teniendo esto en cuenta, asignamos las siguientes cotas para el ripple de corriente de inductor y de tensión de salida:
 
-{\Bold\scshape\Large Falta completar esta sección.}\\
+\begin{itemize}
+    \item $\Delta I_{L_f(max)} = \SI[]{0.8}{\ampere}$
+    \begin{itemize}
+        \item Es un ripple de corriente equivalente al 20\% de la máxima corriente de salida de \SI{4}{\ampere}.
+    \end{itemize}
+    \item $\Delta V_{out_{pp}(max)} = \SI[]{75}{\milli\volt}$
+    \begin{itemize}
+        \item Es un ripple de tensión equivalente al 0,1\% de la tensión fija de salida del bus de \SI[]{75}{\volt}.
+    \end{itemize}
+\end{itemize}
 
-\lipsum[7]\\
+\paragraph{Cálculo del Inductor}
 
-\lipsum[8]\\
+La ecuación \ref{ec_Lf} relaciona el valor de inductancia de salida $L_f$ con múltiples parámetros, de los cuales el más importante para nosotros es el ripple de corriente del inductor $\Delta I_{L_f(max)}$.\textsuperscript{\cite{SoftSwitchPWM}}
+
+\begin{equation}\label{ec_Lf}
+    L_f = \frac{V_{out}}{2f_s\cdot\Delta I_{L_f}}\left(1-\frac{V_{out}}{nV_{in(max)}-2V_F}\right)
+\end{equation}
+
+Dónde $V_{out}$ es la tensión continua de salida, de \SI[]{75}{\volt} en nuestro caso; $f_s$ es la frecuencia de conmutación en el primario, \SI[]{20}{\kilo\hertz} en esta plataforma; $\Delta I_{L_f}$ es el ripple ya mencionado; $n$ es la relación de vueltas del transformador, de valor \num{3.6} según la ecuación \ref{relacion_vueltas_valor}; $V_{in(max)}$ es la máxima tensión que entrega la pila, de unos \SI[]{45}{\volt} cómo se estableció al principio de la sección 3.2; y $V_F$ la caída de tensión en directa de los rectificadores, de \SI[]{1.5}{\volt} para los MUR860.\\ 
+
+Reemplazando los valores en la ecuación, nos queda el siguiente valor para el inductor de filtro:
+
+\begin{equation}\label{Lf_valor}
+    \boxed{
+    \highlight{\mathbf{L_f} = \frac{\SI{75}{\volt}}{2\cdot\SI{20}{\kilo\hertz}\cdot\SI{0.8}{\ampere}}\left(1-\frac{\SI{75}{\volt}}{\num{3.6}\cdot\SI{45}{\volt}-2\cdot\SI{1.5}{\volt}}\right) = \SI{1.24}{\milli\henry} \approx \SI{1.2}{\milli\henry}}
+    }
+\end{equation}
+
+\paragraph{Cálculo del Capacitor}
+
+Cómo se mencionó en la explicación del funcionamiento del filtro, la mayor parte del ripple de tensión, alrededor del 90\%, viene dado solo por la caída de tensión en la resistencia serie equivalente del capacitor electrolítico.\textsuperscript{\cite{SoftSwitchPWM}} El máximo valor de la resistencia serie equivalente viene dado por el cociente entre el ripple de tensión de salida y el ripple de corriente del inductor:
+
+\begin{equation*}
+    ESR_{max} = \frac{\Delta V_{out_{pp}(max)}}{\Delta I_{L_f(max)}} = \frac{\SI{75}{\milli\volt}}{\SI{0.8}{\ampere}} = \SI{93.75}{\milli\ohm}
+\end{equation*}
+
+Habiendo obtenido el máximo valor admisible de resistencia serie del capacitor, podemos usar la siguiente relación entre el valor de capacidad y ESR del capacitor.\textsuperscript{\cite{SoftSwitchPWM}}
+
+\begin{equation}\label{Cf-ESR}
+    C_f\cdot ESR = \num{60e-6}
+\end{equation}
+
+Despejando $C_f$ de la ecuación anterior, y utilizando el máximo valor admisible de resistencia serie equivalente que obtuvimos, podemos calcular el mínimo valor admisible de capacidad de filtro de salida para cumplir los requerimientos de ripple establecidos.
+
+\begin{equation}\label{Cf_valor}
+    \boxed{
+    \highlight{\mathbf{C_{f(min)}} = \frac{\num{60e-6}}{ESR_{max}} = \frac{\num{60e-6}}{\SI{93.75}{\milli\ohm}} = \SI{640}{\micro\farad}}
+    }
+\end{equation}
+
+Ahora, solo queda la selección de algún modelo comercial de capacitor electrolítico de valor nominal mayor a la cota mínima establecida por la ecuación anterior. Como en el secundario pueden llegar a existir tensiones transitorias muy elevadas que superan los \SI{100}{\volt} (esto sin tener en cuenta los posibles sobrepicos de tensión en el sistema real), se debe seleccionar un capacitor electrolítico con un nivel de tensión elevado.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.20]{Imagenes/Capacitor Blindado.jpg}
+    \caption{Capacitor electrolítico blindado de \SI{680}{\micro\farad} y \SI{200}{\volt}, similar al utilizado en la plataforma.}
+    \label{Cf_blindado}
+\end{figure}
+
+En base a disponibilidad de proveedores locales de componentes eléctricos, se seleccionó un capacitor electrolítico blindado de \SI{200}{\volt} de tensión, y de un valor de capacidad de \SI{680}{\micro\farad}, que es el valor de capacidad comercial superior al resultado de \ref{Cf_valor} más cercano a la cota. Se puede observar en la figura \ref{Cf_blindado} un modelo similar al que se utilizó en la placa.\\
