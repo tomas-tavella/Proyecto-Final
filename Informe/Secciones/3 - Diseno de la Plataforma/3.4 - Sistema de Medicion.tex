@@ -418,15 +418,37 @@ Al ubicarse el circuito de acondicionamiento a continuación de la salida del se
 
 \subsubsection{Etapa de Transmisión}
 
-{\Bold\scshape\Large Falta completar esta sección.}\\
+Para transmitir los datos de tensión y corriente de entrada, y tensión de salida que entrega el monitor de potencia LM5056A, se utiliza, como se mencionó brevemente, el protocolo de transmisión de datos en serie I\textsuperscript{2}C o bus I\textsuperscript{2}C, ya que el sensor ya incluye internamente un controlador y firmware que se encarga de transmitir los datos obtenidos por este bus.\\
 
-\lipsum[2]\\
+\paragraph{Bus I\textsuperscript{2}C}
+
+Este protocolo, diseñado por Phillips Semiconductor (hoy en día NXP Semiconductor) en 1982, es un protocolo multi-dispositivo, sincrónico, de dos líneas, de esquema maestro/esclavo, de paquete conmutado o \textit{packet-switched}, single-ended, y de tipo half-duplex, principalmente utilizado para comunicación con componentes dentro de la plaqueta.\\
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=1]{Imagenes/Logo I2C.pdf}
-    \caption{Logotipo del protocolo de bus comunicación serie I\textsuperscript{2}C.}
+    \includegraphics[scale=0.9]{Imagenes/Logo I2C.pdf}
+    \caption{Logotipo del protocolo de transmisión de datos en serie I\textsuperscript{2}C.}
     \label{logo_I2C}
 \end{figure}
 
-\lipsum[3]\\
+\begin{itemize}
+    \item {\Medium Multi-dispositivo:} El bus I\textsuperscript{2}C tiene la capacidad de transmitir datos entre múltiples dispositivos.
+    \item {\Medium Sincrónico:} La transmisión de datos entre los dispositivos conectados al bus es sincronizada mediante una señal de reloj.
+    \item {\Medium Dos líneas:} El bus solo cuenta con dos líneas para transmitir datos: la línea de datos bidireccional SDA y la línea de señal de reloj para sincronización SCL.
+    \item {\Medium Maestro-esclavo:} En el protocolo se define uno o varios dispositivos maestros que generan la señal de reloj e inician la comunicación con los esclavos, y uno o varios dispositivos esclavos que reciben la señal de reloj y responden cuando el maestro lo indica.
+    \item {\Medium Packet-switched:} El protocolo indica que los datos son transmitidos en \textit{paquetes} que cuentan con dos partes: los datos o \textit{payload}, y la información de control o \textit{header}.
+    \item {\Medium Single-ended:} La señalización de los datos está referenciada a tierra, a diferencia de la señalización diferencial.
+    \item {\Medium Half-duplex:} El bus no permite la transmisión de datos en ambas direcciones simultáneamente, ya que posee una única linea de datos bidireccional.\\
+\end{itemize}
+
+Otra característica importante del bus I\textsuperscript{2}C que lo diferencia de otros protocolos de comunicación serie es la utilización de {\Medium líneas de tipo \textit{open-drain}}: al transmitir datos o la señal de reloj, los dispositivos pueden bajar la línea a una tensión (generalmente tierra) para indicar un 0 lógico, o bien \quotes{soltar} la línea para que una resistencia de pull-up $R_{PU}$ levante la línea a la tensión de alimentación, indicando un 1 lógico.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Imagenes/Diagrama Open-Drain.png}
+    \caption{Diagrama que muestra un dispositivo conectado a una línea I\textsuperscript{2}C con una resistencia de pull-up, exponiendo el funcionamiento del open-drain.\textsuperscript{\cite{I2C}}}
+    \label{opendrain_i2c}
+\end{figure}
+
+En la figura \ref{opendrain_i2c}, cuando el dispositivo quiere indicar un 0 activa el transistor, conectando la línea directamente con tierra; mientras que al indicar un 1, el transistor interno se desactiva y la línea queda flotante, siendo levantada a la tensión de alimentación por $R_{PU}$.\\
+

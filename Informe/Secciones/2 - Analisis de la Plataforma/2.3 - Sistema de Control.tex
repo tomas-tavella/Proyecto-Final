@@ -8,7 +8,7 @@ Además, los DSC suelen contar con una gran variedad de periféricos que les bri
 
 \subsubsection{Controlador Digital de Señales}
 
-Para conformar el sistema embebido de control de la plataforma, se utiliza un controlador digital de señales perteneciente a la linea {\Medium C2000} de microcontroladores de tiempo real de Texas Instruments. En particular, se eligió el modelo {\Medium TMS320F28335} de arquitectura de bus tipo Harvard, \SI[]{150}{\mega\hertz} de frecuencia de reloj, CPU de 32 bits, memoria flash de 256K palabras de 16 bits, conversor analógico-digital de 12 bits y 16 canales, módulos de comunicación serie SPI, I\textsuperscript{2}C, y UART, entre múltiples otras funcionalidades.\textsuperscript{\cite{DSP-Datasheet}}
+Para conformar el sistema embebido de control de la plataforma, se utiliza un controlador digital de señales perteneciente a la linea {\Medium C2000} de microcontroladores de tiempo real de Texas Instruments. En particular, se eligió el modelo {\Medium TMS320F28335} de arquitectura de bus tipo Harvard, \SI[]{150}{\mega\hertz} de frecuencia de reloj, CPU de 32 bits, memoria flash de 256K palabras de 16 bits, conversor analógico-digital de 12 bits y 16 canales, módulos de comunicación serie SPI, I\textsuperscript{2}C, y UART, entre múltiples otras funcionalidades.\textsuperscript{\cite{DSP-Datasheet}}\\
 
 \begin{figure}[h]
     \centering
@@ -29,7 +29,7 @@ Entre la gran lista de periféricos de este dispositivo, se pueden destacar vari
 
 \subparagraph{Módulo ePWM}
 
-El módulo ePWM (\textit{Enhanced Pulse Width Modulator}) del TMS320F28335 cuenta con seis distintos canales de generación de formas de onda por modulación de ancho de pulso desde el ePWM1 hasta el ePWM6, cada uno con dos salidas PWM distintas, ePWMxA y ePWMxB. Todos estos módulos pueden ser unidos mediante un esquema de sincronización por reloj si se requiere que operen como un único sistema.
+El módulo ePWM (\textit{Enhanced Pulse Width Modulator}) del TMS320F28335 cuenta con seis distintos canales de generación de formas de onda por modulación de ancho de pulso desde el ePWM1 hasta el ePWM6, cada uno con dos salidas PWM distintas, ePWMxA y ePWMxB. Todos estos módulos pueden ser unidos mediante un esquema de sincronización por reloj si se requiere que operen como un único sistema.\\
 
 \begin{figure}[h]
     \centering
@@ -46,7 +46,7 @@ Adicionalmente, cada módulo ePWM cuenta con un submódulo de generación de ban
 
 \subparagraph{Módulo ADC}
 
-El TMS320F28335 cuenta con un conversor analógico-digital de 12 bits (4096 niveles) de resolución y 16 canales, configurables como dos módulos independientes de 8 canales cada uno (ADCINAx y ADCINBx).
+El TMS320F28335 cuenta con un conversor analógico-digital de 12 bits (4096 niveles) de resolución y 16 canales, configurables como dos módulos independientes de 8 canales cada uno (ADCINAx y ADCINBx).\\
 
 \begin{figure}[h]
     \centering
