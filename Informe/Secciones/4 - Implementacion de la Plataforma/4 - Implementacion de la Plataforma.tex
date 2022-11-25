@@ -1,0 +1,40 @@
+\section{Implementación de la Plataforma} \label{implementacion}
+\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes/Fondo Capitulo 4.pdf}}
+\thispagestyle{plain}
+
+\vspace{0.5cm}
+
+\Large\scshape
+\begin{center}
+    \textrm{Implementación de los circuitos en la placa de circuito impreso}
+\end{center}
+\normalfont
+%\normalsize
+
+\divider
+
+En el capítulo anterior, se diseñaron todos los circuitos que forman la plataforma, y se dimensionaron eléctricamente y físicamente todos sus componentes. Sin embargo, estos esquemas no cuentan con información del posicionamiento físico o \textit{layout} de los componentes, simplemente representan las conexiones eléctricas que vinculan los distintos componentes. Para poder llegar a una implementación física en una placa de circuito impreso, se deben posicionar los elementos teniendo en cuenta su tamaño, y conectarlos mediante pistas de cobre en un espacio lo más compacto posible.\\
+
+%Partiendo de los esquemas circuitales que conforman la plataforma, que en total cuenta con 185 componentes discretos, se procedió a su implementación en una placa de circuito impreso. Como guías generales para su diseño, se estableció que la PCB debía ser de doble capa, con unas dimensiones de aproximadamente 15 cm x 15 cm. En tanto a su construcción, se utiliza el sustrato FR-4 estándar (laminado de resina epoxi reforzado con vidrio) y vías de tipo PTH (del inglés \textit{Plated Through-Hole}). En la siguiente figura se puede observar un modelo tridimensional de la plaqueta finalizada, con todos los componentes en sus lugares correspondientes.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Imagenes/PCB 3D Raytracing.png}
+    \caption{Modelo tridimensional de la implementación en PCB de la plataforma
+    con todos sus componentes, vista desde la parte superior.}
+    \label{pcb_3d}
+\end{figure}
+
+Además de los componentes que se mencionaron o fueron mostrados en el proceso de diseño, existen otros componentes como conectores, borneras, pulsadores, LEDs y algunas resistencias y capacitores que se omitieron, ya que conforman únicamente detalles que incumben solamente a la implementación física. Teniendo en cuenta esto, el total de componentes discretos de la PCB llega a los 185. Se puede observar un modelo tridimensional de la placa final con todos sus componentes, generado por KiCad.\\
+
+\input{Secciones/4 - Implementacion de la Plataforma/4.1 - Diseno de PCB.tex}
+
+\newpage
+
+\input{Secciones/4 - Implementacion de la Plataforma/4.2 - Soldado de Componentes.tex}
+
+\newpage
+
+\input{Secciones/4 - Implementacion de la Plataforma/4.3 - Contratiempos.tex}
+
+\afterpage{\blankpage}\newpage

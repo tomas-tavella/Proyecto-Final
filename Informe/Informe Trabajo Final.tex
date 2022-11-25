@@ -199,6 +199,8 @@
 \dottedcontents{subsection}[4em]{\vspace{0.1cm}\Medium}{2.5em}{0.6pc}
 \dottedcontents{subsubsection}[7.5em]{}{3.5em}{0.6pc}
 
+\hyphenation{KiCad}         % Para que no separe KiCad en sílabas
+
 %---------------------------------------------------------------------------------------------------------%
 %------------------------------------------ Inicio de Documento ------------------------------------------%
 %---------------------------------------------------------------------------------------------------------%
@@ -228,9 +230,10 @@
     \input{Secciones/Abstract.tex}
 
     \newpage
-    \afterpage{\blankpage} 
+    \afterpage{\thispagestyle{plain}} 
     \thispagestyle{plain}
     \tableofcontents
+    %\afterpage{\blankpage}
     \newpage
 
     \input{Secciones/1 - Introduccion/1 - Introduccion.tex}
@@ -242,6 +245,14 @@
     \newpage
 
     \input{Secciones/3 - Diseno de la Plataforma/3 - Diseno de la Plataforma.tex}
+
+    \newpage
+
+    \input{Secciones/4 - Implementacion de la Plataforma/4 - Implementacion de la Plataforma.tex}
+
+    \newpage
+
+    \input{Secciones/Conclusiones.tex}
 
     \newpage
     \thispagestyle{plain}

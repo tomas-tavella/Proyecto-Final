@@ -14,13 +14,13 @@ Este es el llamado {\Medium circuito \textit{driver}} o {\Medium circuito de exc
 
 Con estos datos vamos a seleccionar y diseñar un circuito de excitación y explicar brevemente el funcionamiento de todas sus partes.\\
 
-\subsubsection{Selección y Diseño}
+\subsubsection{Selección del Integrado}
 
 Existen diversos tipos de soluciones integradas para circuitos de excitación de transistores MOSFET. Se pueden encontrar circuitos de uno o múltiples canales; existen circuitos que incluyen una aislación entre las entradas y salidas; entre otras funcionalidades. También se consiguen con distintas funciones de seguridad y protección, como el \textit{dead-time}, que permite forzar un tiempo fijo entre la activación de dos transistores de la misma rama, evitando situaciones de cortocircuito; y el \textit{undervoltage lockout} (UVLO), que evita daños por condiciones de baja tensión.\\
 
 Entre todas las opciones, originalmente se había decidido por el modelo UCC21540 de Texas Instruments, un driver de doble canal, con aislación incluida, funcionalidades de dead-time y UVLO, alta capacidad de corriente y un encapsulado SMD de tipo SOIC-16.\\
 
-Sin embargo, este dispositivo no se pudo obtener por falta de disponibilidad, por lo que se tuvo que buscar una alternativa de características similares que esté en disponibilidad. Se terminó decidiendo por el integrado {\Medium 2ED21834-S06J de Infineon Technologies}, cuyas especificaciones básicas se muestran a continuación.\\
+Sin embargo, este dispositivo no se pudo obtener por falta de disponibilidad, por lo que se tuvo que buscar una alternativa de características similares que esté en disponibilidad. Se terminó decidiendo por el integrado {\Medium 2ED21834-S06J de Infineon Technologies}, cuyas especificaciones básicas se muestran en la tabla \ref{tabla:driver}.\\
 
 \setlength{\tabcolsep}{7pt}
 \renewcommand{\arraystretch}{1.5}
@@ -60,9 +60,9 @@ Aquí se puede ver el driver, indicado por la referencia U12, al que le llegan l
 
 El dimensionamiento de todos estos componentes se va a tratar a continuación siguiendo las recomendaciones del fabricante disponibles en hojas de datos y notas de aplicación.\\
 
-\paragraph{Dimensionamiento de Componentes}
+\subsubsection{Dimensionamiento de Componentes}
 
-\subparagraph{Resistencia de Dead-Time (R47)}
+\paragraph{Resistencia de Dead-Time (R47)}
 
 La resistencia de dead-time $R_{DT}$, con el identificador R47 en el diagrama circuital de la figura, es una resistencia conectada entre el pin DT y tierra, cuya funcionalidad es configurar la duración del dead-time $t_{DT}$ entre los disparos del transistor superior e inferior conectados al driver. El dead-time es un pequeño intervalo de tiempo luego de la desactivación de cada llave, en el cual el integrado no permite que se dispare el otro transistor, con el objetivo de no permitir la activación accidental de ambos transistores y evitar cortocircuitar la pila de combustible.\\
 
@@ -79,7 +79,7 @@ La duración de $t_{DT}$ debe ser seleccionada de manera de ser cómodamente may
 
 Finalmente, en paralelo con $R_{DT}$ se colocó un capacitor cerámico $C_{DT}$ (C29 en la figura \ref{circuito_driver}) de desacople de \SI[]{10}{\nano\farad}, de acuerdo a la recomendación del fabricante de colocar un capacitor de valor mayor a \SI[]{1}{\nano\farad}.\\
 
-\subparagraph{Circuito Bootstrap}
+\paragraph{Circuito Bootstrap}
 
 El circuito de bootstrap es un circuito compuesto por tres elementos en serie: un capacitor de bootstrap $C_{BS}$, un diodo de bootstrap $D_{BS}$ y una resistencia de bootstrap $R_{BS}$. En el caso del circuito del dirver de la figura \ref{circuito_driver}, se pueden ver los capacitores C33 y C35 que conforman la capacidad $C_{BS}$, mientras que la resistencia y el diodo se encuentran integrados dentro de 2ED21834-S06J, como se observa en la figura \ref{circuito_bootstrap}, tomada de la hoja de datos del integrado.\\
 
@@ -113,6 +113,6 @@ Por lo tanto, la cota mínima del capacitor de bootstrap resulta:
 
 Como este valor es muy pequeño, y la hoja de datos del driver indica que se pueden utilizar capacidades $C_{BS}$ de hasta \SI[]{4.7}{\micro\farad}, se decidió utilizar un capacitor electrolítico de montaje through-hole, \SI[]{3.3}{\micro\farad} de capacidad y tensión máxima de \SI[]{50}{\volt}. Adicionalmente, según recomendación del fabricante, se agregó un capacitor cerámico de mucho menor valor (C33 en el circuito) en paralelo a $C_{BS}$ para obtener una solución óptima.\\
 
-\subparagraph{Resistencia de VS}
+\paragraph{Resistencia de VS}
 
 La resistencia colocada en serie al pin VS, identificador R20 en el diagrama de la figura \ref{circuito_driver}, según la hoja de datos del fabricante, cumple el objetivo de reducir los picos negativos de tensión al momento de la conmutación, inducidos en VS por elementos parásitos de la placa de circuito impreso. Se indica que esta debe ser una resistencia con un valor máximo de \SI[]{5}{\ohm}\textsuperscript{\cite{DatasheetDriver}}, por lo que se decidió por colocar un pequeño resistor SMD 1206 de \SI[]{2}{\ohm}.\\

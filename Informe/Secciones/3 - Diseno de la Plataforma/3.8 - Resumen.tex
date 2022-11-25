@@ -1,7 +1,17 @@
 \subsection{Resumen}
 
-{\Large\Bold\scshape Falta completar esta sección.}\\
+En este capítulo se planteó el diseño del circuito completo de la plataforma, dividiéndola en múltiples bloques o subsistemas. Estos bloques, como se observan en la figura \ref{diag_detallado} al principio del capítulo, describen un sistema más complejo, agregando detalles de implementación y circuitos auxiliares que no habían sido mencionados previamente, como los circuitos de alimentación para los integrados, la etapa de aislación de señal, y los circuitos driver para conmutar las llaves.\\
 
-\lipsum[1]\\
+Primero, se planteó el diseño del convertidor de puente completo que se había analizado previamente, seleccionado los MOSFET {\Medium IRFP150 de International Rectifier} para las llaves de potencia y los diodos rectificadores {\Medium MUR860 de ON Semiconductor}. Una vez elegidos los componentes, se obtuvieron valores para la relación de vueltas $n$ del transformador, y para los valores de inductancia $L_f$ y capacidad $C_f$ del filtro de salida.\\
 
-\lipsum[2]\\
+Después, se seleccionó una solución integrada para cumplir la funcionalidad de driver de las llaves del puente, en la forma del driver para medio puente {\Medium 2ED21834-S06J de Infineon Technologies}. Se planteó el circuito que acompaña a este driver y se dimensionaron los componentes del mismo.\\
+
+Para el sistema de medición y adquisición de datos, se lo dividió en tres partes que se analizaron por separado, como muestra la figura \ref{diag_medicion}. En el bloque de sensado se encuentran los dos sensores encargados de medir las tensiones y corrientes del convertidor: el sensor de efecto hall {\Medium TMCS1100A4 de Texas Instruments} para medir corriente de salida, y el monitor de potencia {\Medium LM5056A de Texas Instruments} para medir tensión y corriente de entrada, y tensión de salida. En el bloque de acondicionamiento se plantea el ciruito de instrumentación que adapta los niveles de salida del TMCS1100A4 a los niveles del ADC del convertidor, utilizando el amplificador operacional {\Medium OPA365AID de Texas Instruments}. Finalmente se describe el funcionamiento del bus I\textsuperscript{2}C y su implementación para transmitir los datos del LM5056A.\\
+
+En la etapa de aislación, se seleccionarlos los optoacopladores {\Medium ACPL-P480 de Broadcom} para aislar las señales PWM que comandan las llaves, y el aislador unidireccional de dióxido de silicio {\Medium ISO7242C de Texas Instruments} para aislar las líneas del bus I\textsuperscript{2}C.\\
+
+Todos estos integrados deben ser alimentados de algun modo, y esto se plantea con una fuente externa de \SI[]{12}{\volt} a \SI[]{18}{\volt} que ingresa del lado de potencia, de la cuál luego se derivan otras tensiones. Para obtener estas tensiones se utilizan reguladores lineales, como el {\Medium LM7805} de \SI{5}{\volt} y el {\Medium LP2985-3.3} de \SI[]{3.3}{\volt}. Para obtener fuentes aisladas para la sección digital, se utiliza la fuente aislada de \SI[]{5}{\volt} {\Medium THB-1211 de Traco Power}.\\
+
+{\Bold\scshape Falta completar la parte del sistema de control}\\
+
+Estos diseños son los que en el siguiente capítulo serán implementados en una placa de circuito impreso (PCB) compacta, para finalizar la implementación de la plataforma experimentar de evaluación de pilas de combustible.\\
