@@ -446,9 +446,15 @@ Otra característica importante del bus I\textsuperscript{2}C que lo diferencia 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Imagenes/Diagrama Open-Drain.png}
-    \caption{Diagrama que muestra un dispositivo conectado a una línea I\textsuperscript{2}C con una resistencia de pull-up, exponiendo el funcionamiento del open-drain.\textsuperscript{\cite{I2C}}}
+    \caption{Diagrama que muestra un dispositivo conectado a una línea I\textsuperscript{2}C con una resistencia de pull-up, exponiendo el funcionamiento del open-drain.\textuperscript{\cite{I2C}}}
     \label{opendrain_i2c}
 \end{figure}
 
 En la figura \ref{opendrain_i2c}, cuando el dispositivo quiere indicar un 0 activa el transistor, conectando la línea directamente con tierra; mientras que al indicar un 1, el transistor interno se desactiva y la línea queda flotante, siendo levantada a la tensión de alimentación por $R_{PU}$.\\
+
+Con esta topología, si un dispositivo quiere transmitir un nivel bajo y otro dispositivo quiere transmitir un nivel alto no se genera ningún conflicto de comunicación, ya que los dispositivos no tienen la capacidad de forzar un nivel alto. Si este no fuese el caso, al forzar un alto cuando un dispositivo transmite un bajo se formaría un corto entre alimentación y tierra. Esta funcinalidad es la que le permite al bus implementar comunicación bidireccional.\textsuperscript{\cite{I2C}}\\
+
+\subparagraph{Operación del Bus}
+
+
 
