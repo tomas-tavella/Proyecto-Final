@@ -12,7 +12,7 @@ Esencialmente, una celda de combustible es una celda galvánica o celda voltáic
     H_2\ +\ \frac{1}{2}O_2\ \longrightarrow\ H_2O
 \end{equation}
 
-La estructura interna de una celda de combustible, visible en la figura \ref{fuel_cell}, consiste de un ánodo (electrodo negativo) al cual ingresan las moléculas de hidrógeno, un cátodo (electrodo positivo) en el que ingresa el oxígeno y se despide el agua, y un electrolito como como interfaz entre ánodo y cátodo. La carga es conectada entre el ánodo y el cátodo.\\
+La estructura interna de una celda de combustible, visible en la figura \ref{fuel_cell}, consta de un ánodo (electrodo negativo) al cual ingresan las moléculas de hidrógeno, un cátodo (electrodo positivo) en el que ingresa el oxígeno y se despide el agua, y un electrolito como como interfaz entre ánodo y cátodo. La carga es conectada entre el ánodo y el cátodo.\\
 
 \begin{figure}[h]
     \centering
@@ -246,6 +246,6 @@ Esta plataforma se basa en la utilización de un modelo comercial particular de 
 
 Sin embargo, dado que este módulo no está presente en el laboratorio, como reemplazo se utiliza un {\Medium módulo de emulación de pilas de combustible}. Este módulo permite la reproducción de una curva tensión-corriente de una pila en condiciones de trabajo controladas.\\
 
-Este módulo consiste de un convertidor CC-CC conmutado de tipo reductor, (que se explicará mas adelante) que impone una tensión de salida en función de la corriente suministrada a través de un lazo de control. El modelo que utiliza para obtener la tensión de salida en función de la corriente es el que se se obtuvo en la ecuación \ref{v_stack} y en el gráfico de la figura \ref{V-I_celda}. El módulo se puede ajustar a distintos modelos de celdas mediante la variación de las constantes $N$, $E_{oc}$, $A$, $r$, $m$ y $n$. Los valores de la curva se almacenan en una tabla de \textit{look-up} implementada en un FPGA.\\
+Este módulo consiste en un convertidor CC-CC conmutado de tipo reductor, (que se explicará mas adelante) que impone una tensión de salida en función de la corriente suministrada a través de un lazo de control. El modelo que utiliza para obtener la tensión de salida en función de la corriente es el que se se obtuvo en la ecuación \ref{v_stack} y en el gráfico de la figura \ref{V-I_celda}. El módulo se puede ajustar a distintos modelos de celdas mediante la variación de las constantes $N$, $E_{oc}$, $A$, $r$, $m$ y $n$. Los valores de la curva se almacenan en una tabla de \textit{look-up} implementada en un FPGA.\\
 
 Adicionalmente a la característica tensión-corriente de la celda, este módulo permite simular el filtro pasabajos propio de la pila que se ve en el diagrama de la plataforma de la figura \ref{diag_plataforma}. Este filtro cumple la función de proteger a las celdas y evitar deterioro de las mismas mediante una reducción del rizado de corriente que puede generar la conmutación del convertidor.\textsuperscript{\cite{Argencon2018}}\\

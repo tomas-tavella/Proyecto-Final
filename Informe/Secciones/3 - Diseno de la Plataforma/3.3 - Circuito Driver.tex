@@ -107,7 +107,8 @@ Esta capacidad de gate se puede calcular en base a la carga de gate total $Q_g$,
 Por lo tanto, la cota mínima del capacitor de bootstrap resulta:
 
 \begin{equation}\label{capacidad_bs_min}
-    C_{BS} > \SI[]{0.1}{\micro\farad} = 10\cdot C_g
+    \boxed{\highlight{
+    C_{BS} > \SI[]{0.1}{\micro\farad} = 10\cdot C_g}}
 \end{equation}
 
 Como este valor es muy pequeño, y la hoja de datos del driver indica que se pueden utilizar capacidades $C_{BS}$ de hasta \SI[]{4.7}{\micro\farad}, se decidió utilizar un capacitor electrolítico de montaje through-hole, \SI[]{3.3}{\micro\farad} de capacidad y tensión máxima de \SI[]{50}{\volt}. Adicionalmente, según recomendación del fabricante, se agregó un capacitor cerámico de mucho menor valor (C33 en el circuito) en paralelo a $C_{BS}$ para obtener una solución óptima.\\

@@ -254,7 +254,7 @@ Consiste en un sensor de corriente de tipo shunt, junto con un sensor de tensió
 
 Donde $V_{in/out}$ es la máxima tensión de entrada y salida medible, $f_m$ es la frecuencia de muestreo del sensor, $I_{in(FSR)}$ es la tensión de fondo de escala de medición de corriente, $e_i$ es la precisión de la medida de corriente, y $e_v$ es la precisión de la medida de tensión.\\
 
-Los parámetros analógicos de tensión y corriente medidos por el LM5056A son muestreados y convertidos a información digital mediante un conversor analógico-digital interno de \num{12} bits de resolución, (es decir $2^{12} = 4096$ niveles distintos) con frecuencia de muestreo $f_m$ de \SI[]{1}[]{\kilo\hertz} como muestra la tabla. Una vez convertidos, se pueden transmitir mediante la interfaz de bus I\textsuperscript{2}C que provee el integrado, con pines SDAO para salida de datos, SDAI para entrada de datos y SCL para entrada de reloj. Esta interfaz se explica más adelante en la sección 3.4.3, sobre la etapa de transmisión.\\
+Los parámetros analógicos de tensión y corriente medidos por el LM5056A son muestreados y convertidos a información digital mediante un conversor analógico-digital interno de \num{12} bits de resolución, (es decir $2^{12} = 4096$ niveles distintos) con frecuencia de muestreo $f_m$ de \SI[]{1}[]{\kilo\hertz} como muestra la tabla. Una vez convertidos, se transmiten mediante una interfaz I\textsuperscript{2}C que provee el integrado, con pines SDAO para salida de datos, SDAI para entrada de datos y SCL para entrada de reloj. Esta interfaz se explica más adelante en la sección 3.4.3, dedicada a la etapa de transmisión.\\
 
 Este dispositivo viene en un empaquetado de montaje superficial del tipo HTSSOP-28 de veintiocho pines (figura \ref{encapsulado_LM5056}), que también incluye un contacto plano en la parte inferior, de conexión opcional para la disipación de calor.\\
 
@@ -416,11 +416,9 @@ Buscando en los dispositivos disponibles en el laboratorio, se eligió utilizar 
 
 Al ubicarse el circuito de acondicionamiento a continuación de la salida del sensor de efecto Hall TMCS1100A4 (que provee su propia aislación galvánica), las conexiones a tierra de todas las partes deben ser conectadas a la tierra digital o de señal $GND_D$.\\
 
-\subsubsection{Etapa de Transmisión}
+\subsubsection{Etapa de Transmisión - I\textsuperscript{2}C}
 
 Para transmitir los datos de tensión y corriente de entrada, y tensión de salida que entrega el monitor de potencia LM5056A, se utiliza, como se mencionó brevemente, el protocolo de transmisión de datos en serie I\textsuperscript{2}C o bus I\textsuperscript{2}C, ya que el sensor ya incluye internamente un controlador y firmware que se encarga de transmitir los datos obtenidos por este bus.\\
-
-\paragraph{Bus I\textsuperscript{2}C}
 
 Este protocolo, diseñado por Phillips Semiconductor (hoy en día NXP Semiconductor) en 1982, es un protocolo multi-dispositivo, sincrónico, de dos líneas, de esquema maestro/esclavo, de paquete conmutado o \textit{packet-switched}, single-ended, y de tipo half-duplex, principalmente utilizado para comunicación con componentes dentro de la plaqueta.\\
 
@@ -441,20 +439,86 @@ Este protocolo, diseñado por Phillips Semiconductor (hoy en día NXP Semiconduc
     \item {\Medium Half-duplex:} El bus no permite la transmisión de datos en ambas direcciones simultáneamente, ya que posee una única linea de datos bidireccional.\\
 \end{itemize}
 
+\paragraph{Topología Open-Drain}
+
 Otra característica importante del bus I\textsuperscript{2}C que lo diferencia de otros protocolos de comunicación serie es la utilización de {\Medium líneas de tipo \textit{open-drain}}: al transmitir datos o la señal de reloj, los dispositivos pueden bajar la línea a una tensión (generalmente tierra) para indicar un 0 lógico, o bien \quotes{soltar} la línea para que una resistencia de pull-up $R_{PU}$ levante la línea a la tensión de alimentación, indicando un 1 lógico.\\
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Imagenes/Diagrama Open-Drain.png}
-    \caption{Diagrama que muestra un dispositivo conectado a una línea I\textsuperscript{2}C con una resistencia de pull-up, exponiendo el funcionamiento del open-drain.\textuperscript{\cite{I2C}}}
+    \caption{Diagrama que muestra un dispositivo conectado a una línea I\textsuperscript{2}C con una resistencia de pull-up, exponiendo el funcionamiento del open-drain.\textsuperscript{\cite{I2C}}}
     \label{opendrain_i2c}
 \end{figure}
 
 En la figura \ref{opendrain_i2c}, cuando el dispositivo quiere indicar un 0 activa el transistor, conectando la línea directamente con tierra; mientras que al indicar un 1, el transistor interno se desactiva y la línea queda flotante, siendo levantada a la tensión de alimentación por $R_{PU}$.\\
 
-Con esta topología, si un dispositivo quiere transmitir un nivel bajo y otro dispositivo quiere transmitir un nivel alto no se genera ningún conflicto de comunicación, ya que los dispositivos no tienen la capacidad de forzar un nivel alto. Si este no fuese el caso, al forzar un alto cuando un dispositivo transmite un bajo se formaría un corto entre alimentación y tierra. Esta funcinalidad es la que le permite al bus implementar comunicación bidireccional.\textsuperscript{\cite{I2C}}\\
+Con esta topología, si un dispositivo quiere transmitir un nivel bajo y otro dispositivo quiere transmitir un nivel alto no se genera ningún conflicto de comunicación, ya que los dispositivos no tienen la capacidad de forzar un nivel alto. Si este no fuese el caso, al forzar un alto cuando un dispositivo transmite un bajo se formaría un corto entre alimentación y tierra. Esta funcionalidad es la que le permite al bus implementar comunicación bidireccional.\textsuperscript{\cite{I2C}}\\
 
-\subparagraph{Operación del Bus}
+\paragraph{Operación del Bus}
 
+Como ya se mencionó, el bus I\textsuperscript{2}C es una interfaz serie bidireccional, dónde un dispositivo llamado maestro actúa como controlador para comunicarse con los otros dispositivos, llamados esclavos. Estos esclavos solo pueden transmitir datos siempre que estén habilitados por el maestro. En un bus I\textsuperscript{2}C, todos los dispositivos tienen una dirección o \textit{address} única para poder ser diferenciados de otros dispositivos en el mismo bus.\\
 
+Una transferencia de datos, ya sea de maestro a esclavo o viceversa, solo puede ser iniciada si el bus se encuentra en estado \textit{idle}, condición que ocurre únicamente cuando tanto SDA como SCL están en alto.\\
 
+El procedimiento general para transmitir datos consta de tres pasos: primero, el maestro envía una condición de START (un flanco de bajada en SDA cuando SCL está en alto) y la dirección del dispositivo que busca; luego, se transmiten los datos; y, finalmente, el maestro concluye la transmisión enviando una condición de STOP (un flanco de subida en SDA cuando SCL está en alto) y deja el bus en estado idle.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Imagenes/START y STOP I2C.png}
+    \caption{Diagrama que muestra una transferencia de datos por I\textsuperscript{2}C, con detalle en las condiciones de START y STOP.\textsuperscript{\cite{I2C}}}
+    \label{start_stop_i2c}
+\end{figure}
+
+\subparagraph{Formato de Datos}
+
+Los datos transferidos por SDA se separan en bytes, pudiéndose trasferir cualquier cantidad de bytes entre START y STOP. Cada byte (que puede ser la dirección de un dispositivo, o datos leídos de o escritos a un esclavo) consiste en 8 bits que se transfieren uno por uno en cada pulso de reloj de SCL, ordenados de manera que se transmite primero el bit más significativo o MSB (\textit{Most Significant Bit}). Cabe aclarar que, durante el semiciclo alto de la señal de reloj de SCL, los datos de SDA se deben mantener constantes; caso contrario esto se puede interpretar como una señal de START o STOP y finalizar prematuramente la transmisión.\\
+
+Adicionalmente, al final de cada byte enviado el transmisor queda a la espera de un bit de parte del receptor llamado ACK, del inglés \textit{acknowledge} (que significa reconocido), que le indique que el byte enviado fue recibido correctamente. Entonces, al terminar el octavo ciclo de reloj (bit) del byte correspondiente, el transmisor \quotes{suelta} la línea de datos SDA para que el receptor pueda bajar en nivel de tensión para el noveno ciclo del reloj. Si el transmisor recibe un nivel bajo durante el noveno ciclo, esto se considera como un ACK y una recepción correcta de los datos; pero, si recibe un nivel de tensión alto, esto se interpreta como un NACK (\textit{not acknowledge}) y un error en la recepción de los datos.\\
+
+Todos estos datos enviados por el bus son leídos de o escritos en uno o varios registros disponibles en el dispositivo. Generalmente cuando un dispositivo tiene más de un registro, cada uno de estos registros tiene su propio byte de dirección.\\
+
+\paragraph{Implementación}
+
+El caso de la plataforma es una implementación relativamente sencilla del protocolo, ya que hay un único maestro y un único esclavo, el DSC y el monitor de potencia respectivamente.\\
+
+\subparagraph{Separación de SDA}
+
+Sin embargo, el LM5056A tiene una particularidad en su interfaz I\textsuperscript{2}C, ya que cuenta con tres pines para comunicación serie, tal como se ve en la figura \ref{conexion_LM5056A}:
+
+\begin{itemize}
+    \item {\Medium SCL:} Es la línea de reloj y es unidireccional, ya que el sensor solo actúa como esclavo y no tiene la capacidad de generar una señal de sincronización.
+    \item {\Medium SDAO:} Es una línea de datos unidireccional por la que se transmiten datos desde el sensor.
+    \item {\Medium SDAI:} Es una línea de datos unidireccional por la cual el sensor recibe datos.
+\end{itemize}
+
+Esta separación de la línea de datos en dos líneas unidireccionales de direcciones opuestas cumple el propósito de acondicionar la interfaz para poder ser utilizada con aisladores de señal unidireccionales. Dado que esta plataforma fue diseñada con partes digitales y de potencia aisladas galvánicamente, y el LM5056A se encuentra del lado de potencia; va a ser necesario generar una aislación unidireccional que separe las líneas del bus entre el sensor y el controlador.\\
+
+Por este motivo, la línea de datos separada en dos líneas unidireccionales con las que cuenta el sensor nos resulta de suma utilidad: la separación de la linea de datos previa al aislador solo es necesaria del lado del controlador, ya que del otro lado esta función la integra el propio sensor. El detalle del circuito implementado para realizar la seperación se va a tratar en la siguiente sección, dedicada a la etapa de aislación de señal.\\
+
+\subparagraph{Resistencias de Pull-Up}
+
+Para seleccionar un valor de resistencia de pull-up $R_{PU}$ adecuado, debemos primero establecer una cota inferior y superior para su magnitud, de acuerdo a parámetros de nuestra implementación del bus.\\
+
+La {\Medium cota inferior} del valor de $R_{PU}$ define el mínimo valor de la resistencia que permite que un dispositivo pueda llevar la línea a tierra, ya que si la resistencia es de muy bajo valor, la corriente que circula es elevada y puede causar que los dispositivos del bus no sean capaces de llevar el nivel de tensión a tierra. Esta cota se calcula en base a la tensión de alimentación $V_{cc}$, la máxima tensión que puede ser leída como baja $V_{OL(max)}$, y la corriente absorbida por el dispositivo en nivel bajo.\textsuperscript{\cite{I2C-PullUp}}
+
+\begin{equation}\label{Rpu_min}
+    R_{PU(min)} = \frac{V_{cc}-V_{OL(max)}}{I_{OL}}
+\end{equation}
+
+Estos parámetros son distintos para el sensor y el controlador, pero vamos a tomar solamente el caso más exigente, que corresponde al sensor, ya que tiene una tensión de alimentación de \SI[]{5}{\volt} (comparado con los \SI[]{3.3}{\volt} del DSC) y una corriente de nivel bajo de \SI[]{3}{\milli\ampere} (comparado con los \SI[]{4}{\milli\ampere} del DSC). Su tensión máxima de nivel bajo es idéntica es igual a \SI[]{0.4}{\volt}. Por lo tanto, el valor mínimo de la resistencia de pull-up resulta:
+
+\begin{equation}\label{Rpu_min_valor}
+    R_{PU(min)} = \frac{\SI{5}{\volt}-\SI{0.4}{\volt}}{\SI{3}{\milli\ampere}} \approx \SI{1.53}{\kilo\ohm}
+\end{equation}
+
+La {\Medium cota superior}, mientras tanto, viene dada por el tiempo de subida $t_r$ de la línea de datos, ya que $R_{PU}$ junto con la capacidad total del bus $C_b$ conforman un circuito RC con un tiempo de subida característico. Si se elige un valor de $R_{PU}$ muy elevado, el tiempo de subida de SDA se torna demasiado grande, generando problemas en la recepción de datos, ya que las tensiones de SDA no llegan a establecerse a un nivel legible para el receptor.\\ 
+
+Sin embargo, esto suele ser un factor limitante únicamente cuando se tiene un bus con muchos dispositivos que resultan en un valor elevado de capacidad total. En nuestro caso, con un único maestro y un único esclavo, la capacidad $C_b$ es de valor muy bajo, por lo que la cota superior de resistencia $R_{PU(max)}$ no resulta de interés.\\
+
+Teniendo estos datos en cuenta, entonces, se debe elegir un valor comercial de resistencia SMD 1206 que sea considerablemente mayor al valor de $R_{PU(min)}$ de la ecuación \ref{Rpu_min_valor}, pero no excesivamente grande como para generar tiempos de subida muy lentos.
+
+\begin{equation*}
+    \boxed{\highlight{
+        R_{PU} = \SI{4.7}{\kilo\ohm}
+    }}
+\end{equation*}
