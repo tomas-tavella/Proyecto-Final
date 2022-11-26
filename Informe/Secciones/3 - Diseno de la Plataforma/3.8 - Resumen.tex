@@ -10,8 +10,8 @@ Para el sistema de medición y adquisición de datos, se lo dividió en tres par
 
 En la etapa de aislación, se seleccionarlos los optoacopladores {\Medium ACPL-P480 de Broadcom} para aislar las señales PWM que comandan las llaves, y el aislador unidireccional de dióxido de silicio {\Medium ISO7242C de Texas Instruments} para aislar las líneas del bus I\textsuperscript{2}C.\\
 
-Todos estos integrados deben ser alimentados de algun modo, y esto se plantea con una fuente externa de \SI[]{12}{\volt} a \SI[]{18}{\volt} que ingresa del lado de potencia, de la cuál luego se derivan otras tensiones. Para obtener estas tensiones se utilizan reguladores lineales, como el {\Medium LM7805} de \SI{5}{\volt} y el {\Medium LP2985-3.3} de \SI[]{3.3}{\volt}. Para obtener fuentes aisladas para la sección digital, se utiliza la fuente aislada de \SI[]{5}{\volt} {\Medium THB-1211 de Traco Power}.\\
+A continuación, se trató el diseño e implementación del sistema de control digital de la plataforma, remarcando todos los periféricos utilizados, y luego describiendo el circuito de conversión de datos UART a USB y el funcionamiento del puerto JTAG para debugging y carga de firmware.\\
 
-{\Bold\scshape Falta completar la parte del sistema de control}\\
+Todos estos integrados deben ser alimentados de algun modo, y esto se plantea con una fuente externa de \SI[]{12}{\volt} a \SI[]{18}{\volt} que ingresa del lado de potencia, de la cuál luego se derivan otras tensiones. Para obtener estas tensiones se utilizan reguladores lineales, como el {\Medium LM7805} de \SI{5}{\volt} y el {\Medium LP2985-3.3} de \SI[]{3.3}{\volt}. Para obtener fuentes aisladas para la sección digital, se utiliza la fuente aislada de \SI[]{5}{\volt} {\Medium THB-1211 de Traco Power}.\\
 
 Estos diseños son los que en el siguiente capítulo serán implementados en una placa de circuito impreso (PCB) compacta, para finalizar la implementación de la plataforma experimentar de evaluación de pilas de combustible.\\
