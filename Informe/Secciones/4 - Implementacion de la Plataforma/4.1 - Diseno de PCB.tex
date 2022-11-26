@@ -117,13 +117,15 @@ En el caso de las tres puestas a tierra, se utilizó la funcionalidad \textit{fi
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.25]{Imagenes/Planos TMCS1100.png}
+    \includegraphics[scale=0.24]{Imagenes/Planos TMCS1100.png}
     \caption{Layout de conexión recomendado para el sensor de efecto Hall TMCS1100A4, utilizando planos de cobre.\textsuperscript{\cite{TMCS1100}}}
     \label{plano_tierra_tmcs}
 \end{figure}
 
+Para asegurarse en caso de necesidad, se integró al diseño de las tierras de la placa un pequeño circuito con resistencias y capacitores, que en caso de ser soldados a la placa permiten la unificación de las distintas puestas a tierra en una única masa unificada.\\
+
 En algunos casos se utilizó esta funcionalidad del programa para otros planos
-no conectados a tierra, en particular para planos de alimentación de \SI[]{5}{\volt} del lado digital; y para los pines de sensado de corriente por efecto Hall del TMCS1100A4, según indicado en la hoja de datos del fabricante, cómo se ve en la figura \ref{plano_tierra_tmcs}.\\
+no conectados a tierra, en particular para planos de alimentación de \SI[]{5}{\volt} del lado digital; y para los pines de sensado de corriente por efecto Hall del TMCS1100A4, según indicado en la hoja de datos del fabricante, cómo se ve en la figura \ref{plano_tierra_tmcs}.
 
 \subsubsection{Fabricación y Resultado}
 
