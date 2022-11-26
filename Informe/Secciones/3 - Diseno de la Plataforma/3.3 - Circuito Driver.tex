@@ -85,7 +85,7 @@ El circuito de bootstrap es un circuito compuesto por tres elementos en serie: u
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=1]{Imagenes/Circuito Bootstrap.png}
+    \includegraphics[scale=0.9]{Imagenes/Circuito Bootstrap.png}
     \caption{Circuito bootstrap con diodo y resistencia serie internos del 2ED21834-S06J.\textsuperscript{\cite{DatasheetDriver}}}
     \label{circuito_bootstrap}
 \end{figure}
@@ -104,15 +104,15 @@ Esta capacidad de gate se puede calcular en base a la carga de gate total $Q_g$,
     C_g = \frac{Q_g}{V_{cc}-V_{D_{BS}}} = \frac{\SI[]{110}{\nano\coulomb}}{\SI[]{12}{\volt}-\SI[]{1.2}{\volt}} \approx \SI[]{10}{\nano\farad}
 \end{equation}
 
-Por lo tanto, la cota mínima del capacitor de bootstrap resulta:
+Por lo tanto, la cota mínima del valor de capacitor de bootstrap resulta:
 
 \begin{equation}\label{capacidad_bs_min}
     \boxed{\highlight{
     C_{BS} > \SI[]{0.1}{\micro\farad} = 10\cdot C_g}}
 \end{equation}
 
-Como este valor es muy pequeño, y la hoja de datos del driver indica que se pueden utilizar capacidades $C_{BS}$ de hasta \SI[]{4.7}{\micro\farad}, se decidió utilizar un capacitor electrolítico de montaje through-hole, \SI[]{3.3}{\micro\farad} de capacidad y tensión máxima de \SI[]{50}{\volt}. Adicionalmente, según recomendación del fabricante, se agregó un capacitor cerámico de mucho menor valor (C33 en el circuito) en paralelo a $C_{BS}$ para obtener una solución óptima.\\
+Como este valor es muy pequeño, y la hoja de datos del driver indica que se pueden utilizar capacidades $C_{BS}$ de hasta \SI[]{4.7}{\micro\farad}, se decidió utilizar un capacitor electrolítico de montaje THT, \SI[]{3.3}{\micro\farad} de capacidad y tensión máxima de \SI[]{50}{\volt}. Adicionalmente, según recomendación del fabricante, se agregó un capacitor cerámico de mucho menor valor en paralelo a $C_{BS}$ para obtener una solución óptima.\\
 
 \paragraph{Resistencia de VS}
 
-La resistencia colocada en serie al pin VS, identificador R20 en el diagrama de la figura \ref{circuito_driver}, según la hoja de datos del fabricante, cumple el objetivo de reducir los picos negativos de tensión al momento de la conmutación, inducidos en VS por elementos parásitos de la placa de circuito impreso. Se indica que esta debe ser una resistencia con un valor máximo de \SI[]{5}{\ohm}\textsuperscript{\cite{DatasheetDriver}}, por lo que se decidió por colocar un pequeño resistor SMD 1206 de \SI[]{2}{\ohm}.\\
+La resistencia colocada en serie al pin VS, con el identificador R20 en el diagrama de la figura \ref{circuito_driver}, cumple el objetivo de reducir los picos negativos de tensión al momento de la conmutación inducidos en VS por elementos parásitos de la placa de circuito impreso. Se indica que esta debe ser una resistencia con un valor máximo de \SI[]{5}{\ohm}\textsuperscript{\cite{DatasheetDriver}}, por lo que se decidió por colocar un pequeño resistor SMD 1206 de \SI[]{2}{\ohm}.\\
