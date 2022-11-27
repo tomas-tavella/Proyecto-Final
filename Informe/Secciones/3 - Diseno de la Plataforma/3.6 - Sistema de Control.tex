@@ -15,7 +15,7 @@ El módulo de controlCARD en el que se encuentra el TMS320F28335 se conecta medi
     \label{dimm100}
 \end{figure}
 
-Estos pines de GPIO pueden ser configurados mediante un registro del DSC para cambiar su funcionalidad: cada pin cuenta con un multiplexor, de manera que, por ejemplo, el pin GPIO00 puede funcionar como pin de entrada/salida general, o bien como salida de la señal ePWM1A del módulo ePWM. Entonces, si observamos el \textit{pinout} de la controlCARD, podemos decidir cuáles pines del conector asignar para cada funcionalidad.\\
+Estos pines de GPIO pueden ser configurados mediante un registro del DSC para cambiar su funcionalidad: cada pin cuenta con un multiplexor, de manera que, por ejemplo, el pin GPIO 0 puede funcionar como pin de entrada/salida general, o bien como salida de la señal ePWM1A del módulo ePWM. Entonces, si observamos el \textit{pinout} de la controlCARD, podemos decidir cuáles pines del conector asignar para cada funcionalidad.\\
 
 \paragraph{Salidas ePWM}
 
@@ -23,7 +23,7 @@ Como se mencionó en el capítulo \ref{analisis}, el TMS320F28335 cuenta con sei
 
 Estos pines se van a utilizar de manera que las dos salidas del módulo ePWM1 controlan la pata izquierda del puente, y las dos del módulo ePWM2 controlar la pata derecha. Las dos salidas de cada módulo se configuran para estar en contrafase, con un dead-time agregado entre estas señales de \SI[]{200}{\nano\second}. Luego, internamente se conecta la salida de sincronización SYNCO del primer módulo a la entrada de sincronización SYNCI del segundo módulo, y mediante el registro de fase del segundo módulo se controla su fase relativa a ePWM1, logrando una implementación del control de ciclo de trabajo mediante phase-shift que se explicó en la descripción del convertidor.\\
 
-Las señales ePWM utilizadas, junto con las señales ePWM3A y ePWM3B (GPIO 4 y 5) del tercer módulo del DSC son conectadas también a una tira de pines para facilitar la medición de estas señales con un osciloscopio. Además, las señales del tercer módulo se pueden utilizar para implementar una funcionalidad adicional por fuera de los componentes de la placa.\\
+Las señales ePWM utilizadas, junto con las señales ePWM3A y ePWM4A (GPIO 4 y 6) del tercer módulo del DSC son conectadas también a una tira de pines para facilitar la medición de estas señales con un osciloscopio. Además, las señales del tercer módulo se pueden utilizar para implementar una funcionalidad adicional por fuera de los componentes de la plataforma.\\
 
 \paragraph{Entradas de ADC}
 
@@ -55,11 +55,13 @@ En el controlador, este protocolo se implementa para conectar un módulo para le
 
 \subsubsection{Puerto JTAG}
 
-\lipsum[1]\\
+JTAG, del inglés \textit{Joint Test Action Group}, es un estándar industrial que implementa un método integrado para verificar diseños y comprobar conexiones de circuitos impresos luego de la fabricación. También incluye funcionalidad de programación en el sistema o \textit{in-system programming} que permite programar un dispositivo ya instalado en un sistema completo, y capacidad de realizar debugging de firmware.\\
+
+La representación física de este protocolo es un puerto, a través del cual el dispositivo se conecta a un programador y a una computadora que permite cargar programas y realizar debugging. Para los controladores de la serie C2000 se implementa un puerto JTAG de 7x2 pines, los cuáles están asignados a los últimos terminales del conector DIMM-100 de la controlCARD.\\
 
 \subsubsection{Comunicación por USB}
 
-\lipsum[2]\\
+Para implementar la comunicación por puerto tipo USB-B, como ya se mencionó, se utiliza el protocolo serie UART. Sin embargo, los formatos de datos de USB y UART son distintos, por lo que de debe implementar algún tipo de circuito que convierta y adapte el formato de datos entre ambos protocolos. Para cumplir esta función, se utilizó un circuito integrado USB-UART modelo {\Medium FT232BL de FTDI Chip} como el de la figura \ref{ft232bl}, que implementa una variedad de funciones y tiene salida USB compatible con todos los sistemas operativos importantes.\\
 
 \begin{figure}[h]
     \centering
@@ -68,8 +70,14 @@ En el controlador, este protocolo se implementa para conectar un módulo para le
     \label{ft232bl}
 \end{figure}
 
-\lipsum[3]\\
+Según indicación de la hoja de datos del fabricante, se colocó un oscilador de cristal de \SI[]{6}{\mega\hertz} de dos pines que requiere dos capacitores de carga adicionales. Adicionalmente, se implementaron LEDs para indicar la recepción y transmisión de datos, y un circuito para el reset del integrado utilizando un pulsador.\textsuperscript{\cite{DatasheetFT232BL}}\\
+
+Además, se implementaron circuitos de alimentación de USB, independientes de la alimentación externa de \SI[]{12}{\volt} de la plataforma, con una línea de \SI[]{5}{\volt} proveniente directamente del puerto USB y una línea de \SI[]{3.3}{\volt} derivada de la alimentación USB mediante un regulador lineal LP2985-3.3 como el que se utilizó para la alimentación de \SI[]{3.3}{\volt} de la parte digital del sistema.\\
+
+Finalmente, se agregó un circuito de \textit{soft start} o arranque suave, utilizando un MOSFET de canal P modelo IRF7425, un capacitor de \SI[]{0.1}{\micro\farad} y un resistor de \SI[]{1}{\kilo\ohm}, para limitar los picos de corriente en encendido, que podrían ser lo suficientemente grandes como para resetar el FT232BL.\\
 
 \subsubsection{Entrada/Salida General}
 
-\lipsum[4]\\
+Además de todos estos periféricos, se utilizaron algunos puertos GPIO libres para implementar algún tipo de interfaz con el usuario: los puertos GPIO 49, 59, 61 y 63 se conectan cada uno a un LED de montaje superficial y se configuran como salida; y los puertos GPIO 5, 7 , 9 y 11 se conectan a cuatro pulsadores y se configuran como puerto de entrada.\\
+
+También se colocó una tira de pines extra que conecta a los puertos GPIO 13, 14, 58, 60, 62 y 85 sin utilizar, para dejarlos disponibles en caso de que se quisiera implementar alguna funcionalidad de entrada/salida adicional por fuera de la plataforma.\\
