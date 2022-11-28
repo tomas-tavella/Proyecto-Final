@@ -56,7 +56,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 
 %% Fase 30° %%
@@ -79,7 +79,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 %% Fase 60° %%
 
@@ -101,7 +101,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 
 %% Fase 90° %%
@@ -124,7 +124,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 
 %% Fase 120° %%
@@ -147,7 +147,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 
 %% Fase 150° %%
@@ -170,7 +170,7 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
 
 %% Fase 180° %%
@@ -193,5 +193,5 @@ ax.FontName = 'Noto Sans Medium';
 xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
 ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 f = gcf;
-f.Position = [100 100 392 248] 
+f.Position = [100 100 450 340] 
 axis([0 100 -10 40]);
