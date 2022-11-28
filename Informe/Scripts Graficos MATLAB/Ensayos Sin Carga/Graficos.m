@@ -38,203 +38,160 @@ set(groot,'defaultAxesTickLabelInterpreter','none');
 
 %% Fase 0° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_0,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_0,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 10]);
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_0,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_0,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_0,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_0,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
 
 %% Fase 30° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_30,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_30,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_30,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_30,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_30,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_30,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
 %% Fase 60° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_60,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_60,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_60,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_60,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_60,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_60,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
 
 %% Fase 90° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_90,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_90,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_90,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_90,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_90,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_90,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
 
 %% Fase 120° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_120,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_120,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_120,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_120,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_120,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_120, 'gaussian', 5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
 
 %% Fase 150° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_150,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_150,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_150,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_150,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_150,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_150,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
 
 %% Fase 180° %%
 
-subplot(3,1,1);
-%set(gca, 'FontName', 'Montserrat');
-plot(t, smoothdata(Voutput_180,'gaussian',5), 'LineWidth', 1.5, 'Color','#0064A5'); hold on; grid on;
+subplot(2,1,1);
+%set(gca, 'FontName', 'Noto Sans');
+plot(t, smoothdata(Voutput_180,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName',   'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+%xlabel('Tiempo [μs]', 'FontName',   'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
 axis([0 100 -40 40]);
 
-subplot(3,1,2);
-plot(t, smoothdata(Vleg1_180,'gaussian',5), 'LineWidth', 1.5, 'Color', '#0064A5'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
+subplot(2,1,2);
+plot(t, smoothdata(Vleg1_180,'gaussian',5), 'LineWidth', 1, 'Color', '#0064A5'); hold on; grid on;
+plot(t, smoothdata(Vleg2_180,'gaussian',5), 'LineWidth', 1, 'Color', '#A54100'); hold on; grid on;
+%legend('v_p^+','v_p^-','Location','south','Orientation','horizontal');
 ax = gca;
-ax.FontName = 'Montserrat Medium';
-%xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
-axis([0 100 -10 40]);
-
-subplot(3,1,3);
-plot(t, smoothdata(Vleg2_180,'gaussian',5), 'LineWidth', 1.5, 'Color', '#A54100'); hold on; grid on;
-%plot(t_leg, smoothdata(VprimarioMinus,'gaussian',5)-30, 'LineWidth',1.5); hold on; grid on;
-ax = gca;
-ax.FontName = 'Montserrat Medium';
-xlabel('Tiempo [us]', 'FontName', 'Montserrat SemiBold');
-ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+ax.FontName = 'Noto Sans Medium';
+xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
+f = gcf;
+f.Position = [100 100 392 248] 
 axis([0 100 -10 40]);
