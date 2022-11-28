@@ -63,148 +63,148 @@ set(groot,'defaultAxesTickLabelInterpreter','none');
 
 subplot(2,1,1);
 yyaxis left;
-plot(En1.t50, smoothdata(En1.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(24.25,':','24,2 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right');
+plot(En1.t50, smoothdata(En1.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(24.25,':','24,2 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-%xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+%xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En1.Vrect)-0.1*(abs(max(En1.Vrect)-min(En1.Vrect)))) (max(En1.Vrect)+0.1*(abs(max(En1.Vrect)-min(En1.Vrect))))]);
 yyaxis right;
-plot(En1.t50, smoothdata(En1.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En1.t50, smoothdata(En1.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En1.t50, circshift(En1.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,0.267,'0,24 A','Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+text(0.5,0.261,'0,24 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En1.ILf)-0.1*(abs(max(En1.ILf)-min(En1.ILf)))) (max(En1.ILf)+0.1*(abs(max(En1.ILf)-min(En1.ILf))))]);
 
 subplot(2,1,2);
-plot(En1.t50, smoothdata(En1.Vs,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-%plot(En1.t100, smoothdata(En1.Vout,'gaussian',5),'--' , 'LineWidth', 1, 'Color','#0064A5');
+plot(En1.t50, smoothdata(En1.Vs,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+%plot(En1.t100, smoothdata(En1.Vout,'gaussian',3),'--' , 'LineWidth', 1, 'Color','#0064A5');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En1.Vs)-0.05*(abs(max(En1.Vs)-min(En1.Vs)))) (max(En1.Vs)+0.05*(abs(max(En1.Vs)-min(En1.Vs))))]);
 f = gcf;
-f.Position = [100 100 428 310]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 330]      % Posición y tamaño de la ventana
 
 %% Caso II %%
 
 %subplot(2,1,1);
 yyaxis left;
-plot(En2.t50, smoothdata(En2.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(23.72,':','23,7 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right');
+plot(En2.t50, smoothdata(En2.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(23.72,':','23,7 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En2.Vrect)-0.1*(abs(max(En2.Vrect)-min(En2.Vrect)))) (max(En2.Vrect)+0.1*(abs(max(En2.Vrect)-min(En2.Vrect))))]);
 yyaxis right;
-plot(En2.t50, smoothdata(En2.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En2.t50, smoothdata(En2.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En2.t50, circshift(En2.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,0.497,'0,47 A','Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+text(0.5,0.491,'0,47 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En2.ILf)-0.1*(abs(max(En2.ILf)-min(En2.ILf)))) (max(En2.ILf)+0.1*(abs(max(En2.ILf)-min(En2.ILf))))]);
 f = gcf;
-f.Position = [100 100 428 156]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 160]      % Posición y tamaño de la ventana
 
 %% Caso V %%
 
 subplot(2,1,1);
 yyaxis left;
-plot(En5.t50, smoothdata(En5.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(37.09,':','37 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right','LabelVerticalAlignment','bottom');
+plot(En5.t50, smoothdata(En5.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(37.09,':','37 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','LabelVerticalAlignment','bottom','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-%xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+%xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En5.Vrect)-0.1*(abs(max(En5.Vrect)-min(En5.Vrect)))) (max(En5.Vrect)+0.1*(abs(max(En5.Vrect)-min(En5.Vrect))))]);
 yyaxis right;
-plot(En5.t50, smoothdata(En5.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En5.t50, smoothdata(En5.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En5.t50, circshift(En5.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,0.388,'0,37 A','Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+text(0.5,0.386,'0,37 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En5.ILf)-0.1*(abs(max(En5.ILf)-min(En5.ILf)))) (max(En5.ILf)+0.1*(abs(max(En5.ILf)-min(En5.ILf))))]);
 
 subplot(2,1,2);
-plot(En5.t100, smoothdata(circshift(En5.Vs,-310),'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-%plot(En5.t100, smoothdata(En5.Vout,'gaussian',5),'--' , 'LineWidth', 1, 'Color','#0064A5');
+plot(En5.t100, smoothdata(circshift(En5.Vs,-310),'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+%plot(En5.t100, smoothdata(En5.Vout,'gaussian',3),'--' , 'LineWidth', 1, 'Color','#0064A5');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En5.Vs)-0.05*(abs(max(En5.Vs)-min(En5.Vs)))) (max(En5.Vs)+0.05*(abs(max(En5.Vs)-min(En5.Vs))))]);
 f = gcf;
-f.Position = [100 100 428 315]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 330]      % Posición y tamaño de la ventana
 
 %% Caso VII %%
 
 subplot(2,1,1);
 yyaxis left;
-plot(En7.t50, smoothdata(En7.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(49.63,':','49,6 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right');
+plot(En7.t50, smoothdata(En7.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(49.63,':','49,6 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-%xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+%xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En7.Vrect)-0.1*(abs(max(En7.Vrect)-min(En7.Vrect)))) (max(En7.Vrect)+0.1*(abs(max(En7.Vrect)-min(En7.Vrect))))]);
 yyaxis right;
-plot(En7.t50, smoothdata(En7.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En7.t50, smoothdata(En7.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En7.t50, circshift(En7.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,0.545,'0,49 A','Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+text(0.5,0.540,'0,49 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En7.ILf)-0.1*(abs(max(En7.ILf)-min(En7.ILf)))) (max(En7.ILf)+0.1*(abs(max(En7.ILf)-min(En7.ILf))))]);
 
 subplot(2,1,2);
-plot(En7.t100, smoothdata(circshift(En7.Vs,0),'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-%plot(En7.t100, smoothdata(En7.Vout,'gaussian',5),'--' , 'LineWidth', 1, 'Color','#0064A5');
+plot(En7.t100, smoothdata(circshift(En7.Vs,0),'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+%plot(En7.t100, smoothdata(En7.Vout,'gaussian',3),'--' , 'LineWidth', 1, 'Color','#0064A5');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En7.Vs)-0.05*(abs(max(En7.Vs)-min(En7.Vs)))) (max(En7.Vs)+0.05*(abs(max(En7.Vs)-min(En7.Vs))))]);
 f = gcf;
-f.Position = [100 100 428 315]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 330]      % Posición y tamaño de la ventana
 
 %% Caso IX %%
 
 %subplot(2,1,1);
 yyaxis left;
-plot(En9.t50, smoothdata(En9.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(47.63,':','47,6 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right','LabelVerticalAlignment','bottom');
+plot(En9.t50, smoothdata(En9.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(47.63,':','47,6 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','LabelVerticalAlignment','bottom','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En9.Vrect)-0.1*(abs(max(En9.Vrect)-min(En9.Vrect)))) (max(En9.Vrect)+0.1*(abs(max(En9.Vrect)-min(En9.Vrect))))]);
 yyaxis right;
-plot(En9.t50, smoothdata(En9.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En9.t50, smoothdata(En9.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En9.t50, circshift(En9.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,1.645,'1,58 A','Color','#A54100');
+text(0.5,1.628,'1,58 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
 %yl=yline(Iout,':','LineWidth', 1.5,'Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En9.ILf)-0.1*(abs(max(En9.ILf)-min(En9.ILf)))) (max(En9.ILf)+0.1*(abs(max(En9.ILf)-min(En9.ILf))))]);
 f = gcf;
-f.Position = [100 100 428 156]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 160]      % Posición y tamaño de la ventana
 
 %% Caso X %%
 
 %subplot(2,1,1);
 yyaxis left;
-plot(En10.t50, smoothdata(En10.Vrect,'gaussian',5), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
-yline(27.95,':','27,9 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',9,'LabelHorizontalAlignment','right');
+plot(En10.t50, smoothdata(En10.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(27.95,':','27,9 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','FontName','Montserrat Medium');
 ax = gca;
-ax.FontName = 'Noto Sans Medium';
-ylabel('Tensión [V]', 'FontName', 'Noto Sans SemiBold');
-xlabel('Tiempo [μs]', 'FontName', 'Noto Sans SemiBold');
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En10.Vrect)-0.1*(abs(max(En10.Vrect)-min(En10.Vrect)))) (max(En10.Vrect)+0.1*(abs(max(En10.Vrect)-min(En10.Vrect))))]);
 yyaxis right;
-plot(En10.t50, smoothdata(En10.ILf,'gaussian',5), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En10.t50, smoothdata(En10.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
 plot(En10.t50, circshift(En10.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
-text(0.5,0.976,'0,93 A','Color','#A54100');
+text(0.5,0.964,'0,93 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
 %yl=yline(Iout,':','LineWidth', 1.5,'Color','#A54100');
-ylabel('Corriente [A]','FontName', 'Noto Sans SemiBold');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En10.ILf)-0.1*(abs(max(En10.ILf)-min(En10.ILf)))) (max(En10.ILf)+0.1*(abs(max(En10.ILf)-min(En10.ILf))))]);
 f = gcf;
-f.Position = [100 100 428 156]      % Posición y tamaño de la ventana
+f.Position = [100 100 428 160]      % Posición y tamaño de la ventana
 
