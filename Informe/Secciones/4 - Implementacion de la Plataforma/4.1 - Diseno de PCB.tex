@@ -2,7 +2,7 @@
 
 \subsubsection{Dimensiones y Composición}
 
-Dada la gran cantidad de componentes, muchos de montaje superficial, se decidió apuntar a un diseño de PCB {\Medium doble faz o doble capa}, ya que duplica la superficie disponible para posicionar componentes SMD, además de facilitar el trabajo de ruteo de las pistas de cobre que conectan los componentes,tema que se tratará en detalle más adelante.\\
+Dada la gran cantidad de componentes, muchos de montaje superficial, se decidió apuntar a un diseño de PCB {\Medium doble faz o doble capa}, ya que duplica la superficie disponible para posicionar componentes SMD, además de facilitar el trabajo de ruteo de las pistas de cobre que conectan los componentes, tema que se tratará en detalle más adelante.\\
 
 En tanto a las dimensiones de la placa, desde el comienzo del proceso de implementación se buscó obtener una PCB lo más compacta posible, evitando colocar grandes componentes sobre la superficie de la placa. Es por este motivo que tanto el transformador de alta frecuencia como el inductor del filtro de salida $L_f$, que poseen bobinados y núcleos ferromagnéticos de grandes dimensiones, se colocan fuera de la placa, conectados mediante borneras de alta corriente. El diseño final de la placa, cuyo modelo 3D se observa en la figura \ref{pcb_3d}, resultó con una forma cuadrada de {\Medium 15 cm x 15 cm} aproximadamente, con una superfice total de cobre de {\Medium 450 cm\textsuperscript{2}} por ser doble capa.\\
 
@@ -30,7 +30,7 @@ Antes de comenzar a ubicar los componentes y definir la disposición general de 
     \label{footprints}
 \end{figure}
 
-Con este fin se utilizan páginas tales como SnapEDA o UltraLibrarian, que poseen masivas bibliotecas gratuitas de modelos de componentes, footprints y modelos 3D, de utilidad cuando las bibliotecas incluidas con KiCad no contienen el componente que se necesita. Los circuitos integrados y otros componentes que se mencionaron en el capítulo anterior ya tienen su encapsulado, y por la tanto su footprint, definidas. Sin embargo, muchos componentes pasivos como resistencias, capacitores, diodos y LEDs que no fueron mencionados específicamente vienen en una variedad de empaquetados.\\
+Con este fin se utilizan páginas tales como SnapEDA o UltraLibrarian, que poseen masivas bibliotecas gratuitas de modelos de componentes, footprints y modelos 3D, de utilidad cuando las bibliotecas incluidas con KiCad no contienen el componente que se necesita. Los circuitos integrados y otros componentes que se mencionaron en el capítulo anterior ya tienen su encapsulado y, por la tanto, su footprint, definidas. Sin embargo, muchos componentes pasivos como resistencias, capacitores, diodos y LEDs que no fueron mencionados específicamente vienen en una variedad de empaquetados.\\
 
 La mayor parte de estos componentes pasivos que se encuentran distribuidos sobre la placa se seleccionaron con empaquetados y footprints de montaje superficial de pequeños tamaños, la mayoría de tamaño 1206. Este código numérico indica sus dos dimensiones principales en centésimas de pulgada, que pasado al sistema métrico resulta de \SI[]{3}{\milli\meter} x \SI[]{1.5}{\milli\meter}.\\
 
@@ -129,7 +129,7 @@ no conectados a tierra, en particular para planos de alimentación de \SI[]{5}{\
 
 \subsubsection{Fabricación y Resultado}
 
-Para la fabricación de la placa de circuito impreso que se diseñó, se evaluaron varias opciones de fabricantes locales, finalmente seleccionando al fabricante nacional {\Medium Mayer Circuitos Impresos}, radicado en Capital Federal. Una vez seleccionado, se tomaron los dates de estándares de fabricación disponibles en la página web, que indican las tolerancias de fabricación, y se ingresaron a una interfaz del diseñador de PCB de KiCad llamado \textit{Design Rules Checker}.\\
+Para la fabricación de la placa de circuito impreso que se diseñó, se evaluaron varias opciones de fabricantes locales, finalmente seleccionando al fabricante nacional {\Medium Mayer Circuitos Impresos}, radicado en Capital Federal. Una vez seleccionado, se tomaron los datos de estándares de fabricación disponibles en la página web, que indican las tolerancias de fabricación, y se ingresaron a una interfaz del diseñador de PCB de KiCad llamado \textit{Design Rules Checker}.\\
 
 En base a los datos ingresados, se ejecuta esta herramienta que compara las medidas mínimas ingresadas con las medidas del diseño, e indica los lugares que se encuentran por debajo de la tolerancia mínima. Con esta herramienta se corrigieron múltiples errores y componentes muy cercanos a las tolerancias mínimas, como por ejemplo algunas vías que estaban por debajo del diámetro mínimo.\\
 

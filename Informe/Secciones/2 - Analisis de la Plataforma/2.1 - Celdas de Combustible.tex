@@ -6,10 +6,10 @@ Por estas razones se eligió trabajar con esta tecnología, particularmente con 
 
 \subsubsection{Principio de Funcionamiento}
 
-Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica mediante una corriente y una diferencia de potencial.\textsuperscript{\cite{FC-FundAndAppl}} En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.
+Esencialmente, una celda de combustible es una celda galvánica o celda voltáica en la cual la energía libre de una reacción química redox (entre un combustible y un agente oxidante o \textit{comburente}) se convierte a energía eléctrica, generando una corriente y una diferencia de potencial.\textsuperscript{\cite{FC-FundAndAppl}} En nuestro caso particular, el combustible es el hidrógeno molecular ($H_2$), el agente oxidante es el oxígeno ($O_2$) abundante en la atmósfera, y los productos son la energía eléctrica y el agua ($H_2O$) según indica la siguiente ecuación química balanceada.
 
 \begin{equation}\label{redox_celda}
-    H_2\ +\ \frac{1}{2}O_2\ \longrightarrow\ H_2O
+    H_2\ +\ \frac{1}{2}O_2\ \longrightarrow\ H_2O\ +\ \text{\textit{Energía Eléctrica}}
 \end{equation}
 
 La estructura interna de una celda de combustible, visible en la figura \ref{fuel_cell}, consta de un ánodo (electrodo negativo) al cual ingresan las moléculas de hidrógeno, un cátodo (electrodo positivo) en el que ingresa el oxígeno y se despide el agua, y un electrolito como como interfaz entre ánodo y cátodo. La carga es conectada entre el ánodo y el cátodo.\\
@@ -61,7 +61,7 @@ Habiendo repasado el principio básico de funcionamiento de las celdas de combus
 
 Como las reacciones químicas ocurren en superficies microscópicas dónde alguno de los electrodos está en contacto con el electrolito, generalmente los electrodos se fabrican de materiales porosos que aumentan la posible superficie de contacto entre ambas fases, acelerando las reacciones necesarias para producir energía. Sin embargo, en muchos casos, a temperaturas bajas los materiales de los electrodos no son capaces de producir la suficiente actividad electroquímica, por lo que suelen agregarse pequeñas cantidades de catalizador en las zonas de contacto para acelerar la reacción.\\
 
-En tanto al electrolito, estos suelen estar hechos de materiales en estado líquido o sólido, dependiendo del tipo de celda, pero siempre deben tener una alta conductividad de iones positivos, de manera que los iones $H^{+}$ circulen solo por el elctrolito y no por el circuito externo. Adicionalmente, este material debe actuar de barrera física para evitar que se mezclen los flujos de combustible y comburente.\\
+En tanto al electrolito, estos suelen estar hechos de materiales en estado líquido o sólido, dependiendo del tipo de celda, pero siempre deben tener una alta conductividad de iones positivos, de manera que los iones $H^{+}$ circulen solo por el electrolito y no por el circuito externo. Adicionalmente, este material debe actuar de barrera física para evitar que se mezclen los flujos de combustible y comburente.\\
 
 En tanto a la geometría de las celdas, se ha expermientado con una gran variedad de formas para los electrodos y electrolitos pero, hoy en día las pilas que se producen son mayormente planas, y en algunos casos tubulares.\\
 
@@ -97,7 +97,9 @@ Estas celdas pueden operar con una amplia variedad de combustibles, y, por su al
 
 Las SOFC son celdas que llevan en continuo desarrollo desde mediados del siglo XX, y como indica su nombre, poseen un electrolito compuesto por un óxido en estado sólido, generalmente dióxido de zirconio ($ZrO_2$) o dióxido de cerio ($CeO_2$). Operan en rangos de temperatura muy elevados, de entre \SI{600}{\celsius} y \SI{1000}{\celsius}.\\
 
-Estas celdas tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías. Además, todos sus materiales son de costo moderado. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+Las SOFC se destacan por sus altos niveles de eficiencia, pudiendo llegar a valores mayores al 60\%. Tienen la ventaja de tener un electrolito sólido, frenando la corrosión y permitiendo la fabricación en distintas geometrías, todo utilizando materiales de costo moderado. Además, este tipo de celda tiene la capacidad de operar como electrolizador y producir hidrógeno como combustible almacenable, con eficiencias que pueden superar el 80\%. Como clara desventaja se encuentra la alta temperatura de operación, que trae problemas similares a los de las MCFC.\textsuperscript{\cite{FC-FundAndAppl}\cite{FCHandbook}}\\
+
+% ¨pueden operar como pilas de combustible (SOFC), generando energía eléctrica a partir de hidrógeno, o como electrolizadores (SOEC), para producir hidrogeno como combustible almacenable. Las SOC se destacan por su alta eficiencia, la cual puede alcanzar valores mayores al 60 % y al 80 % en las SOFC y SOEC, respectivamente. ¨
 
 \paragraph{Celda de Combustible de Ácido Fosofórico (PAFC)}
 
@@ -235,7 +237,7 @@ Para obtener la tensión de una pila, solo es necesario multiplicar la tensión 
 
 \subsubsection{Emulador de Celdas de Combustible}
 
-Esta plataforma se basa en la utilización de un modelo comercial particular de pila de combustible: el módulo H-300 de la serie H de pilas de combustible de Horizon Fuel Cell Technologies de la figura \ref{H300}. Esta es una pila de combustible de \SI[]{300}[]{\watt} enfriada por aire del tipo PEMFC, qur consiste en un stack de \num{60} celdas. Su desempeño nominal es de \SI[]{36}[]{\volt} de tensión a \SI[]{9}[]{\ampere} de corriente y tiene una tensión de circuito abierto de aproximadamente \SI[]{60}[]{\volt}.\textsuperscript{\cite{HSeriesBrochure}}\\
+Esta plataforma está diseñada para la utilización de un modelo comercial particular de pila de combustible: el módulo H-300 de la serie H de pilas de combustible de \textit{Horizon Fuel Cell Technologies} de la figura \ref{H300}. Esta es una pila de combustible de \SI[]{300}[]{\watt} enfriada por aire del tipo PEMFC, qur consiste en un stack de \num{60} celdas. Su desempeño nominal es de \SI[]{36}[]{\volt} de tensión a \SI[]{9}[]{\ampere} de corriente y tiene una tensión de circuito abierto de aproximadamente \SI[]{60}[]{\volt}.\textsuperscript{\cite{HSeriesBrochure}}\\
 
 \begin{figure}[h]
     \centering
