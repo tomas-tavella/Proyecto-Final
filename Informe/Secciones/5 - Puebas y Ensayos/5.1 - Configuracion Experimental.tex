@@ -11,9 +11,11 @@ Para realizar todos los ensayos, se utilizó como instrumento de medición un os
 
 Para poder realizar todas las pruebas, también fue necesaria la programación de un firmware mínimo que pusiera en funcionamiento los módulos ePWM necesarios para generar las señales de comando, que luego son enviadas a los circuitos driver y generan la excitación del puente de MOSFET. Además, se agregó un código que, mediante interrupciones externas, varía el ciclo de trabajo mediante el accionamiento de dos pulsadores, y genera una indicación del mismo utilizando cuatro LEDs.\\
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[scale=1.1]{Imagenes/Grafico DC50 RL100 VIN30.pdf}
-%    \caption{Tensión rectificada $V_{rect}$ y corriente de inductor $I_{Lf}$ para una carga de \SI[]{100}{\ohm}, ciclo de trabajo de 50\% y tensión de entrada de \SI[]{30}{\volt}.}
-%    \label{dc50_rL100_vin30}
-%\end{figure}
+Este firmware se programó en lenguaje C, utilizando el IDE provisto por Texas Instruments, llamado \textit{Code Composer Studio} (CCS), que incluye un compilador, bibliotecas y las herramientas de software necesarias para cargar los programas al controlador. Como la carga y debugging del firmware se realiza a través del puerto JTAG, se utiliza una \textit{docking station} para el controlador, provista por Texas Instruments, que cuenta con la capacidad de emular la funcionalidad de JTAG a través de USB, y actúa como intermediario entre el puerto USB de la computadora y el puerto JTAG de la plataforma.\\ 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{Imagenes/Docking Station.png}
+    \caption{Docking station para controlCARD de la serie C2000, con el puerto USB y JTAG a la derecha.}
+    \label{docking_station}
+\end{figure}
