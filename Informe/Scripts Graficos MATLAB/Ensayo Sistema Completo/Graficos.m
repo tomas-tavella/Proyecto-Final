@@ -18,6 +18,15 @@ En2.ILf = readtable('15V/2 - DC50.RL50 - ILF.CSV').Var5;
 En2.IoutMean = 0.470*ones(2500,1);
 % Iin 0.82A , Pin 12.3W , Vout 23.72V , Iout 470mA , Pout 11.15W
 
+% 15V / DC25 / RL100
+En3.t50 = (readtable('15V/3 - DC25.RL100 - VRECT.CSV').Var4 - min(readtable('15V/3 - DC25.RL100 - VRECT.CSV').Var4))*10^6;
+En3.t100 = (readtable('15V/3 - DC25.RL100 - VS.CSV').Var4 - min(readtable('15V/3 - DC25.RL100 - VS.CSV').Var4))*10^6;
+En3.Vrect = readtable('15V/3 - DC25.RL100 - VRECT.CSV').Var5;
+En3.ILf = readtable('15V/3 - DC25.RL100 - ILF.CSV').Var5;
+En3.Vs = readtable('15V/3 - DC25.RL100 - VS.CSV').Var5;
+En3.IoutMean = 0.110*ones(2500,1);
+% Iin 0.97A , Pin 14.55W , Vout 37.09V , Iout 366mA , Pout 13.58W
+
 % 15V / DC75 / RL100
 En5.t50 = (readtable('15V/5 - DC75.RL100 - VRECT.CSV').Var4 - min(readtable('15V/5 - DC75.RL100 - VRECT.CSV').Var4))*10^6;
 En5.t100 = (readtable('15V/5 - DC75.RL100 - IOUT.CSV').Var4 - min(readtable('15V/5 - DC75.RL100 - IOUT.CSV').Var4))*10^6;
@@ -107,6 +116,35 @@ ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
 axis([0 50 (min(En2.ILf)-0.1*(abs(max(En2.ILf)-min(En2.ILf)))) (max(En2.ILf)+0.1*(abs(max(En2.ILf)-min(En2.ILf))))]);
 f = gcf;
 f.Position = [100 100 428 160]      % Posición y tamaño de la ventana
+
+%% Caso III %%
+
+subplot(2,1,1);
+yyaxis left;
+plot(En3.t50, smoothdata(En3.Vrect,'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+yline(11.4,':','11,4 V', 'LineWidth', 1.5, 'Color','#0064A5','FontSize',8,'LabelHorizontalAlignment','right','LabelVerticalAlignment','top','FontName','Montserrat Medium');
+ax = gca;
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+%xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
+axis([0 50 (min(En3.Vrect)-0.1*(abs(max(En3.Vrect)-min(En3.Vrect)))) (max(En3.Vrect)+0.1*(abs(max(En3.Vrect)-min(En3.Vrect))))]);
+yyaxis right;
+plot(En3.t50, smoothdata(En3.ILf,'gaussian',3), 'LineWidth', 1, 'Color','#A54100'); hold on; grid on;
+plot(En3.t50, circshift(En3.IoutMean,200),':','LineWidth', 1.5, 'Color','#A54100');
+text(0.5,0.126,'0,11 A','Color','#A54100','FontSize',8,'FontName','Montserrat Medium');
+ylabel('Corriente [A]','FontName', 'Montserrat SemiBold');
+axis([0 50 (min(En3.ILf)-0.1*(abs(max(En3.ILf)-min(En3.ILf)))) (max(En3.ILf)+0.1*(abs(max(En3.ILf)-min(En3.ILf))))]);
+
+subplot(2,1,2);
+plot(En3.t50, smoothdata(circshift(En3.Vs,0),'gaussian',3), 'LineWidth', 1, 'Color','#0064A5'); hold on; grid on;
+%plot(En3.t100, smoothdata(En3.Vout,'gaussian',3),'--' , 'LineWidth', 1, 'Color','#0064A5');
+ax = gca;
+ax.FontName = 'Montserrat Medium';
+ylabel('Tensión [V]', 'FontName', 'Montserrat SemiBold');
+xlabel('Tiempo [μs]', 'FontName', 'Montserrat SemiBold');
+axis([0 50 (min(En3.Vs)-0.05*(abs(max(En3.Vs)-min(En3.Vs)))) (max(En3.Vs)+0.05*(abs(max(En3.Vs)-min(En3.Vs))))]);
+f = gcf;
+f.Position = [100 100 428 330]      % Posición y tamaño de la ventana
 
 %% Caso V %%
 
