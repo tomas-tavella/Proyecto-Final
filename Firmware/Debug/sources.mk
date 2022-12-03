@@ -112,4 +112,9 @@ PDE_DEPS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
+Includes/LM5056/common \
+sources/DSP28335 \
+sources/LM5056 \
+sources/TMC1100 \
+sources/submodules \
 

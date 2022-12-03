@@ -2,145 +2,159 @@
  * main.c
  **/
 
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
 #include "math.h"
-#include "DSP2833x_Device.h"
-#include "ConfigInit.h"
 
-#define T 0.00005
+#include "TMC1100.h"
+#include "LM5056_I2C.h"
+#include "LM5056.h"
 
-// Ángulos comunes de desfase entre patas
-#define DEG5 188                   // 5% del máximo desfasaje (9.024°)
 
+/* Local functions declaration */
+void MyDelay(long);
+
+/* Extern functions declaration */
 extern void InitSysCtrl(void);
 extern void InitPieCtrl(void);
 extern void InitPieVectTable(void);
-void MyDelay(long);
-void IndicatePhase(void);
+extern void scia_initialize(void);
+extern void user_task(int, Uint32, int);
+extern void timerConfig(int, int);
+extern void user_configuration(void);
+extern void LM5056_I2CA_Init(void);
+extern void ADC_Init(void);
+extern void ConfigEPWM1(void);
+extern void ConfigEPWM2(void);
+
 
 __interrupt void xint1_isr(void);
 __interrupt void xint2_isr(void);
 
-Uint16 phase = 0;       // Cada incremento es 0.048° (6.67ns) de desfase  ==>  0 es 180°, 625 es 150°, 1250 es 120°, 3750 es 0° y 1875 es 90°
+
+/* Extern variables declaration */
+
+extern struct I2Cmsg *CurrentMsgPtr;
+extern Uint16 data[12];
 
 void main(void)
 {
-    InitSysCtrl();          //Configura el DSP a 150Mhz, desahabilita el watchdog y habilita todos los clock de perifericos
-    DINT;
 
+    /**********************************************/
+    /* Configuración del DSP general: CLK,WD, etc */
+    /**********************************************/
+
+    InitSysCtrl();          //Configura el DSP a 150Mhz, desahabilita el watchdog y habilita todos los clock de perifericos
+
+    // High-Speed Peripheral clock HSPCLK = SYSCLK_OUT/(2*HISPCP)
+    EALLOW;
+    SysCtrlRegs.HISPCP.all = 0x3;
+    EDIS;
+    /**********************************************/
+    /********** FIN CONFIG DSP GENERAL ************/
+    /**********************************************/
+
+/*************************************************************/
+    EPwm1Regs.TBCTL.bit.CTRMODE = 3; //En RST on, no desactiva PWM. Razon?
+    /**********************************************/
+    /* Configuración del vector de interrupciones */
+    /**********************************************/
+    DINT;
     InitPieCtrl();
+
+    PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
+    PieCtrlRegs.PIEIER3.bit.INTx1 = 1;
+    PieCtrlRegs.PIEIER1.bit.INTx6 = 1;
+
     // Disable CPU interrupts and clear all CPU interrupt flags:
     IER = 0x0000;
     IFR = 0x0000;
     InitPieVectTable();
 
-    EALLOW;  // This is needed to write to EALLOW protected registers
-    PieVectTable.XINT1 = &xint1_isr;
-    PieVectTable.XINT2 = &xint2_isr;
-    EDIS;   // This is needed to disable write to EALLOW protected registers
+    /**********************************************/
+    /********* FIN CONFIG INTERRUPCIONES **********/
+    /**********************************************/
 
-    ConfigGPIO();
+/*************************************************************/
+
+    /**********************************************/
+    /**** Inicialización de módulos/periféricos ***/
+    /**********************************************/
+
+    /* Inicialización del Timer 1 como contador de milisegundos - "time_ms" variable */
+    InitCpuTimers();
+    timerConfig(1,1);
+
+    /* Inicialización del puerto Serie */
+    scia_initialize();
+
+    /* Configuración del I2C para monitor de energía LM5056 */
+    LM5056_I2CA_Init();
+
+    /* Inicialización de funciones de usuario de propósito general - Leds, SWs, funciones de baja latencia, etc. */
+    user_configuration();
+
+    /* Inicialización del módulo ADC para lectura de Iout */
+    ADC_Init();
+
+
+    /* Inicialización del módulo ePWM1 y ePWM2 */
     ConfigEPWM1();
     ConfigEPWM2();
-    ConfigInterrupt();
-    ConfigLPM();
 
-    EPwm2Regs.TBPHS.half.TBPHS = phase;
 
-    while(1)
+    /**********************************************/
+    /******* FIN CONFIG MODULOS/PERIFÉRICOS *******/
+    /**********************************************/
+
+/*************************************************************/
+
+
+    //
+    // Enable CPU INT8 which is connected to PIE group 8
+    //
+
+
+    // Enable XINT1 and XINT2 in the PIE: Group 1 interrupt 4 & 5
+    // Enable int1 which is connected to WAKEINT:
+    PieCtrlRegs.PIECTRL.bit.ENPIE = 1;          // Enable the PIE block
+                           // Enable Global Interrupts
+    IER |= M_INT8;
+    IER |= M_INT3;
+    IER |= M_INT1;      // Enable CPU Interrupt 1
+    EINT;
+
+/*************************************************************/
+
+    /**********************************************/
+    /************ COMIENZO DE PROGRAMA ************/
+    /**********************************************/
+
+    for(;;)
     {
-        asm(" IDLE");          // Activa el Low Power Mode (LPM) configurado en LPMCR0 (Idle en este caso)
-        //MyDelay(1000);
-    }
+
+       /* Programas de usuario, low latency applications */
+       ////////////////////////////////////////////////////
+
+
+       // User Task 1: Read power monitor LM5056 y TMC1100
+            user_task(1,10,1);
+
+       // User Task 10: Set ePWM phase from buttons GPIO5 and GPIO 7
+            user_task(10,250,1);
+
+       // User Task 11: Serial Interface
+            user_task(11,3000,1);
+
+       // User Task 12: Blink - 0.5s
+            user_task(12,500,1);
+   }
+
+    /**********************************************/
+    /*************** FIN DE PROGRAMA **************/
+    /**********************************************/
+
+/*************************************************************/
 }
 
-void MyDelay(long k)
-{
-    do
-    {
-        asm(" nop");
-    }while(k--);
-
-    return;
-}
-
-
-// Indica el procentaje de desfase entre patas con los 4 leds (Todos apagados == Desfase completo)
-void IndicatePhase(void)
-{
-    if (phase <= 375){                               // Hasta 10% ==> Todos apagados
-        GpioDataRegs.GPBCLEAR.bit.GPIO49 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO63 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO61 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO59 = 1;
-    }
-
-    if (phase > 375  && phase <= 938){              // De 10% a 25% ==> Uno prendido
-        GpioDataRegs.GPBSET.bit.GPIO49 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO63 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO61 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO59 = 1;
-    }
-
-    if (phase > 938 && phase <= 1875){              // De 25% a 50% ==> Dos prendidos
-        GpioDataRegs.GPBSET.bit.GPIO49 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO63 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO61 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO59 = 1;
-    }
-
-    if (phase > 1875 && phase <= 3375){             // De 50% a 90% ==> Tres Prendidos
-        GpioDataRegs.GPBSET.bit.GPIO49 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO63 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO61 = 1;
-        GpioDataRegs.GPBCLEAR.bit.GPIO59 = 1;
-    }
-
-    if (phase > 3375){                              // De 90% para arriba ==> Cuatro Prendidos
-        GpioDataRegs.GPBSET.bit.GPIO49 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO63 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO61 = 1;
-        GpioDataRegs.GPBSET.bit.GPIO59 = 1;
-    }
-
-    return;
-}
-
-// --------------------------------------------------------------------------------------- //
-// -------------------------------- Interrupt Subroutines -------------------------------- //
-// --------------------------------------------------------------------------------------- //
-
-__interrupt void xint2_isr(void)
-{
-    if (phase >= DEG5){
-        phase -= DEG5;
-    }else{
-        phase = 0;
-    }
-    EPwm2Regs.TBPHS.half.TBPHS = phase;
-
-    IndicatePhase();
-
-    MyDelay(500000);
-
-    // Habilita de vuelta los interrupts del Grupo 1 PIE
-    PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
-    return;
-}
-
-__interrupt void xint1_isr(void)
-{
-    if (phase <= (3750-DEG5)){
-        phase += DEG5;
-    }else{
-        phase = 3750;
-    }
-    EPwm2Regs.TBPHS.half.TBPHS = phase;
-
-    IndicatePhase();
-
-    MyDelay(500000);
-
-    // Habilita de vuelta los interrupts del Grupo 1 PIE
-    PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
-    return;
-}

@@ -8,19 +8,30 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./DSP2833x_ADC_cal.obj" \
-"./DSP2833x_Adc.obj" \
-"./DSP2833x_CodeStartBranch.obj" \
-"./DSP2833x_CpuTimers.obj" \
-"./DSP2833x_DefaultIsr.obj" \
-"./DSP2833x_EPwm.obj" \
-"./DSP2833x_GlobalVariableDefs.obj" \
-"./DSP2833x_Gpio.obj" \
-"./DSP2833x_PieCtrl.obj" \
-"./DSP2833x_PieVect.obj" \
-"./DSP2833x_SysCtrl.obj" \
-"./DSP2833x_usDelay.obj" \
 "./main.obj" \
+"./sources/DSP28335/DSP2833x_ADC_cal.obj" \
+"./sources/DSP28335/DSP2833x_Adc.obj" \
+"./sources/DSP28335/DSP2833x_CodeStartBranch.obj" \
+"./sources/DSP28335/DSP2833x_CpuTimers.obj" \
+"./sources/DSP28335/DSP2833x_DefaultIsr.obj" \
+"./sources/DSP28335/DSP2833x_EPwm.obj" \
+"./sources/DSP28335/DSP2833x_GlobalVariableDefs.obj" \
+"./sources/DSP28335/DSP2833x_Gpio.obj" \
+"./sources/DSP28335/DSP2833x_I2C.obj" \
+"./sources/DSP28335/DSP2833x_PieCtrl.obj" \
+"./sources/DSP28335/DSP2833x_PieVect.obj" \
+"./sources/DSP28335/DSP2833x_Sci.obj" \
+"./sources/DSP28335/DSP2833x_SysCtrl.obj" \
+"./sources/DSP28335/DSP2833x_usDelay.obj" \
+"./sources/LM5056/LM5056.obj" \
+"./sources/LM5056/LM5056_I2C.obj" \
+"./sources/TMC1100/TMC1100.obj" \
+"./sources/submodules/DSP_ADC.obj" \
+"./sources/submodules/DSP_control.obj" \
+"./sources/submodules/DSP_ePWM.obj" \
+"./sources/submodules/DSP_serial.obj" \
+"./sources/submodules/DSP_timer.obj" \
+"./sources/submodules/DSP_user.obj" \
 "../DSP2833x_Headers_nonBIOS.cmd" \
 "../F28335.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -34,7 +45,17 @@ RMDIR := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include Includes/LM5056/common/subdir_vars.mk
+-include sources/DSP28335/subdir_vars.mk
+-include sources/LM5056/subdir_vars.mk
+-include sources/TMC1100/subdir_vars.mk
+-include sources/submodules/subdir_vars.mk
 -include subdir_rules.mk
+-include Includes/LM5056/common/subdir_rules.mk
+-include sources/DSP28335/subdir_rules.mk
+-include sources/LM5056/subdir_rules.mk
+-include sources/TMC1100/subdir_rules.mk
+-include sources/submodules/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -151,7 +172,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 Firmware-DSP.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"Firmware-DSP.map" --stack_size=0x300 --warn_sections -i"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Firmware-DSP_linkInfo.xml" --rom_model -o "Firmware-DSP.out" $(ORDERED_OBJS)
+	"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --advice:performance=all -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"Firmware-DSP.map" --stack_size=0x300 --warn_sections -i"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"/home/TTavella/ti/ccs1120/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Firmware-DSP_linkInfo.xml" --rom_model -o "Firmware-DSP.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
@@ -165,9 +186,9 @@ Firmware-DSP.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DSP2833x_ADC_cal.obj" "DSP2833x_Adc.obj" "DSP2833x_CodeStartBranch.obj" "DSP2833x_CpuTimers.obj" "DSP2833x_DefaultIsr.obj" "DSP2833x_EPwm.obj" "DSP2833x_GlobalVariableDefs.obj" "DSP2833x_Gpio.obj" "DSP2833x_PieCtrl.obj" "DSP2833x_PieVect.obj" "DSP2833x_SysCtrl.obj" "DSP2833x_usDelay.obj" "main.obj" 
-	-$(RM) "DSP2833x_Adc.d" "DSP2833x_CpuTimers.d" "DSP2833x_DefaultIsr.d" "DSP2833x_EPwm.d" "DSP2833x_GlobalVariableDefs.d" "DSP2833x_Gpio.d" "DSP2833x_PieCtrl.d" "DSP2833x_PieVect.d" "DSP2833x_SysCtrl.d" "main.d" 
-	-$(RM) "DSP2833x_ADC_cal.d" "DSP2833x_CodeStartBranch.d" "DSP2833x_usDelay.d" 
+	-$(RM) "main.obj" "sources/DSP28335/DSP2833x_ADC_cal.obj" "sources/DSP28335/DSP2833x_Adc.obj" "sources/DSP28335/DSP2833x_CodeStartBranch.obj" "sources/DSP28335/DSP2833x_CpuTimers.obj" "sources/DSP28335/DSP2833x_DefaultIsr.obj" "sources/DSP28335/DSP2833x_EPwm.obj" "sources/DSP28335/DSP2833x_GlobalVariableDefs.obj" "sources/DSP28335/DSP2833x_Gpio.obj" "sources/DSP28335/DSP2833x_I2C.obj" "sources/DSP28335/DSP2833x_PieCtrl.obj" "sources/DSP28335/DSP2833x_PieVect.obj" "sources/DSP28335/DSP2833x_Sci.obj" "sources/DSP28335/DSP2833x_SysCtrl.obj" "sources/DSP28335/DSP2833x_usDelay.obj" "sources/LM5056/LM5056.obj" "sources/LM5056/LM5056_I2C.obj" "sources/TMC1100/TMC1100.obj" "sources/submodules/DSP_ADC.obj" "sources/submodules/DSP_control.obj" "sources/submodules/DSP_ePWM.obj" "sources/submodules/DSP_serial.obj" "sources/submodules/DSP_timer.obj" "sources/submodules/DSP_user.obj" 
+	-$(RM) "main.d" "sources/DSP28335/DSP2833x_Adc.d" "sources/DSP28335/DSP2833x_CpuTimers.d" "sources/DSP28335/DSP2833x_DefaultIsr.d" "sources/DSP28335/DSP2833x_EPwm.d" "sources/DSP28335/DSP2833x_GlobalVariableDefs.d" "sources/DSP28335/DSP2833x_Gpio.d" "sources/DSP28335/DSP2833x_I2C.d" "sources/DSP28335/DSP2833x_PieCtrl.d" "sources/DSP28335/DSP2833x_PieVect.d" "sources/DSP28335/DSP2833x_Sci.d" "sources/DSP28335/DSP2833x_SysCtrl.d" "sources/LM5056/LM5056.d" "sources/LM5056/LM5056_I2C.d" "sources/TMC1100/TMC1100.d" "sources/submodules/DSP_ADC.d" "sources/submodules/DSP_control.d" "sources/submodules/DSP_ePWM.d" "sources/submodules/DSP_serial.d" "sources/submodules/DSP_timer.d" "sources/submodules/DSP_user.d" 
+	-$(RM) "sources/DSP28335/DSP2833x_ADC_cal.d" "sources/DSP28335/DSP2833x_CodeStartBranch.d" "sources/DSP28335/DSP2833x_usDelay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
